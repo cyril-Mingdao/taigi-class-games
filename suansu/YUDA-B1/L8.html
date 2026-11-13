@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  育達版高中全1冊 第8課 翕相師傅 — 台語課堂遊戲「選詞塌空」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「育達文化事業股份有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 16 日取得該公司用印之《著作財產權授權同意書》，
+  授權於非營利之教育教學用途範圍內重製、改編課文、圖片及聲音檔。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  除育達文化事業股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台語選詞填空遊戲</title>
+  <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: tauhu-oo, sans-serif;
+            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 25%, #a29bfe 50%, #00cec9 75%, #55efc4 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            height: 100%;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(129, 236, 236, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(116, 185, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(85, 239, 196, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .container {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .menu-screen {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .game-screen {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px 40px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            width: 95%;
+            max-width: 1400px;
+            aspect-ratio: 16/7;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .title {
+            color: #4a5568;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .menu-section {
+            margin: 12px 0;
+        }
+
+        .menu-label {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .menu-button {
+            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
+            color: white;
+            border: 2px solid transparent;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            box-shadow: 
+                0 4px 15px rgba(129, 236, 236, 0.4),
+                0 0 20px rgba(116, 185, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .menu-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .menu-button:hover::before {
+            left: 100%;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(129, 236, 236, 0.6),
+                0 0 30px rgba(116, 185, 255, 0.5);
+            background: linear-gradient(135deg, #00cec9 0%, #55efc4 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button.selected {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            transform: scale(1.05);
+            box-shadow: 
+                0 6px 20px rgba(85, 239, 196, 0.6),
+                0 0 40px rgba(129, 236, 236, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .start-button {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 32px;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            margin-top: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 6px 20px rgba(85, 239, 196, 0.4),
+                0 0 30px rgba(129, 236, 236, 0.4);
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .start-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .start-button:hover::before {
+            left: 100%;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 30px rgba(85, 239, 196, 0.6),
+                0 0 50px rgba(129, 236, 236, 0.6);
+            background: linear-gradient(135deg, #00cec9 0%, #74b9ff 100%);
+        }
+
+        .start-button:disabled {
+            background: #4a5568;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: #718096;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .game-info {
+            display: flex;
+            gap: 25px;
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #81ecec, #74b9ff, #55efc4);
+            height: 100%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(129, 236, 236, 0.5);
+        }
+
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .question-text {
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .blank {
+            color: #ff0000;
+            font-weight: bold;
+            margin: 0 8px;
+            display: inline;
+        }
+
+        .highlight-word {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 0 5px;
+            box-shadow: 
+                0 2px 8px rgba(85, 239, 196, 0.4),
+                0 0 15px rgba(129, 236, 236, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        .notice-text {
+            background: #fff9c4;
+            color: #d32f2f;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.4;
+            font-weight: 500;
+            border: 1px solid #ffd54f;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-button {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            padding: 25px 20px;
+            font-size: 1.2rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 95px;
+            word-wrap: break-word;
+            hyphens: auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 15px rgba(45, 55, 72, 0.3),
+                0 0 20px rgba(74, 85, 104, 0.2);
+        }
+
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-button:hover::before {
+            left: 100%;
+        }
+
+        .option-button:hover {
+            border-color: #81ecec;
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(129, 236, 236, 0.4),
+                0 0 30px rgba(116, 185, 255, 0.3);
+            background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
+        }
+
+        .option-button.correct {
+            background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
+            color: white;
+            border-color: #00b894;
+            box-shadow: 
+                0 8px 25px rgba(0, 184, 148, 0.6),
+                0 0 40px rgba(85, 239, 196, 0.4);
+            font-weight: bold;
+        }
+
+        .option-button.incorrect {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            border-color: #fd79a8;
+            box-shadow: 
+                0 8px 25px rgba(253, 121, 168, 0.6),
+                0 0 40px rgba(232, 67, 147, 0.4);
+            font-weight: bold;
+        }
+
+        .option-button.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .option-label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 12px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #718096;
+        }
+
+        .option-button {
+            position: relative;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 4px 15px rgba(116, 185, 255, 0.3),
+                0 0 20px rgba(162, 155, 254, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(116, 185, 255, 0.5),
+                0 0 30px rgba(162, 155, 254, 0.4);
+            background: linear-gradient(135deg, #81ecec 0%, #55efc4 100%);
+        }
+
+        .nav-button:disabled {
+            background: #4a5568;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: #718096;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #00cec9 0%, #55efc4 100%);
+        }
+
+        .back-button:hover {
+            box-shadow: 
+                0 8px 25px rgba(0, 206, 201, 0.5),
+                0 0 30px rgba(85, 239, 196, 0.4);
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.6rem;
+                margin-bottom: 3px;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .menu-section {
+                margin: 8px 0;
+            }
+
+            .menu-label {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+
+            .menu-button {
+                padding: 6px 14px;
+                font-size: 0.95rem;
+                min-width: 100px;
+            }
+
+            .start-button {
+                padding: 8px 24px;
+                font-size: 1.1rem;
+                margin-top: 12px;
+            }
+            
+            .game-screen {
+                aspect-ratio: auto;
+                padding: 12px 15px;
+                height: auto;
+                min-height: auto;
+            }
+
+            .game-header {
+                margin-bottom: 8px;
+            }
+            
+            .game-info {
+                font-size: 0.75rem;
+                gap: 8px;
+            }
+
+            .progress-bar {
+                margin: 0 10px;
+                height: 6px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                line-height: 1.4;
+            }
+
+            .highlight-word {
+                padding: 4px 10px;
+                font-size: 1rem;
+            }
+
+            .options-grid {
+                gap: 8px;
+                margin-top: 8px;
+            }
+            
+            .option-button {
+                font-size: 1.1rem;
+                padding: 14px 12px;
+                min-height: 55px;
+                border-radius: 12px;
+            }
+
+            .option-label {
+                font-size: 1.5rem;
+                left: 10px;
+            }
+
+            .notice-text {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+                margin-top: 8px;
+            }
+
+            .game-controls {
+                margin-top: 8px;
+            }
+
+            .nav-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .menu-screen {
+                padding: 15px;
+            }
+
+            .game-screen {
+                padding: 10px 12px;
+            }
+
+            .game-header {
+                flex-direction: column;
+                gap: 6px;
+                align-items: stretch;
+            }
+
+            .progress-bar {
+                margin: 0;
+                order: -1;
+            }
+
+            .game-info {
+                justify-content: space-between;
+            }
+
+            .question-text {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .options-grid {
+                gap: 6px;
+            }
+
+            .option-button {
+                padding: 8px 6px;
+                min-height: 45px;
+                font-size: 0.8rem;
+            }
+
+            .option-label {
+                font-size: 1.2rem;
+                left: 6px;
+            }
+
+            .notice-text {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+                margin-top: 6px;
+            }
+
+            .nav-button {
+                padding: 7px 14px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ <style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+</head>
+ <body oncontextmenu="return false;">
+  <script src="/_sdk/element_sdk.js"></script>
+  <div class="container"><!-- 選單畫面 -->
+   <div id="menuScreen" class="menu-screen">
+    <h1 class="title" id="mainTitle">選詞塌空</h1>
+    <p class="subtitle" id="subTitle">第8課 翕相師傅(P124-135)</p>
+    <div class="menu-section">
+     <div class="menu-label">
+      選擇遊戲方式
+     </div>
+     <div class="button-group"><button class="menu-button" onclick="selectGameMode('taiwanese')" id="mode1">台語語詞</button> <button class="menu-button" onclick="selectGameMode('romanization')" id="mode2">台羅拼音</button>
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-label">
+      選擇測驗數量
+     </div>
+     <div class="button-group"><button class="menu-button" onclick="selectQuestionCount(5)" id="count5">5題</button> <button class="menu-button" onclick="selectQuestionCount(7)" id="count7">7題</button> <button class="menu-button" onclick="selectQuestionCount(9)" id="count9">9題</button> <button class="menu-button" onclick="selectQuestionCount(11)" id="count11">11題</button> <button class="menu-button" onclick="selectQuestionCount(13)" id="count13">13題</button>
+     </div>
+    </div><button class="start-button" onclick="startGame()" id="startButton" disabled>開始遊戲</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SUANSU-YUDA-B1L8.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+   </div><!-- 遊戲畫面 -->
+   <div id="gameScreen" class="game-screen hidden">
+    <div class="game-header">
+     <div class="game-info"><span>項次: <span id="currentItem">-</span></span> <span>頁數: <span id="currentPage">-</span></span> <span>華語: <span id="chineseTranslation">-</span></span>
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+     </div>
+     <div class="game-info"><span id="questionCounter">1/5</span>
+     </div>
+    </div>
+    <div class="question-area">
+     <div class="question-text" id="questionText">
+      載入中...
+     </div>
+     <div class="options-grid"><button class="option-button" onclick="selectAnswer(0)" id="option0"> <span class="option-label">A</span> <span id="optionText0">選項A</span> </button> <button class="option-button" onclick="selectAnswer(1)" id="option1"> <span class="option-label">B</span> <span id="optionText1">選項B</span> </button> <button class="option-button" onclick="selectAnswer(2)" id="option2"> <span class="option-label">C</span> <span id="optionText2">選項C</span> </button> <button class="option-button" onclick="selectAnswer(3)" id="option3"> <span class="option-label">D</span> <span id="optionText3">選項D</span> </button>
+     </div>
+     <div class="notice-text">
+      適合的答案可能毋但一个，若拄著才請老師共學生仔解說
+     </div>
+    </div>
+    <div class="game-controls"><button class="nav-button" onclick="previousQuestion()" id="prevButton" disabled>上一題</button> <button class="nav-button back-button" onclick="backToMenu()">返回選單</button> <button class="nav-button" onclick="nextQuestion()" id="nextButton" disabled>下一題</button>
+    </div>
+   </div>
+  </div>
+  <script>
+        // 題目資料庫
+        const questionDatabase = [
+            {item: 1, page: 124, taiwanese: "i--仔", romanization: "i--á", chinese: "媽媽", sentence: "阮i--仔定定去彼間店交關"},
+            {item: 2, page: 124, taiwanese: "提", romanization: "the̍h", chinese: "拿", sentence: "你提彼本冊欲創啥?"},
+            {item: 3, page: 124, taiwanese: "反黃", romanization: "huán-n̂g", chinese: "泛黃", sentence: "櫥仔內的相片攏反黃矣"},
+            {item: 4, page: 124, taiwanese: "予", romanization: "hōo", chinese: "給", sentence: "你共彼罐水提來予我"},
+            {item: 5, page: 124, taiwanese: "个", romanization: "ê", chinese: "個", sentence: "這个風風雨雨个社會"},
+            {item: 6, page: 124, taiwanese: "膨皮", romanization: "phòng-phuê", chinese: "臉頰飽滿", sentence: "彼个囡仔生做膨皮膨皮"},
+            {item: 7, page: 124, taiwanese: "好笑神", romanization: "hó-tshiò-sîn", chinese: "神態愉悅", sentence: "阿英仔真好笑神"},
+            {item: 8, page: 124, taiwanese: "古錐", romanization: "kóo-tsui", chinese: "可愛", sentence: "伊生做真古錐"},
+            {item: 9, page: 124, taiwanese: "查埔", romanization: "ta-poo", chinese: "男性", sentence: "查埔的請徛佇這爿檢查"},
+            {item: 10, page: 124, taiwanese: "囡仔", romanization: "gín-á", chinese: "小孩子", sentence: "囡仔愛先學爬，然後才學行"},
+            {item: 11, page: 124, taiwanese: "竹篾仔", romanization: "tik-bi̍h-á", chinese: "薄細竹片", sentence: "彼隻椅仔是用竹篾仔編的"},
+            {item: 12, page: 124, taiwanese: "邊仔", romanization: "pinn--á", chinese: "旁邊", sentence: "你莫佇遮，徛較邊仔咧"},
+            {item: 13, page: 124, taiwanese: "徛", romanization: "khiā", chinese: "站", sentence: "查埔的徛倒爿"},
+            {item: 14, page: 124, taiwanese: "媠", romanization: "suí", chinese: "漂亮", sentence: "彼个查某囡仔真媠"},
+            {item: 15, page: 124, taiwanese: "烏", romanization: "oo", chinese: "黑", sentence: "紅媠，烏大範"},
+            {item: 16, page: 124, taiwanese: "毋過", romanization: "m̄-koh", chinese: "不過", sentence: "伊誠厚話，毋過對人真好"},
+            {item: 17, page: 124, taiwanese: "彼", romanization: "hit", chinese: "那", sentence: "921彼擺塗牛翻身"},
+            {item: 18, page: 124, taiwanese: "喙脣", romanization: "tshuì-tûn", chinese: "嘴唇", sentence: "火氣傷大，喙脣會必"},
+            {item: 19, page: 124, taiwanese: "胭脂", romanization: "ian-tsi", chinese: "口紅", sentence: "這支胭脂誠搶市"},
+            {item: 20, page: 124, taiwanese: "紅記記", romanization: "âng-kì-kì", chinese: "顏色極紅", sentence: "伊激力激甲規个面紅記記"},
+            {item: 21, page: 124, taiwanese: "得人疼", romanization: "tit-lâng-thiànn", chinese: "獲疼愛", sentence: "伊自細漢就真得人疼"},
+            {item: 22, page: 124, taiwanese: "紅嬰仔", romanization: "âng-enn-á", chinese: "新生幼兒", sentence: "紅嬰仔哭甲一身軀汗"},
+            {item: 23, page: 124, taiwanese: "有影", romanization: "ū-iánn", chinese: "真的", sentence: "有影俗物就無好貨"},
+            {item: 24, page: 124, taiwanese: "啥物", romanization: "siánn-mih", chinese: "什麼", sentence: "我袂記得伊號做啥物名"},
+            {item: 25, page: 124, taiwanese: "幼囝", romanization: "iù-kiánn", chinese: "幼子", sentence: "阿琴仔家己一个養飼幼囝"},
+            {item: 26, page: 124, taiwanese: "瘦卑巴", romanization: "sán-pi-pa", chinese: "極瘦", sentence: "伊足揀食，莫怪瘦卑巴"},
+            {item: 27, page: 124, taiwanese: "憂頭結面", romanization: "iu-thâu-kat-bīn", chinese: "面愁容", sentence: "看伊規日憂頭結面"},
+            {item: 28, page: 124, taiwanese: "啥人", romanization: "siánn-lâng", chinese: "什麼人", sentence: "老師咧問講啥人欲做班長"},
+            {item: 29, page: 125, taiwanese: "僫", romanization: "oh", chinese: "不容易", sentence: "伊是毋是會同意猶真僫講"},
+            {item: 30, page: 125, taiwanese: "翕相", romanization: "hip-siòng", chinese: "照相", sentence: "我想欲佮你翕相"},
+            {item: 31, page: 125, taiwanese: "辯士", romanization: "piān-sū", chinese: "解劇人", sentence: "做辯士的人反應愛足緊的"},
+            {item: 32, page: 125, taiwanese: "彼", romanization: "he", chinese: "那個", sentence: "彼是我的，你莫共共"},
+            {item: 33, page: 125, taiwanese: "傳", romanization: "thuân", chinese: "傳授", sentence: "你的經驗愛傳承落去"},
+            {item: 34, page: 125, taiwanese: "捌", romanization: "bat", chinese: "曾經", sentence: "我捌去彼間媽祖廟拜拜"},
+            {item: 35, page: 125, taiwanese: "𤆬", romanization: "tshuā", chinese: "帶", sentence: "阿兄𤆬阮去園裡起塗窯"},
+            {item: 36, page: 125, taiwanese: "兜", romanization: "tau", chinese: "家", sentence: "這條大路直直去就到阮兜矣"},
+            {item: 37, page: 125, taiwanese: "過暝", romanization: "kuè-mî/mê", chinese: "過夜", sentence: "阮一班欲辦過暝的活動"},
+            {item: 38, page: 125, taiwanese: "共", romanization: "kā", chinese: "給", sentence: "你共我會記咧"},
+            {item: 39, page: 125, taiwanese: "猶未", romanization: "iáu-bē/buē", chinese: "還沒", sentence: "你寄的批我猶未收著"},
+            {item: 40, page: 125, taiwanese: "紮", romanization: "tsah", chinese: "帶", sentence: "身軀無紮錢"},
+            {item: 41, page: 125, taiwanese: "家私", romanization: "ke-si", chinese: "工具", sentence: "這是伊食飯的家私"},
+            {item: 42, page: 125, taiwanese: "佇", romanization: "tī", chinese: "在", sentence: "阿明仔蹛佇學校附近"},
+            {item: 43, page: 125, taiwanese: "日頭跤", romanization: "ji̍t-thâu-kha", chinese: "太陽下", sentence: "去日頭跤小熁一下會較緊焦"},
+            {item: 44, page: 125, taiwanese: "拭", romanization: "tshit", chinese: "擦", sentence: "會曉偷食，袂曉拭喙"},
+            {item: 45, page: 125, taiwanese: "譀", romanization: "hàm", chinese: "誇張", sentence: "我聽你咧講啥物譀話"},
+            {item: 46, page: 125, taiwanese: "創啥", romanization: "tshòng-siánn", chinese: "做什麼", sentence: "外口嚇嚇叫是咧創啥物"},
+            {item: 47, page: 125, taiwanese: "佮", romanization: "kah", chinese: "和", sentence: "阿明飼一隻狗仔佮伊做伴"},
+            {item: 48, page: 125, taiwanese: "仝款", romanization: "kāng-khuán", chinese: "相同", sentence: "𪜶爸仔囝有無仝款的想法"},
+            {item: 49, page: 125, taiwanese: "敢著", romanization: "kám-tio̍h", chinese: "還需要..?", sentence: "你敢著遐爾歹聲嗽"},
+            {item: 50, page: 125, taiwanese: "遐濟", romanization: "hiah-tsē", chinese: "那麼多", sentence: "人客遐濟，你愛較緊手咧"},
+            {item: 51, page: 125, taiwanese: "會當", romanization: "ē-tàng", chinese: "可以", sentence: "無人會當改變阿公的想法"},
+            {item: 52, page: 125, taiwanese: "按怎", romanization: "án-tsuánn", chinese: "怎麼", sentence: "欲按怎做，我心內有譜"},
+            {item: 53, page: 125, taiwanese: "袂", romanization: "bē/buē", chinese: "不", sentence: "阿明攏袂堪得人講得"},
+            {item: 54, page: 125, taiwanese: "檢采", romanization: "kiám-tshái", chinese: "如果", sentence: "檢采赴袂著尾幫車"},
+            {item: 55, page: 125, taiwanese: "人客", romanization: "lâng-kheh", chinese: "客人", sentence: "煎一盤菜脯卵請人客"},
+            {item: 56, page: 125, taiwanese: "攏", romanization: "lóng", chinese: "都", sentence: "伊煞不時攏較晏到"},
+            {item: 57, page: 125, taiwanese: "頂真", romanization: "tíng-tsin", chinese: "認真細心", sentence: "伊咧做代誌真頂真"},
+            {item: 58, page: 125, taiwanese: "解說", romanization: "kái-suè", chinese: "解釋", sentence: "我較按怎解說伊都毋信"},
+            {item: 59, page: 125, taiwanese: "干焦", romanization: "kan-na/ta/tann", chinese: "只有", sentence: "伊干焦直直捶心肝"},
+            {item: 60, page: 125, taiwanese: "記持", romanization: "kì-tî", chinese: "記憶", sentence: "年歲大矣記持有較䆀"},
+            {item: 61, page: 126, taiwanese: "猶", romanization: "iáu", chinese: "都", sentence: "阿明到今猶原是空身"},
+            {item: 62, page: 126, taiwanese: "遮", romanization: "tsia", chinese: "這麼", sentence: "你哪會遮爾戇啦"},
+            {item: 63, page: 126, taiwanese: "應話", romanization: "ìn-uē", chinese: "應答", sentence: "你是按怎攏毋應話"},
+            {item: 64, page: 126, taiwanese: "尾仔", romanization: "bué-á", chinese: "最後", sentence: "好佳哉尾仔有佮人和解"},
+            {item: 65, page: 126, taiwanese: "明仔載", romanization: "bîn/miâ-á-tsài", chinese: "明天", sentence: "阿水嬸仔明仔載欲娶新婦"},
+            {item: 66, page: 126, taiwanese: "庄", romanization: "tsng", chinese: "村莊", sentence: "阮這个庄頭的交通真無方便"},
+            {item: 67, page: 126, taiwanese: "倩", romanization: "tshiànn", chinese: "僱用", sentence: "伊欲倩一班歌仔戲來謝神"},
+            {item: 68, page: 126, taiwanese: "綴", romanization: "tuè", chinese: "跟", sentence: "阿媽逐冬攏會綴人去進香"},
+            {item: 69, page: 126, taiwanese: "揹", romanization: "āinn", chinese: "背", sentence: "伊揹一袋米欲去換一隻雞"},
+            {item: 70, page: 126, taiwanese: "貯", romanization: "té", chinese: "裝", sentence: "我來捀碗共你貯飯"},
+            {item: 71, page: 126, taiwanese: "後斗", romanization: "āu-táu", chinese: "車裝貨處", sentence: "物件囥佇車後斗就好矣"},
+            {item: 72, page: 126, taiwanese: "tsiuh-tsiuh 叫", romanization: "tsiuh-tsiuh-kiò", chinese: "鳥叫聲", sentence: "樹頭有鳥咧tsiuh-tsiuh 叫"},
+            {item: 73, page: 126, taiwanese: "呼噓仔", romanization: "khoo-si-á", chinese: "吹口哨", sentence: "暗時莫呼噓仔"},
+            {item: 74, page: 126, taiwanese: "抑是", romanization: "ia̍h/iah/a̍h/ah-sī", chinese: "或者", sentence: "看你敢抑是毋敢"},
+            {item: 75, page: 126, taiwanese: "熟似", romanization: "si̍k-sāi", chinese: "認識", sentence: "我來介紹恁兩个熟似"},
+            {item: 76, page: 126, taiwanese: "毋捌", romanization: "m̄-bat", chinese: "不認識", sentence: "阮阿媽毋捌字"},
+            {item: 77, page: 127, taiwanese: "量其約仔", romanization: "liōng-kî-io̍k-á", chinese: "大約", sentence: "量其約仔閣行三百公尺會到"},
+            {item: 78, page: 127, taiwanese: "崙仔", romanization: "lūn-á", chinese: "小土坡", sentence: "咱佇學校後壁的崙仔見面"},
+            {item: 79, page: 127, taiwanese: "邊仔", romanization: "pinn-á", chinese: "旁邊", sentence: "我佇邊仔看甲痚呴袂忍得嗽"},
+            {item: 80, page: 127, taiwanese: "榕仔", romanization: "tshîng-á", chinese: "榕樹", sentence: "榕仔跤有老大人坐佇遐話仙"},
+            {item: 81, page: 127, taiwanese: "縛", romanization: "pa̍k", chinese: "綁", sentence: "阿仁佇工地縛鐵仔"},
+            {item: 82, page: 127, taiwanese: "遐", romanization: "hia", chinese: "那裡", sentence: "莫佇遐轉彎踅角"},
+            {item: 83, page: 127, taiwanese: "食", romanization: "tsia̍h", chinese: "吃", sentence: "食無三把蕹菜，就欲上西天"},
+            {item: 84, page: 127, taiwanese: "烏鶖", romanization: "oo-tshiu", chinese: "禽鳥類", sentence: "佇庄跤看會烏鶖徛佇水牛頂"},
+            {item: 85, page: 127, taiwanese: "尻脊骿", romanization: "kha-tsiah-phiann", chinese: "背部", sentence: "醫生欲檢查你的尻脊骿"},
+            {item: 86, page: 128, taiwanese: "共", romanization: "kā", chinese: "把", sentence: "阿明共退休金攏提去炒股票"},
+            {item: 87, page: 128, taiwanese: "插", romanization: "tshah", chinese: "固定", sentence: "你去共鐵馬插予在"},
+            {item: 88, page: 128, taiwanese: "緊", romanization: "kín", chinese: "快", sentence: "你欲愛毋就緊攑手"},
+            {item: 89, page: 128, taiwanese: "提", romanization: "the̍h", chinese: "拿", sentence: "緊提牛奶粉來泡予伊食"},
+            {item: 90, page: 128, taiwanese: "拍損", romanization: "phah-sńg", chinese: "浪費", sentence: "你毋通拍損人的物件"},
+            {item: 91, page: 128, taiwanese: "庄跤", romanization: "tsng-kha", chinese: "鄉下", sentence: "我最近搬去庄跤蹛"},
+            {item: 92, page: 128, taiwanese: "慣勢", romanization: "kuàn-sì", chinese: "習慣", sentence: "你愛冗早慣勢新的環境"},
+            {item: 93, page: 128, taiwanese: "時陣", romanization: "sî-tsūn", chinese: "時候", sentence: "伊有時陣會來阮兜𨑨迌"},
+            {item: 94, page: 128, taiwanese: "倯", romanization: "sông", chinese: "俗氣", sentence: "伊的穿插若庄跤倯咧"},
+            {item: 95, page: 128, taiwanese: "頭人", romanization: "thâu-lâng", chinese: "領袖", sentence: "做頭人的愛負責"},
+            {item: 96, page: 128, taiwanese: "細漢", romanization: "sè-hàn", chinese: "輩份後", sentence: "阮大的對細漢的真照顧"},
+            {item: 97, page: 128, taiwanese: "後生", romanization: "hāu-senn", chinese: "兒子", sentence: "阿明𪜶後生真不孝"},
+            {item: 98, page: 128, taiwanese: "轉來", romanization: "tńg--lâi", chinese: "回來", sentence: "屘叔仔明仔下昏才會轉來"},
+            {item: 99, page: 128, taiwanese: "𨑨迌", romanization: "tshit-thô", chinese: "玩", sentence: "咱另工做伙來去𨑨迌"},
+            {item: 100, page: 128, taiwanese: "𤆬", romanization: "tshuā", chinese: "帶", sentence: "伊予人𤆬歹去，不時走學"},
+            {item: 101, page: 128, taiwanese: "順紲", romanization: "sūn-suà", chinese: "順便", sentence: "彼袋糞埽順紲提出去擲㧒捔"},
+            {item: 102, page: 128, taiwanese: "議量", romanization: "gī-niū", chinese: "消遣", sentence: "我家己一个人足無議量"},
+            {item: 103, page: 129, taiwanese: "好額", romanization: "hó-gia̍h", chinese: "有錢", sentence: "好額人的生活佮咱無仝"},
+            {item: 104, page: 129, taiwanese: "厝宅", romanization: "tshù-the̍h", chinese: "宅第", sentence: "伊是彼間大厝宅的囝孫"},
+            {item: 105, page: 129, taiwanese: "彼口灶", romanization: "hit-kháu-tsàu", chinese: "那家人", sentence: "彼口灶真正是講袂伸捙"},
+            {item: 106, page: 129, taiwanese: "毋但", romanization: "m̄-nā", chinese: "不但", sentence: "毋但按呢爾爾"},
+            {item: 107, page: 129, taiwanese: "牆圍仔", romanization: "tshiûnn-uî-á", chinese: "圍牆", sentence: "欲來挽牆圍仔邊的荔枝"},
+            {item: 108, page: 129, taiwanese: "疊樓仔", romanization: "thia̍p-lâu-á", chinese: "透天厝", sentence: "彼間疊樓仔起了誠氣派"},
+            {item: 109, page: 129, taiwanese: "頭擺", romanization: "thâu-pái", chinese: "第一次", sentence: "我是頭擺來這个所在"},
+            {item: 110, page: 129, taiwanese: "瓦", romanization: "hiā", chinese: "屋頂建材", sentence: "這是古早厝的厝瓦"},
+            {item: 111, page: 129, taiwanese: "佇", romanization: "tī", chinese: "在", sentence: "阿明仔蹛佇學校附近"},
+            {item: 112, page: 129, taiwanese: "毋過", romanization: "m̄-koh", chinese: "不過", sentence: "物件雖然舊，毋過閣會用得"},
+            {item: 113, page: 129, taiwanese: "若", romanization: "nā", chinese: "如果", sentence: "天若烏就毋敢出門"},
+            {item: 114, page: 129, taiwanese: "特別", romanization: "ti̍k-pia̍t", chinese: "特別", sentence: "伊這个人禁忌特別濟"},
+            {item: 115, page: 129, taiwanese: "著", romanization: "tio̍h", chinese: "對味", sentence: "遮的食食真著味"},
+            {item: 116, page: 130, taiwanese: "毋是", romanization: "m̄-sī", chinese: "不是", sentence: "遮的菜毋是薟就是重鹹"},
+            {item: 117, page: 130, taiwanese: "𪜶", romanization: "in", chinese: "他的", sentence: "阿美𪜶翁仔某常在咧冤家"},
+            {item: 118, page: 130, taiwanese: "袂曉", romanization: "bē/buē-hiáu", chinese: "不會", sentence: "袂曉駛船嫌溪狹"},
+            {item: 119, page: 130, taiwanese: "覕喙", romanization: "bih-tshuì", chinese: "抿嘴", sentence: "伊閣開始咧覕喙矣"},
+            {item: 120, page: 130, taiwanese: "个", romanization: "ê", chinese: "個", sentence: "阿義仔這个人傷過奸巧"},
+            {item: 121, page: 130, taiwanese: "捀", romanization: "phâng", chinese: "端", sentence: "緊捀幾項仔飯菜入來"},
+            {item: 122, page: 130, taiwanese: "展寶", romanization: "tián-pó", chinese: "愛現", sentence: "伊閣佇遐咧展寶矣"},
+            {item: 123, page: 130, taiwanese: "穿插", romanization: "tshīng-tshah", chinese: "穿著", sentence: "伊的穿插誠雅氣"},
+            {item: 124, page: 130, taiwanese: "時行", romanization: "sî-kiânn", chinese: "流行", sentence: "這馬練工夫真時行"},
+            {item: 125, page: 130, taiwanese: "在來", romanization: "tsāi-lâi", chinese: "向來", sentence: "伊在來攏是食重鹹的"},
+            {item: 126, page: 130, taiwanese: "毋捌", romanization: "m̄-bat", chinese: "不曾", sentence: "阿公步頻毋捌攑筆"},
+            {item: 127, page: 130, taiwanese: "彼工", romanization: "hit-kang", chinese: "那天", sentence: "收成的彼工會誠無閒"},
+            {item: 128, page: 130, taiwanese: "癮頭", romanization: "giàn-thâu", chinese: "傻瓜", sentence: "伊真正是一个大癮頭"},
+            {item: 129, page: 130, taiwanese: "倯", romanization: "sông", chinese: "俗氣", sentence: "你毋通笑伊倯"},
+            {item: 130, page: 130, taiwanese: "賰", romanization: "tshun", chinese: "剩", sentence: "後手賰無偌濟"},
+            {item: 131, page: 130, taiwanese: "較", romanization: "khah", chinese: "比較", sentence: "阿義比我較𠢕趁錢"},
+            {item: 132, page: 130, taiwanese: "落氣", romanization: "làu-khuì", chinese: "出糗", sentence: "互相落氣，求進步"},
+            {item: 133, page: 130, taiwanese: "新婦", romanization: "sin-pū", chinese: "媳婦", sentence: "阿嬌𪜶大漢新婦誠勥跤"},
+            {item: 134, page: 130, taiwanese: "醫生牌", romanization: "i-sing-pâi", chinese: "醫師證", sentence: "彼个查埔有醫生牌"},
+            {item: 135, page: 130, taiwanese: "毋過", romanization: "m̄-koh", chinese: "不過", sentence: "伊愛唱，毋過逐家聽了攏幌頭"},
+            {item: 136, page: 130, taiwanese: "厝裡", romanization: "tshù--lí/--nih", chinese: "家裡", sentence: "姑不將予伊佇厝裡歇睏"},
+            {item: 137, page: 130, taiwanese: "鬥", romanization: "tàu", chinese: "幫忙", sentence: "愛通知逐家轉來鬥相共"},
+            {item: 138, page: 130, taiwanese: "趁錢", romanization: "thàn-tsînn", chinese: "賺錢", sentence: "趁錢養飼規家口仔"},
+            {item: 139, page: 130, taiwanese: "無", romanization: "bô", chinese: "不用", sentence: "生食都無夠，哪有通曝乾"},
+            {item: 140, page: 130, taiwanese: "予", romanization: "hōo", chinese: "讓", sentence: "真濟人予伊騙甲戇戇踅"},
+            {item: 141, page: 130, taiwanese: "病院", romanization: "pēnn-īnn", chinese: "醫院", sentence: "伊這馬猶閣倒佇病院"},
+            {item: 142, page: 131, taiwanese: "後生", romanization: "āu-senn/sinn", chinese: "兒子", sentence: "阿明𪜶後生真不孝"},
+            {item: 143, page: 131, taiwanese: "頭", romanization: "thâu", chinese: "首", sentence: "頭先，你就愛先揣位坐"},
+            {item: 144, page: 131, taiwanese: "攏", romanization: "lóng", chinese: "都", sentence: "伊煞不時攏較晏到"},
+            {item: 145, page: 131, taiwanese: "佇", romanization: "tī", chinese: "在", sentence: "莫佇塗跤蟯蟯趖"},
+            {item: 146, page: 131, taiwanese: "猶未", romanization: "iáu-bē/buē", chinese: "還沒", sentence: "伊話猶未講煞就斷氣矣"},
+            {item: 147, page: 131, taiwanese: "出業", romanization: "tshut-gia̍p", chinese: "畢業", sentence: "伊拄高中出業"},
+            {item: 148, page: 131, taiwanese: "創啥", romanization: "tshòng-siánn", chinese: "做什麼", sentence: "外口嚇嚇叫是咧創啥物"},
+            {item: 149, page: 131, taiwanese: "規家伙仔", romanization: "kui-ke-hué-á", chinese: "全家", sentence: "湠甲規家伙仔攏著"},
+            {item: 150, page: 131, taiwanese: "翁某", romanization: "ang-bóo", chinese: "夫妻", sentence: "𪜶翁某攏誠才情"},
+            {item: 151, page: 131, taiwanese: "翕", romanization: "hip", chinese: "照相", sentence: "我想欲佮你翕相"},
+            {item: 152, page: 131, taiwanese: "真濟", romanization: "tsin-tsē", chinese: "很多", sentence: "真濟人為伊痴迷"},
+            {item: 153, page: 131, taiwanese: "啥人", romanization: "siánn-lâng", chinese: "哪個人", sentence: "是咧哭予啥人聽"},
+            {item: 154, page: 131, taiwanese: "抑是", romanization: "ia̍h-sī", chinese: "或者", sentence: "看你敢抑是毋敢"},
+            {item: 155, page: 131, taiwanese: "頭鬃", romanization: "thâu-tsang", chinese: "頭髮", sentence: "伊的頭鬃烏金柔軟"},
+            {item: 156, page: 131, taiwanese: "無閒", romanization: "bô-îng", chinese: "忙碌", sentence: "我當咧無閒，你莫共我吵"},
+            {item: 157, page: 131, taiwanese: "無時閒", romanization: "bô-sî-îng", chinese: "片刻不得閒", sentence: "代誌有夠濟，真正是無時閒"},
+            {item: 158, page: 131, taiwanese: "查某囝", romanization: "tsa-bóo-kiánn", chinese: "女兒", sentence: "聽講恁查某囝欲予人送定矣"},
+            {item: 159, page: 131, taiwanese: "狡怪", romanization: "káu-kuài", chinese: "頑皮", sentence: "這个囡仔哪會遮爾仔狡怪"},
+            {item: 160, page: 131, taiwanese: "徛", romanization: "khiā", chinese: "站", sentence: "我徛佇山頂看山跤的車陣"},
+            {item: 161, page: 131, taiwanese: "入來", romanization: "ji̍p-lâi", chinese: "進來", sentence: "毋通予伊入來咱公司上班"},
+            {item: 162, page: 131, taiwanese: "煞", romanization: "suah", chinese: "卻", sentence: "阿義去𬦰山煞失蹤欲兩禮拜"},
+            {item: 163, page: 131, taiwanese: "激鬼仔面", romanization: "kik-kuí-á-bīn", chinese: "扮鬼臉", sentence: "阿明真愛激鬼仔面弄囡仔"},
+            {item: 164, page: 131, taiwanese: "幾若擺", romanization: "kuí-nā-pái", chinese: "有幾次", sentence: "我共伊催幾若擺矣"},
+            {item: 165, page: 131, taiwanese: "弄", romanization: "lāng", chinese: "逗、哄", sentence: "伊定定共阿生戲弄"},
+            {item: 166, page: 131, taiwanese: "逐", romanization: "ta̍k", chinese: "每", sentence: "阿公逐工透早攏會去走標"},
+            {item: 167, page: 131, taiwanese: "囡仔", romanization: "gín-á", chinese: "小孩", sentence: "囡仔攏有受教育的機會"},
+            {item: 168, page: 131, taiwanese: "脫箠", romanization: "thut-tshê", chinese: "出錯", sentence: "你毋通閣脫箠矣"},
+            {item: 169, page: 131, taiwanese: "烏白", romanization: "oo-pe̍h", chinese: "隨便", sentence: "阿珠仔袂烏白開錢"},
+            {item: 170, page: 131, taiwanese: "振動", romanization: "tín-tāng", chinese: "挪動", sentence: "天氣熱，真正攏無想欲振動"},
+            {item: 171, page: 131, taiwanese: "笑笑", romanization: "tshiò-tshiò", chinese: "微笑", sentence: "你就愛笑笑仔共人回禮"},
+            {item: 172, page: 131, taiwanese: "定著", romanization: "tiānn-tio̍h", chinese: "穩重", sentence: "彼个囡仔無法度定著"},
+            {item: 173, page: 132, taiwanese: "敢若", romanization: "kán/ká/kánn-ná", chinese: "好像", sentence: "伊這馬敢若有較大漢"},
+            {item: 174, page: 132, taiwanese: "仝款", romanization: "kāng-khuán", chinese: "相同", sentence: "口味有無仝款的變化"},
+            {item: 175, page: 132, taiwanese: "無攬無拈", romanization: "bô-lám-bô-ne", chinese: "沒精神", sentence: "你今仔日哪會無攬無拈"},
+            {item: 176, page: 132, taiwanese: "慣勢", romanization: "kuàn-sì", chinese: "習慣", sentence: "門破一空，看囉真袂慣勢"},
+            {item: 177, page: 132, taiwanese: "掠", romanization: "lia̍h", chinese: "抓", sentence: "伊拄才掠著一隻虼蚻"},
+            {item: 178, page: 132, taiwanese: "翻頭", romanization: "huan-thâu", chinese: "轉過頭", sentence: "伊翻頭過來欲佮我講話"},
+            {item: 179, page: 132, taiwanese: "𫞼", romanization: "tshāi", chinese: "豎立", sentence: "伊𫞼佇遐攏毋振動"},
+            {item: 180, page: 132, taiwanese: "忝", romanization: "thiam", chinese: "累", sentence: "我予伊凌勒甲真忝"},
+            {item: 181, page: 132, taiwanese: "爾爾", romanization: "niā-niā", chinese: "而已", sentence: "伊是咧烏白吠爾爾"},
+            {item: 182, page: 132, taiwanese: "鐵馬", romanization: "thih-bé", chinese: "腳踏車", sentence: "今仔日哪會騎鐵馬來學校"},
+            {item: 183, page: 132, taiwanese: "鈃仔聲", romanization: "giang-á-siann", chinese: "鈴鐺聲", sentence: "你敢有聽著鈃仔聲"},
+            {item: 184, page: 132, taiwanese: "倚來", romanization: "uá--lâi", chinese: "靠近", sentence: "共彼兩塊桌仔合倚來"},
+            {item: 185, page: 132, taiwanese: "真皮", romanization: "tsin-phî", chinese: "頑劣", sentence: "這个囡仔真皮，足臭賤的"},
+            {item: 186, page: 132, taiwanese: "招呼", romanization: "tsio-hoo", chinese: "接待", sentence: "好好仔招呼老主顧"},
+            {item: 187, page: 132, taiwanese: "上", romanization: "siōng", chinese: "最", sentence: "阿明仔上有擋頭"},
+            {item: 188, page: 132, taiwanese: "有範", romanization: "ū-pān", chinese: "有模有樣", sentence: "伊攏袂懍場，足有範的"},
+            {item: 189, page: 133, taiwanese: "佮", romanization: "kah", chinese: "和", sentence: "阿母誠𠢕佮人講價"},
+            {item: 190, page: 133, taiwanese: "接接", romanization: "tsih-tsiap", chinese: "接洽", sentence: "彼个客戶就予你去接接"},
+            {item: 191, page: 133, taiwanese: "愣", romanization: "gāng", chinese: "失神", sentence: "伊規个人愣去"},
+            {item: 192, page: 133, taiwanese: "一箍銀", romanization: "tsi̍t-khoo-gîn/gûn", chinese: "一塊錢", sentence: "伊連一箍銀都毋肯寄付"},
+            {item: 193, page: 133, taiwanese: "𥴊仔店", romanization: "kám-á-tiàm", chinese: "雜貨店", sentence: "來去彼間𥴊仔店交關"},
+            {item: 194, page: 133, taiwanese: "枝仔冰", romanization: "ki-á-ping", chinese: "冰棒", sentence: "伊偷走出去買枝仔冰"},
+            {item: 195, page: 133, taiwanese: "家己", romanization: "ka-kī", chinese: "自己", sentence: "伊不時講家己偌𠢕拄偌𠢕"},
+            {item: 196, page: 133, taiwanese: "行", romanization: "kiânn", chinese: "走", sentence: "欲上崎矣，莫行遐緊"},
+            {item: 197, page: 133, taiwanese: "小可仔", romanization: "sió-khuá-á", chinese: "一點點", sentence: "小可仔代誌唸一早起"},
+            {item: 198, page: 133, taiwanese: "膽膽", romanization: "tám-tám", chinese: "怕怕的", sentence: "心肝內小可膽膽"},
+            {item: 199, page: 133, taiwanese: "會使", romanization: "ē-sái", chinese: "可以", sentence: "希望你會使成全我"},
+            {item: 200, page: 133, taiwanese: "歹勢", romanization: "pháinn-sè", chinese: "不好意思", sentence: "伊真正攏毋知影通歹勢"},
+            {item: 201, page: 133, taiwanese: "彼陣", romanization: "hit-tsūn", chinese: "那陣子", sentence: "彼陣我一个人蹛佇山頂"},
+            {item: 202, page: 133, taiwanese: "雄", romanization: "hiông", chinese: "凶狠", sentence: "你的心肝哪會遮雄"},
+            {item: 203, page: 133, taiwanese: "𤆬路", romanization: "tshuā-lōo", chinese: "帶路", sentence: "伊駛車攏用𤆬路機"},
+            {item: 204, page: 133, taiwanese: "款勢", romanization: "khuán-sì", chinese: "姿態", sentence: "伊切菜的款勢誠熟手"},
+            {item: 205, page: 133, taiwanese: "田岸仔路", romanization: "tshân-huānn-á-lōo", chinese: "田邊路", sentence: "田岸仔路誠狹，愛注意跤步"},
+            {item: 206, page: 133, taiwanese: "媠", romanization: "suí", chinese: "漂亮", sentence: "愛媠毋驚流鼻水"},
+            {item: 207, page: 133, taiwanese: "敢", romanization: "kám", chinese: "難道", sentence: "這敢有影是真的"},
+            {item: 208, page: 133, taiwanese: "嘛", romanization: "mā", chinese: "也", sentence: "看起來袂肥嘛無偌瘦"},
+            {item: 209, page: 133, taiwanese: "會當", romanization: "ē-tàng", chinese: "可以", sentence: "聽了會當接受，才繼續來講"},
+            {item: 210, page: 133, taiwanese: "無欲", romanization: "bô-beh", chinese: "不要", sentence: "伊攏無欲聽別人的意見"},
+            {item: 211, page: 133, taiwanese: "猶未", romanization: "iáu-bē/buē", chinese: "還沒", sentence: "少年時的理想攏猶未實現"},
+            {item: 212, page: 133, taiwanese: "轉來", romanization: "tńg--lâi", chinese: "回來", sentence: "屘叔仔明仔下昏才會轉來"},
+            {item: 213, page: 133, taiwanese: "取", romanization: "tshú", chinese: "選擇", sentence: "袂使干焦取一支喙"},
+            {item: 214, page: 133, taiwanese: "啥物", romanization: "siánn-mih", chinese: "什麼", sentence: "我敢有礙著啥物人"},
+            {item: 215, page: 134, taiwanese: "聲嗽", romanization: "siann-sàu", chinese: "口氣", sentence: "伊講話誠歹聲嗽"},
+            {item: 216, page: 134, taiwanese: "遐", romanization: "hia", chinese: "那麼", sentence: "莫舞遐的有空無榫的代誌"},
+            {item: 217, page: 134, taiwanese: "代誌", romanization: "tāi-tsì", chinese: "事情", sentence: "萬項代誌愛看較開咧"},
+            {item: 218, page: 134, taiwanese: "欲哪", romanization: "beh ná", chinese: "怎麼", sentence: "按呢欲哪會有出脫"},
+            {item: 219, page: 134, taiwanese: "倒", romanization: "tó", chinese: "倒閉", sentence: "工廠刁工放予倒"},
+            {item: 220, page: 134, taiwanese: "尾仔", romanization: "bué-á", chinese: "最後", sentence: "你按呢到尾仔嘛無較贏"},
+            {item: 221, page: 134, taiwanese: "轉去", romanization: "tńg--khì", chinese: "回去", sentence: "我欲坐車轉去下港"},
+            {item: 222, page: 134, taiwanese: "厝", romanization: "tshù", chinese: "房子", sentence: "伊買著一間佮意的厝"},
+            {item: 223, page: 134, taiwanese: "兜", romanization: "tau", chinese: "家", sentence: "你袂使來阮兜"},
+            {item: 224, page: 134, taiwanese: "共", romanization: "kā", chinese: "向", sentence: "逐家攏咧共伊苦勸"},
+            {item: 225, page: 134, taiwanese: "說", romanization: "sueh", chinese: "說明", sentence: "我想欲親身共你說謝"},
+            {item: 226, page: 134, taiwanese: "目箍", romanization: "ba̍k-khoo", chinese: "眼睛", sentence: "伊已經喉滇目箍紅矣"},
+            {item: 227, page: 134, taiwanese: "紅紅", romanization: "âng-âng", chinese: "微紅", sentence: "你是食啥食甲喙箍紅紅"},
+            {item: 228, page: 134, taiwanese: "轉", romanization: "tńg", chinese: "返回", sentence: "望你早日轉來"},
+            {item: 229, page: 134, taiwanese: "樹仔跤", romanization: "tshiū-á-kha", chinese: "樹下", sentence: "樹仔跤有真濟過路人來歇涼"},
+            {item: 230, page: 134, taiwanese: "予", romanization: "hōo", chinese: "給", sentence: "阿母留一張字條仔予我"},
+            {item: 231, page: 134, taiwanese: "生本", romanization: "sinn-pún", chinese: "天生的", sentence: "伊生本生做遐爾惡面"},
+            {item: 232, page: 134, taiwanese: "个", romanization: "ê", chinese: "個", sentence: "伊家己一个人生活"},
+            {item: 233, page: 134, taiwanese: "猴囡仔", romanization: "kâu-gín-á", chinese: "臭小子", sentence: "這个猴囡仔閣有兩步七仔"},
+            {item: 234, page: 134, taiwanese: "毋知", romanization: "m̄-tsai", chinese: "不知道", sentence: "我定定攏毋知伊咧想啥"},
+            {item: 235, page: 134, taiwanese: "抑", romanization: "iah", chinese: "還是", sentence: "欲食飯抑食麵我攏無差"},
+            {item: 236, page: 134, taiwanese: "凡勢", romanization: "huân-sè", chinese: "也許", sentence: "等咧凡勢會落雨"},
+            {item: 237, page: 134, taiwanese: "毋捌", romanization: "m̄-bat", chinese: "不懂", sentence: "伊共人壘錢是毋捌還人過的"},
+            {item: 238, page: 134, taiwanese: "家己", romanization: "ka-kī", chinese: "自己", sentence: "愛食啥家己夾"},
+            {item: 239, page: 134, taiwanese: "敨", romanization: "tháu", chinese: "解開", sentence: "伊講遐的話是為著欲敨氣"},
+            {item: 240, page: 134, taiwanese: "心氣", romanization: "sim-khuì", chinese: "複雜情緒", sentence: "伊拍球拍甲大心氣"},
+            {item: 241, page: 134, taiwanese: "熟似", romanization: "si̍k-sāi", chinese: "認識", sentence: "我來介紹恁兩个熟似"},
+            {item: 242, page: 134, taiwanese: "定著", romanization: "tiānn-tio̍h", chinese: "一定", sentence: "無定著彼件代誌就是伊做的"},
+            {item: 243, page: 134, taiwanese: "心適", romanization: "sim-sik", chinese: "有趣", sentence: "伊講話蓋心適"},
+            {item: 244, page: 134, taiwanese: "幾擺", romanization: "kuí-pái", chinese: "幾次", sentence: "彼領衫穿無幾擺就冰起來矣"},
+            {item: 245, page: 134, taiwanese: "了後", romanization: "liáu-āu", chinese: "之後", sentence: "阿爸退休了後定定佮人泡茶"},
+            {item: 246, page: 134, taiwanese: "煞", romanization: "suah", chinese: "卻", sentence: "你煞拍人喝救人"},
+            {item: 247, page: 134, taiwanese: "共人", romanization: "kā-lâng/ka̋ng", chinese: "對人", sentence: "袂當用樹奶共人擉"},
+            {item: 248, page: 134, taiwanese: "遐爾", romanization: "hiah-nī", chinese: "這麼", sentence: "無彩你遐爾仔愛伊"},
+            {item: 249, page: 134, taiwanese: "學師仔", romanization: "o̍h-sai-á", chinese: "徒弟", sentence: "學師仔上驚拄著師傅偷囥步"},
+            {item: 250, page: 134, taiwanese: "師傅", romanization: "sai-hū", chinese: "專門技藝的人", sentence: "這个問題連老師傅都袂曉"},
+            {item: 251, page: 134, taiwanese: "一寡", romanization: "tsi̍t-kuá", chinese: "一些", sentence: "按呢無夠，你愛閣補一寡仔"},
+            {item: 252, page: 134, taiwanese: "笑面", romanization: "tshiò-bīn", chinese: "笑容", sentence: "伊不時攏笑頭笑面"},
+            {item: 253, page: 135, taiwanese: "無去", romanization: "bô--khì", chinese: "不見了", sentence: "我的錢攏總拍無去矣"},
+            {item: 254, page: 135, taiwanese: "猶是", romanization: "iáu-sī", chinese: "還是", sentence: "你猶是交代一寡穡頭予伊"},
+            {item: 255, page: 135, taiwanese: "膏膏纏", romanization: "ko-ko-tînn", chinese: "糾纏", sentence: "伊一直來佮人膏膏纏"},
+            {item: 256, page: 135, taiwanese: "毋才", romanization: "m̄-tsiah", chinese: "才會", sentence: "伊較土直，毋才得失人"},
+            {item: 257, page: 135, taiwanese: "好膽", romanization: "hó-tánn", chinese: "夠膽識", sentence: "你誠好膽"},
+            {item: 258, page: 135, taiwanese: "講親情", romanization: "kóng-tshin-tsiânn", chinese: "提親", sentence: "我來去共你講親情"},
+            {item: 259, page: 135, taiwanese: "趁", romanization: "thàn", chinese: "藉機", sentence: "趁歇睏日去海邊仔抾糞埽"},
+            {item: 260, page: 135, taiwanese: "鼓吹", romanization: "kóo-tshue", chinese: "提倡", sentence: "想袂到你竟然會曉歕鼓吹"},
+            {item: 261, page: 135, taiwanese: "會通", romanization: "ē-thang", chinese: "可以", sentence: "你佮伊講母語嘛會通"},
+            {item: 262, page: 135, taiwanese: "拄才", romanization: "tú-tsiah", chinese: "剛才", sentence: "嬰仔拄才溢奶，真臭奶羶"},
+            {item: 263, page: 135, taiwanese: "後擺", romanization: "āu-pái", chinese: "以後", sentence: "後擺我才共你講"},
+            {item: 264, page: 135, taiwanese: "毋通", romanization: "m̄-thang", chinese: "不要", sentence: "無把握的代誌毋通做"},
+            {item: 265, page: 135, taiwanese: "原在", romanization: "guân-tsāi", chinese: "仍舊", sentence: "物件原在囥佇遐，攏無徙位"},
+            {item: 266, page: 135, taiwanese: "一睏", romanization: "tsi̍t-khùn", chinese: "一口氣", sentence: "伊真猛掠，一睏仔就做好矣"},
+            {item: 267, page: 135, taiwanese: "腹肚", romanization: "pak-tóo", chinese: "肚子", sentence: "阿明中晝食歹腹肚"},
+            {item: 268, page: 135, taiwanese: "幾若工", romanization: "kuí-nā-kang", chinese: "幾天", sentence: "伊幾若工無來上班矣"},
+            {item: 269, page: 135, taiwanese: "開", romanization: "khai", chinese: "花費", sentence: "莫開遐爾濟錢買𨑨迌物"},
+            {item: 270, page: 135, taiwanese: "撏", romanization: "jîm", chinese: "掏", sentence: "佇橐袋仔內撏規晡"}
+        ];
+
+        // 遊戲狀態
+        let gameMode = null;
+        let questionCount = null;
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let selectedAnswer = null;
+
+        // 音效創建函數
+        function createAudioContext() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            return audioContext;
+        }
+
+        function playCorrectSound() {
+            try {
+                const audioContext = createAudioContext();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        function playIncorrectSound() {
+            try {
+                const audioContext = createAudioContext();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3
+                oscillator.frequency.setValueAtTime(196, audioContext.currentTime + 0.15); // G3
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.4);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        // 選單功能
+        function selectGameMode(mode) {
+            gameMode = mode;
+            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById(mode === 'taiwanese' ? 'mode1' : 'mode2').classList.add('selected');
+            updateStartButton();
+        }
+
+        function selectQuestionCount(count) {
+            questionCount = count;
+            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById(`count${count}`).classList.add('selected');
+            updateStartButton();
+        }
+
+        function updateStartButton() {
+            const startButton = document.getElementById('startButton');
+            if (gameMode && questionCount) {
+                startButton.disabled = false;
+            } else {
+                startButton.disabled = true;
+            }
+        }
+
+        function startGame() {
+            if (!gameMode || !questionCount) return;
+            
+            // 隨機選擇題目
+            const shuffled = [...questionDatabase].sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, questionCount);
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questionCount).fill(null);
+            
+            // 切換到遊戲畫面
+            document.getElementById('menuScreen').classList.add('hidden');
+            document.getElementById('gameScreen').classList.remove('hidden');
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            const correctAnswer = gameMode === 'taiwanese' ? question.taiwanese : question.romanization;
+            
+            // 更新題目資訊
+            document.getElementById('currentItem').textContent = question.item;
+            document.getElementById('currentPage').textContent = question.page;
+            document.getElementById('chineseTranslation').textContent = question.chinese;
+            document.getElementById('questionCounter').textContent = `${currentQuestionIndex + 1}/${questionCount}`;
+            
+            // 更新進度條
+            const progress = ((currentQuestionIndex + 1) / questionCount) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            
+            // 創建選項
+            const options = [correctAnswer];
+            const otherQuestions = questionDatabase.filter(q => q !== question);
+            
+            // 隨機選擇3個錯誤選項
+            while (options.length < 4) {
+                const randomQuestion = otherQuestions[Math.floor(Math.random() * otherQuestions.length)];
+                const wrongAnswer = gameMode === 'taiwanese' ? randomQuestion.taiwanese : randomQuestion.romanization;
+                if (!options.includes(wrongAnswer)) {
+                    options.push(wrongAnswer);
+                }
+            }
+            
+            // 打亂選項順序
+            const shuffledOptions = options.sort(() => 0.5 - Math.random());
+            
+            // 根據遊戲模式更新題目文字
+            let questionText;
+            if (gameMode === 'taiwanese') {
+                // 台語語詞模式：在例句中挖空台語詞
+                questionText = question.sentence.replace(correctAnswer, '<span class="blank">______</span>');
+            } else {
+                // 台羅拼音模式：在例句中將台語詞用下底線呈現
+                questionText = question.sentence.replace(question.taiwanese, '<span class="blank">______</span>');
+            }
+            document.getElementById('questionText').innerHTML = questionText;
+            
+            // 更新選項按鈕
+            shuffledOptions.forEach((option, index) => {
+                const button = document.getElementById(`option${index}`);
+                const textElement = document.getElementById(`optionText${index}`);
+                textElement.textContent = option;
+                
+                // 重置按鈕狀態
+                button.className = 'option-button';
+                button.disabled = false;
+                
+                // 調整字體大小
+                adjustFontSize(textElement, option);
+            });
+            
+            // 重置選擇狀態
+            selectedAnswer = null;
+            updateNavigationButtons();
+        }
+
+        function adjustFontSize(element, text) {
+            // 根據文字長度和複雜度調整字體大小
+            let fontSize = 1.8; // 基礎字體大小 (rem)
+            
+            // 根據螢幕寬度調整基礎大小
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 480) {
+                fontSize = 1.8; // 小螢幕 - 單欄排列有更多空間
+            } else if (screenWidth <= 768) {
+                fontSize = 1.9; // 中等螢幕 - 單欄排列有更多空間
+            }
+            
+            // 根據文字長度調整
+            if (text.length > 15) {
+                fontSize *= 0.85; // 長文字縮小
+            } else if (text.length > 10) {
+                fontSize *= 0.92; // 中等長度文字稍微縮小
+            }
+            
+            // 檢查是否包含複雜字符（羅馬拼音符號）
+            if (/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(text) || text.includes('/')) {
+                fontSize *= 0.92;
+            }
+            
+            element.style.fontSize = `${fontSize}rem`;
+        }
+
+        function selectAnswer(optionIndex) {
+            const question = currentQuestions[currentQuestionIndex];
+            const correctAnswer = gameMode === 'taiwanese' ? question.taiwanese : question.romanization;
+            const selectedText = document.getElementById(`optionText${optionIndex}`).textContent;
+            const button = document.getElementById(`option${optionIndex}`);
+            
+            // 如果選擇正確答案
+            if (selectedText === correctAnswer) {
+                selectedAnswer = optionIndex;
+                userAnswers[currentQuestionIndex] = selectedText;
+                
+                // 標記正確答案並禁用所有選項
+                for (let i = 0; i < 4; i++) {
+                    const btn = document.getElementById(`option${i}`);
+                    const text = document.getElementById(`optionText${i}`).textContent;
+                    btn.disabled = true;
+                    
+                    if (text === correctAnswer) {
+                        btn.classList.add('correct');
+                    }
+                }
+                
+                playCorrectSound();
+                updateNavigationButtons();
+            } else {
+                // 選擇錯誤答案，只標記這個選項為錯誤，但不禁用其他選項
+                button.classList.add('incorrect');
+                button.disabled = true;
+                playIncorrectSound();
+            }
+        }
+
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            prevButton.disabled = currentQuestionIndex === 0;
+            nextButton.disabled = currentQuestionIndex === questionCount - 1;
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+                
+                // 如果這題已經回答過，顯示之前的答案狀態
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    showPreviousAnswer();
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questionCount - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+                
+                // 如果這題已經回答過，顯示之前的答案狀態
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    showPreviousAnswer();
+                }
+            }
+        }
+
+        function showPreviousAnswer() {
+            const question = currentQuestions[currentQuestionIndex];
+            const correctAnswer = gameMode === 'taiwanese' ? question.taiwanese : question.romanization;
+            const userAnswer = userAnswers[currentQuestionIndex];
+            
+            // 找到用戶選擇的選項
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById(`option${i}`);
+                const text = document.getElementById(`optionText${i}`).textContent;
+                button.disabled = true;
+                
+                if (text === correctAnswer) {
+                    button.classList.add('correct');
+                } else if (text === userAnswer) {
+                    button.classList.add('incorrect');
+                    selectedAnswer = i;
+                }
+            }
+        }
+
+        function backToMenu() {
+            document.getElementById('gameScreen').classList.add('hidden');
+            document.getElementById('menuScreen').classList.remove('hidden');
+            
+            // 重置遊戲狀態
+            gameMode = null;
+            questionCount = null;
+            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            updateStartButton();
+        }
+
+        // 防止右鍵和文字選取
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+
+        // 鍵盤快捷鍵
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('gameScreen').classList.contains('hidden')) return;
+            
+            if (e.key >= '1' && e.key <= '4') {
+                const optionIndex = parseInt(e.key) - 1;
+                if (selectedAnswer === null) {
+                    selectAnswer(optionIndex);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                previousQuestion();
+            } else if (e.key === 'ArrowRight') {
+                nextQuestion();
+            }
+        });
+
+        // 監聽螢幕尺寸變化，重新調整字體大小
+        window.addEventListener('resize', function() {
+            if (!document.getElementById('gameScreen').classList.contains('hidden')) {
+                // 重新調整當前題目的選項字體大小
+                for (let i = 0; i < 4; i++) {
+                    const textElement = document.getElementById(`optionText${i}`);
+                    if (textElement && textElement.textContent) {
+                        adjustFontSize(textElement, textElement.textContent);
+                    }
+                }
+            }
+        });
+
+        // Element SDK 配置
+        const defaultConfig = {
+            main_title: "選詞塌空",
+            sub_title: "第8課 翕相師傅(P124-135)"
+        };
+
+        async function onConfigChange(config) {
+            document.getElementById('mainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('subTitle').textContent = config.sub_title || defaultConfig.sub_title;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["sub_title", config.sub_title || defaultConfig.sub_title]
+            ]);
+        }
+
+        // 初始化 Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script><div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">課文及音檔來源：育達文化事業股份有限公司（經授權使用）｜© 2026 詹宗龍</div>
+</body>
+</html>

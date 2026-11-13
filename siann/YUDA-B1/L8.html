@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  育達版高中全1冊 第8課 翕相師傅 — 台語課堂遊戲「咱來餾生份字」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「育達文化事業股份有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 16 日取得該公司用印之《著作財產權授權同意書》，
+  授權於非營利之教育教學用途範圍內重製、改編課文、圖片及聲音檔。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  除育達文化事業股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台語聽音選語詞遊戲</title>
+  <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+  <script src="https://oikasu1.github.io/snd/snd.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: tauhu-oo, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 14%, #45b7d1 28%, #96ceb4 42%, #feca57 56%, #fd79a8 70%, #a29bfe 84%, #00b894 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 20s ease infinite;
+            height: 100%;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        /* 入口頁面樣式 */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .menu-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin: auto;
+        }
+
+        .menu-header {
+            margin-bottom: 12px;
+        }
+
+        .menu-main-title {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .menu-sub-title {
+            font-size: 20px;
+            color: #5a67d8;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .menu-section {
+            margin-bottom: 12px;
+        }
+
+        .menu-section-title {
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .game-mode-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .game-mode-button {
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+            border: 3px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 18px 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            color: #4a5568;
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .game-mode-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .game-mode-button:hover::before {
+            left: 100%;
+        }
+
+        .game-mode-button:hover {
+            border-color: #4299e1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(66, 153, 225, 0.3);
+        }
+
+        .game-mode-button.selected {
+            background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+            border-color: #38b2ac;
+            color: #234e52;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(56, 178, 172, 0.4);
+        }
+
+        .question-count-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .question-count-button {
+            background: linear-gradient(135deg, #fff, #f0fff4);
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 12px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a5568;
+            line-height: 1;
+        }
+
+        .question-count-button:hover {
+            border-color: #48bb78;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .question-count-button.selected {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-color: #48bb78;
+            color: #22543d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .start-game-button {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            border-radius: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            margin-top: 10px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            line-height: 1;
+        }
+
+        .start-game-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+        }
+
+        .start-game-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* 遊戲頁面樣式 */
+        .game-container {
+            display: none;
+            height: 100vh;
+            padding: 15px;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .game-container.active {
+            display: flex;
+        }
+
+        .left-panel {
+            width: 30%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            height: calc(100vh - 30px);
+            overflow-y: auto;
+            line-height: 1.2;
+        }
+
+        .right-panel {
+            width: 70%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 18px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            height: calc(100vh - 30px);
+            overflow-y: auto;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .game-main-title {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .game-sub-title {
+            font-size: 18px;
+            color: #5a67d8;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .play-audio-button {
+            width: 100%;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            margin-bottom: 0;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            line-height: 1.2;
+        }
+
+        .play-audio-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.5);
+        }
+
+        .play-audio-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .question-info {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 12px;
+            border-radius: 15px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 0;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            line-height: 1.2;
+        }
+
+        .info-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .info-label {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2e7d32;
+            min-width: 160px;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+
+        .info-value {
+            font-size: 32px;
+            color: #1b5e20;
+            flex: 1;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+
+        .chinese-item {
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 2px solid #4caf50;
+            margin-top: 8px;
+            min-height: 100px;
+        }
+
+        .chinese-item .info-label {
+            margin-bottom: 8px;
+            min-width: auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .chinese-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1565c0;
+            line-height: 1.2;
+            word-break: break-word;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress-section {
+            margin-bottom: 0;
+        }
+
+        .progress-text {
+            font-size: 17px;
+            color: #2d3748;
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(135deg, #ddd6fe, #e0e7ff);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            transition: width 0.5s ease;
+            width: 0%;
+            border-radius: 8px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+
+        .nav-button {
+            flex: 1;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            box-shadow: 0 6px 20px rgba(45, 55, 72, 0.4);
+            line-height: 1.2;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.5);
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .prev-button {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+        }
+
+        .prev-button:hover {
+            box-shadow: 0 8px 25px rgba(229, 62, 62, 0.5);
+            background: linear-gradient(135deg, #c53030, #9c2626);
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 18px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+            line-height: 1.2;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(108, 92, 231, 0.5);
+        }
+
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question-text {
+            font-size: 64px;
+            font-weight: bold;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .option-button {
+            background: linear-gradient(135deg, #fff, #f8faff);
+            border: 3px solid #e2e8f0;
+            border-radius: 25px;
+            padding: 30px 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-weight: bold;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            min-height: 130px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            margin: 0 0.2cm;
+        }
+
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-button:hover::before {
+            left: 100%;
+        }
+
+        .option-button:hover {
+            border-color: #45b7d1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(69, 183, 209, 0.3);
+        }
+
+        .option-button.correct {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-color: #48bb78;
+            color: #22543d;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.4);
+            animation: correctPulse 0.6s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: translateY(-2px) scale(1.05); }
+            50% { transform: translateY(-2px) scale(1.1); }
+            100% { transform: translateY(-2px) scale(1.05); }
+        }
+
+        .option-button.incorrect {
+            background: linear-gradient(135deg, #fed7d7, #feb2b2);
+            border-color: #e53e3e;
+            color: #742a2a;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(229, 62, 62, 0.3);
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0) translateY(-1px); }
+            25% { transform: translateX(-5px) translateY(-1px); }
+            75% { transform: translateX(5px) translateY(-1px); }
+        }
+
+        .option-button.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .option-label {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 25px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+        }
+
+        .option-text {
+            font-size: 36px;
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .option-text.small {
+            font-size: 28px;
+        }
+
+        .option-text.medium {
+            font-size: 32px;
+        }
+
+        .results-screen {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .results-screen.active {
+            display: block;
+        }
+
+        .results-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .results-score {
+            font-size: 24px;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        .restart-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: tauhu-oo, sans-serif;
+        }
+
+        .restart-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1200px) {
+            .game-container {
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .left-panel {
+                width: 32%;
+                padding: 18px;
+            }
+            
+            .right-panel {
+                width: 68%;
+                padding: 22px;
+            }
+            
+            .question-text {
+                font-size: 58px;
+            }
+            
+            .option-text {
+                font-size: 32px;
+            }
+            
+            .option-text.small {
+                font-size: 26px;
+            }
+            
+            .option-text.medium {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .menu-container {
+                padding: 15px;
+            }
+            
+            .menu-card {
+                padding: 35px 30px;
+                max-width: 650px;
+            }
+            
+            .game-mode-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .game-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+            
+            .left-panel {
+                order: 2;
+                padding: 25px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .left-panel > * {
+                flex: 1;
+                min-width: 200px;
+                margin: 5px;
+            }
+            
+            .right-panel {
+                order: 1;
+                padding: 30px;
+            }
+            
+            .options-grid {
+                max-width: 750px;
+                gap: 16px;
+            }
+            
+            .option-button {
+                min-height: 120px;
+                padding: 25px 22px;
+            }
+            
+            .question-text {
+                font-size: 54px;
+            }
+            
+            .option-text {
+                font-size: 30px;
+            }
+            
+            .option-text.small {
+                font-size: 24px;
+            }
+            
+            .option-text.medium {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-card {
+                padding: 30px 25px;
+                margin: 15px;
+            }
+            
+            .menu-main-title {
+                font-size: 30px;
+            }
+            
+            .menu-section-title {
+                font-size: 20px;
+            }
+            
+            .game-mode-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .game-mode-button {
+                padding: 20px 18px;
+                font-size: 16px;
+            }
+            
+            .question-count-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .question-count-button {
+                padding: 15px 12px;
+                font-size: 16px;
+            }
+            
+            .left-panel {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .left-panel > * {
+                margin: 8px 0;
+                min-width: auto;
+            }
+            
+            .right-panel {
+                padding: 25px;
+            }
+            
+            .game-main-title {
+                font-size: 26px;
+            }
+            
+            .game-sub-title {
+                font-size: 18px;
+            }
+            
+            .question-text {
+                font-size: 38px;
+                margin-bottom: 25px;
+            }
+            
+            .options-grid {
+                gap: 14px;
+                max-width: 550px;
+            }
+            
+            .option-button {
+                min-height: 110px;
+                padding: 22px 18px;
+            }
+            
+            .option-text {
+                font-size: 26px;
+            }
+            
+            .option-text.small {
+                font-size: 20px;
+            }
+            
+            .option-text.medium {
+                font-size: 23px;
+            }
+            
+            .option-label {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin-right: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-container {
+                padding: 8px;
+                min-height: 100vh;
+            }
+            
+            .menu-card {
+                padding: 18px 15px;
+                margin: 5px;
+            }
+            
+            .menu-main-title {
+                font-size: 22px;
+            }
+            
+            .menu-sub-title {
+                font-size: 15px;
+            }
+            
+            .menu-section-title {
+                font-size: 16px;
+            }
+            
+            .menu-section {
+                margin-bottom: 8px;
+            }
+            
+            .game-mode-button {
+                padding: 14px 12px;
+                font-size: 13px;
+            }
+            
+            .question-count-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+            
+            .question-count-button {
+                padding: 10px 6px;
+                font-size: 14px;
+            }
+            
+            .start-game-button {
+                padding: 14px 28px;
+                font-size: 17px;
+                margin-top: 8px;
+            }
+            
+            .game-container {
+                padding: 6px;
+                gap: 8px;
+                height: 100vh;
+            }
+            
+            .left-panel {
+                padding: 12px;
+                border-radius: 18px;
+                gap: 8px;
+                height: calc(100vh - 12px);
+            }
+            
+            .right-panel {
+                padding: 12px;
+                border-radius: 18px;
+                height: calc(100vh - 12px);
+            }
+            
+            .game-header {
+                margin-bottom: 8px;
+            }
+            
+            .game-main-title {
+                font-size: 18px;
+            }
+            
+            .game-sub-title {
+                font-size: 13px;
+            }
+            
+            .question-text {
+                font-size: 24px;
+                margin-bottom: 12px;
+                min-height: 60px;
+            }
+            
+            .options-grid {
+                gap: 8px;
+                max-width: none;
+            }
+            
+            .option-button {
+                min-height: 65px;
+                padding: 12px 10px;
+                border-radius: 15px;
+                margin: 0;
+            }
+            
+            .option-text {
+                font-size: 16px;
+            }
+            
+            .option-text.small {
+                font-size: 13px;
+            }
+            
+            .option-text.medium {
+                font-size: 14px;
+            }
+            
+            .option-label {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+                margin-right: 10px;
+            }
+            
+            .play-audio-button {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .back-button {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .nav-button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .progress-text {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+            
+            .info-title {
+                font-size: 24px;
+                margin-bottom: 6px;
+            }
+            
+            .info-label {
+                font-size: 20px;
+                min-width: 100px;
+            }
+            
+            .info-value {
+                font-size: 20px;
+            }
+            
+            .chinese-value {
+                font-size: 20px;
+            }
+            
+            .chinese-item {
+                padding: 8px 12px;
+                min-height: 60px;
+                margin-top: 6px;
+            }
+            
+            .question-info {
+                padding: 8px;
+                margin-bottom: 0;
+            }
+            
+            .info-item {
+                margin-bottom: 4px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .menu-main-title {
+                font-size: 22px;
+            }
+            
+            .game-main-title {
+                font-size: 20px;
+            }
+            
+            .question-text {
+                font-size: 35px;
+            }
+            
+            .option-text {
+                font-size: 19px;
+            }
+            
+            .option-text.small {
+                font-size: 16px;
+            }
+            
+            .option-text.medium {
+                font-size: 17px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ <style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+</head>
+ <body oncontextmenu="return false;"><!-- 入口選單頁面 -->
+  <div class="menu-container" id="menuContainer">
+   <div class="menu-card">
+    <div class="menu-header">
+     <div class="menu-main-title" id="menuMainTitle">
+      咱來餾生份字
+     </div>
+     <div class="menu-sub-title" id="menuSubTitle">
+      育達版高中 第八課 翕相師傅(P124-135)
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-section-title">
+      選擇遊戲方式
+     </div>
+     <div class="game-mode-grid"><button class="game-mode-button" data-mode="1"> 🎧 聽音檔選台語 </button> <button class="game-mode-button" data-mode="2"> 🎧 聽音檔選台羅 </button> <button class="game-mode-button" data-mode="3"> 👀 看台語選台羅 </button> <button class="game-mode-button" data-mode="4"> 👀 看台羅選台語 </button>
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-section-title">
+      選擇測驗數量
+     </div>
+     <div class="question-count-grid"><button class="question-count-button" data-count="5">5題</button> <button class="question-count-button" data-count="7">7題</button> <button class="question-count-button" data-count="9">9題</button> <button class="question-count-button" data-count="11">11題</button>
+     </div>
+    </div><button class="start-game-button" id="startGameButton" disabled>開始遊戲</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SIANN-YUDA-B1L8.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+   </div>
+  </div><!-- 遊戲頁面 -->
+  <div class="game-container" id="gameContainer">
+   <div class="left-panel">
+    <div class="play-audio-section" id="audioSection"><button class="play-audio-button" id="playAudioButton" onclick="playCurrentAudio()"> 🔊 點擊播放音檔 </button>
+    </div>
+    <div class="question-info" id="questionInfo" style="display: none;">
+     <div class="info-title">
+      題目資訊
+     </div>
+     <div class="info-item"><span class="info-label">項次：</span> <span class="info-value" id="infoId">-</span>
+     </div>
+     <div class="info-item"><span class="info-label">頁數：</span> <span class="info-value" id="infoPage">-</span>
+     </div>
+     <div class="info-item chinese-item">
+      <div class="info-label">
+       華語解釋
+      </div>
+      <div class="info-value chinese-value" id="infoChinese">
+       -
+      </div>
+     </div>
+    </div>
+    <div class="progress-section" id="progressSection">
+     <div class="progress-text" id="progressText">
+      準備開始
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+     </div>
+    </div>
+    <div class="navigation-buttons" id="navigationButtons" style="display: none;"><button class="nav-button prev-button" id="prevButton" onclick="previousQuestion()"> 上一題 </button> <button class="nav-button next-button" id="nextButton" onclick="nextQuestion()"> 下一題 </button>
+    </div><button class="back-button" onclick="backToMenu()">返回選單</button>
+   </div>
+   <div class="right-panel">
+    <div class="game-header">
+     <div class="game-main-title" id="gameMainTitle">
+      咱來餾生份字
+     </div>
+     <div class="game-sub-title" id="gameSubTitle">
+      育達版高中 第八課 翕相師傅(P124-135)
+     </div>
+    </div>
+    <div class="question-area" id="questionArea">
+     <div class="question-text" id="questionText">
+      準備開始遊戲
+     </div>
+     <div class="options-grid" id="optionsGrid"><button class="option-button" id="optionA" onclick="selectAnswer(0)"> <span class="option-label">A</span> <span class="option-text" id="optionTextA">準備中...</span> </button> <button class="option-button" id="optionB" onclick="selectAnswer(1)"> <span class="option-label">B</span> <span class="option-text" id="optionTextB">準備中...</span> </button> <button class="option-button" id="optionC" onclick="selectAnswer(2)"> <span class="option-label">C</span> <span class="option-text" id="optionTextC">準備中...</span> </button> <button class="option-button" id="optionD" onclick="selectAnswer(3)"> <span class="option-label">D</span> <span class="option-text" id="optionTextD">準備中...</span> </button>
+     </div>
+    </div>
+    <div class="results-screen" id="resultsScreen">
+     <div class="results-title">
+      遊戲結束！
+     </div>
+     <div class="results-score" id="resultsScore">
+      你答對了 0 題
+     </div><button class="restart-button" onclick="backToMenu()">返回選單</button>
+    </div>
+   </div>
+  </div>
+  <script>
+        // 遊戲資料
+        const gameData = [
+            {id: 1, page: 124, taiwanese: "i--仔", romanization: "i--á", chinese: "媽媽"},
+            {id: 2, page: 124, taiwanese: "提", romanization: "the̍h", chinese: "拿"},
+            {id: 3, page: 124, taiwanese: "反黃", romanization: "huán-n̂g", chinese: "泛黃"},
+            {id: 4, page: 124, taiwanese: "予", romanization: "hōo", chinese: "給"},
+            {id: 5, page: 124, taiwanese: "个", romanization: "ê", chinese: "個"},
+            {id: 6, page: 124, taiwanese: "膨皮", romanization: "phòng-phuê", chinese: "臉頰飽滿"},
+            {id: 7, page: 124, taiwanese: "好笑神", romanization: "hó-tshiò-sîn", chinese: "神態愉悅"},
+            {id: 8, page: 124, taiwanese: "古錐", romanization: "kóo-tsui", chinese: "可愛"},
+            {id: 9, page: 124, taiwanese: "查埔", romanization: "ta-poo", chinese: "男性"},
+            {id: 10, page: 124, taiwanese: "囡仔", romanization: "gín-á", chinese: "小孩子"},
+            {id: 11, page: 124, taiwanese: "竹篾仔", romanization: "tik-bi̍h-á", chinese: "薄細竹片"},
+            {id: 12, page: 124, taiwanese: "邊仔", romanization: "pinn--á", chinese: "旁邊"},
+            {id: 13, page: 124, taiwanese: "徛", romanization: "khiā", chinese: "站"},
+            {id: 14, page: 124, taiwanese: "媠", romanization: "suí", chinese: "漂亮"},
+            {id: 15, page: 124, taiwanese: "烏", romanization: "oo", chinese: "黑"},
+            {id: 16, page: 124, taiwanese: "毋過", romanization: "m̄-koh", chinese: "不過"},
+            {id: 17, page: 124, taiwanese: "彼", romanization: "hit", chinese: "那"},
+            {id: 18, page: 124, taiwanese: "喙脣", romanization: "tshuì-tûn", chinese: "嘴唇"},
+            {id: 19, page: 124, taiwanese: "胭脂", romanization: "ian-tsi", chinese: "口紅"},
+            {id: 20, page: 124, taiwanese: "紅記記", romanization: "âng-kì-kì", chinese: "顏色極紅"},
+            {id: 21, page: 124, taiwanese: "得人疼", romanization: "tit-lâng-thiànn", chinese: "獲疼愛"},
+            {id: 22, page: 124, taiwanese: "紅嬰仔", romanization: "âng-enn-á", chinese: "新生幼兒"},
+            {id: 23, page: 124, taiwanese: "有影", romanization: "ū-iánn", chinese: "真的"},
+            {id: 24, page: 124, taiwanese: "啥物", romanization: "siánn-mih", chinese: "什麼"},
+            {id: 25, page: 124, taiwanese: "幼囝", romanization: "iù-kiánn", chinese: "幼子"},
+            {id: 26, page: 124, taiwanese: "瘦卑巴", romanization: "sán-pi-pa", chinese: "極瘦"},
+            {id: 27, page: 124, taiwanese: "憂頭結面", romanization: "iu-thâu-kat-bīn", chinese: "面愁容"},
+            {id: 28, page: 124, taiwanese: "啥人", romanization: "siánn-lâng", chinese: "什麼人"},
+            {id: 29, page: 125, taiwanese: "僫", romanization: "oh", chinese: "不容易"},
+            {id: 30, page: 125, taiwanese: "翕相", romanization: "hip-siòng", chinese: "照相"},
+            {id: 31, page: 125, taiwanese: "辯士", romanization: "piān-sū", chinese: "解劇人"},
+            {id: 32, page: 125, taiwanese: "彼", romanization: "he", chinese: "那個"},
+            {id: 33, page: 125, taiwanese: "傳", romanization: "thuân", chinese: "傳授"},
+            {id: 34, page: 125, taiwanese: "捌", romanization: "bat", chinese: "曾經"},
+            {id: 35, page: 125, taiwanese: "𤆬", romanization: "tshuā", chinese: "帶"},
+            {id: 36, page: 125, taiwanese: "兜", romanization: "tau", chinese: "家"},
+            {id: 37, page: 125, taiwanese: "過暝", romanization: "kuè-mî / mê", chinese: "過夜"},
+            {id: 38, page: 125, taiwanese: "共", romanization: "kā", chinese: "給"},
+            {id: 39, page: 125, taiwanese: "猶未", romanization: "iáu-bē / buē", chinese: "還沒"},
+            {id: 40, page: 125, taiwanese: "紮", romanization: "tsah", chinese: "帶"},
+            {id: 41, page: 125, taiwanese: "家私", romanization: "ke-si", chinese: "工具"},
+            {id: 42, page: 125, taiwanese: "佇", romanization: "tī", chinese: "在"},
+            {id: 43, page: 125, taiwanese: "日頭跤", romanization: "ji̍t-thâu-kha", chinese: "太陽下"},
+            {id: 44, page: 125, taiwanese: "拭", romanization: "tshit", chinese: "擦"},
+            {id: 45, page: 125, taiwanese: "譀", romanization: "hàm", chinese: "誇張"},
+            {id: 46, page: 125, taiwanese: "創啥", romanization: "tshòng-siánn", chinese: "做什麼"},
+            {id: 47, page: 125, taiwanese: "佮", romanization: "kah", chinese: "和"},
+            {id: 48, page: 125, taiwanese: "仝款", romanization: "kāng-khuán", chinese: "相同"},
+            {id: 49, page: 125, taiwanese: "敢著", romanization: "kám-tio̍h", chinese: "還需要..?"},
+            {id: 50, page: 125, taiwanese: "遐濟", romanization: "hiah-tsē", chinese: "那麼多"},
+            {id: 51, page: 125, taiwanese: "會當", romanization: "ē-tàng", chinese: "可以"},
+            {id: 52, page: 125, taiwanese: "按怎", romanization: "án-tsuánn", chinese: "怎麼"},
+            {id: 53, page: 125, taiwanese: "袂", romanization: "bē / buē", chinese: "不"},
+            {id: 54, page: 125, taiwanese: "檢采", romanization: "kiám-tshái", chinese: "如果"},
+            {id: 55, page: 125, taiwanese: "人客", romanization: "lâng-kheh", chinese: "客人"},
+            {id: 56, page: 125, taiwanese: "攏", romanization: "lóng", chinese: "都"},
+            {id: 57, page: 125, taiwanese: "頂真", romanization: "tíng-tsin", chinese: "認真細心"},
+            {id: 58, page: 125, taiwanese: "解說", romanization: "kái-suè", chinese: "解釋"},
+            {id: 59, page: 125, taiwanese: "干焦", romanization: "kan-na / ta / tann", chinese: "只有"},
+            {id: 60, page: 125, taiwanese: "記持", romanization: "kì-tî", chinese: "記憶"},
+            {id: 61, page: 126, taiwanese: "猶", romanization: "iáu", chinese: "都"},
+            {id: 62, page: 126, taiwanese: "遮", romanization: "tsia", chinese: "這麼"},
+            {id: 63, page: 126, taiwanese: "應話", romanization: "ìn-uē", chinese: "應答"},
+            {id: 64, page: 126, taiwanese: "尾仔", romanization: "bué-á", chinese: "最後"},
+            {id: 65, page: 126, taiwanese: "明仔載", romanization: "bîn-á-tsài / miâ", chinese: "明天"},
+            {id: 66, page: 126, taiwanese: "庄", romanization: "tsng", chinese: "村莊"},
+            {id: 67, page: 126, taiwanese: "倩", romanization: "tshiànn", chinese: "僱用"},
+            {id: 68, page: 126, taiwanese: "綴", romanization: "tuè", chinese: "跟"},
+            {id: 69, page: 126, taiwanese: "揹", romanization: "āinn", chinese: "背"},
+            {id: 70, page: 126, taiwanese: "貯", romanization: "té", chinese: "裝"},
+            {id: 71, page: 126, taiwanese: "後斗", romanization: "āu-táu", chinese: "車裝貨處"},
+            {id: 72, page: 126, taiwanese: "tsiuh-tsiuh 叫", romanization: "tsiuh-tsiuh-kiò", chinese: "鳥叫聲"},
+            {id: 73, page: 126, taiwanese: "呼噓仔", romanization: "khoo-si-á", chinese: "吹口哨"},
+            {id: 74, page: 126, taiwanese: "抑是", romanization: "ia̍h-sī / iah / a̍h / ah", chinese: "或者"},
+            {id: 75, page: 126, taiwanese: "熟似", romanization: "si̍k-sāi", chinese: "認識"},
+            {id: 76, page: 126, taiwanese: "毋捌", romanization: "m̄-bat", chinese: "不認識"},
+            {id: 77, page: 127, taiwanese: "量其約仔", romanization: "liōng-kî-io̍k-á", chinese: "大約"},
+            {id: 78, page: 127, taiwanese: "崙仔", romanization: "lūn-á", chinese: "小土坡"},
+            {id: 79, page: 127, taiwanese: "邊仔", romanization: "pinn-á", chinese: "旁邊"},
+            {id: 80, page: 127, taiwanese: "榕仔", romanization: "tshîng-á", chinese: "榕樹"},
+            {id: 81, page: 127, taiwanese: "縛", romanization: "pa̍k", chinese: "綁"},
+            {id: 82, page: 127, taiwanese: "遐", romanization: "hia", chinese: "那裡"},
+            {id: 83, page: 127, taiwanese: "食", romanization: "tsia̍h", chinese: "吃"},
+            {id: 84, page: 127, taiwanese: "烏鶖", romanization: "oo-tshiu", chinese: "禽鳥類"},
+            {id: 85, page: 127, taiwanese: "尻脊骿", romanization: "kha-tsiah-phiann", chinese: "背部"},
+            {id: 86, page: 128, taiwanese: "共", romanization: "kā", chinese: "把"},
+            {id: 87, page: 128, taiwanese: "插", romanization: "tshah", chinese: "固定"},
+            {id: 88, page: 128, taiwanese: "緊", romanization: "kín", chinese: "快"},
+            {id: 89, page: 128, taiwanese: "提", romanization: "the̍h", chinese: "拿"},
+            {id: 90, page: 128, taiwanese: "拍損", romanization: "phah-sńg", chinese: "浪費"},
+            {id: 91, page: 128, taiwanese: "庄跤", romanization: "tsng-kha", chinese: "鄉下"},
+            {id: 92, page: 128, taiwanese: "慣勢", romanization: "kuàn-sì", chinese: "習慣"},
+            {id: 93, page: 128, taiwanese: "時陣", romanization: "sî-tsūn", chinese: "時候"},
+            {id: 94, page: 128, taiwanese: "倯", romanization: "sông", chinese: "俗氣"},
+            {id: 95, page: 128, taiwanese: "頭人", romanization: "thâu-lâng", chinese: "領袖"},
+            {id: 96, page: 128, taiwanese: "細漢", romanization: "sè-hàn", chinese: "輩份後"},
+            {id: 97, page: 128, taiwanese: "後生", romanization: "hāu-senn", chinese: "兒子"},
+            {id: 98, page: 128, taiwanese: "轉來", romanization: "tńg--lâi", chinese: "回來"},
+            {id: 99, page: 128, taiwanese: "𨑨迌", romanization: "tshit-thô", chinese: "玩"},
+            {id: 100, page: 128, taiwanese: "𤆬", romanization: "tshuā", chinese: "帶"},
+            {id: 101, page: 128, taiwanese: "順紲", romanization: "sūn-suà", chinese: "順便"},
+            {id: 102, page: 128, taiwanese: "議量", romanization: "gī-niū", chinese: "消遣"},
+            {id: 103, page: 129, taiwanese: "好額", romanization: "hó-gia̍h", chinese: "有錢"},
+            {id: 104, page: 129, taiwanese: "厝宅", romanization: "tshù-the̍h", chinese: "宅第"},
+            {id: 105, page: 129, taiwanese: "彼口灶", romanization: "hit-kháu-tsàu", chinese: "那家人"},
+            {id: 106, page: 129, taiwanese: "毋但", romanization: "m̄-nā", chinese: "不但"},
+            {id: 107, page: 129, taiwanese: "牆圍仔", romanization: "tshiûnn-uî-á", chinese: "圍牆"},
+            {id: 108, page: 129, taiwanese: "疊樓仔", romanization: "thia̍p-lâu-á", chinese: "透天厝"},
+            {id: 109, page: 129, taiwanese: "頭擺", romanization: "thâu-pái", chinese: "第一次"},
+            {id: 110, page: 129, taiwanese: "瓦", romanization: "hiā", chinese: "屋頂建材"},
+            {id: 111, page: 129, taiwanese: "佇", romanization: "tī", chinese: "在"},
+            {id: 112, page: 129, taiwanese: "毋過", romanization: "m̄-koh", chinese: "不過"},
+            {id: 113, page: 129, taiwanese: "若", romanization: "nā", chinese: "如果"},
+            {id: 114, page: 129, taiwanese: "特別", romanization: "ti̍k-pia̍t", chinese: "特別"},
+            {id: 115, page: 129, taiwanese: "著", romanization: "tio̍h", chinese: "對味"},
+            {id: 116, page: 130, taiwanese: "毋是", romanization: "m̄-sī", chinese: "不是"},
+            {id: 117, page: 130, taiwanese: "𪜶", romanization: "in", chinese: "他的"},
+            {id: 118, page: 130, taiwanese: "袂曉", romanization: "bē-hiáu / buē", chinese: "不會"},
+            {id: 119, page: 130, taiwanese: "覕喙", romanization: "bih-tshuì", chinese: "抿嘴"},
+            {id: 120, page: 130, taiwanese: "个", romanization: "ê", chinese: "個"},
+            {id: 121, page: 130, taiwanese: "捀", romanization: "phâng", chinese: "端"},
+            {id: 122, page: 130, taiwanese: "展寶", romanization: "tián-pó", chinese: "愛現"},
+            {id: 123, page: 130, taiwanese: "穿插", romanization: "tshīng-tshah", chinese: "穿著"},
+            {id: 124, page: 130, taiwanese: "時行", romanization: "sî-kiânn", chinese: "流行"},
+            {id: 125, page: 130, taiwanese: "在來", romanization: "tsāi-lâi", chinese: "向來"},
+            {id: 126, page: 130, taiwanese: "毋捌", romanization: "m̄-bat", chinese: "不曾"},
+            {id: 127, page: 130, taiwanese: "彼工", romanization: "hit-kang", chinese: "那天"},
+            {id: 128, page: 130, taiwanese: "癮頭", romanization: "giàn-thâu", chinese: "傻瓜"},
+            {id: 129, page: 130, taiwanese: "倯", romanization: "sông", chinese: "俗氣"},
+            {id: 130, page: 130, taiwanese: "賰", romanization: "tshun", chinese: "剩"},
+            {id: 131, page: 130, taiwanese: "較", romanization: "khah", chinese: "比較"},
+            {id: 132, page: 130, taiwanese: "落氣", romanization: "làu-khuì", chinese: "出糗"},
+            {id: 133, page: 130, taiwanese: "新婦", romanization: "sin-pū", chinese: "媳婦"},
+            {id: 134, page: 130, taiwanese: "醫生牌", romanization: "i-sing-pâi", chinese: "醫師證"},
+            {id: 135, page: 130, taiwanese: "毋過", romanization: "m̄-koh", chinese: "不過"},
+            {id: 136, page: 130, taiwanese: "厝裡", romanization: "tshù--lí / --nih", chinese: "家裡"},
+            {id: 137, page: 130, taiwanese: "鬥", romanization: "tàu", chinese: "幫忙"},
+            {id: 138, page: 130, taiwanese: "趁錢", romanization: "thàn-tsînn", chinese: "賺錢"},
+            {id: 139, page: 130, taiwanese: "無", romanization: "bô", chinese: "不用"},
+            {id: 140, page: 130, taiwanese: "予", romanization: "hōo", chinese: "讓"},
+            {id: 141, page: 130, taiwanese: "病院", romanization: "pēnn-īnn", chinese: "醫院"},
+            {id: 142, page: 131, taiwanese: "後生", romanization: "āu-senn/sinn", chinese: "兒子"},
+            {id: 143, page: 131, taiwanese: "頭", romanization: "thâu", chinese: "首"},
+            {id: 144, page: 131, taiwanese: "攏", romanization: "lóng", chinese: "都"},
+            {id: 145, page: 131, taiwanese: "佇", romanization: "tī", chinese: "在"},
+            {id: 146, page: 131, taiwanese: "猶未", romanization: "iáu-bē / buē", chinese: "還沒"},
+            {id: 147, page: 131, taiwanese: "出業", romanization: "tshut-gia̍p", chinese: "畢業"},
+            {id: 148, page: 131, taiwanese: "創啥", romanization: "tshòng-siánn", chinese: "做什麼"},
+            {id: 149, page: 131, taiwanese: "規家伙仔", romanization: "kui-ke-hué-á", chinese: "全家"},
+            {id: 150, page: 131, taiwanese: "翁某", romanization: "ang-bóo", chinese: "夫妻"},
+            {id: 151, page: 131, taiwanese: "翕", romanization: "hip", chinese: "照相"},
+            {id: 152, page: 131, taiwanese: "真濟", romanization: "tsin-tsē", chinese: "很多"},
+            {id: 153, page: 131, taiwanese: "啥人", romanization: "siánn-lâng", chinese: "哪個人"},
+            {id: 154, page: 131, taiwanese: "抑是", romanization: "ia̍h-sī", chinese: "或者"},
+            {id: 155, page: 131, taiwanese: "頭鬃", romanization: "thâu-tsang", chinese: "頭髮"},
+            {id: 156, page: 131, taiwanese: "無閒", romanization: "bô-îng", chinese: "忙碌"},
+            {id: 157, page: 131, taiwanese: "無時閒", romanization: "bô-sî-îng", chinese: "片刻不得閒"},
+            {id: 158, page: 131, taiwanese: "查某囝", romanization: "tsa-bóo-kiánn", chinese: "女兒"},
+            {id: 159, page: 131, taiwanese: "狡怪", romanization: "káu-kuài", chinese: "頑皮"},
+            {id: 160, page: 131, taiwanese: "徛", romanization: "khiā", chinese: "站"},
+            {id: 161, page: 131, taiwanese: "入來", romanization: "ji̍p-lâi", chinese: "進來"},
+            {id: 162, page: 131, taiwanese: "煞", romanization: "suah", chinese: "卻"},
+            {id: 163, page: 131, taiwanese: "激鬼仔面", romanization: "kik-kuí-á-bīn", chinese: "扮鬼臉"},
+            {id: 164, page: 131, taiwanese: "幾若擺", romanization: "kuí-nā-pái", chinese: "有幾次"},
+            {id: 165, page: 131, taiwanese: "弄", romanization: "lāng", chinese: "逗、哄"},
+            {id: 166, page: 131, taiwanese: "逐", romanization: "ta̍k", chinese: "每"},
+            {id: 167, page: 131, taiwanese: "囡仔", romanization: "gín-á", chinese: "小孩"},
+            {id: 168, page: 131, taiwanese: "脫箠", romanization: "thut-tshê", chinese: "出錯"},
+            {id: 169, page: 131, taiwanese: "烏白", romanization: "oo-pe̍h", chinese: "隨便"},
+            {id: 170, page: 131, taiwanese: "振動", romanization: "tín-tāng", chinese: "挪動"},
+            {id: 171, page: 131, taiwanese: "笑笑", romanization: "tshiò-tshiò", chinese: "微笑"},
+            {id: 172, page: 131, taiwanese: "定著", romanization: "tiānn-tio̍h", chinese: "穩重"},
+            {id: 173, page: 132, taiwanese: "敢若", romanization: "kán-ná / ká / kánn", chinese: "好像"},
+            {id: 174, page: 132, taiwanese: "仝款", romanization: "kāng-khuán", chinese: "相同"},
+            {id: 175, page: 132, taiwanese: "無攬無拈", romanization: "bô-lám-bô-ne", chinese: "沒精神"},
+            {id: 176, page: 132, taiwanese: "慣勢", romanization: "kuàn-sì", chinese: "習慣"},
+            {id: 177, page: 132, taiwanese: "掠", romanization: "lia̍h", chinese: "抓"},
+            {id: 178, page: 132, taiwanese: "翻頭", romanization: "huan-thâu", chinese: "轉過頭"},
+            {id: 179, page: 132, taiwanese: "𪜶", romanization: "tshāi", chinese: "豎立"},
+            {id: 180, page: 132, taiwanese: "忝", romanization: "thiam", chinese: "累"},
+            {id: 181, page: 132, taiwanese: "爾爾", romanization: "niā-niā", chinese: "而已"},
+            {id: 182, page: 132, taiwanese: "鐵馬", romanization: "thih-bé", chinese: "腳踏車"},
+            {id: 183, page: 132, taiwanese: "鈃仔聲", romanization: "giang-á-siann", chinese: "鈴鐺聲"},
+            {id: 184, page: 132, taiwanese: "倚來", romanization: "uá--lâi", chinese: "靠近"},
+            {id: 185, page: 132, taiwanese: "真皮", romanization: "tsin-phî", chinese: "頑劣"},
+            {id: 186, page: 132, taiwanese: "招呼", romanization: "tsio-hoo", chinese: "接待"},
+            {id: 187, page: 132, taiwanese: "上", romanization: "siōng", chinese: "最"},
+            {id: 188, page: 132, taiwanese: "有範", romanization: "ū-pān", chinese: "有模有樣"},
+            {id: 189, page: 133, taiwanese: "佮", romanization: "kah", chinese: "和"},
+            {id: 190, page: 133, taiwanese: "接接", romanization: "tsih-tsiap", chinese: "接洽"},
+            {id: 191, page: 133, taiwanese: "愣", romanization: "gāng", chinese: "失神"},
+            {id: 192, page: 133, taiwanese: "一箍銀", romanization: "tsi̍t-khoo-gîn / gûn", chinese: "一塊錢"},
+            {id: 193, page: 133, taiwanese: "𥴊仔店", romanization: "kám-á-tiàm", chinese: "雜貨店"},
+            {id: 194, page: 133, taiwanese: "枝仔冰", romanization: "ki-á-ping", chinese: "冰棒"},
+            {id: 195, page: 133, taiwanese: "家己", romanization: "ka-kī", chinese: "自己"},
+            {id: 196, page: 133, taiwanese: "行", romanization: "kiânn", chinese: "走"},
+            {id: 197, page: 133, taiwanese: "小可仔", romanization: "sió-khuá-á", chinese: "一點點"},
+            {id: 198, page: 133, taiwanese: "膽膽", romanization: "tám-tám", chinese: "怕怕的"},
+            {id: 199, page: 133, taiwanese: "會使", romanization: "ē-sái", chinese: "可以"},
+            {id: 200, page: 133, taiwanese: "歹勢", romanization: "pháinn-sè", chinese: "不好意思"},
+            {id: 201, page: 133, taiwanese: "彼陣", romanization: "hit-tsūn", chinese: "那陣子"},
+            {id: 202, page: 133, taiwanese: "雄", romanization: "hiông", chinese: "凶狠"},
+            {id: 203, page: 133, taiwanese: "𤆬路", romanization: "tshuā-lōo", chinese: "帶路"},
+            {id: 204, page: 133, taiwanese: "款勢", romanization: "khuán-sì", chinese: "姿態"},
+            {id: 205, page: 133, taiwanese: "田岸仔路", romanization: "tshân-huānn-á-lōo", chinese: "田邊路"},
+            {id: 206, page: 133, taiwanese: "媠", romanization: "suí", chinese: "漂亮"},
+            {id: 207, page: 133, taiwanese: "敢", romanization: "kám", chinese: "難道"},
+            {id: 208, page: 133, taiwanese: "嘛", romanization: "mā", chinese: "也"},
+            {id: 209, page: 133, taiwanese: "會當", romanization: "ē-tàng", chinese: "可以"},
+            {id: 210, page: 133, taiwanese: "無欲", romanization: "bô-beh", chinese: "不要"},
+            {id: 211, page: 133, taiwanese: "猶未", romanization: "iáu-bē / buē", chinese: "還沒"},
+            {id: 212, page: 133, taiwanese: "轉來", romanization: "tńg--lâi", chinese: "回來"},
+            {id: 213, page: 133, taiwanese: "取", romanization: "tshú", chinese: "拿"},
+            {id: 214, page: 133, taiwanese: "啥物", romanization: "siánn-mih", chinese: "什麼"},
+            {id: 215, page: 134, taiwanese: "聲嗽", romanization: "siann-sàu", chinese: "咳嗽"},
+            {id: 216, page: 134, taiwanese: "遐", romanization: "hia", chinese: "那裡"},
+            {id: 217, page: 134, taiwanese: "代誌", romanization: "tāi-tsì", chinese: "事情"},
+            {id: 218, page: 134, taiwanese: "欲哪", romanization: "beh ná", chinese: "要怎麼"},
+            {id: 219, page: 134, taiwanese: "倒", romanization: "tó", chinese: "倒"},
+            {id: 220, page: 134, taiwanese: "尾仔", romanization: "bué-á", chinese: "最後"},
+            {id: 221, page: 134, taiwanese: "轉去", romanization: "tńg--khì", chinese: "回去"},
+            {id: 222, page: 134, taiwanese: "厝", romanization: "tshù", chinese: "家"},
+            {id: 223, page: 134, taiwanese: "兜", romanization: "tau", chinese: "家"},
+            {id: 224, page: 134, taiwanese: "共", romanization: "kā", chinese: "把"},
+            {id: 225, page: 134, taiwanese: "說", romanization: "sueh", chinese: "說"},
+            {id: 226, page: 134, taiwanese: "目箍", romanization: "ba̍k-khoo", chinese: "眼眶"},
+            {id: 227, page: 134, taiwanese: "紅紅", romanization: "âng-âng", chinese: "紅紅的"},
+            {id: 228, page: 134, taiwanese: "轉", romanization: "tńg", chinese: "回"},
+            {id: 229, page: 134, taiwanese: "樹仔跤", romanization: "tshiū-á-kha", chinese: "樹下"},
+            {id: 230, page: 134, taiwanese: "予", romanization: "hōo", chinese: "給"},
+            {id: 231, page: 134, taiwanese: "生本", romanization: "sinn-pún", chinese: "天性"},
+            {id: 232, page: 134, taiwanese: "个", romanization: "ê", chinese: "的"},
+            {id: 233, page: 134, taiwanese: "猴囡仔", romanization: "kâu-gín-á", chinese: "頑皮小孩"},
+            {id: 234, page: 134, taiwanese: "毋知", romanization: "m̄-tsai", chinese: "不知道"},
+            {id: 235, page: 134, taiwanese: "抑", romanization: "iah", chinese: "或"},
+            {id: 236, page: 134, taiwanese: "凡勢", romanization: "huân-sè", chinese: "也許"},
+            {id: 237, page: 134, taiwanese: "毋捌", romanization: "m̄-bat", chinese: "不曾"},
+            {id: 238, page: 134, taiwanese: "家己", romanization: "ka-kī", chinese: "自己"},
+            {id: 239, page: 134, taiwanese: "敨", romanization: "tháu", chinese: "偷"},
+            {id: 240, page: 134, taiwanese: "心氣", romanization: "sim-khuì", chinese: "心情"},
+            {id: 241, page: 134, taiwanese: "熟似", romanization: "si̍k-sāi", chinese: "認識"},
+            {id: 242, page: 134, taiwanese: "定著", romanization: "tiānn-tio̍h", chinese: "一定"},
+            {id: 243, page: 134, taiwanese: "心適", romanization: "sim-sik", chinese: "有趣"},
+            {id: 244, page: 134, taiwanese: "幾擺", romanization: "kuí-pái", chinese: "幾次"},
+            {id: 245, page: 134, taiwanese: "了後", romanization: "liáu-āu", chinese: "之後"},
+            {id: 246, page: 134, taiwanese: "煞", romanization: "suah", chinese: "卻"},
+            {id: 247, page: 134, taiwanese: "共人", romanization: "kā-lâng / ka̋ng", chinese: "對人"},
+            {id: 248, page: 134, taiwanese: "遐爾", romanization: "hiah-nī", chinese: "這麼"},
+            {id: 249, page: 134, taiwanese: "學師仔", romanization: "o̍h-sai-á", chinese: "徒弟"},
+            {id: 250, page: 134, taiwanese: "師傅", romanization: "sai-hū", chinese: "專門技藝的人"},
+            {id: 251, page: 134, taiwanese: "一寡", romanization: "tsi̍t-kuá", chinese: "一些"},
+            {id: 252, page: 134, taiwanese: "笑面", romanization: "tshiò-bīn", chinese: "笑容"},
+            {id: 253, page: 135, taiwanese: "無去", romanization: "bô--khì", chinese: "不見了"},
+            {id: 254, page: 135, taiwanese: "猶是", romanization: "iáu-sī", chinese: "還是"},
+            {id: 255, page: 135, taiwanese: "膏膏纏", romanization: "ko-ko-tînn", chinese: "糾纏"},
+            {id: 256, page: 135, taiwanese: "毋才", romanization: "m̄-tsiah", chinese: "才會"},
+            {id: 257, page: 135, taiwanese: "好膽", romanization: "hó-tánn", chinese: "夠膽識"},
+            {id: 258, page: 135, taiwanese: "講親情", romanization: "kóng-tshin-tsiânn", chinese: "提親"},
+            {id: 259, page: 135, taiwanese: "趁", romanization: "thàn", chinese: "藉機"},
+            {id: 260, page: 135, taiwanese: "鼓吹", romanization: "kóo-tshue", chinese: "提倡"},
+            {id: 261, page: 135, taiwanese: "會通", romanization: "ē-thang", chinese: "可以"},
+            {id: 262, page: 135, taiwanese: "拄才", romanization: "tú-tsiah", chinese: "剛才"},
+            {id: 263, page: 135, taiwanese: "後擺", romanization: "āu-pái", chinese: "以後"},
+            {id: 264, page: 135, taiwanese: "毋通", romanization: "m̄-thang", chinese: "不要"},
+            {id: 265, page: 135, taiwanese: "原在", romanization: "guân-tsāi", chinese: "仍舊"},
+            {id: 266, page: 135, taiwanese: "一睏", romanization: "tsi̍t-khùn", chinese: "一口氣"},
+            {id: 267, page: 135, taiwanese: "腹肚", romanization: "pak-tóo", chinese: "肚子"},
+            {id: 268, page: 135, taiwanese: "幾若工", romanization: "kuí-nā-kang", chinese: "幾天"},
+            {id: 269, page: 135, taiwanese: "開", romanization: "khai", chinese: "花費"},
+            {id: 270, page: 135, taiwanese: "撏", romanization: "jîm", chinese: "掏"}
+        ];
+
+        // 遊戲狀態
+        let selectedGameMode = null;
+        let selectedQuestionCount = null;
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let currentCorrectAnswer = 0;
+
+        // 選單頁面邏輯
+        document.addEventListener('DOMContentLoaded', function() {
+            // 遊戲模式選擇
+            document.querySelectorAll('.game-mode-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.game-mode-button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedGameMode = parseInt(this.dataset.mode);
+                    checkStartButton();
+                });
+            });
+
+            // 題目數量選擇
+            document.querySelectorAll('.question-count-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.question-count-button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedQuestionCount = parseInt(this.dataset.count);
+                    checkStartButton();
+                });
+            });
+
+            // 開始遊戲按鈕
+            document.getElementById('startGameButton').addEventListener('click', startGame);
+        });
+
+        function checkStartButton() {
+            const startButton = document.getElementById('startGameButton');
+            if (selectedGameMode && selectedQuestionCount) {
+                startButton.disabled = false;
+            } else {
+                startButton.disabled = true;
+            }
+        }
+
+        // 音效
+        function playCorrectSound() {
+            try {
+                // 創建正確音效 - 愉快的鈴聲
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (error) {
+                // 備用音效
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+                audio.volume = 0.3;
+                audio.play().catch(() => {});
+            }
+        }
+
+        function playIncorrectSound() {
+            try {
+                // 創建錯誤音效 - 低沉的錯誤聲
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3
+                oscillator.frequency.setValueAtTime(196, audioContext.currentTime + 0.15); // G3
+                oscillator.frequency.setValueAtTime(174.61, audioContext.currentTime + 0.3); // F3
+                
+                gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.6);
+                
+                oscillator.type = 'sawtooth';
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.6);
+            } catch (error) {
+                // 備用音效
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+                audio.volume = 0.2;
+                audio.play().catch(() => {});
+            }
+        }
+
+        // 獲取音檔 URL
+        function getAudioUrl(romanization) {
+            const audioRoman = romanization.split('/')[0].trim();
+            return audioRoman;
+        }
+
+        // 播放當前音檔
+        function playCurrentAudio() {
+            if (currentQuestionIndex >= currentQuestions.length) return;
+            
+            const currentQuestion = currentQuestions[currentQuestionIndex];
+            const audioUrl = getAudioUrl(currentQuestion.romanization);
+            
+            const button = document.getElementById('playAudioButton');
+            if (typeof holo === 'function') {
+                holo(button, audioUrl);
+            }
+        }
+
+        // 自動播放音檔
+        function autoPlayAudio() {
+            if (selectedGameMode === 1 || selectedGameMode === 2) {
+                setTimeout(() => {
+                    playCurrentAudio();
+                }, 500);
+            }
+        }
+
+        // 開始遊戲
+        function startGame() {
+            // 隨機選擇題目
+            const shuffled = [...gameData].sort(() => Math.random() - 0.5);
+            currentQuestions = shuffled.slice(0, selectedQuestionCount);
+            
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            
+            // 切換到遊戲頁面
+            document.getElementById('menuContainer').style.display = 'none';
+            document.getElementById('gameContainer').classList.add('active');
+            
+            // 根據遊戲模式顯示/隱藏音檔按鈕
+            const audioSection = document.getElementById('audioSection');
+            if (selectedGameMode === 1 || selectedGameMode === 2) {
+                audioSection.style.display = 'block';
+            } else {
+                audioSection.style.display = 'none';
+            }
+            
+            showQuestion();
+        }
+
+        // 顯示題目
+        function showQuestion() {
+            if (currentQuestionIndex >= currentQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = currentQuestions[currentQuestionIndex];
+            const questionText = document.getElementById('questionText');
+            const progressText = document.getElementById('progressText');
+            const progressFill = document.getElementById('progressFill');
+            const questionInfo = document.getElementById('questionInfo');
+            const navigationButtons = document.getElementById('navigationButtons');
+
+            // 更新進度
+            progressText.textContent = `第 ${currentQuestionIndex + 1} 題 / 共 ${selectedQuestionCount} 題`;
+            progressFill.style.width = `${(currentQuestionIndex / selectedQuestionCount) * 100}%`;
+
+            // 根據遊戲模式設置題目文字和顯示題目資訊
+            switch (selectedGameMode) {
+                case 1:
+                    questionText.textContent = '請聽音檔，選擇正確的台語';
+                    questionInfo.style.display = 'none';
+                    break;
+                case 2:
+                    questionText.textContent = '請聽音檔，選擇正確的台羅';
+                    questionInfo.style.display = 'none';
+                    break;
+                case 3:
+                    questionText.textContent = question.taiwanese;
+                    showQuestionInfoForVisualMode(question);
+                    break;
+                case 4:
+                    questionText.textContent = question.romanization;
+                    showQuestionInfoForVisualMode(question);
+                    break;
+            }
+
+            // 顯示導航按鈕
+            navigationButtons.style.display = 'flex';
+            updateNavigationButtons();
+
+            // 生成選項
+            generateOptions();
+            
+            // 自動播放音檔
+            autoPlayAudio();
+        }
+
+        // 顯示題目詳細資訊
+        function showQuestionInfo(question) {
+            const questionInfo = document.getElementById('questionInfo');
+            document.getElementById('infoId').textContent = question.id;
+            document.getElementById('infoPage').textContent = question.page;
+            document.getElementById('infoChinese').textContent = question.chinese;
+            questionInfo.style.display = 'block';
+        }
+
+        // 顯示視覺模式的題目資訊（只顯示項次、頁數、華語）
+        function showQuestionInfoForVisualMode(question) {
+            const questionInfo = document.getElementById('questionInfo');
+            document.getElementById('infoId').textContent = question.id;
+            document.getElementById('infoPage').textContent = question.page;
+            document.getElementById('infoChinese').textContent = question.chinese;
+            questionInfo.style.display = 'block';
+        }
+
+        // 更新導航按鈕狀態
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            prevButton.disabled = (currentQuestionIndex === 0);
+            nextButton.disabled = (currentQuestionIndex >= currentQuestions.length - 1);
+        }
+
+        // 生成選項
+        function generateOptions() {
+            const question = currentQuestions[currentQuestionIndex];
+            let correctAnswer, wrongAnswers;
+
+            // 根據遊戲模式決定正確答案和錯誤選項
+            switch (selectedGameMode) {
+                case 1:
+                    correctAnswer = question.taiwanese;
+                    wrongAnswers = getRandomWrongAnswers(question, 'taiwanese');
+                    break;
+                case 2:
+                    correctAnswer = question.romanization;
+                    wrongAnswers = getRandomWrongAnswers(question, 'romanization');
+                    break;
+                case 3:
+                    correctAnswer = question.romanization;
+                    wrongAnswers = getRandomWrongAnswers(question, 'romanization');
+                    break;
+                case 4:
+                    correctAnswer = question.taiwanese;
+                    wrongAnswers = getRandomWrongAnswers(question, 'taiwanese');
+                    break;
+            }
+
+            // 隨機排列選項
+            const allOptions = [correctAnswer, ...wrongAnswers];
+            const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
+            currentCorrectAnswer = shuffledOptions.indexOf(correctAnswer);
+
+            // 設置選項文字和樣式
+            const optionElements = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+
+            for (let i = 0; i < 4; i++) {
+                const optionElement = document.getElementById(optionElements[i]);
+                const buttonElement = document.getElementById(buttonElements[i]);
+                
+                optionElement.textContent = shuffledOptions[i];
+                
+                // 重置按鈕狀態
+                buttonElement.className = 'option-button';
+                buttonElement.disabled = false;
+                
+                // 根據文字長度調整字體大小
+                adjustFontSize(optionElement, shuffledOptions[i]);
+            }
+        }
+
+        // 調整字體大小
+        function adjustFontSize(element, text) {
+            element.className = 'option-text';
+            
+            if ((text.length > 15) || (text.includes('/') && text.length > 10)) {
+                element.classList.add('small');
+            } else if ((text.length > 10) || text.includes('-') || text.includes('̍') || text.includes('̄')) {
+                element.classList.add('medium');
+            }
+        }
+
+        // 獲取隨機錯誤答案
+        function getRandomWrongAnswers(currentQuestion, type) {
+            const otherQuestions = gameData.filter(q => 
+                q.taiwanese !== currentQuestion.taiwanese && 
+                q.romanization !== currentQuestion.romanization
+            );
+            
+            const shuffled = otherQuestions.sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, 3).map(q => q[type]);
+        }
+
+        // 選擇答案
+        function selectAnswer(selectedIndex) {
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+            const selectedButton = document.getElementById(buttonElements[selectedIndex]);
+
+            // 檢查是否已經選過這個選項
+            if (selectedButton.classList.contains('correct') || selectedButton.classList.contains('incorrect')) {
+                return;
+            }
+
+            if (selectedIndex === currentCorrectAnswer) {
+                // 正確答案
+                selectedButton.classList.add('correct');
+                correctAnswers++;
+                playCorrectSound();
+                
+                // 禁用所有按鈕，因為已經答對了
+                buttonElements.forEach(id => {
+                    document.getElementById(id).classList.add('disabled');
+                });
+            } else {
+                // 錯誤答案
+                selectedButton.classList.add('incorrect');
+                selectedButton.classList.add('disabled'); // 只禁用這個錯誤的選項
+                playIncorrectSound();
+                // 其他選項仍可繼續選擇
+            }
+        }
+
+        // 上一題
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                resetQuestionState();
+                showQuestion();
+            }
+        }
+
+        // 下一題
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                resetQuestionState();
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // 重置題目狀態
+        function resetQuestionState() {
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+            const optionTexts = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById(buttonElements[i]);
+                const optionText = document.getElementById(optionTexts[i]);
+                
+                button.className = 'option-button';
+                button.disabled = false;
+                optionText.className = 'option-text';
+            }
+        }
+
+        // 顯示結果
+        function showResults() {
+            document.getElementById('questionArea').style.display = 'none';
+            document.getElementById('resultsScreen').classList.add('active');
+            document.getElementById('resultsScore').textContent = `你答對了 ${correctAnswers} / ${selectedQuestionCount} 題`;
+            
+            // 更新進度為完成
+            document.getElementById('progressText').textContent = '遊戲完成！';
+            document.getElementById('progressFill').style.width = '100%';
+        }
+
+        // 返回選單
+        function backToMenu() {
+            // 重置遊戲狀態
+            selectedGameMode = null;
+            selectedQuestionCount = null;
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            
+            // 重置UI選擇
+            document.querySelectorAll('.game-mode-button').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.question-count-button').forEach(b => b.classList.remove('selected'));
+            document.getElementById('startGameButton').disabled = true;
+            
+            // 切換回選單頁面
+            document.getElementById('gameContainer').classList.remove('active');
+            document.getElementById('menuContainer').style.display = 'flex';
+            
+            // 重置遊戲頁面
+            document.getElementById('questionArea').style.display = 'flex';
+            document.getElementById('resultsScreen').classList.remove('active');
+            document.getElementById('questionText').textContent = '準備開始遊戲';
+            document.getElementById('progressText').textContent = '準備開始';
+            document.getElementById('progressFill').style.width = '0%';
+            
+            // 隱藏題目資訊和導航按鈕
+            document.getElementById('questionInfo').style.display = 'none';
+            document.getElementById('navigationButtons').style.display = 'none';
+            
+            // 重置選項
+            const optionTexts = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            const buttons = ['optionA', 'optionB', 'optionC', 'optionD'];
+            
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(optionTexts[i]).textContent = '準備中...';
+                document.getElementById(optionTexts[i]).className = 'option-text';
+                document.getElementById(buttons[i]).className = 'option-button';
+                document.getElementById(buttons[i]).disabled = false;
+            }
+        }
+
+        // 初始化 Element SDK
+        const defaultConfig = {
+            main_title: "咱來餾生份字",
+            sub_title: "育達版高中 第八課 翕相師傅(P124-135)"
+        };
+
+        async function onConfigChange(config) {
+            document.getElementById('menuMainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('menuSubTitle').textContent = config.sub_title || defaultConfig.sub_title;
+            document.getElementById('gameMainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('gameSubTitle').textContent = config.sub_title || defaultConfig.sub_title;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["sub_title", config.sub_title || defaultConfig.sub_title]
+            ]);
+        }
+
+        // 初始化 SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script><div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">課文及音檔來源：育達文化事業股份有限公司（經授權使用）｜© 2026 詹宗龍</div>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  台語韻母互動 — 台語課堂遊戲「形音義配對」
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  未經著作權人書面授權，不得重製、改作、散布或修改本網頁之全部或一部分。
+-->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>台語韻母互動</title>
+<link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+<style>
+    :root {
+        --bg-start: #235390;
+        --bg-end: #1cb0f6;
+        --tile-bg: #ffffff;
+        --tile-hover: #f0f8ff;
+        --primary-color: #1cb0f6;
+        --category-bg: #58cc02;
+        --font-family: 'tauhu-oo', sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--font-family);
+        overflow: hidden;
+    }
+
+    /* 16:4 (4:1) 比例容器 */
+    #main-container {
+        width: 98vw;
+        height: 24.5vw; 
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+    }
+
+    /* 自適應保護 */
+    @media (max-aspect-ratio: 16/4) {
+        #main-container {
+            height: 98vh; 
+            width: 98vw;
+        }
+    }
+
+    .header {
+        background-color: var(--category-bg);
+        color: white;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2.5vw;
+        padding: 2px 0;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .grid-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        overflow: hidden;
+    }
+
+    .row {
+        flex: 1;
+        display: flex;
+        border-bottom: 1px solid #eee;
+        min-height: 0;
+    }
+
+    .row:last-child {
+        border-bottom: none;
+    }
+
+    .cat-label {
+        width: 8%;
+        background-color: #f9f9f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        font-weight: bold;
+        color: #666;
+        font-size: 1.2vw;
+        letter-spacing: 2px;
+        border-right: 2px solid #eee;
+        padding: 5px 0;
+    }
+
+    .tiles-area {
+        flex: 1;
+        display: flex;
+    }
+
+    .tile {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        border-right: 1px dashed #eee;
+    }
+
+    .tile.spacer {
+        cursor: default;
+        border: none;
+    }
+    .tile.spacer:hover {
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+    }
+
+    /* 說明文字區塊樣式 */
+    .tile.info-merged {
+        cursor: default;
+        border-right: none;
+        padding: 0 2vw;
+        background-color: #fcfcfc;
+        /* 修改：將 overflow: hidden 改為 auto，允許文字過多時出現滑軌 */
+        overflow: auto;
+    }
+    .tile.info-merged:hover {
+        transform: none;
+        box-shadow: none;
+        background-color: #fcfcfc;
+    }
+    .info-text {
+        font-size: clamp(14px, 1.2vw, 2.5vw);
+        color: #555;
+        line-height: 1.6;
+        text-align: justify;
+        font-weight: bold;
+        width: 100%;
+    }
+    
+    /* 超連結樣式 */
+    .info-text a {
+        color: var(--bg-start);
+        text-decoration: underline;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+    .info-text a:hover {
+        color: var(--primary-color);
+    }
+
+    .tile:not(.spacer):not(.info-merged):hover {
+        background-color: var(--tile-hover);
+        z-index: 2;
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tile-text {
+        font-size: 4vw;
+        font-weight: 900;
+        color: #444;
+        line-height: 1;
+    }
+
+    /* 喇叭圖示 */
+    .speaker-icon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 2.0vw;
+        height: 2.0vw;
+        background: #eee;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2vw;
+        color: #666;
+        z-index: 5;
+        transition: background 0.2s;
+    }
+
+    .speaker-icon:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    /* --- Modal (說明框) --- */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background: white;
+        width: 60vw;
+        max-width: 600px;
+        /* 限制最大高度與滾動功能，確保適配螢幕顯示範圍 */
+        max-height: 90vh;
+        overflow-y: auto;
+        
+        aspect-ratio: 16/9;
+        border-radius: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        border: 5px solid var(--category-bg);
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px; right: 20px;
+        font-size: 40px;
+        cursor: pointer;
+        color: #ccc;
+        line-height: 1;
+        z-index: 10;
+    }
+    .close-btn:hover { color: #ff4b4b; }
+
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 5vw;
+        color: #ddd;
+        cursor: pointer;
+        padding: 20px;
+        transition: color 0.2s;
+        z-index: 10;
+    }
+    .nav-btn:hover { color: var(--category-bg); }
+    .nav-prev { left: 10px; }
+    .nav-next { right: 10px; }
+
+    .modal-cat {
+        font-size: 2vw;
+        color: #888;
+        margin-bottom: 10px;
+        background: #eee;
+        padding: 5px 15px;
+        border-radius: 20px;
+    }
+
+    .modal-main-text {
+        font-size: 12vw;
+        font-weight: 900;
+        color: #333;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .modal-ref {
+        font-size: 4vw;
+        color: #e65100;
+        font-weight: bold;
+    }
+
+    /* RWD 文字大小調整 */
+    @media (max-width: 768px) {
+        .cat-label { font-size: 14px; }
+        .speaker-icon { width: 20px; height: 20px; font-size: 12px; }
+        .tile-text { font-size: 24px; }
+        
+        .modal-content { width: 90vw; aspect-ratio: auto; height: auto; min-height: 50vh; padding: 30px 0; }
+        .modal-cat { font-size: 18px; }
+        .modal-main-text { font-size: 80px; }
+        .modal-ref { font-size: 30px; }
+        .nav-btn { font-size: 40px; }
+
+        .info-text { font-size: 14px; }
+    }
+
+</style>
+</head>
+<body>
+
+<div id="main-container">
+    <div class="header">台語韻母</div>
+    <div class="grid-content" id="grid-container">
+        </div>
+</div>
+
+<div id="info-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        
+        <div class="nav-btn nav-prev" onclick="changeIndex(-1)">&#10094;</div>
+        <div class="nav-btn nav-next" onclick="changeIndex(1)">&#10095;</div>
+
+        <div id="m-cat" class="modal-cat">分類</div>
+        <div id="m-text" class="modal-main-text">a</div>
+        <div id="m-ref" class="modal-ref">參考：</div>
+    </div>
+</div>
+
+<audio id="audio-player"></audio>
+
+<script>
+    // 資料結構：定義 8 個韻母的屬性
+    const finalsData = [
+        { id: 'a',  cat: '元音', ref: 'ㄚ', refType: '注音', url: 'https://tailo.moe.edu.tw/ium/ium1/3-1mp4/a.mp4' },
+        { id: 'i',  cat: '元音', ref: '一', refType: '注音', url: 'https://tailo.moe.edu.tw/ium/ium1/3-1mp4/i.mp4' },
+        { id: 'u',  cat: '元音', ref: 'ㄨ', refType: '注音', url: 'https://tailo.moe.edu.tw/ium/ium1/3-1mp4/u.mp4' },
+        { id: 'e',  cat: '元音', ref: 'ㄝ', refType: '注音', url: 'https://tailo.moe.edu.tw/ium/ium1/3-1mp4/e.mp4' },
+        { id: 'oo', cat: '元音', ref: 'ㄛ', refType: '注音', url: 'https://tailo.moe.edu.tw/ium/ium1/3-1mp4/oo.mp4' },
+        { id: 'o',  cat: '元音', ref: 'ㄜ', refType: '注音', url: 'https://tailo.moe.edu.tw/ium/ium1/3-1mp4/o.mp4' },
+        
+        { id: 'm̄',  cat: '聲化', ref: '毋', refType: '漢字', url: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/0/809.mp3' },
+        { id: 'n̂g', cat: '聲化', ref: '黃', refType: '漢字', url: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/9/9224.mp3' }
+    ];
+
+    // Grid 結構設定
+    const gridStructure = [
+        { cat: '元音', items: ['a', 'i', 'u', 'e', 'oo', 'o'] },
+        { cat: '聲化', items: ['m̄', 'n̂g', 'info'] } 
+    ];
+
+    let currentIndex = 0;
+    const audioPlayer = document.getElementById('audio-player');
+
+    function init() {
+        const container = document.getElementById('grid-container');
+        
+        gridStructure.forEach(row => {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'row';
+
+            const catDiv = document.createElement('div');
+            catDiv.className = 'cat-label';
+            catDiv.textContent = row.cat;
+            rowDiv.appendChild(catDiv);
+
+            const tilesArea = document.createElement('div');
+            tilesArea.className = 'tiles-area';
+
+            row.items.forEach(itemId => {
+                const tile = document.createElement('div');
+                
+                if (itemId === null) {
+                    tile.className = 'tile spacer';
+                } else if (itemId === 'info') {
+                    // 合併的說明文字區塊
+                    tile.className = 'tile info-merged';
+                    tile.style.flex = '4';
+                    
+                    const infoSpan = document.createElement('span');
+                    infoSpan.className = 'info-text';
+                    // 移除 <br>，恢復單行顯示，保留紅色字體與超連結
+                    infoSpan.innerHTML = 
+                        '佇遮咱定著愛記予牢的是這<span style="color: red;">8个</span>，其他根據無仝的分類佮組合方式，攏總有<span style="color: red;">超過70个</span>韻母，會使去<a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%99%BC%E9%9F%B3%E7%B7%B4%E7%BF%92" target="_blank">發音練習</a>頁面觀覽。';
+                    tile.appendChild(infoSpan);
+                } else {
+                    const itemData = finalsData.find(d => d.id === itemId);
+                    tile.className = 'tile';
+
+                    if (itemData) {
+                        const textSpan = document.createElement('span');
+                        textSpan.className = 'tile-text';
+                        textSpan.textContent = itemData.id;
+                        tile.appendChild(textSpan);
+
+                        const speaker = document.createElement('div');
+                        speaker.className = 'speaker-icon';
+                        speaker.innerHTML = '🔊';
+                        speaker.onclick = (e) => {
+                            e.stopPropagation();
+                            playSound(itemData.url);
+                        };
+                        tile.appendChild(speaker);
+
+                        tile.onclick = () => openModalById(itemData.id);
+                    }
+                }
+                tilesArea.appendChild(tile);
+            });
+
+            rowDiv.appendChild(tilesArea);
+            container.appendChild(rowDiv);
+        });
+    }
+
+    function playSound(url) {
+        if (!url) return;
+        audioPlayer.src = url;
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        audioPlayer.play().catch(e => console.error("播放失敗:", e));
+    }
+
+    function openModalById(id) {
+        const index = finalsData.findIndex(d => d.id === id);
+        if (index !== -1) {
+            currentIndex = index;
+            updateModal();
+            document.getElementById('info-modal').style.display = 'flex';
+            playSound(finalsData[currentIndex].url);
+        }
+    }
+
+    function closeModal(e) {
+        if (!e || e.target.id === 'info-modal' || e.target.classList.contains('close-btn')) {
+            document.getElementById('info-modal').style.display = 'none';
+            audioPlayer.pause();
+        }
+    }
+
+    function changeIndex(direction) {
+        currentIndex = (currentIndex + direction + finalsData.length) % finalsData.length;
+        updateModal();
+        playSound(finalsData[currentIndex].url);
+    }
+
+    function updateModal() {
+        const data = finalsData[currentIndex];
+        document.getElementById('m-cat').textContent = data.cat;
+        document.getElementById('m-text').textContent = data.id;
+        
+        const refDiv = document.getElementById('m-ref');
+        if (data.ref) {
+            refDiv.textContent = `參考${data.refType}：${data.ref}`;
+            refDiv.style.display = 'block';
+        } else {
+            refDiv.style.display = 'none';
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('info-modal').style.display === 'flex') {
+            if (e.key === 'ArrowLeft') changeIndex(-1);
+            if (e.key === 'ArrowRight') changeIndex(1);
+            if (e.key === 'Escape') closeModal();
+        }
+    });
+
+    init();
+
+</script>
+</body>
+</html>

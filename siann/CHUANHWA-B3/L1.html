@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  全華版國中第3冊 第1課 媠花 — 台語課堂遊戲「咱來餾生份字」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「全華圖書股份有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 23 日取得該公司之《著作使用同意書》，
+  並經該公司 115 年 9 月 24 日回覆確認符合第五條「非營利之教育及教學目的」之使用。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  除全華圖書股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1課 媠花</title>
+  <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+  <script src="https://oikasu1.github.io/snd/snd.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: tauhu-oo, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 14%, #45b7d1 28%, #96ceb4 42%, #feca57 56%, #fd79a8 70%, #a29bfe 84%, #00b894 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 20s ease infinite;
+            height: 100%;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        /* 入口頁面樣式 */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .menu-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin: auto;
+        }
+
+        .menu-header {
+            margin-bottom: 12px;
+        }
+
+        .menu-main-title {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .menu-sub-title {
+            font-size: 20px;
+            color: #5a67d8;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .menu-section {
+            margin-bottom: 12px;
+        }
+
+        .menu-section-title {
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .game-mode-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .game-mode-button {
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+            border: 3px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 18px 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            color: #4a5568;
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .game-mode-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .game-mode-button:hover::before {
+            left: 100%;
+        }
+
+        .game-mode-button:hover {
+            border-color: #4299e1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(66, 153, 225, 0.3);
+        }
+
+        .game-mode-button.selected {
+            background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+            border-color: #38b2ac;
+            color: #234e52;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(56, 178, 172, 0.4);
+        }
+
+        .question-count-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .question-count-button {
+            background: linear-gradient(135deg, #fff, #f0fff4);
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 12px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a5568;
+            line-height: 1;
+        }
+
+        .question-count-button:hover {
+            border-color: #48bb78;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .question-count-button.selected {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-color: #48bb78;
+            color: #22543d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .start-game-button {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            border-radius: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            margin-top: 10px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            line-height: 1;
+        }
+
+        .start-game-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+        }
+
+        .start-game-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* 遊戲頁面樣式 */
+        .game-container {
+            display: none;
+            height: 100vh;
+            padding: 15px;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .game-container.active {
+            display: flex;
+        }
+
+        .left-panel {
+            width: 30%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            height: calc(100vh - 30px);
+            overflow-y: auto;
+            line-height: 1.2;
+        }
+
+        .right-panel {
+            width: 70%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 18px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            height: calc(100vh - 30px);
+            overflow-y: auto;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .game-main-title {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .game-sub-title {
+            font-size: 18px;
+            color: #5a67d8;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .play-audio-button {
+            width: 100%;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            margin-bottom: 0;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            line-height: 1.2;
+        }
+
+        .play-audio-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.5);
+        }
+
+        .play-audio-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .question-info {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 12px;
+            border-radius: 15px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 0;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            line-height: 1.2;
+        }
+
+        .info-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .info-label {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2e7d32;
+            min-width: 160px;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+
+        .info-value {
+            font-size: 32px;
+            color: #1b5e20;
+            flex: 1;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+
+        .chinese-item {
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 2px solid #4caf50;
+            margin-top: 8px;
+            min-height: 100px;
+        }
+
+        .chinese-item .info-label {
+            margin-bottom: 8px;
+            min-width: auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .chinese-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1565c0;
+            line-height: 1.2;
+            word-break: break-word;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress-section {
+            margin-bottom: 0;
+        }
+
+        .progress-text {
+            font-size: 17px;
+            color: #2d3748;
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(135deg, #ddd6fe, #e0e7ff);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            transition: width 0.5s ease;
+            width: 0%;
+            border-radius: 8px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+
+        .nav-button {
+            flex: 1;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            box-shadow: 0 6px 20px rgba(45, 55, 72, 0.4);
+            line-height: 1.2;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.5);
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .prev-button {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+        }
+
+        .prev-button:hover {
+            box-shadow: 0 8px 25px rgba(229, 62, 62, 0.5);
+            background: linear-gradient(135deg, #c53030, #9c2626);
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 18px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+            line-height: 1.2;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(108, 92, 231, 0.5);
+        }
+
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question-text {
+            font-size: 64px;
+            font-weight: bold;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .option-button {
+            background: linear-gradient(135deg, #fff, #f8faff);
+            border: 3px solid #e2e8f0;
+            border-radius: 25px;
+            padding: 30px 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-weight: bold;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            min-height: 130px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            margin: 0 0.2cm;
+        }
+
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-button:hover::before {
+            left: 100%;
+        }
+
+        .option-button:hover {
+            border-color: #45b7d1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(69, 183, 209, 0.3);
+        }
+
+        .option-button.correct {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-color: #48bb78;
+            color: #22543d;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.4);
+            animation: correctPulse 0.6s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: translateY(-2px) scale(1.05); }
+            50% { transform: translateY(-2px) scale(1.1); }
+            100% { transform: translateY(-2px) scale(1.05); }
+        }
+
+        .option-button.incorrect {
+            background: linear-gradient(135deg, #fed7d7, #feb2b2);
+            border-color: #e53e3e;
+            color: #742a2a;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(229, 62, 62, 0.3);
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0) translateY(-1px); }
+            25% { transform: translateX(-5px) translateY(-1px); }
+            75% { transform: translateX(5px) translateY(-1px); }
+        }
+
+        .option-button.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .option-label {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 25px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+        }
+
+        .option-text {
+            font-size: 36px;
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .option-text.small {
+            font-size: 28px;
+        }
+
+        .option-text.medium {
+            font-size: 32px;
+        }
+
+        .results-screen {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .results-screen.active {
+            display: block;
+        }
+
+        .results-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .results-score {
+            font-size: 24px;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        .restart-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: tauhu-oo, sans-serif;
+        }
+
+        .restart-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1200px) {
+            .game-container {
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .left-panel {
+                width: 32%;
+                padding: 18px;
+            }
+            
+            .right-panel {
+                width: 68%;
+                padding: 22px;
+            }
+            
+            .question-text {
+                font-size: 58px;
+            }
+            
+            .option-text {
+                font-size: 32px;
+            }
+            
+            .option-text.small {
+                font-size: 26px;
+            }
+            
+            .option-text.medium {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .menu-container {
+                padding: 15px;
+            }
+            
+            .menu-card {
+                padding: 35px 30px;
+                max-width: 650px;
+            }
+            
+            .game-mode-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .game-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+            
+            .left-panel {
+                order: 2;
+                padding: 25px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .left-panel > * {
+                flex: 1;
+                min-width: 200px;
+                margin: 5px;
+            }
+            
+            .right-panel {
+                order: 1;
+                padding: 30px;
+            }
+            
+            .options-grid {
+                max-width: 750px;
+                gap: 16px;
+            }
+            
+            .option-button {
+                min-height: 120px;
+                padding: 25px 22px;
+            }
+            
+            .question-text {
+                font-size: 54px;
+            }
+            
+            .option-text {
+                font-size: 30px;
+            }
+            
+            .option-text.small {
+                font-size: 24px;
+            }
+            
+            .option-text.medium {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-card {
+                padding: 30px 25px;
+                margin: 15px;
+            }
+            
+            .menu-main-title {
+                font-size: 30px;
+            }
+            
+            .menu-section-title {
+                font-size: 20px;
+            }
+            
+            .game-mode-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .game-mode-button {
+                padding: 20px 18px;
+                font-size: 16px;
+            }
+            
+            .question-count-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .question-count-button {
+                padding: 15px 12px;
+                font-size: 16px;
+            }
+            
+            .left-panel {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .left-panel > * {
+                margin: 8px 0;
+                min-width: auto;
+            }
+            
+            .right-panel {
+                padding: 25px;
+            }
+            
+            .game-main-title {
+                font-size: 26px;
+            }
+            
+            .game-sub-title {
+                font-size: 18px;
+            }
+            
+            .question-text {
+                font-size: 38px;
+                margin-bottom: 25px;
+            }
+            
+            .options-grid {
+                gap: 14px;
+                max-width: 550px;
+            }
+            
+            .option-button {
+                min-height: 110px;
+                padding: 22px 18px;
+            }
+            
+            .option-text {
+                font-size: 26px;
+            }
+            
+            .option-text.small {
+                font-size: 20px;
+            }
+            
+            .option-text.medium {
+                font-size: 23px;
+            }
+            
+            .option-label {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin-right: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-container {
+                padding: 8px;
+                min-height: 100vh;
+            }
+            
+            .menu-card {
+                padding: 18px 15px;
+                margin: 5px;
+            }
+            
+            .menu-main-title {
+                font-size: 22px;
+            }
+            
+            .menu-sub-title {
+                font-size: 15px;
+            }
+            
+            .menu-section-title {
+                font-size: 16px;
+            }
+            
+            .menu-section {
+                margin-bottom: 8px;
+            }
+            
+            .game-mode-button {
+                padding: 14px 12px;
+                font-size: 13px;
+            }
+            
+            .question-count-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+            
+            .question-count-button {
+                padding: 10px 6px;
+                font-size: 14px;
+            }
+            
+            .start-game-button {
+                padding: 14px 28px;
+                font-size: 17px;
+                margin-top: 8px;
+            }
+            
+            .game-container {
+                padding: 6px;
+                gap: 8px;
+                height: 100vh;
+            }
+            
+            .left-panel {
+                padding: 12px;
+                border-radius: 18px;
+                gap: 8px;
+                height: calc(100vh - 12px);
+            }
+            
+            .right-panel {
+                padding: 12px;
+                border-radius: 18px;
+                height: calc(100vh - 12px);
+            }
+            
+            .game-header {
+                margin-bottom: 8px;
+            }
+            
+            .game-main-title {
+                font-size: 18px;
+            }
+            
+            .game-sub-title {
+                font-size: 13px;
+            }
+            
+            .question-text {
+                font-size: 24px;
+                margin-bottom: 12px;
+                min-height: 60px;
+            }
+            
+            .options-grid {
+                gap: 8px;
+                max-width: none;
+            }
+            
+            .option-button {
+                min-height: 65px;
+                padding: 12px 10px;
+                border-radius: 15px;
+                margin: 0;
+            }
+            
+            .option-text {
+                font-size: 16px;
+            }
+            
+            .option-text.small {
+                font-size: 13px;
+            }
+            
+            .option-text.medium {
+                font-size: 14px;
+            }
+            
+            .option-label {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+                margin-right: 10px;
+            }
+            
+            .play-audio-button {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .back-button {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .nav-button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .progress-text {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+            
+            .info-title {
+                font-size: 24px;
+                margin-bottom: 6px;
+            }
+            
+            .info-label {
+                font-size: 20px;
+                min-width: 100px;
+            }
+            
+            .info-value {
+                font-size: 20px;
+            }
+            
+            .chinese-value {
+                font-size: 20px;
+            }
+            
+            .chinese-item {
+                padding: 8px 12px;
+                min-height: 60px;
+                margin-top: 6px;
+            }
+            
+            .question-info {
+                padding: 8px;
+                margin-bottom: 0;
+            }
+            
+            .info-item {
+                margin-bottom: 4px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .menu-main-title {
+                font-size: 22px;
+            }
+            
+            .game-main-title {
+                font-size: 20px;
+            }
+            
+            .question-text {
+                font-size: 35px;
+            }
+            
+            .option-text {
+                font-size: 19px;
+            }
+            
+            .option-text.small {
+                font-size: 16px;
+            }
+            
+            .option-text.medium {
+                font-size: 17px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ <style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+</head>
+ <body oncontextmenu="return false;"><div class="menu-container" id="menuContainer">
+   <div class="menu-card">
+    <div class="menu-header">
+     <div class="menu-main-title" id="menuMainTitle">
+      咱來餾生份字
+     </div>
+     <div class="menu-sub-title" id="menuSubTitle">
+      全華版國中第3冊 第1課 媠花
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-section-title">
+      選擇遊戲方式
+     </div>
+     <div class="game-mode-grid"><button class="game-mode-button" data-mode="1"> 🎧 聽音檔選台語 </button> <button class="game-mode-button" data-mode="2"> 🎧 聽音檔選台羅 </button> <button class="game-mode-button" data-mode="3"> 👀 看台語選台羅 </button> <button class="game-mode-button" data-mode="4"> 👀 看台羅選台語 </button>
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-section-title">
+      選擇測驗數量
+     </div>
+     <div class="question-count-grid"><button class="question-count-button" data-count="5">5題</button> <button class="question-count-button" data-count="7">7題</button> <button class="question-count-button" data-count="9">9題</button> <button class="question-count-button" data-count="11">11題</button>
+     </div>
+    </div><button class="start-game-button" id="startGameButton" disabled>開始遊戲</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SIANN-CHUANHWA-B3L1.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+   </div>
+  </div><div class="game-container" id="gameContainer">
+   <div class="left-panel">
+    <div class="play-audio-section" id="audioSection"><button class="play-audio-button" id="playAudioButton" onclick="playCurrentAudio()"> 🔊 點擊播放音檔 </button>
+    </div>
+    <div class="question-info" id="questionInfo" style="display: none;">
+     <div class="info-title">
+      題目資訊
+     </div>
+     <div class="info-item"><span class="info-label">項次：</span> <span class="info-value" id="infoId">-</span>
+     </div>
+     <div class="info-item"><span class="info-label">頁數：</span> <span class="info-value" id="infoPage">-</span>
+     </div>
+     <div class="info-item chinese-item">
+      <div class="info-label">
+       華語解釋
+      </div>
+      <div class="info-value chinese-value" id="infoChinese">
+       -
+      </div>
+     </div>
+    </div>
+    <div class="progress-section" id="progressSection">
+     <div class="progress-text" id="progressText">
+      準備開始
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+     </div>
+    </div>
+    <div class="navigation-buttons" id="navigationButtons" style="display: none;"><button class="nav-button prev-button" id="prevButton" onclick="previousQuestion()"> 上一題 </button> <button class="nav-button next-button" id="nextButton" onclick="nextQuestion()"> 下一題 </button>
+    </div><button class="back-button" onclick="backToMenu()">返回選單</button>
+   </div>
+   <div class="right-panel">
+    <div class="game-header">
+     <div class="game-main-title" id="gameMainTitle">
+      咱來餾生份字
+     </div>
+     <div class="game-sub-title" id="gameSubTitle">
+      全華版國中 第1課 媠花
+     </div>
+    </div>
+    <div class="question-area" id="questionArea">
+     <div class="question-text" id="questionText">
+      準備開始遊戲
+     </div>
+     <div class="options-grid" id="optionsGrid"><button class="option-button" id="optionA" onclick="selectAnswer(0)"> <span class="option-label">A</span> <span class="option-text" id="optionTextA">準備中...</span> </button> <button class="option-button" id="optionB" onclick="selectAnswer(1)"> <span class="option-label">B</span> <span class="option-text" id="optionTextB">準備中...</span> </button> <button class="option-button" id="optionC" onclick="selectAnswer(2)"> <span class="option-label">C</span> <span class="option-text" id="optionTextC">準備中...</span> </button> <button class="option-button" id="optionD" onclick="selectAnswer(3)"> <span class="option-label">D</span> <span class="option-text" id="optionTextD">準備中...</span> </button>
+     </div>
+    </div>
+    <div class="results-screen" id="resultsScreen">
+     <div class="results-title">
+      遊戲結束！
+     </div>
+     <div class="results-score" id="resultsScore">
+      你答對了 0 題
+     </div><button class="restart-button" onclick="backToMenu()">返回選單</button>
+    </div>
+   </div>
+  </div>
+  <script>
+        // 遊戲資料
+        const gameData = [
+            {id: 1, page: 8, taiwanese: "對", romanization: "tuì / uì", chinese: "從(9)"},
+            {id: 2, page: 8, taiwanese: "今仔日", romanization: "kin-á-ji̍t / li̍t", chinese: "今天、今日"},
+            {id: 3, page: 8, taiwanese: "欲", romanization: "beh / bueh", chinese: "表意願；表假設；將要"},
+            {id: 4, page: 8, taiwanese: "逐工", romanization: "ta̍k-kang", chinese: "每天"},
+            {id: 5, page: 8, taiwanese: "呵咾", romanization: "o-ló", chinese: "讚美、表揚"},
+            {id: 6, page: 8, taiwanese: "家己", romanization: "ka-kī / ka-tī", chinese: "自己、本身"},
+            {id: 7, page: 8, taiwanese: "上", romanization: "siōng", chinese: "最…；空間位置"},
+            {id: 8, page: 8, taiwanese: "𠢕", romanization: "gâu", chinese: "能幹；擅某事；易發生"},
+            {id: 9, page: 8, taiwanese: "媠", romanization: "suí", chinese: "漂亮的、美麗的"},
+            {id: 10, page: 8, taiwanese: "佮", romanization: "kah", chinese: "和；搭配；附帶；適合"},
+            {id: 11, page: 8, taiwanese: "仝", romanization: "kāng / kâng", chinese: "相同、無差異"},
+            {id: 12, page: 8, taiwanese: "親像", romanization: "tshin-tshiūnn / tshan-tshiūnn", chinese: "好像、好比"},
+            {id: 13, page: 8, taiwanese: "攏", romanization: "lóng", chinese: "都、皆、全部"},
+            {id: 14, page: 8, taiwanese: "款", romanization: "khuán", chinese: "種類(5)"},
+            {id: 15, page: 8, taiwanese: "咱", romanization: "lán", chinese: "我們；我們的；您、您們"},
+            {id: 16, page: 9, taiwanese: "西北雨", romanization: "sai-pak-hōo", chinese: "雷陣雨"},
+            {id: 17, page: 9, taiwanese: "一目𥍉", romanization: "tsi̍t-ba̍k-nih", chinese: "指時間短暫"},
+            {id: 18, page: 9, taiwanese: "連鞭", romanization: "liâm-mi / liâm-pinn", chinese: "立刻；即時"},
+            {id: 19, page: 9, taiwanese: "過去", romanization: "kuè--khì / kuè--khì", chinese: "指時限已過/從前"},
+            {id: 20, page: 9, taiwanese: "紲", romanization: "suà", chinese: "接、續"},
+            {id: 21, page: 9, taiwanese: "落", romanization: "lo̍h", chinese: "下降(11)"},
+            {id: 22, page: 9, taiwanese: "虹", romanization: "khīng", chinese: "彩虹"},
+            {id: 23, page: 9, taiwanese: "色水", romanization: "sik-tsuí", chinese: "顏色"},
+            {id: 24, page: 9, taiwanese: "無", romanization: "bô", chinese: "修飾形容詞或動詞(7)"},
+            {id: 25, page: 9, taiwanese: "煩惱", romanization: "huân-ló", chinese: "煩悶，不快活"}
+        ];
+
+        // 遊戲狀態
+        let selectedGameMode = null;
+        let selectedQuestionCount = null;
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let currentCorrectAnswer = 0;
+
+        // 選單頁面邏輯
+        document.addEventListener('DOMContentLoaded', function() {
+            // 遊戲模式選擇
+            document.querySelectorAll('.game-mode-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.game-mode-button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedGameMode = parseInt(this.dataset.mode);
+                    checkStartButton();
+                });
+            });
+
+            // 題目數量選擇
+            document.querySelectorAll('.question-count-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.question-count-button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedQuestionCount = parseInt(this.dataset.count);
+                    checkStartButton();
+                });
+            });
+
+            // 開始遊戲按鈕
+            document.getElementById('startGameButton').addEventListener('click', startGame);
+        });
+
+        function checkStartButton() {
+            const startButton = document.getElementById('startGameButton');
+            if (selectedGameMode && selectedQuestionCount) {
+                startButton.disabled = false;
+            } else {
+                startButton.disabled = true;
+            }
+        }
+
+        // 音效
+        function playCorrectSound() {
+            try {
+                // 創建正確音效 - 愉快的鈴聲
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (error) {
+                // 備用音效
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+                audio.volume = 0.3;
+                audio.play().catch(() => {});
+            }
+        }
+
+        function playIncorrectSound() {
+            try {
+                // 創建錯誤音效 - 低沉的錯誤聲
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3
+                oscillator.frequency.setValueAtTime(196, audioContext.currentTime + 0.15); // G3
+                oscillator.frequency.setValueAtTime(174.61, audioContext.currentTime + 0.3); // F3
+                
+                gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.6);
+                
+                oscillator.type = 'sawtooth';
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.6);
+            } catch (error) {
+                // 備用音效
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+                audio.volume = 0.2;
+                audio.play().catch(() => {});
+            }
+        }
+
+        // 獲取音檔 URL
+        function getAudioUrl(romanization) {
+            const audioRoman = romanization.split('/')[0].trim();
+            return audioRoman;
+        }
+
+        // 播放當前音檔
+        function playCurrentAudio() {
+            if (currentQuestionIndex >= currentQuestions.length) return;
+            
+            const currentQuestion = currentQuestions[currentQuestionIndex];
+            const audioUrl = getAudioUrl(currentQuestion.romanization);
+            
+            const button = document.getElementById('playAudioButton');
+            if (typeof holo === 'function') {
+                holo(button, audioUrl);
+            }
+        }
+
+        // 自動播放音檔
+        function autoPlayAudio() {
+            if (selectedGameMode === 1 || selectedGameMode === 2) {
+                setTimeout(() => {
+                    playCurrentAudio();
+                }, 500);
+            }
+        }
+
+        // 開始遊戲
+        function startGame() {
+            // 隨機選擇題目
+            const shuffled = [...gameData].sort(() => Math.random() - 0.5);
+            currentQuestions = shuffled.slice(0, selectedQuestionCount);
+            
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            
+            // 切換到遊戲頁面
+            document.getElementById('menuContainer').style.display = 'none';
+            document.getElementById('gameContainer').classList.add('active');
+            
+            // 根據遊戲模式顯示/隱藏音檔按鈕
+            const audioSection = document.getElementById('audioSection');
+            if (selectedGameMode === 1 || selectedGameMode === 2) {
+                audioSection.style.display = 'block';
+            } else {
+                audioSection.style.display = 'none';
+            }
+            
+            showQuestion();
+        }
+
+        // 顯示題目
+        function showQuestion() {
+            if (currentQuestionIndex >= currentQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = currentQuestions[currentQuestionIndex];
+            const questionText = document.getElementById('questionText');
+            const progressText = document.getElementById('progressText');
+            const progressFill = document.getElementById('progressFill');
+            const questionInfo = document.getElementById('questionInfo');
+            const navigationButtons = document.getElementById('navigationButtons');
+
+            // 更新進度
+            progressText.textContent = `第 ${currentQuestionIndex + 1} 題 / 共 ${selectedQuestionCount} 題`;
+            progressFill.style.width = `${(currentQuestionIndex / selectedQuestionCount) * 100}%`;
+
+            // 根據遊戲模式設置題目文字和顯示題目資訊
+            switch (selectedGameMode) {
+                case 1:
+                    questionText.textContent = '請聽音檔，選擇正確的台語';
+                    questionInfo.style.display = 'none';
+                    break;
+                case 2:
+                    questionText.textContent = '請聽音檔，選擇正確的台羅';
+                    questionInfo.style.display = 'none';
+                    break;
+                case 3:
+                    questionText.textContent = question.taiwanese;
+                    showQuestionInfoForVisualMode(question);
+                    break;
+                case 4:
+                    questionText.textContent = question.romanization;
+                    showQuestionInfoForVisualMode(question);
+                    break;
+            }
+
+            // 顯示導航按鈕
+            navigationButtons.style.display = 'flex';
+            updateNavigationButtons();
+
+            // 生成選項
+            generateOptions();
+            
+            // 自動播放音檔
+            autoPlayAudio();
+        }
+
+        // 顯示題目詳細資訊
+        function showQuestionInfo(question) {
+            const questionInfo = document.getElementById('questionInfo');
+            document.getElementById('infoId').textContent = question.id;
+            document.getElementById('infoPage').textContent = question.page;
+            document.getElementById('infoChinese').textContent = question.chinese;
+            questionInfo.style.display = 'block';
+        }
+
+        // 顯示視覺模式的題目資訊（只顯示項次、頁數、華語）
+        function showQuestionInfoForVisualMode(question) {
+            const questionInfo = document.getElementById('questionInfo');
+            document.getElementById('infoId').textContent = question.id;
+            document.getElementById('infoPage').textContent = question.page;
+            document.getElementById('infoChinese').textContent = question.chinese;
+            questionInfo.style.display = 'block';
+        }
+
+        // 更新導航按鈕狀態
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            prevButton.disabled = (currentQuestionIndex === 0);
+            nextButton.disabled = (currentQuestionIndex >= currentQuestions.length - 1);
+        }
+
+        // 生成選項
+        function generateOptions() {
+            const question = currentQuestions[currentQuestionIndex];
+            let correctAnswer, wrongAnswers;
+
+            // 根據遊戲模式決定正確答案和錯誤選項
+            switch (selectedGameMode) {
+                case 1:
+                    correctAnswer = question.taiwanese;
+                    wrongAnswers = getRandomWrongAnswers(question, 'taiwanese');
+                    break;
+                case 2:
+                    correctAnswer = question.romanization;
+                    wrongAnswers = getRandomWrongAnswers(question, 'romanization');
+                    break;
+                case 3:
+                    correctAnswer = question.romanization;
+                    wrongAnswers = getRandomWrongAnswers(question, 'romanization');
+                    break;
+                case 4:
+                    correctAnswer = question.taiwanese;
+                    wrongAnswers = getRandomWrongAnswers(question, 'taiwanese');
+                    break;
+            }
+
+            // 隨機排列選項
+            const allOptions = [correctAnswer, ...wrongAnswers];
+            const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
+            currentCorrectAnswer = shuffledOptions.indexOf(correctAnswer);
+
+            // 設置選項文字和樣式
+            const optionElements = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+
+            for (let i = 0; i < 4; i++) {
+                const optionElement = document.getElementById(optionElements[i]);
+                const buttonElement = document.getElementById(buttonElements[i]);
+                
+                optionElement.textContent = shuffledOptions[i];
+                
+                // 重置按鈕狀態
+                buttonElement.className = 'option-button';
+                buttonElement.disabled = false;
+                
+                // 根據文字長度調整字體大小
+                adjustFontSize(optionElement, shuffledOptions[i]);
+            }
+        }
+
+        // 調整字體大小
+        function adjustFontSize(element, text) {
+            element.className = 'option-text';
+            
+            if ((text.length > 15) || (text.includes('/') && text.length > 10)) {
+                element.classList.add('small');
+            } else if ((text.length > 10) || text.includes('-') || text.includes('̍') || text.includes('̄')) {
+                element.classList.add('medium');
+            }
+        }
+
+        // 獲取隨機錯誤答案
+        function getRandomWrongAnswers(currentQuestion, type) {
+            const otherQuestions = gameData.filter(q => 
+                q.taiwanese !== currentQuestion.taiwanese && 
+                q.romanization !== currentQuestion.romanization
+            );
+            
+            const shuffled = otherQuestions.sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, 3).map(q => q[type]);
+        }
+
+        // 選擇答案
+        function selectAnswer(selectedIndex) {
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+            const selectedButton = document.getElementById(buttonElements[selectedIndex]);
+
+            // 檢查是否已經選過這個選項
+            if (selectedButton.classList.contains('correct') || selectedButton.classList.contains('incorrect')) {
+                return;
+            }
+
+            if (selectedIndex === currentCorrectAnswer) {
+                // 正確答案
+                selectedButton.classList.add('correct');
+                correctAnswers++;
+                playCorrectSound();
+                
+                // 禁用所有按鈕，因為已經答對了
+                buttonElements.forEach(id => {
+                    document.getElementById(id).classList.add('disabled');
+                });
+            } else {
+                // 錯誤答案
+                selectedButton.classList.add('incorrect');
+                selectedButton.classList.add('disabled'); // 只禁用這個錯誤的選項
+                playIncorrectSound();
+                // 其他選項仍可繼續選擇
+            }
+        }
+
+        // 上一題
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                resetQuestionState();
+                showQuestion();
+            }
+        }
+
+        // 下一題
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                resetQuestionState();
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // 重置題目狀態
+        function resetQuestionState() {
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+            const optionTexts = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById(buttonElements[i]);
+                const optionText = document.getElementById(optionTexts[i]);
+                
+                button.className = 'option-button';
+                button.disabled = false;
+                optionText.className = 'option-text';
+            }
+        }
+
+        // 顯示結果
+        function showResults() {
+            document.getElementById('questionArea').style.display = 'none';
+            document.getElementById('resultsScreen').classList.add('active');
+            document.getElementById('resultsScore').textContent = `你答對了 ${correctAnswers} / ${selectedQuestionCount} 題`;
+            
+            // 更新進度為完成
+            document.getElementById('progressText').textContent = '遊戲完成！';
+            document.getElementById('progressFill').style.width = '100%';
+        }
+
+        // 返回選單
+        function backToMenu() {
+            // 重置遊戲狀態
+            selectedGameMode = null;
+            selectedQuestionCount = null;
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            
+            // 重置UI選擇
+            document.querySelectorAll('.game-mode-button').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.question-count-button').forEach(b => b.classList.remove('selected'));
+            document.getElementById('startGameButton').disabled = true;
+            
+            // 切換回選單頁面
+            document.getElementById('gameContainer').classList.remove('active');
+            document.getElementById('menuContainer').style.display = 'flex';
+            
+            // 重置遊戲頁面
+            document.getElementById('questionArea').style.display = 'flex';
+            document.getElementById('resultsScreen').classList.remove('active');
+            document.getElementById('questionText').textContent = '準備開始遊戲';
+            document.getElementById('progressText').textContent = '準備開始';
+            document.getElementById('progressFill').style.width = '0%';
+            
+            // 隱藏題目資訊和導航按鈕
+            document.getElementById('questionInfo').style.display = 'none';
+            document.getElementById('navigationButtons').style.display = 'none';
+            
+            // 重置選項
+            const optionTexts = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            const buttons = ['optionA', 'optionB', 'optionC', 'optionD'];
+            
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(optionTexts[i]).textContent = '準備中...';
+                document.getElementById(optionTexts[i]).className = 'option-text';
+                document.getElementById(buttons[i]).className = 'option-button';
+                document.getElementById(buttons[i]).disabled = false;
+            }
+        }
+
+        // 初始化 Element SDK
+        const defaultConfig = {
+            main_title: "咱來餾生份字",
+            sub_title: "全華版國中 第1課 媠花"
+        };
+
+        async function onConfigChange(config) {
+            document.getElementById('menuMainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('menuSubTitle').textContent = config.sub_title || defaultConfig.sub_title;
+            document.getElementById('gameMainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('gameSubTitle').textContent = config.sub_title || defaultConfig.sub_title;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["sub_title", config.sub_title || defaultConfig.sub_title]
+            ]);
+        }
+
+        // 初始化 SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99eb1d9f145f4a87',t:'MTc2MzE3MTYxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">課文及音檔來源：全華圖書（經授權使用）｜© 2026 詹宗龍</div>
+</body>
+</html>

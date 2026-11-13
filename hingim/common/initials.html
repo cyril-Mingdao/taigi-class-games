@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  台語聲母互動 — 台語課堂遊戲「形音義配對」
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  未經著作權人書面授權，不得重製、改作、散布或修改本網頁之全部或一部分。
+-->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>台語聲母互動</title>
+<link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+<style>
+    :root {
+        --bg-start: #235390;
+        --bg-end: #1cb0f6;
+        --tile-bg: #ffffff;
+        --tile-hover: #f0f8ff;
+        --primary-color: #1cb0f6;
+        --category-bg: #ff9600;
+        --font-family: 'tauhu-oo', sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--font-family);
+        overflow: hidden;
+    }
+
+    /* 16:4 (4:1) 比例容器 */
+    #main-container {
+        width: 98vw;
+        /* 高度計算：98vw / 4 = 24.5vw */
+        height: 24.5vw; 
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+    }
+
+    /* 如果螢幕比例不夠寬 (比 16:4 更方)，則切換為自適應高度以避免內容被壓扁 */
+    /* 修改說明：將高度從 90vh 改為 98vh，寬度從 95vw 改為 98vw，以減少上下左右留白 */
+    @media (max-aspect-ratio: 16/4) {
+        #main-container {
+            height: 98vh;
+            width: 98vw;
+        }
+    }
+
+    .header {
+        background-color: var(--category-bg);
+        color: white;
+        text-align: center;
+        font-weight: 900;
+        font-size: 2.5vw;
+        padding: 2px 0; /* 稍微減少 padding 以適應較扁的高度 */
+        border-radius: 8px;
+        margin-bottom: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .grid-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        overflow: hidden;
+    }
+
+    .row {
+        flex: 1;
+        display: flex;
+        border-bottom: 1px solid #eee;
+        min-height: 0; /* 確保 flex 子元素可以正確收縮 */
+    }
+
+    .row:last-child {
+        border-bottom: none;
+    }
+
+    .cat-label {
+        width: 8%;
+        background-color: #f9f9f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        writing-mode: vertical-lr; /* 直書 */
+        text-orientation: upright;
+        font-weight: bold;
+        color: #666;
+        font-size: 1.2vw;
+        letter-spacing: 2px;
+        border-right: 2px solid #eee;
+    }
+
+    .tiles-area {
+        flex: 1;
+        display: flex;
+    }
+
+    .tile {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        border-right: 1px dashed #eee;
+    }
+
+    .tile:hover {
+        background-color: var(--tile-hover);
+        z-index: 2;
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tile-text {
+        font-size: 4vw; /* 若覺得字太大被切到，可改小至 3.5vw */
+        font-weight: 900;
+        color: #444;
+        line-height: 1;
+    }
+
+    /* 喇叭圖示 */
+    .speaker-icon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 2.0vw; /* 稍微調小以適應高度 */
+        height: 2.0vw;
+        background: #eee;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2vw;
+        color: #666;
+        z-index: 5;
+        transition: background 0.2s;
+    }
+
+    .speaker-icon:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    /* --- Modal (說明框) --- */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background: white;
+        width: 60vw;
+        max-width: 600px;
+        /* 新增：限制最大高度與滾動功能，確保適配螢幕顯示範圍 */
+        max-height: 90vh;
+        overflow-y: auto;
+
+        aspect-ratio: 16/9;
+        border-radius: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        border: 5px solid var(--category-bg);
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px; right: 20px;
+        font-size: 40px;
+        cursor: pointer;
+        color: #ccc;
+        line-height: 1;
+        z-index: 10;
+    }
+    .close-btn:hover { color: #ff4b4b; }
+
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 5vw;
+        color: #ddd;
+        cursor: pointer;
+        padding: 20px;
+        transition: color 0.2s;
+        z-index: 10;
+    }
+    .nav-btn:hover { color: var(--category-bg); }
+    .nav-prev { left: 10px; }
+    .nav-next { right: 10px; }
+
+    .modal-cat {
+        font-size: 2vw;
+        color: #888;
+        margin-bottom: 10px;
+        background: #eee;
+        padding: 5px 15px;
+        border-radius: 20px;
+    }
+
+    .modal-main-text {
+        font-size: 10vw;
+        font-weight: 900;
+        color: #333;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .modal-zhuyin {
+        font-size: 4vw;
+        color: #e65100; /* 深橘色 */
+        font-weight: bold;
+    }
+
+    /* RWD 文字大小調整 */
+    @media (max-width: 768px) {
+        .cat-label { font-size: 14px; }
+        .speaker-icon { width: 20px; height: 20px; font-size: 12px; }
+        .tile-text { font-size: 24px; }
+        
+        /* Modal 在手機上不強制比例，高度自動，並確保最小高度 */
+        .modal-content { width: 90vw; aspect-ratio: auto; height: auto; min-height: 50vh; padding: 30px 0; }
+        .modal-cat { font-size: 18px; }
+        .modal-main-text { font-size: 80px; }
+        .modal-zhuyin { font-size: 30px; }
+        .nav-btn { font-size: 40px; }
+    }
+
+</style>
+</head>
+<body>
+
+<div id="main-container">
+    <div class="header">台語聲母</div>
+    <div class="grid-content" id="grid-container">
+        </div>
+</div>
+
+<div id="info-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        
+        <div class="nav-btn nav-prev" onclick="changeIndex(-1)">&#10094;</div>
+        <div class="nav-btn nav-next" onclick="changeIndex(1)">&#10095;</div>
+
+        <div id="m-cat" class="modal-cat">分類</div>
+        <div id="m-text" class="modal-main-text">P</div>
+        <div id="m-zhuyin" class="modal-zhuyin">參考：ㄅ</div>
+    </div>
+</div>
+
+<audio id="audio-player"></audio>
+
+<script>
+    // 資料結構：定義所有聲母的屬性、分類、音檔連結
+    const initialsData = [
+        // 合唇音
+        { id: 'p',  cat: '合唇音', zh: 'ㄅ',              url: 'https://tailo.moe.edu.tw/sam/sam1/2-1mp4/p.mp4' },
+        { id: 'ph', cat: '合唇音', zh: 'ㄆ',              url: 'https://tailo.moe.edu.tw/sam/sam1/2-1mp4/ph.mp4' },
+        { id: 'm',  cat: '合唇音', zh: 'ㄇ(閉嘴)',        url: 'https://tailo.moe.edu.tw/sam/sam1/2-1mp4/m.mp4' },
+        { id: 'b',  cat: '合唇音', zh: '',                url: 'https://tailo.moe.edu.tw/sam/sam1/2-1mp4/b.mp4' },
+        
+        // 舌尖音
+        { id: 't',  cat: '舌尖音', zh: 'ㄉ',              url: 'https://tailo.moe.edu.tw/sam/sam2/2-2mp4/t.mp4' },
+        { id: 'th', cat: '舌尖音', zh: 'ㄊ',              url: 'https://tailo.moe.edu.tw/sam/sam2/2-2mp4/th.mp4' },
+        { id: 'n',  cat: '舌尖音', zh: 'ㄋ',              url: 'https://tailo.moe.edu.tw/sam/sam2/2-2mp4/n.mp4' },
+        { id: 'l',  cat: '舌尖音', zh: 'ㄌ',              url: 'https://tailo.moe.edu.tw/sam/sam2/2-2mp4/l.mp4' },
+        
+        // 舌根音
+        { id: 'k',  cat: '舌根音', zh: 'ㄍ',              url: 'https://tailo.moe.edu.tw/sam/sam3/2-3mp4/k.mp4' },
+        { id: 'kh', cat: '舌根音', zh: 'ㄎ',              url: 'https://tailo.moe.edu.tw/sam/sam3/2-3mp4/kh.mp4' },
+        { id: 'ng', cat: '舌根音', zh: '',                url: 'https://tailo.moe.edu.tw/sam/sam3/2-3mp4/ng.mp4' },
+        { id: 'g',  cat: '舌根音', zh: '',                url: 'https://tailo.moe.edu.tw/sam/sam3/2-3mp4/g.mp4' },
+        
+        // 舌齒音
+        { id: 'ts', cat: '舌齒音', zh: 'ㄗ',              url: 'https://tailo.moe.edu.tw/sam/sam5/2-5mp4/ts.mp4' },
+        { id: 'tsh',cat: '舌齒音', zh: 'ㄘ',              url: 'https://tailo.moe.edu.tw/sam/sam5/2-5mp4/tsh.mp4' },
+        { id: 's',  cat: '舌齒音', zh: 'ㄙ',              url: 'https://tailo.moe.edu.tw/sam/sam5/2-5mp4/s.mp4' },
+        { id: 'j',  cat: '舌齒音', zh: 'ㄖ',              url: 'https://tailo.moe.edu.tw/sam/sam5/2-5mp4/j.mp4' },
+        
+        // 喉音
+        { id: 'h',  cat: '喉音',   zh: 'ㄏ',              url: 'https://tailo.moe.edu.tw/sam/sam4/2-4mp4/h.mp4' }
+    ];
+
+    // 用於構建 Grid 的結構
+    const gridStructure = [
+        { cat: '合唇音', items: ['p', 'ph', 'm', 'b'] },
+        { cat: '舌尖音', items: ['t', 'th', 'n', 'l'] },
+        { cat: '舌根音', items: ['k', 'kh', 'ng', 'g'] },
+        { cat: '舌齒音', items: ['ts', 'tsh', 's', 'j'] },
+        { cat: '喉音',   items: ['h', '', '', ''] }
+    ];
+
+    let currentIndex = 0;
+    const audioPlayer = document.getElementById('audio-player');
+
+    function init() {
+        const container = document.getElementById('grid-container');
+        
+        gridStructure.forEach(row => {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'row';
+
+            // 左側分類標籤
+            const catDiv = document.createElement('div');
+            catDiv.className = 'cat-label';
+            catDiv.textContent = row.cat;
+            rowDiv.appendChild(catDiv);
+
+            // 右側單字區塊
+            const tilesArea = document.createElement('div');
+            tilesArea.className = 'tiles-area';
+
+            row.items.forEach(itemId => {
+                const itemData = initialsData.find(d => d.id === itemId);
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+
+                if (itemData) {
+                    // 1. 顯示文字
+                    const textSpan = document.createElement('span');
+                    textSpan.className = 'tile-text';
+                    textSpan.textContent = itemData.id;
+                    tile.appendChild(textSpan);
+
+                    // 2. 喇叭圖示
+                    const speaker = document.createElement('div');
+                    speaker.className = 'speaker-icon';
+                    speaker.innerHTML = '🔊';
+                    speaker.onclick = (e) => {
+                        e.stopPropagation();
+                        playSound(itemData.url);
+                    };
+                    tile.appendChild(speaker);
+
+                    // 3. 點擊整個 Tile (開啟 Modal)
+                    tile.onclick = () => openModalById(itemData.id);
+                }
+
+                tilesArea.appendChild(tile);
+            });
+
+            rowDiv.appendChild(tilesArea);
+            container.appendChild(rowDiv);
+        });
+    }
+
+    function playSound(url) {
+        if (!url) return;
+        audioPlayer.src = url;
+        audioPlayer.play().catch(e => console.error("播放失敗:", e));
+    }
+
+    // --- Modal 邏輯 ---
+
+    function openModalById(id) {
+        const index = initialsData.findIndex(d => d.id === id);
+        if (index !== -1) {
+            currentIndex = index;
+            updateModal();
+            document.getElementById('info-modal').style.display = 'flex';
+            playSound(initialsData[currentIndex].url);
+        }
+    }
+
+    function closeModal(e) {
+        if (!e || e.target.id === 'info-modal' || e.target.classList.contains('close-btn')) {
+            document.getElementById('info-modal').style.display = 'none';
+            audioPlayer.pause();
+        }
+    }
+
+    function changeIndex(direction) {
+        currentIndex = (currentIndex + direction + initialsData.length) % initialsData.length;
+        updateModal();
+        playSound(initialsData[currentIndex].url);
+    }
+
+    function updateModal() {
+        const data = initialsData[currentIndex];
+        document.getElementById('m-cat').textContent = data.cat;
+        document.getElementById('m-text').textContent = data.id;
+        
+        const zhDiv = document.getElementById('m-zhuyin');
+        if (data.zh) {
+            zhDiv.textContent = `參考注音：${data.zh}`;
+            zhDiv.style.display = 'block';
+        } else {
+            zhDiv.style.display = 'none';
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('info-modal').style.display === 'flex') {
+            if (e.key === 'ArrowLeft') changeIndex(-1);
+            if (e.key === 'ArrowRight') changeIndex(1);
+            if (e.key === 'Escape') closeModal();
+        }
+    });
+
+    init();
+
+</script>
+</body>
+</html>

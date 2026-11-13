@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  育達版高中全1冊 第8課 翕相師傅 — 台語課堂遊戲「形音義配對」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「育達文化事業股份有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 16 日取得該公司用印之《著作財產權授權同意書》，
+  授權於非營利之教育教學用途範圍內重製、改編課文、圖片及聲音檔。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  除育達文化事業股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>形音義配對 - 第8課 翕相師傅</title>
+    
+    <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+    <script src="https://oikasu1.github.io/snd/snd.js"></script>
+
+    <style>
+        :root {
+            /* 橘色系主題 */
+            --bg-start: #FFF8E1; 
+            --bg-end: #FFCC80;   
+            --primary-color: #ff9600; 
+            --primary-shadow: #cc7a00;
+            --correct-color: #58cc02; 
+            --correct-shadow: #46a302;
+            --wrong-color: #ff4b4b;   
+            --wrong-shadow: #d12020;
+            --text-color: #4b4b4b;
+            --font-main: 'tauhu-oo', sans-serif;
+            --box-border: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-color);
+        }
+
+        body[oncontextmenu="return false;"] { cursor: default; }
+
+        /* --- 1. 入口選單 --- */
+        #menu-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 { margin-bottom: 0.2em; font-size: 2.5rem; color: #d35400; line-height: 1; }
+        h2 { margin-top: 0; font-size: 1.2rem; color: #8d6e63; font-weight: normal; margin-bottom: 2rem; line-height: 1; }
+
+        .settings-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .option-group { margin-bottom: 1.5rem; text-align: left; }
+        .option-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; font-size: 1.1rem; color: #5d4037; }
+        
+        /* 數量選擇網格 3x2 配置 */
+        .qty-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .qty-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qty-btn.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-shadow);
+            box-shadow: 0 2px 0 var(--primary-shadow);
+        }
+
+        .btn-start {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 0;
+            width: 100%;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            cursor: pointer;
+            transition: transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .btn-start:active { transform: translateY(4px); box-shadow: none; }
+
+        /* --- 2. 遊戲介面配置 --- */
+        #game-screen {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 10px 0 10px; 
+        }
+
+        /* 內容主區域 - 佔據所有剩餘空間 */
+        .content-area {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            align-items: stretch; 
+        }
+
+        /* 左側資訊區 */
+        .info-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 10px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+            border: 2px solid #fff;
+            flex-shrink: 0; 
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1.4rem; 
+        }
+        .info-label {
+            font-weight: bold;
+            color: #795548;
+            width: 70px;
+            flex-shrink: 0;
+        }
+        .info-val {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.4rem; 
+        }
+
+        .taiyu-box {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; 
+            border: 2px solid #ffe0b2;
+        }
+        .taiyu-text {
+            font-size: 2.5rem; 
+            color: #d35400;
+            font-weight: bold;
+        }
+        .play-audio-btn {
+            font-size: 2.2rem; 
+            cursor: pointer;
+            color: #29b6f6;
+            background: white;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 0 #ddd;
+            flex-shrink: 0;
+        }
+        .play-audio-btn:active { transform: scale(0.95); box-shadow: none; }
+
+        .mandarin-label {
+            font-weight: bold; 
+            color: #795548; 
+            width: 100%; 
+            margin-bottom: 2px; 
+            font-size: 1.1rem;
+            text-align: left; 
+        }
+
+        /* 華語文字區域 */
+        .mandarin-text {
+            font-size: 1.6rem; 
+            color: #555;
+            line-height: 1.3;
+            max-height: 80px; 
+            overflow-y: auto; 
+            padding-right: 5px;
+            text-align: center; 
+            
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+        .mandarin-text::-webkit-scrollbar { width: 6px; }
+        .mandarin-text::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 3px; }
+        .mandarin-text.fs-md { font-size: 1.4rem; }
+        .mandarin-text.fs-sm { font-size: 1.2rem; }
+
+        /* 右側答題矩陣區 */
+        .matrix-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 4px; 
+            
+            flex: 1;           
+            min-height: 0;     
+            overflow-y: auto;  
+            overflow-x: auto;  
+            
+            align-items: flex-start; 
+            scroll-behavior: smooth; /* 增加平滑捲動 */
+        }
+
+        .syllable-row {
+            display: flex;
+            gap: 8px;
+            width: max-content; 
+            min-width: 100%;    
+            padding-bottom: 5px; 
+        }
+
+        /* 單個目標方塊 */
+        .target-box {
+            flex: 1;
+            border: 2px solid var(--box-border);
+            border-radius: 10px;
+            background: #fdfdfd;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 90px; 
+            transition: all 0.3s;
+            min-width: 60px; 
+        }
+
+        .target-header {
+            background: #f0f0f0;
+            color: #777;
+            font-size: 1.2rem; 
+            padding: 4px;
+            text-align: center;
+            border-bottom: 1px solid var(--box-border);
+            white-space: nowrap; 
+        }
+
+        .target-value {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; 
+            font-weight: bold;
+            color: #ccc; 
+            white-space: nowrap;
+            /* 預防單格文字過多溢出 */
+            overflow-y: auto;
+        }
+
+        .target-value.filled { color: var(--correct-color); }
+
+        /* 呼吸效果 */
+        @keyframes breathe {
+            0% { border-color: #ff4b4b; box-shadow: 0 0 0 0 rgba(255, 75, 75, 0.4); }
+            50% { border-color: #ff4b4b; box-shadow: 0 0 8px 4px rgba(255, 75, 75, 0.2); }
+            100% { border-color: #ff4b4b; box-shadow: 0 0 0 0 rgba(255, 75, 75, 0); }
+        }
+
+        .target-box.active-step {
+            animation: breathe 1.5s infinite;
+            border-width: 2px;
+            background-color: #fffafaf0;
+        }
+        .target-box.active-step .target-header {
+            background-color: #ff4b4b;
+            color: white;
+        }
+        .target-box.active-step .target-value {
+            color: #ff4b4b;
+        }
+
+        /* 選項區域 */
+        .options-area {
+            flex-shrink: 0;
+            height: auto;
+            min-height: 140px;
+            margin-bottom: 5px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .option-card {
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 15px;
+            padding: 8px;
+            box-shadow: 0 4px 0 #e5e5e5;
+            cursor: pointer;
+            transition: all 0.1s;
+            display: flex;
+            align-items: center;
+            min-height: 80px; 
+            overflow: hidden; 
+        }
+        .option-card:active { transform: translateY(4px); box-shadow: none; }
+
+        .opt-idx-box {
+            width: 54px; 
+            height: 54px; 
+            font-size: 1.5rem; 
+            background: #eee;
+            color: #888;
+            border-radius: 12px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 2px solid #ddd;
+        }
+
+        .opt-text {
+            font-size: 2.1rem; 
+            font-weight: bold;
+            color: var(--text-color);
+            flex-grow: 1;
+            text-align: center;
+            word-break: break-word; 
+            line-height: 1.1;       
+        }
+
+        /* 手機版 (6.2吋約對應寬度400-480px以下)，縮小字體 */
+        @media (max-width: 480px) {
+            .opt-text { font-size: 1.6rem; }
+            .text-fit-sm { font-size: 1.3rem; }
+            .text-fit-md { font-size: 1.5rem; }
+            .text-fit-lg { font-size: 1.8rem; }
+            .opt-idx-box { width: 45px; height: 45px; font-size: 1.2rem; margin-right: 8px; }
+        }
+
+        .option-card.correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+            box-shadow: 0 4px 0 var(--correct-shadow);
+        }
+        .option-card.correct .opt-idx-box { background-color: #46a302; color: white; border-color: #388e3c; }
+        .option-card.correct .opt-text { color: white; }
+
+        .option-card.wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+            box-shadow: 0 4px 0 var(--wrong-shadow);
+        }
+        .option-card.wrong .opt-idx-box { background-color: #d12020; color: white; border-color: #b71c1c; }
+        .option-card.wrong .opt-text { color: white; }
+
+        /* --- 底部整合工具列 --- */
+        .footer-bar {
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255,255,255,0);
+            border-top: none; 
+            padding: 0 10px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        /* 底部左側 (選單 + 題號) */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 140px; 
+        }
+        .nav-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 5px 15px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            box-shadow: 0 2px 0 #ddd;
+            font-size: 0.9rem;
+        }
+        .nav-btn:active { transform: translateY(2px); box-shadow: none; }
+        
+        .q-counter {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #d35400;
+        }
+
+        /* 底部中間 (完成訊息) */
+        .footer-center {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #58cc02;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* 底部右側 (上一題 + 下一題) */
+        .footer-right {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            width: 170px; 
+        }
+
+        .nav-control-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 5px; 
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            font-size: 1rem;
+            cursor: pointer;
+            visibility: visible; 
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            flex: 1;
+        }
+        .nav-control-btn:active { transform: translateY(4px); box-shadow: none; }
+        .nav-control-btn:disabled {
+            background-color: #ccc;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        /* RWD */
+        @media (min-width: 768px) {
+            .content-area {
+                flex-direction: row;
+                align-items: stretch; 
+            }
+            .info-panel {
+                flex: 1;
+                max-width: 400px; 
+            }
+            .matrix-panel {
+                flex: 2;
+                align-items: center; 
+            }
+            .syllable-row {
+                width: 100%;
+                justify-content: center;
+            }
+            .options-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            .footer-bar {
+                padding: 0 20px;
+            }
+        }
+        
+        .text-fit-sm { font-size: 1.65rem; }
+        .text-fit-md { font-size: 1.95rem; }
+        .text-fit-lg { font-size: 2.4rem; }
+
+    </style>
+<style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="menu-screen">
+        <h1>形音義配對</h1>
+        <h2>第8課 翕相師傅</h2>
+        <div class="settings-box">
+            
+            <div class="option-group">
+                <label>測驗數量</label>
+                <div class="qty-grid">
+                    <div class="qty-btn selected" onclick="selectQty(5)">5</div>
+                    <div class="qty-btn" onclick="selectQty(7)">7</div>
+                    <div class="qty-btn" onclick="selectQty(9)">9</div>
+                    <div class="qty-btn" onclick="selectQty(11)">11</div>
+                    <div class="qty-btn" onclick="selectQty(13)">13</div>
+                    <div class="qty-btn" onclick="selectQty(15)">15</div>
+                </div>
+            </div>
+            <button class="btn-start" onclick="startGame()">開始測驗</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/HINGIM-YUDA-B1L8.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+        </div>
+    </div>
+
+    <div id="game-screen">
+        
+        <div class="content-area">
+            
+            <div class="info-panel">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; border-bottom:1px dashed #ccc; padding-bottom:5px;">
+                    <div class="info-row" style="margin:0;">
+                        <span class="info-label">項次</span>
+                        <span class="info-val" id="disp-id">1</span>
+                    </div>
+                    <div class="info-row" style="margin:0;">
+                        <span class="info-label">頁數</span>
+                        <span class="info-val" id="disp-page">6</span>
+                    </div>
+                </div>
+
+                <div class="taiyu-box">
+                    <span class="taiyu-text" id="display-taiyu">呔會</span>
+                    <div class="play-audio-btn" onclick="playCurrentAudio()">🔊</div>
+                </div>
+
+                <div style="margin-top: 5px;">
+                    <div class="mandarin-label">華語</div>
+                    <div class="mandarin-text" id="display-mandarin">怎麼會、豈會</div>
+                </div>
+            </div>
+
+            <div class="matrix-panel" id="matrix-container">
+                </div>
+
+        </div>
+
+        <div class="options-area">
+            <div id="options-grid" class="options-grid">
+                </div>
+        </div>
+
+        <div class="footer-bar">
+            <div class="footer-left">
+                <button class="nav-btn" onclick="returnToMenu()">選單</button>
+                <div class="q-counter">
+                    <span id="current-q-num">1</span> / <span id="total-q-num">5</span>
+                </div>
+            </div>
+
+            <div class="footer-center" id="status-msg">
+                </div>
+
+            <div class="footer-right">
+                <button id="prev-btn" class="nav-control-btn" onclick="prevQuestion()">上一題</button>
+                <button id="next-btn" class="nav-control-btn" onclick="nextQuestion()">下一題</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. 資料庫 (Lesson 8: 翕相師傅) ---
+        const db = [
+            {id:1, pg:124, ty:"i--仔", tl:"i--á", i1:"無", f1:"i", t1:"1", s1:"不變", i2:"無", f2:"á", t2:"2", s2:"輕聲", md:"媽媽"},
+            {id:2, pg:124, ty:"提", tl:"the̍h", i1:"th", f1:"e̍h", t1:"8", s1:"不變", md:"拿"},
+            {id:3, pg:124, ty:"反黃", tl:"huán-n̂g", i1:"h", f1:"uán", t1:"2", s1:"1", i2:"無", f2:"n̂g", t2:"5", s2:"不變", md:"泛黃"},
+            {id:4, pg:124, ty:"予", tl:"hōo", i1:"h", f1:"ōo", t1:"7", s1:"不變", md:"給"},
+            {id:5, pg:124, ty:"个", tl:"ê", i1:"無", f1:"ê", t1:"5", s1:"不變", md:"個"},
+            {id:6, pg:124, ty:"膨皮", tl:"phòng-phuê", i1:"ph", f1:"òng", t1:"3", s1:"2", i2:"ph", f2:"uê", t2:"5", s2:"不變", md:"臉頰飽滿"},
+            {id:7, pg:124, ty:"好笑神", tl:"hó-tshiò-sîn", i1:"h", f1:"ó", t1:"2", s1:"1", i2:"tsh", f2:"iò", t2:"3", s2:"2", i3:"s", f3:"în", t3:"5", s3:"不變", md:"神態愉悅"},
+            {id:8, pg:124, ty:"古錐", tl:"kóo-tsui", i1:"k", f1:"óo", t1:"2", s1:"1", i2:"ts", f2:"ui", t2:"1", s2:"不變", md:"可愛"},
+            {id:9, pg:124, ty:"查埔", tl:"ta-poo", i1:"t", f1:"a", t1:"1", s1:"7", i2:"p", f2:"oo", t2:"1", s2:"不變", md:"男性"},
+            {id:10, pg:124, ty:"囡仔", tl:"gín-á", i1:"g", f1:"ín", t1:"2", s1:"1", i2:"無", f2:"á", t2:"2", s2:"不變", md:"小孩子"},
+            {id:11, pg:124, ty:"竹篾仔", tl:"tik-bi̍h-á", i1:"t", f1:"ik", t1:"4", s1:"8", i2:"b", f2:"i̍h", t2:"8", s2:"7", i3:"無", f3:"á", t3:"2", s3:"不變", md:"薄細竹片"},
+            {id:12, pg:124, ty:"邊仔", tl:"pinn--á", i1:"p", f1:"inn", t1:"1", s1:"不變", i2:"無", f2:"á", t2:"2", s2:"輕聲", md:"旁邊"},
+            {id:13, pg:124, ty:"徛", tl:"khiā", i1:"kh", f1:"iā", t1:"7", s1:"不變", md:"站"},
+            {id:14, pg:124, ty:"媠", tl:"suí", i1:"s", f1:"uí", t1:"2", s1:"不變", md:"漂亮"},
+            {id:15, pg:124, ty:"烏", tl:"oo", i1:"無", f1:"oo", t1:"1", s1:"不變", md:"黑"},
+            {id:16, pg:124, ty:"毋過", tl:"m̄-koh", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"k", f2:"oh", t2:"4", s2:"不變", md:"不過"},
+            {id:17, pg:124, ty:"彼", tl:"hit", i1:"h", f1:"it", t1:"4", s1:"不變", md:"那"},
+            {id:18, pg:124, ty:"喙脣", tl:"tshuì-tûn", i1:"tsh", f1:"uì", t1:"3", s1:"2", i2:"t", f2:"ûn", t2:"5", s2:"不變", md:"嘴唇"},
+            {id:19, pg:124, ty:"胭脂", tl:"ian-tsi", i1:"無", f1:"ian", t1:"1", s1:"7", i2:"ts", f2:"i", t2:"1", s2:"不變", md:"口紅"},
+            {id:20, pg:124, ty:"紅記記", tl:"âng-kì-kì", i1:"無", f1:"âng", t1:"5", s1:"7", i2:"k", f2:"ì", t2:"3", s2:"2", i3:"k", f3:"ì", t3:"3", s3:"不變", md:"顏色極紅"},
+            {id:21, pg:124, ty:"得人疼", tl:"tit-lâng-thiànn", i1:"t", f1:"it", t1:"4", s1:"8", i2:"l", f2:"âng", t2:"5", s2:"7", i3:"th", f3:"iànn", t3:"3", s3:"不變", md:"獲疼愛"},
+            {id:22, pg:124, ty:"紅嬰仔", tl:"âng-enn-á", i1:"無", f1:"âng", t1:"5", s1:"7", i2:"無", f2:"enn", t2:"1", s2:"7", i3:"無", f3:"á", t3:"2", s3:"不變", md:"新生幼兒"},
+            {id:23, pg:124, ty:"有影", tl:"ū-iánn", i1:"無", f1:"ū", t1:"7", s1:"3", i2:"無", f2:"iánn", t2:"2", s2:"不變", md:"真的"},
+            {id:24, pg:124, ty:"啥物", tl:"siánn-mih", i1:"s", f1:"iánn", t1:"2", s1:"1", i2:"m", f2:"ih", t2:"4", s2:"不變", md:"什麼"},
+            {id:25, pg:124, ty:"幼囝", tl:"iù-kiánn", i1:"無", f1:"iù", t1:"3", s1:"2", i2:"k", f2:"iánn", t2:"2", s2:"不變", md:"幼子"},
+            {id:26, pg:124, ty:"瘦卑巴", tl:"sán-pi-pa", i1:"s", f1:"án", t1:"2", s1:"1", i2:"p", f2:"i", t2:"1", s2:"7", i3:"p", f3:"a", t3:"1", s3:"不變", md:"極瘦"},
+            {id:27, pg:124, ty:"憂頭結面", tl:"iu-thâu-kat-bīn", i1:"無", f1:"iu", t1:"1", s1:"7", i2:"th", f2:"âu", t2:"5", s2:"7", i3:"k", f3:"at", t3:"4", s3:"8", i4:"b", f4:"īn", t4:"7", s4:"不變", md:"面愁容"},
+            {id:28, pg:124, ty:"啥人", tl:"siánn-lâng", i1:"s", f1:"iánn", t1:"2", s1:"1", i2:"l", f2:"âng", t2:"5", s2:"不變", md:"什麼人"},
+            {id:29, pg:125, ty:"僫", tl:"oh", i1:"無", f1:"oh", t1:"4", s1:"不變", md:"不容易"},
+            {id:30, pg:125, ty:"翕相", tl:"hip-siòng", i1:"h", f1:"ip", t1:"4", s1:"8", i2:"s", f2:"iòng", t2:"3", s2:"不變", md:"照相"},
+            {id:31, pg:125, ty:"辯士", tl:"piān-sū", i1:"p", f1:"iān", t1:"7", s1:"3", i2:"s", f2:"ū", t2:"7", s2:"不變", md:"解劇人"},
+            {id:32, pg:125, ty:"彼", tl:"he", i1:"h", f1:"e", t1:"1", s1:"不變", md:"那個"},
+            {id:33, pg:125, ty:"傳", tl:"thuân", i1:"th", f1:"uân", t1:"5", s1:"不變", md:"傳授"},
+            {id:34, pg:125, ty:"捌", tl:"bat", i1:"b", f1:"at", t1:"4", s1:"不變", md:"曾經"},
+            {id:35, pg:125, ty:"𤆬", tl:"tshuā", i1:"tsh", f1:"uā", t1:"7", s1:"不變", md:"帶"},
+            {id:36, pg:125, ty:"兜", tl:"tau", i1:"t", f1:"au", t1:"1", s1:"不變", md:"家"},
+            {id:37, pg:125, ty:"過暝", tl:"kuè-mî/mê", i1:"k", f1:"uè", t1:"3", s1:"2", i2:"m", f2:"î", t2:"5", s2:"不變", md:"過夜"},
+            {id:38, pg:125, ty:"共", tl:"kā", i1:"k", f1:"ā", t1:"7", s1:"不變", md:"給"},
+            {id:39, pg:125, ty:"猶未", tl:"iáu-bē/buē", i1:"無", f1:"iáu", t1:"2", s1:"1", i2:"b", f2:"ē", t2:"7", s2:"不變", md:"還沒"},
+            {id:40, pg:125, ty:"紮", tl:"tsah", i1:"ts", f1:"ah", t1:"4", s1:"不變", md:"帶"},
+            {id:41, pg:125, ty:"家私", tl:"ke-si", i1:"k", f1:"e", t1:"1", s1:"7", i2:"s", f2:"i", t2:"1", s2:"不變", md:"工具"},
+            {id:42, pg:125, ty:"佇", tl:"tī", i1:"t", f1:"ī", t1:"7", s1:"不變", md:"在"},
+            {id:43, pg:125, ty:"日頭跤", tl:"ji̍t-thâu-kha", i1:"j", f1:"i̍t", t1:"8", s1:"4", i2:"th", f2:"âu", t2:"5", s2:"7", i3:"kh", f3:"a", t3:"1", s3:"不變", md:"太陽下"},
+            {id:44, pg:125, ty:"拭", tl:"tshit", i1:"tsh", f1:"it", t1:"4", s1:"不變", md:"擦"},
+            {id:45, pg:125, ty:"譀", tl:"hàm", i1:"h", f1:"àm", t1:"3", s1:"不變", md:"誇張"},
+            {id:46, pg:125, ty:"創啥", tl:"tshòng-siánn", i1:"tsh", f1:"òng", t1:"3", s1:"2", i2:"s", f2:"iánn", t2:"2", s2:"不變", md:"做什麼"},
+            {id:47, pg:125, ty:"佮", tl:"kah", i1:"k", f1:"ah", t1:"4", s1:"不變", md:"和"},
+            {id:48, pg:125, ty:"仝款", tl:"kāng-khuán", i1:"k", f1:"āng", t1:"7", s1:"3", i2:"kh", f2:"uán", t2:"2", s2:"不變", md:"相同"},
+            {id:49, pg:125, ty:"敢著", tl:"kám-tio̍h", i1:"k", f1:"ám", t1:"2", s1:"1", i2:"t", f2:"io̍h", t2:"8", s2:"不變", md:"還需要..?"},
+            {id:50, pg:125, ty:"遐濟", tl:"hiah-tsē", i1:"h", f1:"iah", t1:"4", s1:"2", i2:"ts", f2:"ē", t2:"7", s2:"不變", md:"那麼多"},
+            {id:51, pg:125, ty:"會當", tl:"ē-tàng", i1:"無", f1:"ē", t1:"7", s1:"3", i2:"t", f2:"àng", t2:"3", s2:"不變", md:"可以"},
+            {id:52, pg:125, ty:"按怎", tl:"án-tsuánn", i1:"無", f1:"án", t1:"2", s1:"1", i2:"ts", f2:"uánn", t2:"2", s2:"不變", md:"怎麼"},
+            {id:53, pg:125, ty:"袂", tl:"bē/buē", i1:"b", f1:"ē", t1:"7", s1:"不變", md:"不"},
+            {id:54, pg:125, ty:"檢采", tl:"kiám-tshái", i1:"k", f1:"iám", t1:"2", s1:"1", i2:"tsh", f2:"ái", t2:"2", s2:"不變", md:"如果"},
+            {id:55, pg:125, ty:"人客", tl:"lâng-kheh", i1:"l", f1:"âng", t1:"5", s1:"7", i2:"kh", f2:"eh", t2:"4", s2:"不變", md:"客人"},
+            {id:56, pg:125, ty:"攏", tl:"lóng", i1:"l", f1:"óng", t1:"2", s1:"不變", md:"都"},
+            {id:57, pg:125, ty:"頂真", tl:"tíng-tsin", i1:"t", f1:"íng", t1:"2", s1:"1", i2:"ts", f2:"in", t2:"1", s2:"不變", md:"認真細心"},
+            {id:58, pg:125, ty:"解說", tl:"kái-suè", i1:"k", f1:"ái", t1:"2", s1:"1", i2:"s", f2:"uè", t2:"3", s2:"不變", md:"解釋"},
+            {id:59, pg:125, ty:"干焦", tl:"kan-na/ta/tann", i1:"k", f1:"an", t1:"1", s1:"7", i2:"n", f2:"a", t2:"1", s2:"不變", md:"只有"},
+            {id:60, pg:125, ty:"記持", tl:"kì-tî", i1:"k", f1:"ì", t1:"3", s1:"2", i2:"t", f2:"î", t2:"5", s2:"不變", md:"記憶"},
+            {id:61, pg:126, ty:"猶", tl:"iáu", i1:"無", f1:"iáu", t1:"2", s1:"不變", md:"都"},
+            {id:62, pg:126, ty:"遮", tl:"tsia", i1:"ts", f1:"ia", t1:"1", s1:"不變", md:"這麼"},
+            {id:63, pg:126, ty:"應話", tl:"ìn-uē", i1:"無", f1:"ìn", t1:"3", s1:"2", i2:"無", f2:"uē", t2:"7", s2:"不變", md:"應答"},
+            {id:64, pg:126, ty:"尾仔", tl:"bué-á", i1:"b", f1:"ué", t1:"2", s1:"1", i2:"無", f2:"á", t2:"2", s2:"不變", md:"最後"},
+            {id:65, pg:126, ty:"明仔載", tl:"bîn-á-tsài/miâ", i1:"b", f1:"în", t1:"5", s1:"7", i2:"無", f2:"á", t2:"2", s2:"1", i3:"ts", f3:"ài", t3:"3", s3:"不變", md:"明天"},
+            {id:66, pg:126, ty:"庄", tl:"tsng", i1:"ts", f1:"ng", t1:"1", s1:"不變", md:"村莊"},
+            {id:67, pg:126, ty:"倩", tl:"tshiànn", i1:"tsh", f1:"iànn", t1:"3", s1:"不變", md:"僱用"},
+            {id:68, pg:126, ty:"綴", tl:"tuè", i1:"t", f1:"uè", t1:"3", s1:"不變", md:"跟"},
+            {id:69, pg:126, ty:"揹", tl:"āinn", i1:"無", f1:"āinn", t1:"7", s1:"不變", md:"背"},
+            {id:70, pg:126, ty:"貯", tl:"té", i1:"t", f1:"é", t1:"2", s1:"不變", md:"裝"},
+            {id:71, pg:126, ty:"後斗", tl:"āu-táu", i1:"無", f1:"āu", t1:"7", s1:"3", i2:"t", f2:"áu", t2:"2", s2:"不變", md:"車裝貨處"},
+            {id:72, pg:126, ty:"tsiuh-tsiuh 叫", tl:"tsiuh-tsiuh-kiò", i1:"ts", f1:"iuh", t1:"4", s1:"2", i2:"ts", f2:"iuh", t2:"4", s2:"2", i3:"k", f3:"iò", t3:"3", s3:"不變", md:"鳥叫聲"},
+            {id:73, pg:126, ty:"呼噓仔", tl:"khoo-si-á", i1:"kh", f1:"oo", t1:"1", s1:"7", i2:"s", f2:"i", t2:"1", s2:"7", i3:"無", f3:"á", t3:"2", s3:"不變", md:"吹口哨"},
+            {id:74, pg:126, ty:"抑是", tl:"ia̍h-sī/iah/a̍h/ah", i1:"無", f1:"ia̍h", t1:"8", s1:"3", i2:"s", f2:"ī", t2:"7", s2:"不變", md:"或者"},
+            {id:75, pg:126, ty:"熟似", tl:"si̍k-sāi", i1:"s", f1:"i̍k", t1:"8", s1:"4", i2:"s", f2:"āi", t2:"7", s2:"不變", md:"認識"},
+            {id:76, pg:126, ty:"毋捌", tl:"m̄-bat", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"b", f2:"at", t2:"4", s2:"不變", md:"不認識"},
+            {id:77, pg:127, ty:"量其約仔", tl:"liōng-kî-io̍k-á", i1:"l", f1:"iōng", t1:"7", s1:"3", i2:"k", f2:"î", t2:"5", s2:"7", i3:"無", f3:"io̍k", t3:"8", s3:"7", i4:"無", f4:"á", t4:"2", s4:"不變", md:"大約"},
+            {id:78, pg:127, ty:"崙仔", tl:"lūn-á", i1:"l", f1:"ūn", t1:"7", s1:"7", i2:"無", f2:"á", t2:"2", s2:"不變", md:"小土坡"},
+            {id:79, pg:127, ty:"邊仔", tl:"pinn-á", i1:"p", f1:"inn", t1:"1", s1:"7", i2:"無", f2:"á", t2:"2", s2:"不變", md:"旁邊"},
+            {id:80, pg:127, ty:"榕仔", tl:"tshîng-á", i1:"tsh", f1:"ing", t1:"5", s1:"7", i2:"無", f2:"á", t2:"2", s2:"不變", md:"榕樹"},
+            {id:81, pg:127, ty:"縛", tl:"pa̍k", i1:"p", f1:"a̍k", t1:"8", s1:"不變", md:"綁"},
+            {id:82, pg:127, ty:"遐", tl:"hia", i1:"h", f1:"ia", t1:"1", s1:"不變", md:"那裡"},
+            {id:83, pg:127, ty:"食", tl:"tsia̍h", i1:"ts", f1:"ia̍h", t1:"8", s1:"不變", md:"吃"},
+            {id:84, pg:127, ty:"烏鶖", tl:"oo-tshiu", i1:"無", f1:"oo", t1:"1", s1:"7", i2:"tsh", f2:"iu", t2:"1", s2:"不變", md:"禽鳥類"},
+            {id:85, pg:127, ty:"尻脊骿", tl:"kha-tsiah-phiann", i1:"kh", f1:"a", t1:"1", s1:"7", i2:"ts", f2:"iah", t2:"4", s2:"2", i3:"ph", f3:"iann", t3:"1", s3:"不變", md:"背部"},
+            {id:86, pg:128, ty:"共", tl:"kā", i1:"k", f1:"ā", t1:"7", s1:"不變", md:"把"},
+            {id:87, pg:128, ty:"插", tl:"tshah", i1:"tsh", f1:"ah", t1:"4", s1:"不變", md:"固定"},
+            {id:88, pg:128, ty:"緊", tl:"kín", i1:"k", f1:"ín", t1:"2", s1:"不變", md:"快"},
+            {id:89, pg:128, ty:"提", tl:"the̍h", i1:"th", f1:"e̍h", t1:"8", s1:"不變", md:"拿"},
+            {id:90, pg:128, ty:"拍損", tl:"phah-sńg", i1:"ph", f1:"ah", t1:"4", s1:"2", i2:"s", f2:"ńg", t2:"2", s2:"不變", md:"浪費"},
+            {id:91, pg:128, ty:"庄跤", tl:"tsng-kha", i1:"ts", f1:"ng", t1:"1", s1:"7", i2:"kh", f2:"a", t2:"1", s2:"不變", md:"鄉下"},
+            {id:92, pg:128, ty:"慣勢", tl:"kuàn-sì", i1:"k", f1:"uàn", t1:"3", s1:"2", i2:"s", f2:"ì", t2:"3", s2:"不變", md:"習慣"},
+            {id:93, pg:128, ty:"時陣", tl:"sî-tsūn", i1:"s", f1:"î", t1:"5", s1:"7", i2:"ts", f2:"ūn", t2:"7", s2:"不變", md:"時候"},
+            {id:94, pg:128, ty:"倯", tl:"sông", i1:"s", f1:"ông", t1:"5", s1:"不變", md:"俗氣"},
+            {id:95, pg:128, ty:"頭人", tl:"thâu-lâng", i1:"th", f1:"âu", t1:"5", s1:"7", i2:"l", f2:"âng", t2:"5", s2:"不變", md:"領袖"},
+            {id:96, pg:128, ty:"細漢", tl:"sè-hàn", i1:"s", f1:"è", t1:"3", s1:"2", i2:"h", f2:"àn", t2:"3", s2:"不變", md:"輩份後"},
+            {id:97, pg:128, ty:"後生", tl:"hāu-senn", i1:"h", f1:"āu", t1:"7", s1:"3", i2:"s", f2:"enn", t2:"1", s2:"不變", md:"兒子"},
+            {id:98, pg:128, ty:"轉來", tl:"tńg--lâi", i1:"t", f1:"ńg", t1:"2", s1:"不變", i2:"l", f2:"âi", t2:"5", s2:"輕聲", md:"回來"},
+            {id:99, pg:128, ty:"𨑨迌", tl:"tshit-thô", i1:"tsh", f1:"it", t1:"4", s1:"8", i2:"th", f2:"ô", t2:"5", s2:"不變", md:"玩"},
+            {id:100, pg:128, ty:"𤆬", tl:"tshuā", i1:"tsh", f1:"uā", t1:"7", s1:"不變", md:"帶"},
+            {id:101, pg:128, ty:"順紲", tl:"sūn-suà", i1:"s", f1:"ūn", t1:"7", s1:"3", i2:"s", f2:"uà", t2:"3", s2:"不變", md:"順便"},
+            {id:102, pg:128, ty:"議量", tl:"gī-niū", i1:"g", f1:"ī", t1:"7", s1:"3", i2:"n", f2:"iū", t2:"7", s2:"不變", md:"消遣"},
+            {id:103, pg:129, ty:"好額", tl:"hó-gia̍h", i1:"h", f1:"ó", t1:"2", s1:"1", i2:"g", f2:"ia̍h", t2:"8", s2:"不變", md:"有錢"},
+            {id:104, pg:129, ty:"厝宅", tl:"tshù-the̍h", i1:"tsh", f1:"ù", t1:"3", s1:"2", i2:"th", f2:"e̍h", t2:"8", s2:"不變", md:"宅第"},
+            {id:105, pg:129, ty:"彼口灶", tl:"hit-kháu-tsàu", i1:"h", f1:"it", t1:"4", s1:"8", i2:"kh", f2:"áu", t2:"2", s2:"1", i3:"ts", f3:"áu", t3:"3", s3:"不變", md:"那家人"},
+            {id:106, pg:129, ty:"毋但", tl:"m̄-nā", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"n", f2:"ā", t2:"7", s2:"不變", md:"不但"},
+            {id:107, pg:129, ty:"牆圍仔", tl:"tshiûnn-uî-á", i1:"tsh", f1:"iûnn", t1:"5", s1:"7", i2:"無", f2:"uî", t2:"5", s2:"7", i3:"無", f3:"á", t3:"2", s3:"不變", md:"圍牆"},
+            {id:108, pg:129, ty:"疊樓仔", tl:"thia̍p-lâu-á", i1:"th", f1:"ia̍p", t1:"8", s1:"4", i2:"l", f2:"âu", t2:"5", s2:"7", i3:"無", f3:"á", t3:"2", s3:"不變", md:"透天厝"},
+            {id:109, pg:129, ty:"頭擺", tl:"thâu-pái", i1:"th", f1:"âu", t1:"5", s1:"7", i2:"p", f2:"ái", t2:"2", s2:"不變", md:"第一次"},
+            {id:110, pg:129, ty:"瓦", tl:"hiā", i1:"h", f1:"iā", t1:"7", s1:"不變", md:"屋頂建材"},
+            {id:111, pg:129, ty:"佇", tl:"tī", i1:"t", f1:"ī", t1:"7", s1:"不變", md:"在"},
+            {id:112, pg:129, ty:"毋過", tl:"m̄-koh", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"k", f2:"oh", t2:"4", s2:"不變", md:"不過"},
+            {id:113, pg:129, ty:"若", tl:"nā", i1:"n", f1:"ā", t1:"7", s1:"不變", md:"如果"},
+            {id:114, pg:129, ty:"特別", tl:"ti̍k-pia̍t", i1:"t", f1:"i̍k", t1:"8", s1:"4", i2:"p", f2:"ia̍t", t2:"8", s2:"不變", md:"特別"},
+            {id:115, pg:129, ty:"著", tl:"tio̍h", i1:"t", f1:"io̍h", t1:"8", s1:"不變", md:"對味"},
+            {id:116, pg:130, ty:"毋是", tl:"m̄-sī", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"s", f2:"ī", t2:"7", s2:"不變", md:"不是"},
+            {id:117, pg:130, ty:"𪜶", tl:"in", i1:"無", f1:"in", t1:"1", s1:"不變", md:"他的"},
+            {id:118, pg:130, ty:"袂曉", tl:"bē-hiáu/buē", i1:"b", f1:"ē", t1:"7", s1:"3", i2:"h", f2:"iáu", t2:"2", s2:"不變", md:"不會"},
+            {id:119, pg:130, ty:"覕喙", tl:"bih-tshuì", i1:"b", f1:"ih", t1:"4", s1:"2", i2:"tsh", f2:"uì", t2:"3", s2:"不變", md:"抿嘴"},
+            {id:120, pg:130, ty:"个", tl:"ê", i1:"無", f1:"ê", t1:"5", s1:"不變", md:"個"},
+            {id:121, pg:130, ty:"捀", tl:"phâng", i1:"ph", f1:"âng", t1:"5", s1:"不變", md:"端"},
+            {id:122, pg:130, ty:"展寶", tl:"tián-pó", i1:"t", f1:"ián", t1:"2", s1:"1", i2:"p", f2:"ó", t2:"2", s2:"不變", md:"愛現"},
+            {id:123, pg:130, ty:"穿插", tl:"tshīng-tshah", i1:"tsh", f1:"īng", t1:"7", s1:"3", i2:"tsh", f2:"ah", t2:"4", s2:"不變", md:"穿著"},
+            {id:124, pg:130, ty:"時行", tl:"sî-kiânn", i1:"s", f1:"î", t1:"5", s1:"7", i2:"k", f2:"iânn", t2:"5", s2:"不變", md:"流行"},
+            {id:125, pg:130, ty:"在來", tl:"tsāi-lâi", i1:"ts", f1:"āi", t1:"7", s1:"3", i2:"l", f2:"âi", t2:"5", s2:"不變", md:"向來"},
+            {id:126, pg:130, ty:"毋捌", tl:"m̄-bat", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"b", f2:"at", t2:"4", s2:"不變", md:"不曾"},
+            {id:127, pg:130, ty:"彼工", tl:"hit-kang", i1:"h", f1:"it", t1:"4", s1:"8", i2:"k", f2:"ang", t2:"1", s2:"不變", md:"那天"},
+            {id:128, pg:130, ty:"癮頭", tl:"giàn-thâu", i1:"g", f1:"iàn", t1:"3", s1:"2", i2:"th", f2:"âu", t2:"5", s2:"不變", md:"傻瓜"},
+            {id:129, pg:130, ty:"倯", tl:"sông", i1:"s", f1:"ông", t1:"5", s1:"不變", md:"俗氣"},
+            {id:130, pg:130, ty:"賰", tl:"tshun", i1:"tsh", f1:"un", t1:"1", s1:"不變", md:"剩"},
+            {id:131, pg:130, ty:"較", tl:"khah", i1:"kh", f1:"ah", t1:"4", s1:"不變", md:"比較"},
+            {id:132, pg:130, ty:"落氣", tl:"làu-khuì", i1:"l", f1:"àu", t1:"3", s1:"2", i2:"kh", f2:"uì", t2:"3", s2:"不變", md:"出糗"},
+            {id:133, pg:130, ty:"新婦", tl:"sin-pū", i1:"s", f1:"in", t1:"1", s1:"7", i2:"p", f2:"ū", t2:"7", s2:"不變", md:"媳婦"},
+            {id:134, pg:130, ty:"醫生牌", tl:"i-sing-pâi", i1:"無", f1:"i", t1:"1", s1:"7", i2:"s", f2:"ing", t2:"1", s2:"7", i3:"p", f3:"âi", t3:"5", s3:"不變", md:"醫師證"},
+            {id:135, pg:130, ty:"毋過", tl:"m̄-koh", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"k", f2:"oh", t2:"4", s2:"不變", md:"不過"},
+            {id:136, pg:130, ty:"厝裡", tl:"tshù--lí/--nih", i1:"tsh", f1:"ù", t1:"3", s1:"不變", i2:"l", f2:"í", t2:"2", s2:"輕聲", md:"家裡"},
+            {id:137, pg:130, ty:"鬥", tl:"tàu", i1:"t", f1:"àu", t1:"3", s1:"不變", md:"幫忙"},
+            {id:138, pg:130, ty:"趁錢", tl:"thàn-tsînn", i1:"th", f1:"àn", t1:"3", s1:"2", i2:"ts", f2:"înn", t2:"5", s2:"不變", md:"賺錢"},
+            {id:139, pg:130, ty:"無", tl:"bô", i1:"b", f1:"ô", t1:"5", s1:"不變", md:"不用"},
+            {id:140, pg:130, ty:"予", tl:"hōo", i1:"h", f1:"ōo", t1:"7", s1:"不變", md:"讓"},
+            {id:141, pg:130, ty:"病院", tl:"pēnn-īnn", i1:"p", f1:"ēnn", t1:"7", s1:"3", i2:"無", f2:"īnn", t2:"7", s2:"不變", md:"醫院"},
+            {id:142, pg:131, ty:"後生", tl:"hāu-senn/sinn", i1:"h", f1:"āu", t1:"7", s1:"3", i2:"s", f2:"enn", t2:"1", s2:"不變", md:"兒子"},
+            {id:143, pg:131, ty:"頭", tl:"thâu", i1:"th", f1:"âu", t1:"5", s1:"不變", md:"首"},
+            {id:144, pg:131, ty:"攏", tl:"lóng", i1:"l", f1:"óng", t1:"2", s1:"不變", md:"都"},
+            {id:145, pg:131, ty:"佇", tl:"tī", i1:"t", f1:"ī", t1:"7", s1:"不變", md:"在"},
+            {id:146, pg:131, ty:"猶未", tl:"iáu-bē/buē", i1:"無", f1:"iáu", t1:"2", s1:"1", i2:"b", f2:"ē", t2:"7", s2:"不變", md:"還沒"},
+            {id:147, pg:131, ty:"出業", tl:"tshut-gia̍p", i1:"tsh", f1:"ut", t1:"4", s1:"8", i2:"g", f2:"ia̍p", t2:"8", s2:"不變", md:"畢業"},
+            {id:148, pg:131, ty:"創啥", tl:"tshòng-siánn", i1:"tsh", f1:"òng", t1:"3", s1:"2", i2:"s", f2:"iánn", t2:"2", s2:"不變", md:"做什麼"},
+            {id:149, pg:131, ty:"規家伙仔", tl:"kui-ke-hué-á", i1:"k", f1:"ui", t1:"1", s1:"7", i2:"k", f2:"e", t2:"1", s2:"7", i3:"h", f3:"ué", t3:"2", s3:"1", i4:"無", f4:"á", t4:"2", s4:"不變", md:"全家"},
+            {id:150, pg:131, ty:"翁某", tl:"ang-bóo", i1:"無", f1:"ang", t1:"1", s1:"7", i2:"b", f2:"óo", t2:"2", s2:"不變", md:"夫妻"},
+            {id:151, pg:131, ty:"翕", tl:"hip", i1:"h", f1:"ip", t1:"4", s1:"不變", md:"照相"},
+            {id:152, pg:131, ty:"真濟", tl:"tsin-tsē", i1:"ts", f1:"in", t1:"1", s1:"7", i2:"ts", f2:"ē", t2:"7", s2:"不變", md:"很多"},
+            {id:153, pg:131, ty:"啥人", tl:"siánn-lâng", i1:"s", f1:"iánn", t1:"2", s1:"1", i2:"l", f2:"âng", t2:"5", s2:"不變", md:"哪個人"},
+            {id:154, pg:131, ty:"抑是", tl:"ia̍h-sī", i1:"無", f1:"ia̍h", t1:"8", s1:"3", i2:"s", f2:"ī", t2:"7", s2:"不變", md:"或者"},
+            {id:155, pg:131, ty:"頭鬃", tl:"thâu-tsang", i1:"th", f1:"âu", t1:"5", s1:"7", i2:"ts", f2:"ang", t2:"1", s2:"不變", md:"頭髮"},
+            {id:156, pg:131, ty:"無閒", tl:"bô-îng", i1:"b", f1:"ô", t1:"5", s1:"7", i2:"無", f2:"îng", t2:"5", s2:"不變", md:"忙碌"},
+            {id:157, pg:131, ty:"無時閒", tl:"bô-sî-îng", i1:"b", f1:"ô", t1:"5", s1:"7", i2:"s", f2:"î", t2:"5", s2:"7", i3:"無", f3:"îng", t3:"5", s3:"不變", md:"片刻不得閒"},
+            {id:158, pg:131, ty:"查某囝", tl:"tsa-bóo-kiánn", i1:"ts", f1:"a", t1:"1", s1:"7", i2:"b", f2:"óo", t2:"2", s2:"1", i3:"k", f3:"iánn", t3:"2", s3:"不變", md:"女兒"},
+            {id:159, pg:131, ty:"狡怪", tl:"káu-kuài", i1:"k", f1:"áu", t1:"2", s1:"1", i2:"k", f2:"uài", t2:"3", s2:"不變", md:"頑皮"},
+            {id:160, pg:131, ty:"徛", tl:"khiā", i1:"kh", f1:"iā", t1:"7", s1:"不變", md:"站"},
+            {id:161, pg:131, ty:"入來", tl:"ji̍p-lâi", i1:"j", f1:"i̍p", t1:"8", s1:"4", i2:"l", f2:"âi", t2:"5", s2:"不變", md:"進來"},
+            {id:162, pg:131, ty:"煞", tl:"suah", i1:"s", f1:"uah", t1:"4", s1:"不變", md:"卻"},
+            {id:163, pg:131, ty:"激鬼仔面", tl:"kik-kuí-á-bīn", i1:"k", f1:"ik", t1:"4", s1:"8", i2:"k", f2:"uí", t2:"2", s2:"1", i3:"無", f3:"á", t3:"2", s3:"1", i4:"b", f4:"īn", t4:"7", s4:"不變", md:"扮鬼臉"},
+            {id:164, pg:131, ty:"幾若擺", tl:"kuí-nā-pái", i1:"k", f1:"uí", t1:"2", s1:"1", i2:"n", f2:"ā", t2:"7", s2:"3", i3:"p", f3:"ái", t3:"2", s3:"不變", md:"有幾次"},
+            {id:165, pg:131, ty:"弄", tl:"lāng", i1:"l", f1:"āng", t1:"7", s1:"不變", md:"逗、哄"},
+            {id:166, pg:131, ty:"逐", tl:"ta̍k", i1:"t", f1:"a̍k", t1:"8", s1:"不變", md:"每"},
+            {id:167, pg:131, ty:"囡仔", tl:"gín-á", i1:"g", f1:"ín", t1:"2", s1:"1", i2:"無", f2:"á", t2:"2", s2:"不變", md:"小孩"},
+            {id:168, pg:131, ty:"脫箠", tl:"thut-tshê", i1:"th", f1:"ut", t1:"4", s1:"8", i2:"tsh", f2:"hê", t2:"5", s2:"不變", md:"出錯"},
+            {id:169, pg:131, ty:"烏白", tl:"oo-pe̍h", i1:"無", f1:"oo", t1:"1", s1:"7", i2:"p", f2:"e̍h", t2:"8", s2:"不變", md:"隨便"},
+            {id:170, pg:131, ty:"振動", tl:"tín-tāng", i1:"t", f1:"ín", t1:"2", s1:"1", i2:"t", f2:"āng", t2:"7", s2:"不變", md:"挪動"},
+            {id:171, pg:131, ty:"笑笑", tl:"tshiò-tshiò", i1:"tsh", f1:"iò", t1:"3", s1:"2", i2:"tsh", f2:"iò", t2:"3", s2:"不變", md:"微笑"},
+            {id:172, pg:131, ty:"定著", tl:"tiānn-tio̍h", i1:"t", f1:"iānn", t1:"7", s1:"3", i2:"t", f2:"io̍h", t2:"8", s2:"不變", md:"穩重"},
+            {id:173, pg:132, ty:"敢若", tl:"kán-ná/ká/kánn", i1:"k", f1:"án", t1:"2", s1:"1", i2:"n", f2:"á", t2:"2", s2:"不變", md:"好像"},
+            {id:174, pg:132, ty:"仝款", tl:"kāng-khuán", i1:"k", f1:"āng", t1:"7", s1:"3", i2:"kh", f2:"uán", t2:"2", s2:"不變", md:"相同"},
+            {id:175, pg:132, ty:"無攬無拈", tl:"bô-lám-bô-ne", i1:"b", f1:"ô", t1:"5", s1:"7", i2:"l", f2:"ám", t2:"2", s2:"1", i3:"b", f3:"ô", t3:"5", s3:"7", i4:"n", f4:"e", t4:"1", s4:"不變", md:"沒精神"},
+            {id:176, pg:132, ty:"慣勢", tl:"kuàn-sì", i1:"k", f1:"uàn", t1:"3", s1:"2", i2:"s", f2:"ì", t2:"3", s2:"不變", md:"習慣"},
+            {id:177, pg:132, ty:"掠", tl:"lia̍h", i1:"l", f1:"ia̍h", t1:"8", s1:"不變", md:"抓"},
+            {id:178, pg:132, ty:"翻頭", tl:"huan-thâu", i1:"h", f1:"uan", t1:"1", s1:"7", i2:"th", f2:"âu", t2:"5", s2:"不變", md:"轉過頭"},
+            {id:179, pg:132, ty:"", tl:"tshāi", i1:"tsh", f1:"āi", t1:"7", s1:"不變", md:"豎立"},
+            {id:180, pg:132, ty:"忝", tl:"thiam", i1:"th", f1:"iam", t1:"2", s1:"不變", md:"累"},
+            {id:181, pg:132, ty:"爾爾", tl:"niā-niā", i1:"n", f1:"iā", t1:"7", s1:"3", i2:"n", f2:"iā", t2:"7", s2:"不變", md:"而已"},
+            {id:182, pg:132, ty:"鐵馬", tl:"thih-bé", i1:"th", f1:"ih", t1:"4", s1:"2", i2:"b", f2:"é", t2:"2", s2:"不變", md:"腳踏車"},
+            {id:183, pg:132, ty:"鈃仔聲", tl:"giang-á-siann", i1:"g", f1:"iang", t1:"1", s1:"7", i2:"無", f2:"á", t2:"2", s2:"1", i3:"s", f3:"iann", t3:"1", s3:"不變", md:"鈴鐺聲"},
+            {id:184, pg:132, ty:"倚來", tl:"uá--lâi", i1:"無", f1:"uá", t1:"2", s1:"不變", i2:"l", f2:"âi", t2:"5", s2:"輕聲", md:"靠近"},
+            {id:185, pg:132, ty:"真皮", tl:"tsin-phî", i1:"ts", f1:"in", t1:"1", s1:"7", i2:"ph", f2:"î", t2:"5", s2:"不變", md:"頑劣"},
+            {id:186, pg:132, ty:"招呼", tl:"tsio-hoo", i1:"ts", f1:"io", t1:"1", s1:"7", i2:"h", f2:"oo", t2:"1", s2:"不變", md:"接待"},
+            {id:187, pg:132, ty:"上", tl:"siōng", i1:"s", f1:"iōng", t1:"7", s1:"不變", md:"最"},
+            {id:188, pg:132, ty:"有範", tl:"ū-pān", i1:"無", f1:"ū", t1:"7", s1:"3", i2:"p", f2:"ān", t2:"7", s2:"不變", md:"有模有樣"},
+            {id:189, pg:133, ty:"佮", tl:"kah", i1:"k", f1:"ah", t1:"4", s1:"不變", md:"和"},
+            {id:190, pg:133, ty:"接接", tl:"tsih-tsiap", i1:"ts", f1:"ih", t1:"4", s1:"2", i2:"ts", f2:"iap", t2:"4", s2:"不變", md:"接洽"},
+            {id:191, pg:133, ty:"愣", tl:"gāng", i1:"g", f1:"āng", t1:"7", s1:"不變", md:"失神"},
+            {id:192, pg:133, ty:"一箍銀", tl:"tsi̍t-khoo-gîn/gûn", i1:"ts", f1:"i̍t", t1:"8", s1:"4", i2:"kh", f2:"oo", t2:"1", s2:"7", i3:"g", f3:"în", t3:"5", s3:"不變", md:"一塊錢"},
+            {id:193, pg:133, ty:"𥴊仔店", tl:"kám-á-tiàm", i1:"k", f1:"ám", t1:"2", s1:"1", i2:"無", f2:"á", t2:"2", s2:"1", i3:"t", f3:"iàm", t3:"3", s3:"不變", md:"雜貨店"},
+            {id:194, pg:133, ty:"枝仔冰", tl:"ki-á-ping", i1:"k", f1:"i", t1:"1", s1:"7", i2:"無", f2:"á", t2:"2", s2:"1", i3:"p", f3:"ing", t3:"1", s3:"不變", md:"冰棒"},
+            {id:195, pg:133, ty:"家己", tl:"ka-kī", i1:"k", f1:"a", t1:"1", s1:"7", i2:"k", f2:"ī", t2:"7", s2:"不變", md:"自己"},
+            {id:196, pg:133, ty:"行", tl:"kiânn", i1:"k", f1:"iânn", t1:"5", s1:"不變", md:"走"},
+            {id:197, pg:133, ty:"小可仔", tl:"sió-khuá-á", i1:"s", f1:"ió", t1:"2", s1:"1", i2:"kh", f2:"uá", t2:"2", s2:"1", i3:"無", f3:"á", t3:"2", s3:"不變", md:"一點點"},
+            {id:198, pg:133, ty:"膽膽", tl:"tám-tám", i1:"t", f1:"ám", t1:"2", s1:"1", i2:"t", f2:"ám", t2:"2", s2:"不變", md:"怕怕的"},
+            {id:199, pg:133, ty:"會使", tl:"ē-sái", i1:"無", f1:"ē", t1:"7", s1:"3", i2:"s", f2:"ái", t2:"2", s2:"不變", md:"可以"},
+            {id:200, pg:133, ty:"歹勢", tl:"pháinn-sè", i1:"ph", f1:"áinn", t1:"2", s1:"1", i2:"s", f2:"è", t2:"3", s2:"不變", md:"不好意思"},
+            {id:201, pg:133, ty:"彼陣", tl:"hit-tsūn", i1:"h", f1:"it", t1:"4", s1:"8", i2:"ts", f2:"ūn", t2:"7", s2:"不變", md:"那陣子"},
+            {id:202, pg:133, ty:"雄", tl:"hiông", i1:"h", f1:"iông", t1:"5", s1:"不變", md:"凶狠"},
+            {id:203, pg:133, ty:"𤆬路", tl:"tshuā-lōo", i1:"tsh", f1:"uā", t1:"7", s1:"3", i2:"l", f2:"ōo", t2:"7", s2:"不變", md:"帶路"},
+            {id:204, pg:133, ty:"款勢", tl:"khuán-sì", i1:"kh", f1:"uán", t1:"2", s1:"1", i2:"s", f2:"ì", t2:"3", s2:"不變", md:"姿態"},
+            {id:205, pg:133, ty:"田岸仔路", tl:"tshân-huānn-á-lōo", i1:"tsh", f1:"ân", t1:"5", s1:"7", i2:"h", f2:"uānn", t2:"7", s2:"7", i3:"無", f3:"á", t3:"2", s3:"1", i4:"l", f4:"ōo", t4:"7", s4:"不變", md:"田邊路"},
+            {id:206, pg:133, ty:"媠", tl:"suí", i1:"s", f1:"uí", t1:"2", s1:"不變", md:"漂亮"},
+            {id:207, pg:133, ty:"敢", tl:"kám", i1:"k", f1:"ám", t1:"2", s1:"不變", md:"難道"},
+            {id:208, pg:133, ty:"嘛", tl:"mā", i1:"m", f1:"ā", t1:"7", s1:"不變", md:"也"},
+            {id:209, pg:133, ty:"會當", tl:"ē-tàng", i1:"無", f1:"ē", t1:"7", s1:"3", i2:"t", f2:"àng", t2:"3", s2:"不變", md:"可以"},
+            {id:210, pg:133, ty:"無欲", tl:"bô-beh", i1:"b", f1:"ô", t1:"5", s1:"7", i2:"b", f2:"eh", t2:"4", s2:"不變", md:"不要"},
+            {id:211, pg:133, ty:"猶未", tl:"iáu-bē/buē", i1:"無", f1:"iáu", t1:"2", s1:"1", i2:"b", f2:"ē", t2:"7", s2:"不變", md:"還沒"},
+            {id:212, pg:133, ty:"轉來", tl:"tńg--lâi", i1:"t", f1:"ńg", t1:"2", s1:"不變", i2:"l", f2:"âi", t2:"5", s2:"輕聲", md:"回來"},
+            {id:213, pg:133, ty:"取", tl:"tshú", i1:"tsh", f1:"ú", t1:"2", s1:"不變", md:"選擇"},
+            {id:214, pg:133, ty:"啥物", tl:"siánn-mih", i1:"s", f1:"iánn", t1:"2", s1:"1", i2:"m", f2:"ih", t2:"4", s2:"不變", md:"什麼"},
+            {id:215, pg:134, ty:"聲嗽", tl:"siann-sàu", i1:"s", f1:"iann", t1:"1", s1:"7", i2:"s", f2:"àu", t2:"3", s2:"不變", md:"口氣"},
+            {id:216, pg:134, ty:"遐", tl:"hia", i1:"h", f1:"ia", t1:"1", s1:"不變", md:"那麼"},
+            {id:217, pg:134, ty:"代誌", tl:"tāi-tsì", i1:"t", f1:"āi", t1:"7", s1:"3", i2:"ts", f2:"ì", t2:"3", s2:"不變", md:"事情"},
+            {id:218, pg:134, ty:"欲哪", tl:"beh ná", i1:"b", f1:"eh", t1:"4", s1:"2", i2:"n", f2:"á", t2:"2", s2:"不變", md:"怎麼"},
+            {id:219, pg:134, ty:"倒", tl:"tó", i1:"t", f1:"ó", t1:"2", s1:"不變", md:"倒閉"},
+            {id:220, pg:134, ty:"尾仔", tl:"bué-á", i1:"b", f1:"ué", t1:"2", s1:"1", i2:"無", f2:"á", t2:"2", s2:"不變", md:"最後"},
+            {id:221, pg:134, ty:"轉去", tl:"tńg--khì", i1:"t", f1:"ńg", t1:"2", s1:"不變", i2:"kh", f2:"ì", t2:"3", s2:"輕聲", md:"回去"},
+            {id:222, pg:134, ty:"厝", tl:"tshù", i1:"tsh", f1:"ù", t1:"3", s1:"不變", md:"房子"},
+            {id:223, pg:134, ty:"兜", tl:"tau", i1:"t", f1:"au", t1:"1", s1:"不變", md:"家"},
+            {id:224, pg:134, ty:"共", tl:"kā", i1:"k", f1:"ā", t1:"7", s1:"不變", md:"向"},
+            {id:225, pg:134, ty:"說", tl:"sueh", i1:"s", f1:"ueh", t1:"4", s1:"不變", md:"說明"},
+            {id:226, pg:134, ty:"目箍", tl:"ba̍k-khoo", i1:"b", f1:"a̍k", t1:"8", s1:"4", i2:"kh", f2:"oo", t2:"1", s2:"不變", md:"眼睛"},
+            {id:227, pg:134, ty:"紅紅", tl:"âng-âng", i1:"無", f1:"âng", t1:"5", s1:"7", i2:"無", f2:"âng", t2:"5", s2:"不變", md:"微紅"},
+            {id:228, pg:134, ty:"轉", tl:"tńg", i1:"t", f1:"ńg", t1:"2", s1:"不變", md:"返回"},
+            {id:229, pg:134, ty:"樹仔跤", tl:"tshiū-á-kha", i1:"tsh", f1:"iū", t1:"7", s1:"7", i2:"無", f2:"á", t2:"2", s2:"1", i3:"kh", f3:"a", t3:"1", s3:"不變", md:"樹下"},
+            {id:230, pg:134, ty:"予", tl:"hōo", i1:"h", f1:"ōo", t1:"7", s1:"不變", md:"給"},
+            {id:231, pg:134, ty:"生本", tl:"sinn-pún", i1:"s", f1:"inn", t1:"1", s1:"7", i2:"p", f2:"ún", t2:"2", s2:"不變", md:"天生的"},
+            {id:232, pg:134, ty:"个", tl:"ê", i1:"無", f1:"ê", t1:"5", s1:"不變", md:"個"},
+            {id:233, pg:134, ty:"猴囡仔", tl:"kâu-gín-á", i1:"k", f1:"âu", t1:"5", s1:"7", i2:"g", f2:"ín", t2:"2", s2:"1", i3:"無", f3:"á", t3:"2", s3:"不變", md:"臭小子"},
+            {id:234, pg:134, ty:"毋知", tl:"m̄-tsai", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"ts", f2:"ai", t2:"1", s2:"不變", md:"不知道"},
+            {id:235, pg:134, ty:"抑", tl:"iah", i1:"無", f1:"iah", t1:"4", s1:"不變", md:"還是"},
+            {id:236, pg:134, ty:"凡勢", tl:"huân-sè", i1:"h", f1:"uân", t1:"5", s1:"7", i2:"s", f2:"è", t2:"3", s2:"不變", md:"也許"},
+            {id:237, pg:134, ty:"毋捌", tl:"m̄-bat", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"b", f2:"at", t2:"4", s2:"不變", md:"不懂"},
+            {id:238, pg:134, ty:"家己", tl:"ka-kī", i1:"k", f1:"a", t1:"1", s1:"7", i2:"k", f2:"ī", t2:"7", s2:"不變", md:"自己"},
+            {id:239, pg:134, ty:"敨", tl:"tháu", i1:"th", f1:"áu", t1:"2", s1:"不變", md:"解開"},
+            {id:240, pg:134, ty:"心氣", tl:"sim-khuì", i1:"s", f1:"im", t1:"1", s1:"7", i2:"kh", f2:"uì", t2:"3", s2:"不變", md:"複雜情緒"},
+            {id:241, pg:134, ty:"熟似", tl:"si̍k-sāi", i1:"s", f1:"i̍k", t1:"8", s1:"4", i2:"s", f2:"āi", t2:"7", s2:"不變", md:"認識"},
+            {id:242, pg:134, ty:"定著", tl:"tiānn-tio̍h", i1:"t", f1:"iānn", t1:"7", s1:"3", i2:"t", f2:"io̍h", t2:"8", s2:"不變", md:"一定"},
+            {id:243, pg:134, ty:"心適", tl:"sim-sik", i1:"s", f1:"im", t1:"1", s1:"7", i2:"s", f2:"ik", t2:"4", s2:"不變", md:"有趣"},
+            {id:244, pg:134, ty:"幾擺", tl:"kuí-pái", i1:"k", f1:"uí", t1:"2", s1:"1", i2:"p", f2:"ái", t2:"2", s2:"不變", md:"幾次"},
+            {id:245, pg:134, ty:"了後", tl:"liáu-āu", i1:"l", f1:"iáu", t1:"2", s1:"1", i2:"無", f2:"āu", t2:"7", s2:"不變", md:"之後"},
+            {id:246, pg:134, ty:"煞", tl:"suah", i1:"s", f1:"uah", t1:"4", s1:"不變", md:"卻"},
+            {id:247, pg:134, ty:"共人", tl:"kā-lâng/ka̋ng", i1:"k", f1:"ā", t1:"7", s1:"3", i2:"l", f2:"âng", t2:"5", s2:"不變", md:"對人"},
+            {id:248, pg:134, ty:"遐爾", tl:"hiah-nī", i1:"h", f1:"iah", t1:"4", s1:"2", i2:"n", f2:"ī", t2:"7", s2:"不變", md:"這麼"},
+            {id:249, pg:134, ty:"學師仔", tl:"o̍h-sai-á", i1:"無", f1:"o̍h", t1:"8", s1:"4", i2:"s", f2:"ai", t2:"1", s2:"7", i3:"無", f3:"á", t3:"2", s3:"不變", md:"徒弟"},
+            {id:250, pg:134, ty:"師傅", tl:"sai-hū", i1:"s", f1:"ai", t1:"1", s1:"7", i2:"h", f2:"ū", t2:"7", s2:"不變", md:"專門技藝的人"},
+            {id:251, pg:134, ty:"一寡", tl:"tsi̍t-kuá", i1:"ts", f1:"i̍t", t1:"8", s1:"4", i2:"k", f2:"uá", t2:"2", s2:"不變", md:"一些"},
+            {id:252, pg:134, ty:"笑面", tl:"tshiò-bīn", i1:"tsh", f1:"iò", t1:"3", s1:"2", i2:"b", f2:"īn", t2:"7", s2:"不變", md:"笑容"},
+            {id:253, pg:135, ty:"無去", tl:"bô--khì", i1:"b", f1:"ô", t1:"5", s1:"不變", i2:"kh", f2:"ì", t2:"3", s2:"輕聲", md:"不見了"},
+            {id:254, pg:135, ty:"猶是", tl:"iáu-sī", i1:"無", f1:"iáu", t1:"2", s1:"1", i2:"s", f2:"ī", t2:"7", s2:"不變", md:"還是"},
+            {id:255, pg:135, ty:"膏膏纏", tl:"ko-ko-tînn", i1:"k", f1:"o", t1:"1", s1:"7", i2:"k", f2:"o", t2:"1", s2:"7", i3:"t", f3:"în", t3:"5", s3:"不變", md:"糾纏"},
+            {id:256, pg:135, ty:"毋才", tl:"m̄-tsiah", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"ts", f2:"iah", t2:"4", s2:"不變", md:"才會"},
+            {id:257, pg:135, ty:"好膽", tl:"hó-tánn", i1:"h", f1:"ó", t1:"2", s1:"1", i2:"t", f2:"ánn", t2:"2", s2:"不變", md:"夠膽識"},
+            {id:258, pg:135, ty:"講親情", tl:"kóng-tshin-tsiânn", i1:"k", f1:"óng", t1:"2", s1:"1", i2:"tsh", f2:"in", t2:"1", s2:"7", i3:"ts", f3:"iânn", t3:"5", s3:"不變", md:"提親"},
+            {id:259, pg:135, ty:"趁", tl:"thàn", i1:"th", f1:"àn", t1:"3", s1:"不變", md:"藉機"},
+            {id:260, pg:135, ty:"鼓吹", tl:"kóo-tshue", i1:"k", f1:"óo", t1:"2", s1:"1", i2:"tsh", f2:"ue", t2:"1", s2:"不變", md:"提倡"},
+            {id:261, pg:135, ty:"會通", tl:"ē-thang", i1:"無", f1:"ē", t1:"7", s1:"3", i2:"th", f2:"ang", t2:"1", s2:"不變", md:"可以"},
+            {id:262, pg:135, ty:"拄才", tl:"tú-tsiah", i1:"t", f1:"ú", t1:"2", s1:"1", i2:"ts", f2:"iah", t2:"4", s2:"不變", md:"剛才"},
+            {id:263, pg:135, ty:"後擺", tl:"āu-pái", i1:"無", f1:"āu", t1:"7", s1:"3", i2:"p", f2:"ái", t2:"2", s2:"不變", md:"以後"},
+            {id:264, pg:135, ty:"毋通", tl:"m̄-thang", i1:"無", f1:"m̄", t1:"7", s1:"3", i2:"th", f2:"ang", t2:"1", s2:"不變", md:"不要"},
+            {id:265, pg:135, ty:"原在", tl:"guân-tsāi", i1:"g", f1:"uân", t1:"5", s1:"7", i2:"ts", f2:"āi", t2:"7", s2:"不變", md:"仍舊"},
+            {id:266, pg:135, ty:"一睏", tl:"tsi̍t-khùn", i1:"ts", f1:"i̍t", t1:"8", s1:"4", i2:"kh", f2:"ùn", t2:"3", s2:"不變", md:"一口氣"},
+            {id:267, pg:135, ty:"腹肚", tl:"pak-tóo", i1:"p", f1:"ak", t1:"4", s1:"8", i2:"t", f2:"óo", t2:"2", s2:"不變", md:"肚子"},
+            {id:268, pg:135, ty:"幾若工", tl:"kuí-nā-kang", i1:"k", f1:"uí", t1:"2", s1:"1", i2:"n", f2:"ā", t2:"7", s2:"3", i3:"k", f3:"ang", t3:"1", s3:"不變", md:"幾天"},
+            {id:269, pg:135, ty:"開", tl:"khai", i1:"kh", f1:"ai", t1:"1", s1:"不變", md:"花費"},
+            {id:270, pg:135, ty:"撏", tl:"jîm", i1:"j", f1:"îm", t1:"5", s1:"不變", md:"掏"}
+        ];
+
+        // --- 2. 狀態變數 ---
+        let gameQuestions = [];
+        let currentQIndex = 0;
+        let selectedQty = 5; 
+        
+        let questionStates = []; 
+        let autoPlayTimer = null; 
+        
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playBeep(type) {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.3);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            }
+        }
+
+        // --- 3. 遊戲邏輯 ---
+
+        function selectQty(num) {
+            selectedQty = num;
+            document.querySelectorAll('.qty-btn').forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        function startGame() {
+            const count = selectedQty;
+            const shuffledDb = [...db].sort(() => 0.5 - Math.random());
+            gameQuestions = shuffledDb.slice(0, count);
+            
+            questionStates = gameQuestions.map(() => ({
+                step: 0,
+                answers: {} 
+            }));
+            
+            currentQIndex = 0;
+            document.getElementById('menu-screen').style.display = 'none';
+            document.getElementById('game-screen').style.display = 'flex';
+            document.getElementById('total-q-num').textContent = count;
+            
+            loadQuestion(currentQIndex, true);
+        }
+
+        function returnToMenu() {
+            clearTimeout(autoPlayTimer);
+            document.getElementById('game-screen').style.display = 'none';
+            document.getElementById('menu-screen').style.display = 'flex';
+        }
+
+        function loadQuestion(index, autoPlay = true) {
+            clearTimeout(autoPlayTimer);
+
+            const qData = gameQuestions[index];
+            const qState = questionStates[index];
+            
+            document.getElementById('current-q-num').textContent = index + 1;
+            document.getElementById('prev-btn').disabled = (index === 0);
+            
+            document.getElementById('disp-id').textContent = qData.id;
+            document.getElementById('disp-page').textContent = qData.pg;
+            document.getElementById('display-taiyu').textContent = qData.ty;
+
+            const mdText = qData.md;
+            const mdEl = document.getElementById('display-mandarin');
+            mdEl.textContent = mdText;
+            
+            mdEl.className = 'mandarin-text'; 
+            if (mdText.length > 15) {
+                mdEl.classList.add('fs-sm'); 
+            } else if (mdText.length > 10) {
+                mdEl.classList.add('fs-md'); 
+            }
+            
+            // 清除狀態訊息
+            document.getElementById('status-msg').textContent = "";
+            document.getElementById('options-grid').innerHTML = ""; // 先清空選項
+
+            renderMatrix(qData, qState.answers);
+            renderStep(index);
+
+            if (autoPlay) {
+                autoPlayTimer = setTimeout(() => {
+                    playCurrentAudio();
+                }, 800);
+            }
+        }
+
+        function createTargetBox(id, label, filledVal) {
+            const isFilled = filledVal !== undefined;
+            const valText = isFilled ? filledVal : '?';
+            const filledClass = isFilled ? 'filled' : '';
+            return `
+                <div class="target-box" id="target-${id}">
+                    <div class="target-header">${label}</div>
+                    <div class="target-value ${filledClass}" id="val-${id}">${valText}</div>
+                </div>
+            `;
+        }
+
+        function renderMatrix(data, answers) {
+            const container = document.getElementById('matrix-container');
+            let html = '';
+
+            html += '<div class="syllable-row">';
+            html += createTargetBox('i1', '聲母1', answers['i1']);
+            html += createTargetBox('f1', '韻母1', answers['f1']);
+            html += createTargetBox('t1', '聲調1', answers['t1']);
+            html += createTargetBox('s1', '變調1', answers['s1']);
+            html += '</div>';
+
+            if (data.i2) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i2', '聲母2', answers['i2']);
+                html += createTargetBox('f2', '韻母2', answers['f2']);
+                html += createTargetBox('t2', '聲調2', answers['t2']);
+                html += createTargetBox('s2', '變調2', answers['s2']);
+                html += '</div>';
+            }
+
+            if (data.i3) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i3', '聲母3', answers['i3']);
+                html += createTargetBox('f3', '韻母3', answers['f3']);
+                html += createTargetBox('t3', '聲調3', answers['t3']);
+                html += createTargetBox('s3', '變調3', answers['s3']);
+                html += '</div>';
+            }
+
+            if (data.i4) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i4', '聲母4', answers['i4']);
+                html += createTargetBox('f4', '韻母4', answers['f4']);
+                html += createTargetBox('t4', '聲調4', answers['t4']);
+                html += createTargetBox('s4', '變調4', answers['s4']);
+                html += '</div>';
+            }
+
+            container.innerHTML = html;
+        }
+
+        function getStepsForQuestion(data) {
+            let steps = [];
+            steps.push({key: 'i1', ref: 'init1'});
+            steps.push({key: 'f1', ref: 'fin1'});
+            steps.push({key: 't1', ref: 'tone1'});
+            steps.push({key: 's1', ref: 'sandhi1'});
+            
+            if (data.i2) {
+                steps.push({key: 'i2', ref: 'init2'});
+                steps.push({key: 'f2', ref: 'fin2'});
+                steps.push({key: 't2', ref: 'tone2'});
+                steps.push({key: 's2', ref: 'sandhi2'});
+            }
+            if (data.i3) {
+                steps.push({key: 'i3', ref: 'init3'});
+                steps.push({key: 'f3', ref: 'fin3'});
+                steps.push({key: 't3', ref: 'tone3'});
+                steps.push({key: 's3', ref: 'sandhi3'});
+            }
+            if (data.i4) {
+                steps.push({key: 'i4', ref: 'init4'});
+                steps.push({key: 'f4', ref: 'fin4'});
+                steps.push({key: 't4', ref: 'tone4'});
+                steps.push({key: 's4', ref: 'sandhi4'});
+            }
+            return steps;
+        }
+
+        function renderStep(qIdx) {
+            const qData = gameQuestions[qIdx];
+            const qState = questionStates[qIdx];
+            const steps = getStepsForQuestion(qData);
+            
+            document.querySelectorAll('.target-box').forEach(el => el.classList.remove('active-step'));
+
+            if (qState.step >= steps.length) {
+                document.getElementById('status-msg').textContent = "";
+                document.getElementById('options-grid').innerHTML = "";
+                return;
+            }
+
+            // 未完成：清空底部訊息
+            document.getElementById('status-msg').textContent = "";
+
+            const step = steps[qState.step];
+            const correctAns = qData[step.key];
+            
+            const targetEl = document.getElementById(`target-${step.key}`);
+            if(targetEl) {
+                targetEl.classList.add('active-step');
+                
+                // 自動滑軌邏輯：將目前的目標框捲動到可視範圍
+                const container = document.getElementById('matrix-container');
+                if (container) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+
+            const options = generateOptions(step.key, correctAns);
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
+            
+            const labels = ['A', 'B', 'C', 'D'];
+
+            options.forEach((opt, idx) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-card';
+                
+                const idxBox = document.createElement('div');
+                idxBox.className = 'opt-idx-box';
+                idxBox.textContent = labels[idx];
+                
+                const txt = document.createElement('span');
+                txt.className = 'opt-text';
+                txt.textContent = opt;
+                if (opt.length > 8) txt.classList.add('text-fit-sm');
+                else if (opt.length > 4) txt.classList.add('text-fit-md');
+                else txt.classList.add('text-fit-lg');
+
+                btn.appendChild(idxBox);
+                btn.appendChild(txt);
+
+                btn.onclick = () => checkAnswer(btn, opt, correctAns, step.key, qIdx);
+                grid.appendChild(btn);
+            });
+        }
+
+        // 修改：允許同類型的資料（如聲母1、2、3、4）互相作為選項
+        function generateOptions(key, correct) {
+            // 判斷當前題目的類型 (i=聲母, f=韻母, t=聲調, s=變調)
+            const prefix = key.charAt(0); 
+            // 找出該類型所有的欄位 (1, 2, 3, 4)
+            const targetCols = [prefix + '1', prefix + '2', prefix + '3', prefix + '4'];
+
+            const allValues = new Set();
+            db.forEach(item => {
+                // 遍歷所有欄位，將同類型的資料都加入候選名單
+                targetCols.forEach(col => {
+                    if (item[col] !== undefined && item[col] !== "") {
+                        allValues.add(item[col]);
+                    }
+                });
+            });
+            
+            allValues.delete(correct);
+            
+            let dist = Array.from(allValues);
+            const selections = [];
+            
+            while(selections.length < 3) {
+                if (dist.length === 0) {
+                    dist = Array.from(allValues);
+                    if (dist.length === 0) break; 
+                }
+                
+                const r = Math.floor(Math.random() * dist.length);
+                selections.push(dist[r]);
+                dist.splice(r, 1);
+            }
+            
+            selections.push(correct);
+            
+            while(selections.length < 4) {
+                 selections.push("-"); 
+            }
+
+            return selections.sort(() => 0.5 - Math.random());
+        }
+
+        function checkAnswer(btn, selected, correct, cellKey, qIdx) {
+            if (qIdx !== currentQIndex) return; 
+            if (btn.classList.contains('correct') || document.querySelector('.option-card.correct')) return;
+
+            if (selected === correct) {
+                btn.classList.add('correct');
+                playBeep('correct');
+                
+                const valDiv = document.getElementById(`val-${cellKey}`);
+                if(valDiv) {
+                    valDiv.textContent = correct;
+                    valDiv.classList.add('filled');
+                }
+
+                questionStates[qIdx].answers[cellKey] = correct;
+                
+                setTimeout(() => {
+                    questionStates[qIdx].step++;
+                    renderStep(qIdx);
+                }, 600);
+            } else {
+                btn.classList.add('wrong');
+                playBeep('wrong');
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                loadQuestion(currentQIndex, false);
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < gameQuestions.length - 1) {
+                currentQIndex++;
+                loadQuestion(currentQIndex, true);
+            } else {
+                returnToMenu();
+            }
+        }
+
+        function playCurrentAudio() {
+            const data = gameQuestions[currentQIndex];
+            if (!data) return;
+            const raw = data.tl;
+            const processed = raw.split(' ').map(s => s.split('/')[0]).join(' ');
+            try {
+                const dummy = document.createElement('div');
+                holo(dummy, processed);
+            } catch (e) {
+                console.error("Audio error:", e);
+            }
+        }
+    </script>
+<div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">課文及音檔來源：育達文化事業股份有限公司（經授權使用）｜© 2026 詹宗龍</div>
+</body>
+</html>

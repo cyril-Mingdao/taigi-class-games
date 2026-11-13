@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  台語聲調與變調互動 — 台語課堂遊戲「形音義配對」
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw、Tailwind CSS）之著作權屬各原權利人。
+  未經著作權人書面授權，不得重製、改作、散布或修改本網頁之全部或一部分。
+-->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>台語聲調與變調互動</title>
+<link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+<style>
+    :root {
+        --bg-start: #e1f5fe;
+        --bg-end: #b3e5fc;
+        --tone-color: #0288d1; 
+        --tone-bg: #e1f5fe;
+        --font-family: 'tauhu-oo', sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--font-family);
+        overflow: hidden;
+    }
+
+    #main-container {
+        /* 16:5 比例 */
+        aspect-ratio: 16 / 5;
+        width: 98vw;
+        max-height: 98vh; 
+        max-width: calc(98vh * (16 / 5));
+        
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+
+    /* 新增：針對一般螢幕 (比 16:5 更方或直式)，強制填滿畫面以減少上下留白 */
+    @media (max-aspect-ratio: 16/5) {
+        #main-container {
+            height: 98vh;
+            width: 98vw;
+            max-width: none;
+            max-height: none;
+            aspect-ratio: auto;
+        }
+    }
+
+    .header {
+        background-color: var(--tone-color);
+        color: white;
+        font-weight: 900;
+        /* 修改：調整為 2.5vw 以配合韻母表大小 */
+        font-size: 2.5vw; 
+        text-align: center;
+        padding: 5px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        flex-shrink: 0;
+        font-family: var(--font-family);
+        line-height: 1.2;
+    }
+
+    .content-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        gap: 5px;
+        overflow-y: hidden; 
+    }
+
+    .row-label {
+        font-size: 1.5vw; /* 稍微調整標籤大小以配合整體 */
+        color: #888;
+        font-weight: bold;
+        margin-left: 5px;
+        margin-bottom: 0;
+        font-family: var(--font-family);
+        line-height: 1;
+    }
+
+    .grid-row {
+        display: flex;
+        gap: 6px;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .tile {
+        flex: 1;
+        background: white;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.1s;
+        position: relative;
+        flex-direction: column;
+        font-family: var(--font-family);
+        overflow: hidden; 
+    }
+
+    .tile.interactive:active {
+        transform: scale(0.98);
+        border-color: var(--tone-color);
+        background-color: var(--tone-bg);
+    }
+
+    .tile-number {
+        font-size: 13vmin; 
+        font-weight: 900;
+        color: #4b4b4b;
+        font-family: var(--font-family);
+        line-height: 1;
+    }
+    
+    .tile-static {
+        cursor: default;
+    }
+
+    .tile-example {
+        gap: 0px;
+        background-color: #fdfdfd;
+        border-bottom: 3px solid #eee;
+        justify-content: space-evenly; 
+    }
+    
+    .ex-text {
+        /* 修改：調整為 4vw，配合方框大小 */
+        font-size: 4vw; 
+        font-weight: bold;
+        color: #555;
+        font-family: var(--font-family);
+        line-height: 1;
+    }
+
+    .ex-emoji {
+        /* 修改：調整為 5vw，配合上方文字比例 */
+        font-size: 5vw; 
+        line-height: 1;
+    }
+
+    /* --- Modal (提示框) --- */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        background: white;
+        width: 96%;
+        max-width: 1200px; 
+        aspect-ratio: 16 / 5;
+        
+        border-radius: 15px;
+        border: 5px solid #b3e5fc;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        position: relative;
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-family: var(--font-family);
+        
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr; 
+        grid-template-rows: 1fr; 
+        padding: 5px 35px;
+        column-gap: 15px;
+        align-items: center;
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 2px; right: 8px;
+        font-size: 20vmin;
+        cursor: pointer;
+        color: #aaa;
+        line-height: 1;
+        z-index: 20;
+    }
+    .close-btn:hover { color: var(--tone-color); }
+
+    .modal-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16vmin;
+        color: #ddd;
+        cursor: pointer;
+        padding: 10px;
+        transition: color 0.2s;
+        z-index: 10;
+        font-weight: 900;
+    }
+    .modal-nav-btn:hover { color: var(--tone-color); }
+    .nav-prev { left: -5px; }
+    .nav-next { right: -5px; }
+
+    .modal-left-panel {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 4vmin; 
+    }
+
+    .modal-emoji-display {
+        font-size: 13vmin; 
+        display: inline-block;
+        margin: 0;
+        line-height: 1;
+        animation: float 2s ease-in-out infinite;
+        cursor: pointer;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .modal-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fafafa;
+        border-radius: 8px;
+        overflow: hidden;
+        font-family: var(--font-family);
+        margin-top: 2px;
+        table-layout: fixed;
+    }
+    
+    .modal-table th { 
+        background: #eee; 
+        padding: 0; 
+        color: #666; 
+        font-weight: 900; 
+        font-size: 5vmin; 
+        text-align: center; 
+    }
+    
+    .modal-table td { 
+        padding: 0; 
+        font-size: 10vmin; 
+        font-weight: 900; 
+        color: #444; 
+        border: 1px solid #ddd;
+        height: 1.4em; 
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    /* --- Sandhi Chart (右側區域) --- */
+    .sandhi-section {
+        grid-column: 2;
+        width: 100%;
+        height: 95%; 
+        border: 2px solid #eee;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-family);
+        background: #fff;
+    }
+
+    .sandhi-header {
+        background: #f0f0f0;
+        color: #666;
+        font-weight: 900;
+        padding: 0;
+        font-size: 5vmin; 
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        flex-shrink: 0;
+        line-height: 1.5;
+    }
+
+    .sandhi-container {
+        position: relative;
+        flex: 1; 
+        width: 100%;
+        font-weight: 900;
+    }
+
+    .s-item {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        line-height: 1;
+        text-align: center;
+        pointer-events: none;
+        font-family: var(--font-family);
+    }
+    .s-item.base { color: #ccc; }
+    .s-item.base.number { color: #333; }
+    
+    .s-item.overlay {
+        color: #ff4b4b; 
+        display: none;
+        z-index: 5;
+    }
+    .s-item.overlay.active { display: block; }
+
+    .s-item.number { font-size: 9vmin; }
+    .s-item.arrow { font-size: 7vmin; } 
+    .s-item.label { font-size: 4vmin; color: #4b4b4b; } 
+
+    @keyframes wipe-down { 
+        0% { clip-path: inset(0 0 100% 0); } 
+        100% { clip-path: inset(0 0 0 0); } 
+    }
+
+    .s-item.overlay.arrow.active { animation: wipe-down 1.2s infinite; }
+
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div id="main-container">
+    <div class="header">台語聲調</div>
+    
+    <div class="content-area">
+        <div class="row-label">調號</div>
+        <div class="grid-row" id="tone-number-row">
+            </div>
+
+        <div style="height: 5px;"></div>
+
+        <div class="row-label">例字</div>
+        <div class="grid-row" id="tone-example-row">
+            </div>
+    </div>
+</div>
+
+<div id="tone-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-nav-btn nav-prev" onclick="prevTone()">&#10094;</div>
+        <div class="modal-nav-btn nav-next" onclick="nextTone()">&#10095;</div>
+        
+        <div class="modal-left-panel">
+            <div id="modal-emoji" class="modal-emoji-display" title="點擊重播"></div>
+
+            <table class="modal-table">
+                <thead>
+                    <tr><th>聲母</th><th>韻母</th><th>聲調</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="modal-init"></td>
+                        <td id="modal-final"></td>
+                        <td id="modal-tone"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sandhi-section">
+            <div class="sandhi-header">變調規則</div>
+            <div class="sandhi-container">
+                <div class="s-item base number" style="top:15%; left:20%">1</div>
+                <div class="s-item base number" style="top:15%; left:50%">2</div>
+                <div class="s-item base number" style="top:15%; left:80%">4</div>
+                <div class="s-item base number" style="top:50%; left:35%">5</div>
+                <div class="s-item base number" style="top:85%; left:20%">7</div>
+                <div class="s-item base number" style="top:85%; left:50%">3</div>
+                <div class="s-item base number" style="top:85%; left:80%">8</div>
+
+                <div id="num-1" class="s-item overlay number" style="top:15%; left:20%">1</div>
+                <div id="num-2" class="s-item overlay number" style="top:15%; left:50%">2</div>
+                <div id="num-4" class="s-item overlay number" style="top:15%; left:80%">4</div>
+                <div id="num-5" class="s-item overlay number" style="top:50%; left:35%">5</div>
+                <div id="num-7" class="s-item overlay number" style="top:85%; left:20%">7</div>
+                <div id="num-3" class="s-item overlay number" style="top:85%; left:50%">3</div>
+                <div id="num-8" class="s-item overlay number" style="top:85%; left:80%">8</div>
+
+                <div class="s-item base arrow" style="top:15%; left:35%; transform: translate(-50%, -50%) rotate(90deg)">↓</div>
+                <div id="arrow-2-1" class="s-item overlay arrow" style="top:15%; left:35%; transform: translate(-50%, -50%) rotate(90deg)">↓</div>
+
+                <div class="s-item base arrow" style="top:15%; left:65%; transform: translate(-50%, -50%) rotate(90deg)">↓</div>
+                <div class="s-item base label" style="top:8%; left:65%">h</div>
+                <div id="arrow-4-2" class="s-item overlay arrow" style="top:15%; left:65%; transform: translate(-50%, -50%) rotate(90deg)">↓</div>
+
+                <div class="s-item base arrow" style="top:50%; left:20%">↓</div>
+                <div id="arrow-1-7" class="s-item overlay arrow" style="top:50%; left:20%">↓</div>
+
+                <div class="s-item base arrow" style="top:50%; left:50%; transform: translate(-50%, -50%) rotate(180deg)">↓</div>
+                <div id="arrow-3-2" class="s-item overlay arrow" style="top:50%; left:50%; transform: translate(-50%, -50%) rotate(180deg)">↓</div>
+
+                <div class="s-item base arrow" style="top:67%; left:28%; transform: translate(-50%, -50%) rotate(45deg)">↓</div>
+                <div id="arrow-5-7" class="s-item overlay arrow" style="top:67%; left:28%; transform: translate(-50%, -50%) rotate(45deg)">↓</div>
+
+                <div class="s-item base arrow" style="top:85%; left:35%; transform: translate(-50%, -50%) rotate(-90deg)">↓</div>
+                <div id="arrow-7-3" class="s-item overlay arrow" style="top:85%; left:35%; transform: translate(-50%, -50%) rotate(-90deg)">↓</div>
+
+                <div class="s-item base arrow" style="top:85%; left:65%; transform: translate(-50%, -50%) rotate(90deg)">↓</div>
+                <div class="s-item base label" style="top:78%; left:65%">h</div>
+
+                <div class="s-item base arrow" style="top:44%; left:76%; transform: translate(-50%, -50%) rotate(180deg)">↓</div>
+                <div class="s-item base arrow" style="top:56%; left:76%">↓</div>
+                <div class="s-item base label" style="top:50%; left:84%; line-height:1.2; text-align:center;">p<br>t<br>k</div>
+                
+                <div id="arrow-8-4" class="s-item overlay arrow" style="top:44%; left:76%; transform: translate(-50%, -50%) rotate(180deg)">↓</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<audio id="player"></audio>
+
+<script>
+    const tonesData = [
+        { t: '1', ex: 'a', em: '🦁', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/9/9721.mp3', detail: {i:'s', f:'ai', n:'1'} },
+        { t: '2', ex: 'á', em: '🐯', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/4/4482.mp3', detail: {i:'h', f:'óo', n:'2'} },
+        { t: '3', ex: 'à', em: '🐆', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/6/6669.mp3', detail: {i:'p', f:'à', n:'3'} },
+        { t: '4', ex: 'ah', em: '🐢', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/13/13254.mp3', detail: {i:'p', f:'ih', n:'4'} },
+        { t: '5', ex: 'â', em: '🐵', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/8/8571.mp3', detail: {i:'k', f:'âu', n:'5'} },
+        { t: '7', ex: 'ā', em: '🐘', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/9/9033.mp3', detail: {i:'tsh', f:'iūnn', n:'7'} },
+        { t: '8', ex: 'a̍h', em: '🦌', u: 'https://sutian.moe.edu.tw/media/senn/mp3/imtong/subak/8/8086.mp3', detail: {i:'l', f:'o̍k', n:'8'} }
+    ];
+
+    let currentToneIndex = -1;
+    const audioPlayer = document.getElementById('player');
+
+    function init() {
+        const numRow = document.getElementById('tone-number-row');
+        const exRow = document.getElementById('tone-example-row');
+
+        tonesData.forEach(item => {
+            // 靜態數字磚塊
+            const numTile = document.createElement('div');
+            numTile.className = 'tile tile-static';
+            numTile.innerHTML = `<span class="tile-number">${item.t}</span>`;
+            numRow.appendChild(numTile);
+
+            // 互動例字磚塊
+            const exTile = document.createElement('div');
+            exTile.className = 'tile tile-example interactive';
+            exTile.innerHTML = `
+                <span class="ex-text">${item.ex}</span>
+                <span class="ex-emoji">${item.em}</span>
+            `;
+            exTile.onclick = () => {
+                playSound(item.u);
+                openModal(item);
+            };
+            exRow.appendChild(exTile);
+        });
+    }
+
+    function playSound(url) {
+        if (!url) return;
+        audioPlayer.src = url;
+        audioPlayer.play().catch(e => console.error("Play error:", e));
+    }
+
+    function openModal(item) {
+        currentToneIndex = tonesData.indexOf(item);
+        updateModalView();
+        document.getElementById('tone-modal').style.display = 'flex';
+    }
+
+    function closeModal(event) {
+        if (!event || event.target.id === 'tone-modal' || event.target.className === 'close-btn') {
+            document.getElementById('tone-modal').style.display = 'none';
+        }
+    }
+
+    function prevTone() {
+        if(currentToneIndex === -1) return;
+        currentToneIndex = (currentToneIndex - 1 + tonesData.length) % tonesData.length;
+        updateModalView();
+        playSound(tonesData[currentToneIndex].u);
+    }
+
+    function nextTone() {
+        if(currentToneIndex === -1) return;
+        currentToneIndex = (currentToneIndex + 1) % tonesData.length;
+        updateModalView();
+        playSound(tonesData[currentToneIndex].u);
+    }
+
+    function updateModalView() {
+        const item = tonesData[currentToneIndex];
+        
+        const emojiDisplay = document.getElementById('modal-emoji');
+        emojiDisplay.textContent = item.em;
+        emojiDisplay.onclick = () => playSound(item.u);
+
+        document.getElementById('modal-init').textContent = item.detail.i;
+        document.getElementById('modal-final').textContent = item.detail.f;
+        document.getElementById('modal-tone').textContent = item.detail.n;
+        
+        // --- 更新變調圖表 ---
+        document.querySelectorAll('.s-item.overlay').forEach(el => el.classList.remove('active'));
+        
+        const tone = item.t;
+        const numEl = document.getElementById(`num-${tone}`);
+        if(numEl) numEl.classList.add('active');
+        
+        let arrowId = '';
+        switch(tone) {
+            case '1': arrowId = 'arrow-1-7'; break; 
+            case '2': arrowId = 'arrow-2-1'; break;
+            case '3': arrowId = 'arrow-3-2'; break;
+            case '4': arrowId = 'arrow-4-2'; break;
+            case '5': arrowId = 'arrow-5-7'; break;
+            case '7': arrowId = 'arrow-7-3'; break;
+            case '8': arrowId = 'arrow-8-4'; break;
+        }
+        
+        if(arrowId) {
+            const arrEl = document.getElementById(arrowId);
+            if(arrEl) arrEl.classList.add('active');
+        }
+    }
+
+    init();
+
+</script>
+</body>
+</html>
