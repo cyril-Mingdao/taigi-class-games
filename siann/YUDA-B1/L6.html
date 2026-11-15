@@ -1828,5 +1828,63 @@ window.addEventListener('resize',later);window.addEventListener('orientationchan
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
 })();
 </script>
+<!-- md-fs：浮動全螢幕切換鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-fs-css">
+#md-fs-btn{position:fixed;right:4px;top:4px;left:auto;bottom:auto;z-index:2147483646;width:40px;height:40px;padding:0;margin:0;border:2px solid #FFD400;border-radius:50%;background:rgba(17,17,17,.8);color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.55;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .15s;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#md-fs-btn[hidden]{display:none}
+#md-fs-btn:hover,#md-fs-btn:focus-visible,#md-fs-btn.drag{opacity:1;outline:none}
+#md-fs-btn.drag{cursor:grabbing}
+#md-fs-btn svg{width:22px;height:22px;display:block;pointer-events:none}
+#md-fs-btn .md-fs-exit{display:none}
+#md-fs-btn.on .md-fs-enter{display:none}
+#md-fs-btn.on .md-fs-exit{display:block}
+@media print{#md-fs-btn{display:none}}
+</style>
+<button type="button" id="md-fs-btn" title="全螢幕（可拖曳移位）" aria-label="全螢幕" hidden>
+<svg class="md-fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+<svg class="md-fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+</button>
+<script id="md-fs-js">
+(function(){
+ var b=document.getElementById('md-fs-btn'),d=document,e=d.documentElement,K='md-fs-pos';
+ var req=e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen;
+ var ok=d.fullscreenEnabled||d.webkitFullscreenEnabled||d.msFullscreenEnabled;
+ if(!b||!req||ok===false){return;}
+ b.hidden=false;
+ function cur(){return d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement;}
+ function sync(){var on=!!cur();b.classList.toggle('on',on);var t=on?'取消全螢幕':'全螢幕';b.title=t+'（可拖曳移位）';b.setAttribute('aria-label',t);}
+ function toggle(){
+  if(cur()){(d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen).call(d);}
+  else{var p=req.call(e);if(p&&p.catch){p.catch(function(){});}}
+ }
+ var pos=null;
+ function place(){
+  if(!pos)return;
+  var w=b.offsetWidth||40,h=b.offsetHeight||40;
+  var x=Math.max(0,Math.min(innerWidth-w,pos.x*innerWidth)),y=Math.max(0,Math.min(innerHeight-h,pos.y*innerHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.right='auto';b.style.bottom='auto';
+ }
+ try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&isFinite(s.x)&&isFinite(s.y))pos=s;}catch(_){}
+ place();addEventListener('resize',place);
+ var st=null,moved=false;
+ b.addEventListener('pointerdown',function(ev){if(ev.button>0)return;var r=b.getBoundingClientRect();st={x:ev.clientX,y:ev.clientY,ox:ev.clientX-r.left,oy:ev.clientY-r.top};moved=false;try{b.setPointerCapture(ev.pointerId);}catch(_){}});
+ b.addEventListener('pointermove',function(ev){
+  if(!st)return;
+  if(!moved&&Math.abs(ev.clientX-st.x)+Math.abs(ev.clientY-st.y)<8)return;
+  moved=true;b.classList.add('drag');
+  pos={x:(ev.clientX-st.ox)/innerWidth,y:(ev.clientY-st.oy)/innerHeight};place();
+ });
+ function end(){if(!st)return;st=null;b.classList.remove('drag');if(moved){try{localStorage.setItem(K,JSON.stringify(pos));}catch(_){}}}
+ b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+ b.addEventListener('click',function(ev){
+  ev.preventDefault();ev.stopPropagation();
+  if(moved){moved=false;return;}
+  toggle();b.blur();
+ });
+ d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);
+ sync();
+})();
+</script>
+<!-- /md-fs -->
 </body>
 </html>
