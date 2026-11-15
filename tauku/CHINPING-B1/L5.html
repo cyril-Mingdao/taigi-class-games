@@ -644,19 +644,36 @@
   .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
 </style>
 <style id="md-bigchip">
-/* 投影用大字（寬螢幕）：中間選項與上方已選語詞放大，教室後排也看得清楚；字級隨螢幕寬、高縮放 — © 2026 詹宗龍 */
+/* 投影用滿版大字（2026-11-15 老師要求）：拿掉左右留白、遊戲區填滿螢幕高度、選項與題號放大；手機版另有調整 — © 2026 詹宗龍 */
 @media (min-width: 601px) {
-  .options-area { padding: 6px; }
-  #word-options { gap: 12px 18px; width: 98%; }
+  #app { max-width: none; padding: 0 1.5vw; }
+  #game-page:not(.hidden) {
+    display: flex; flex-direction: column;
+    height: calc(100vh - 22px); height: calc(100dvh - 22px);   /* 底部留給右下角出版社標示 */
+    margin-top: 0; transform: none; box-sizing: border-box; padding-top: 6px;
+  }
+  #game-page header { flex: none; }
+  #game-page header h1 { margin-top: 2px; margin-bottom: 0; }
+  #game-page .warning-msg { width: 100%; box-sizing: border-box; flex: none; }
+  #game-page .game-area { flex: 1 1 auto; min-height: 260px; aspect-ratio: auto; max-height: none; }
+  #game-page .control-panel { max-width: none; flex: none; }
+  .result-area { flex: 1.6; }
+  .options-area { flex: 4; padding: 1vh 1vw; }
+  #answer-info { flex: none; }   /* 公布答案後的解說區依內容高度，不擠掉選項 */
+  #chosen-words, #word-options { width: 99%; }
+  #word-options { gap: 2vh 1.6vw; }
   .word-option, .chosen-word {
-    padding: 4px 22px 6px;
+    padding: 0.6vh 1.6vw 1vh;
     border-radius: 999px;
-    line-height: 1.15;
+    line-height: 1.1;
     border-width: 3px;
   }
-  .word-option { font-size: clamp(1.5em, min(2.8vw, 4.8vh), 2.7em); }
-  .chosen-word { font-size: clamp(1.3em, min(2.3vw, 4vh), 2.2em); margin: 3px; }
-  .option-number { font-size: 0.42em; margin-bottom: 0; opacity: 0.85; }
+  .word-option { font-size: clamp(1.6em, min(3.4vw, 6.4vh), 4em); }
+  .chosen-word { font-size: clamp(1.3em, min(2.6vw, 4.6vh), 3em); margin: 3px; }
+  .option-number { font-size: 0.6em; font-weight: 900; opacity: 1; margin-bottom: 0; }
+}
+@media (max-width: 600px) {
+  .option-number { font-size: 0.95em; font-weight: 900; opacity: 1; }
 }
 </style>
 </head>
