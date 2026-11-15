@@ -643,6 +643,22 @@
   a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
   .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
 </style>
+<style id="md-bigchip">
+/* 投影用大字（寬螢幕）：中間選項與上方已選語詞放大，教室後排也看得清楚；字級隨螢幕寬、高縮放 — © 2026 詹宗龍 */
+@media (min-width: 601px) {
+  .options-area { padding: 6px; }
+  #word-options { gap: 12px 18px; width: 98%; }
+  .word-option, .chosen-word {
+    padding: 4px 22px 6px;
+    border-radius: 999px;
+    line-height: 1.15;
+    border-width: 3px;
+  }
+  .word-option { font-size: clamp(1.5em, min(2.8vw, 4.8vh), 2.7em); }
+  .chosen-word { font-size: clamp(1.3em, min(2.3vw, 4vh), 2.2em); margin: 3px; }
+  .option-number { font-size: 0.42em; margin-bottom: 0; opacity: 0.85; }
+}
+</style>
 </head>
 <body>
     <div id="app">
