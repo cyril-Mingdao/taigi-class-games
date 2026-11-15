@@ -1068,11 +1068,25 @@
             }
         }
 
+                /* 發音取第一種完整讀音（2026-11-15 修正：多音寫法不再只唸第一個音節）— © 2026 詹宗龍 */
+        function mdTl(raw, han) {
+            let s = String(raw || '').trim();
+            if (!s || /^https?:\/\//.test(s)) return s;
+            s = s.split(/\s+\/\s+/)[0].replace(/\/\s+/g, '/');
+            const n = (String(han || '').match(/[㐀-鿿豈-﫿]|[\ud840-\ud8bf][\udc00-\udfff]/g) || []).length;
+            const cnt = t => t.split(/[\s\-]+/).filter(Boolean).length;
+            const tok = s.replace(/[^\s\-]+/g, w => w.split('/')[0]);
+            const first = s.split('/')[0].trim();
+            if (!n || cnt(tok) === n) return tok;
+            if (cnt(first) === n) return first;
+            return tok;
+        }
+
         function playCurrentAudio() {
             const data = gameQuestions[currentQIndex];
             if (!data) return;
             const raw = data.tl;
-            const processed = raw.split(' ').map(s => s.split('/')[0]).join(' ');
+            const processed = mdTl(raw, data.ty);
             try {
                 const dummy = document.createElement('div');
                 holo(dummy, processed);

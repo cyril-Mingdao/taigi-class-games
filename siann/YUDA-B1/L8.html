@@ -1112,6 +1112,32 @@
  html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);padding:0.8vh 2vw}
  html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);margin-top:0.3vh}
 }
+@media (min-width: 1025px) and (min-height: 641px){
+ html body .game-container{padding:1.2vh 1vw;gap:1vw;box-sizing:border-box}
+ html body .left-panel{width:23%;height:calc(100vh - 2.4vh);padding:2vh 1.2vw;gap:1.6vh;justify-content:space-evenly;align-items:stretch;box-sizing:border-box}
+ html body .left-panel>*{margin:0}
+ html body .play-audio-button{padding:3vh 1vw;font-size:clamp(18px,3.2vh,34px);border-radius:20px}
+ html body .progress-text{font-size:clamp(16px,2.8vh,30px);margin-bottom:1vh}
+ html body .progress-bar{height:clamp(10px,1.4vh,18px)}
+ html body .navigation-buttons{gap:0.8vw}
+ html body .nav-button{padding:2.4vh 0.6vw;font-size:clamp(16px,2.8vh,30px);border-radius:16px}
+ html body .back-button{padding:2.4vh 0.6vw;font-size:clamp(16px,2.8vh,30px);border-radius:16px;width:100%}
+ html body .question-info{padding:1.6vh 1vw}
+ html body .info-title{font-size:clamp(20px,3.6vh,40px)}
+ html body .info-label,html body .info-value,html body .chinese-value{font-size:clamp(16px,3vh,34px)}
+ html body .right-panel{width:77%;height:calc(100vh - 2.4vh);padding:2vh 2vw;box-sizing:border-box;display:flex;flex-direction:column}
+ html body .game-header{margin-bottom:1vh}
+ html body .game-main-title{font-size:clamp(24px,4vh,48px)}
+ html body .game-sub-title{font-size:clamp(16px,2.6vh,30px)}
+ html body .question-area{flex:1;display:flex;flex-direction:column;min-height:0}
+ html body .question-text{flex:0 0 auto;font-size:clamp(36px,10vh,120px);line-height:1.2;margin:1vh 0 2.4vh;min-height:0}
+ html body .options-grid{flex:1;min-height:0;width:100%;max-width:none;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:2.4vh 1.6vw;margin:0}
+ html body .option-button{min-height:0;height:100%;padding:1.6vh 1.6vw;border-radius:22px;margin:0;justify-content:flex-start}
+ html body .option-text{font-size:clamp(26px,6.4vh,78px)}
+ html body .option-text.medium{font-size:clamp(22px,5.4vh,66px)}
+ html body .option-text.small{font-size:clamp(18px,4.4vh,54px)}
+ html body .option-label{width:clamp(36px,6.4vh,80px);height:clamp(36px,6.4vh,80px);font-size:clamp(18px,3.4vh,40px);margin-right:1.2vw;flex:none}
+}
 </style>
 </head>
  <body oncontextmenu="return false;"><!-- 入口選單頁面 -->
@@ -1575,8 +1601,22 @@
         }
 
         // 獲取音檔 URL
-        function getAudioUrl(romanization) {
-            const audioRoman = romanization.split('/')[0].trim();
+                /* 發音取第一種完整讀音（2026-11-15 修正：多音寫法不再只唸第一個音節）— © 2026 詹宗龍 */
+        function mdTl(raw, han) {
+            let s = String(raw || '').trim();
+            if (!s || /^https?:\/\//.test(s)) return s;
+            s = s.split(/\s+\/\s+/)[0].replace(/\/\s+/g, '/');
+            const n = (String(han || '').match(/[㐀-鿿豈-﫿]|[\ud840-\ud8bf][\udc00-\udfff]/g) || []).length;
+            const cnt = t => t.split(/[\s\-]+/).filter(Boolean).length;
+            const tok = s.replace(/[^\s\-]+/g, w => w.split('/')[0]);
+            const first = s.split('/')[0].trim();
+            if (!n || cnt(tok) === n) return tok;
+            if (cnt(first) === n) return first;
+            return tok;
+        }
+
+        function getAudioUrl(romanization, han) {
+            const audioRoman = mdTl(romanization, han);
             return audioRoman;
         }
 
@@ -1585,7 +1625,7 @@
             if (currentQuestionIndex >= currentQuestions.length) return;
             
             const currentQuestion = currentQuestions[currentQuestionIndex];
-            const audioUrl = getAudioUrl(currentQuestion.romanization);
+            const audioUrl = getAudioUrl(currentQuestion.romanization, currentQuestion.taiwanese);
             
             const button = document.getElementById('playAudioButton');
             if (typeof holo === 'function') {
