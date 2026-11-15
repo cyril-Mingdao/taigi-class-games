@@ -680,45 +680,45 @@
   a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
   .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
 </style>
-<style id="md-fit">
+<style id="md-fit">/*md-dvh*/
 /* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
 @media (orientation: landscape) and (max-height: 640px){
- html body .container{padding:1vh 1.5vw;min-height:0;height:100vh;height:100dvh;box-sizing:border-box;justify-content:center}
- html body .menu-screen{max-width:96vw;width:96vw;padding:1.6vh 2vw;border-radius:18px;box-sizing:border-box}
- html body .title{font-size:clamp(18px,7vh,2.5rem);margin-bottom:0.4vh}
- html body .subtitle{font-size:clamp(12px,4vh,1.2rem);margin-bottom:1vh}
- html body .menu-section{margin:1vh 0}
- html body .menu-label{font-size:clamp(13px,4.4vh,1.3rem);margin-bottom:0.8vh}
- html body .menu-button{padding:1.2vh 1.6vw;font-size:clamp(12px,4vh,1.1rem);min-width:0}
- html body .start-button{padding:1.4vh 3vw;font-size:clamp(13px,4.6vh,1.3rem);margin-top:1vh}
- html body .md-quiz-link-wrap{margin-top:1vh}
- html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);padding:0.8vh 2vw}
- html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);margin-top:0.3vh}
+ html body .container{padding:1vh 1.5vw;padding:1dvh 1.5vw;min-height:0;height:100vh;height:100dvh;height:100dvh;box-sizing:border-box;justify-content:center}
+ html body .menu-screen{max-width:96vw;width:96vw;padding:1.6vh 2vw;padding:1.6dvh 2vw;border-radius:18px;box-sizing:border-box}
+ html body .title{font-size:clamp(18px,7vh,2.5rem);font-size:clamp(18px,7dvh,2.5rem);margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body .subtitle{font-size:clamp(12px,4vh,1.2rem);font-size:clamp(12px,4dvh,1.2rem);margin-bottom:1vh;margin-bottom:1dvh}
+ html body .menu-section{margin:1vh 0;margin:1dvh 0}
+ html body .menu-label{font-size:clamp(13px,4.4vh,1.3rem);font-size:clamp(13px,4.4dvh,1.3rem);margin-bottom:0.8vh;margin-bottom:0.8dvh}
+ html body .menu-button{padding:1.2vh 1.6vw;padding:1.2dvh 1.6vw;font-size:clamp(12px,4vh,1.1rem);font-size:clamp(12px,4dvh,1.1rem);min-width:0}
+ html body .start-button{padding:1.4vh 3vw;padding:1.4dvh 3vw;font-size:clamp(13px,4.6vh,1.3rem);font-size:clamp(13px,4.6dvh,1.3rem);margin-top:1vh;margin-top:1dvh}
+ html body .md-quiz-link-wrap{margin-top:1vh;margin-top:1dvh}
+ html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);font-size:clamp(12px,3.8dvh,18px);padding:0.8vh 2vw;padding:0.8dvh 2vw}
+ html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);font-size:clamp(10px,2.8dvh,13px);margin-top:0.3vh;margin-top:0.3dvh}
 }
 /* 遊戲頁（v11）：滿版一屏；題目在上、選項區吃掉剩餘空間、選項字由 md-fit-js 自動放到最大 */
-html body .container:has(#gameScreen:not(.hidden)){width:100%;max-width:none;margin:0;padding:1vmin 1vmin 22px;height:100vh;height:100dvh;min-height:0;box-sizing:border-box;justify-content:stretch;align-items:stretch}
+html body .container:has(#gameScreen:not(.hidden)){width:100%;max-width:none;margin:0;padding:1vmin 1vmin 22px;height:100vh;height:100dvh;height:100dvh;min-height:0;box-sizing:border-box;justify-content:stretch;align-items:stretch}
 html body .game-screen{aspect-ratio:auto;width:100%;max-width:none;height:100%;min-height:0;padding:1.4vmin 2vmin;box-sizing:border-box;overflow:hidden;border-radius:clamp(12px,2vmin,20px);justify-content:flex-start;gap:1.2vmin}
 html body .game-header{flex:none;margin:0}
-html body .game-info{font-size:clamp(12px,min(3vh,1.7vw),30px)}
-html body .progress-bar{height:clamp(6px,1.2vh,14px)}
+html body .game-info{font-size:clamp(12px,min(3vh,1.7vw),30px);font-size:clamp(12px,min(3dvh,1.7vw),30px)}
+html body .progress-bar{height:clamp(6px,1.2vh,14px);height:clamp(6px,1.2dvh,14px)}
 html body .question-area{flex:1 1 0;min-height:0;width:100%;justify-content:flex-start;align-items:stretch}
-html body .question-text{flex:none;font-size:clamp(18px,min(8.5vh,4.4vw),110px);margin:0.4vh 0 1.8vh;line-height:1.3}
+html body .question-text{flex:none;font-size:clamp(18px,min(8.5vh,4.4vw),110px);font-size:clamp(18px,min(8.5dvh,4.4vw),110px);margin:0.4vh 0 1.8vh;margin:0.4dvh 0 1.8dvh;line-height:1.3}
 html body .highlight-word{padding:0.2em 0.5em}
-html body .options-grid{flex:1 1 0;min-height:0;width:100%;max-width:none;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:2.2vh 1.6vw}
-html body .option-button{min-height:0;height:100%;box-sizing:border-box;overflow:hidden;padding:1vh calc(2vw + min(4.6vh,2.4vw) + 6px);border-radius:clamp(12px,2.4vh,26px)}
+html body .options-grid{flex:1 1 0;min-height:0;width:100%;max-width:none;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:2.2vh 1.6vw;gap:2.2dvh 1.6vw}
+html body .option-button{min-height:0;height:100%;box-sizing:border-box;overflow:hidden;padding:1vh calc(2vw + min(4.6vh,2.4vw) + 6px);padding:1dvh calc(2vw + min(4.6dvh,2.4vw) + 6px);border-radius:clamp(12px,2.4vh,26px);border-radius:clamp(12px,2.4dvh,26px)}
 html body .option-button>span[id^="optionText"]{display:block;min-width:0;max-width:100%;line-height:1.15;overflow-wrap:normal;word-break:keep-all}
-html body .option-label{font-size:clamp(16px,min(6.4vh,3.2vw),70px);left:1.2vw}
-html body .notice-text{flex:none;align-self:center;font-size:clamp(11px,min(2.6vh,1.5vw),26px);padding:0.5vh 1.2vw;margin:1.4vh 0 0}
+html body .option-label{font-size:clamp(16px,min(6.4vh,3.2vw),70px);font-size:clamp(16px,min(6.4dvh,3.2vw),70px);left:1.2vw}
+html body .notice-text{flex:none;align-self:center;font-size:clamp(11px,min(2.6vh,1.5vw),26px);font-size:clamp(11px,min(2.6dvh,1.5vw),26px);padding:0.5vh 1.2vw;padding:0.5dvh 1.2vw;margin:1.4vh 0 0;margin:1.4dvh 0 0}
 html body .game-controls{flex:none;margin:0}
-html body .nav-button{padding:1vh 2.6vw;font-size:clamp(12px,min(3.2vh,1.8vw),30px)}
+html body .nav-button{padding:1vh 2.6vw;padding:1dvh 2.6vw;font-size:clamp(12px,min(3.2vh,1.8vw),30px);font-size:clamp(12px,min(3.2dvh,1.8vw),30px)}
 @media (orientation: portrait){
- html body .game-info{font-size:clamp(12px,min(2.2vh,3.4vw),28px)}
- html body .question-text{font-size:clamp(18px,min(5vh,6.6vw),90px);margin:0.4vh 0 1.4vh}
- html body .options-grid{gap:1.4vh 2.4vw}
- html body .option-button{padding:1vh calc(3vw + min(3.6vh,5vw) + 6px)}
- html body .option-label{font-size:clamp(16px,min(4.6vh,6.4vw),60px);left:2.4vw}
- html body .notice-text{font-size:clamp(11px,min(1.8vh,3vw),24px)}
- html body .nav-button{padding:1vh 4vw;font-size:clamp(12px,min(2.2vh,3.8vw),28px)}
+ html body .game-info{font-size:clamp(12px,min(2.2vh,3.4vw),28px);font-size:clamp(12px,min(2.2dvh,3.4vw),28px)}
+ html body .question-text{font-size:clamp(18px,min(5vh,6.6vw),90px);font-size:clamp(18px,min(5dvh,6.6vw),90px);margin:0.4vh 0 1.4vh;margin:0.4dvh 0 1.4dvh}
+ html body .options-grid{gap:1.4vh 2.4vw;gap:1.4dvh 2.4vw}
+ html body .option-button{padding:1vh calc(3vw + min(3.6vh,5vw) + 6px);padding:1dvh calc(3vw + min(3.6dvh,5vw) + 6px)}
+ html body .option-label{font-size:clamp(16px,min(4.6vh,6.4vw),60px);font-size:clamp(16px,min(4.6dvh,6.4vw),60px);left:2.4vw}
+ html body .notice-text{font-size:clamp(11px,min(1.8vh,3vw),24px);font-size:clamp(11px,min(1.8dvh,3vw),24px)}
+ html body .nav-button{padding:1vh 4vw;padding:1dvh 4vw;font-size:clamp(12px,min(2.2vh,3.8vw),28px);font-size:clamp(12px,min(2.2dvh,3.8vw),28px)}
 }
 @media (orientation: portrait) and (max-width: 560px){
  html body .options-grid{grid-template-columns:minmax(0,1fr)}

@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>台語韻母互動</title>
 <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
-<style>
+<style>/*md-dvh*/
     :root {
         --bg-start: #235390;
         --bg-end: #1cb0f6;
@@ -37,7 +37,7 @@
         margin: 0;
         padding: 0;
         width: 100vw;
-        height: 100vh;
+        height: 100vh;height:100dvh;
         background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
         display: flex;
         justify-content: center;
@@ -62,7 +62,7 @@
     /* 自適應保護 */
     @media (max-aspect-ratio: 16/4) {
         #main-container {
-            height: 98vh; 
+            height: 98vh;height:98dvh; 
             width: 98vw;
         }
     }
@@ -229,7 +229,7 @@
         width: 60vw;
         max-width: 600px;
         /* 限制最大高度與滾動功能，確保適配螢幕顯示範圍 */
-        max-height: 90vh;
+        max-height: 90vh;max-height:90dvh;
         overflow-y: auto;
         
         aspect-ratio: 16/9;
@@ -304,7 +304,7 @@
         .speaker-icon { width: 20px; height: 20px; font-size: 12px; }
         .tile-text { font-size: 24px; }
         
-        .modal-content { width: 90vw; aspect-ratio: auto; height: auto; min-height: 50vh; padding: 30px 0; }
+        .modal-content { width: 90vw; aspect-ratio: auto; height: auto; min-height: 50vh;min-height:50dvh; padding: 30px 0; }
         .modal-cat { font-size: 18px; }
         .modal-main-text { font-size: 80px; }
         .modal-ref { font-size: 30px; }
@@ -313,6 +313,10 @@
         .info-text { font-size: 14px; }
     }
 
+</style>
+<style id="md-mobile">
+/* 底部工具列與右下角出版社標示錯開（md-fit 的 html body #game-screen 媒體規則優先） */
+body #game-screen{padding-bottom:22px}
 </style>
 </head>
 <body>

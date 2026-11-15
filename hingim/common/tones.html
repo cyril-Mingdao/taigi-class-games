@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>台語聲調與變調互動</title>
 <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
-<style>
+<style>/*md-dvh*/
     :root {
         --bg-start: #e1f5fe;
         --bg-end: #b3e5fc;
@@ -38,7 +38,7 @@
         margin: 0;
         padding: 0;
         width: 100vw;
-        height: 100vh;
+        height: 100vh;height:100dvh;
         background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
         display: flex;
         justify-content: center;
@@ -51,8 +51,8 @@
         /* 16:5 比例 */
         aspect-ratio: 16 / 5;
         width: 98vw;
-        max-height: 98vh; 
-        max-width: calc(98vh * (16 / 5));
+        max-height: 98vh;max-height:98dvh; 
+        max-width: calc(98vh * (16 / 5));max-width:calc(98dvh * (16 / 5));
         
         background-color: white;
         display: flex;
@@ -66,7 +66,7 @@
     /* 新增：針對一般螢幕 (比 16:5 更方或直式)，強制填滿畫面以減少上下留白 */
     @media (max-aspect-ratio: 16/5) {
         #main-container {
-            height: 98vh;
+            height: 98vh;height:98dvh;
             width: 98vw;
             max-width: none;
             max-height: none;
@@ -355,6 +355,10 @@
 
     .s-item.overlay.arrow.active { animation: wipe-down 1.2s infinite; }
 
+</style>
+<style id="md-mobile">
+/* 底部工具列與右下角出版社標示錯開（md-fit 的 html body #game-screen 媒體規則優先） */
+body #game-screen{padding-bottom:22px}
 </style>
 </head>
 <body oncontextmenu="return false;">

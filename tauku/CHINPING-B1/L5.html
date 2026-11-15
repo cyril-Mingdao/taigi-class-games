@@ -22,7 +22,7 @@
     
     <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
     
-    <style>
+    <style>/*md-dvh*/
         /* --- 動態背景動畫定義 --- */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -43,7 +43,7 @@
             color: #333;
             display: flex;
             justify-content: center;
-            min-height: 100vh; 
+            min-height: 100vh;min-height:100dvh; 
         }
 
         #app {
@@ -144,7 +144,7 @@
             .game-area {
                 aspect-ratio: auto;
                 max-height: none;
-                height: calc(100vh - 260px);  /* 預留給標題、警語與下方按鈕列 */
+                height: calc(100vh - 260px);height:calc(100dvh - 260px);  /* 預留給標題、警語與下方按鈕列 */
                 margin-top: 0;
             }
 
@@ -282,7 +282,7 @@
             flex-direction: column;
             width: 100%;
             aspect-ratio: 16 / 5; 
-            max-height: calc(100vh - 200px); 
+            max-height: calc(100vh - 200px);max-height:calc(100dvh - 200px); 
             border: none;
             border-radius: 20px 20px 0 0; /* 柔和導角 */
             box-shadow: 0 10px 25px rgba(100, 100, 255, 0.15);
@@ -643,13 +643,13 @@
   a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
   .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
 </style>
-<style id="md-bigchip">
+<style id="md-bigchip">/*md-dvh*/
 /* 投影用滿版大字（2026-11-15 老師要求）：拿掉左右留白、遊戲區填滿螢幕高度、選項與題號放大；手機版另有調整 — © 2026 詹宗龍 */
 @media (min-width: 601px) {
   #app { max-width: none; padding: 0 1.5vw; }
   #game-page:not(.hidden) {
     display: flex; flex-direction: column;
-    height: calc(100vh - 22px); height: calc(100dvh - 22px);   /* 底部留給右下角出版社標示 */
+    height: calc(100vh - 22px);height:calc(100dvh - 22px); height: calc(100dvh - 22px);   /* 底部留給右下角出版社標示 */
     margin-top: 0; transform: none; box-sizing: border-box; padding-top: 6px;
   }
   #game-page header { flex: none; }
@@ -658,18 +658,18 @@
   #game-page .game-area { flex: 1 1 auto; min-height: 260px; aspect-ratio: auto; max-height: none; }
   #game-page .control-panel { max-width: none; flex: none; }
   .result-area { flex: 1.6; }
-  .options-area { flex: 4; padding: 1vh 1vw; }
+  .options-area { flex: 4; padding: 1vh 1vw;padding:1dvh 1vw; }
   #answer-info { flex: none; }   /* 公布答案後的解說區依內容高度，不擠掉選項 */
   #chosen-words, #word-options { width: 99%; }
-  #word-options { gap: 2vh 1.6vw; }
+  #word-options { gap: 2vh 1.6vw;gap:2dvh 1.6vw; }
   .word-option, .chosen-word {
-    padding: 0.6vh 1.6vw 1vh;
+    padding: 0.6vh 1.6vw 1vh;padding:0.6dvh 1.6vw 1dvh;
     border-radius: 999px;
     line-height: 1.1;
     border-width: 3px;
   }
-  .word-option { font-size: clamp(1.6em, min(3.4vw, 6.4vh), 4em); }
-  .chosen-word { font-size: clamp(1.3em, min(2.6vw, 4.6vh), 3em); margin: 3px; }
+  .word-option { font-size: clamp(1.6em, min(3.4vw, 6.4vh), 4em);font-size:clamp(1.6em, min(3.4vw, 6.4dvh), 4em); }
+  .chosen-word { font-size: clamp(1.3em, min(2.6vw, 4.6vh), 3em);font-size:clamp(1.3em, min(2.6vw, 4.6dvh), 3em); margin: 3px; }
   .option-number { font-size: 0.6em; font-weight: 900; opacity: 1; margin-bottom: 0; }
 }
 @media (max-width: 600px) {
@@ -679,52 +679,52 @@
 /* 入口頁（選單）：滿版、整頁剛好一屏不溢出，字與按鈕隨螢幕縮放（各尺寸通用） */
 #menu-page:not(.hidden) {
   display: flex; flex-direction: column;
-  height: calc(100vh - 22px); height: calc(100dvh - 22px);
-  margin-top: 0; transform: none; box-sizing: border-box; padding-top: 1vh;
+  height: calc(100vh - 22px);height:calc(100dvh - 22px); height: calc(100dvh - 22px);
+  margin-top: 0; transform: none; box-sizing: border-box; padding-top: 1vh;padding-top:1dvh;
 }
-#menu-page h1 { flex: none; margin: 0.5vh 0 0; font-size: clamp(1.6em, min(5vw, 7vh), 3.2em); }
-#menu-page h2 { flex: none; margin: 0; font-size: clamp(1.1em, min(3vw, 4.4vh), 2em); }
+#menu-page h1 { flex: none; margin: 0.5vh 0 0;margin:0.5dvh 0 0; font-size: clamp(1.6em, min(5vw, 7vh), 3.2em);font-size:clamp(1.6em, min(5vw, 7dvh), 3.2em); }
+#menu-page h2 { flex: none; margin: 0; font-size: clamp(1.1em, min(3vw, 4.4vh), 2em);font-size:clamp(1.1em, min(3vw, 4.4dvh), 2em); }
 #menu-page .menu-container {
   flex: 1 1 auto; min-height: 0; overflow-y: auto;
   max-width: none; width: 100%; box-sizing: border-box;
-  margin: 1.5vh 0 0; padding: clamp(10px, 2.5vh, 32px) clamp(12px, 3vw, 48px);
+  margin: 1.5vh 0 0;margin:1.5dvh 0 0; padding: clamp(10px, 2.5vh, 32px) clamp(12px, 3vw, 48px);padding:clamp(10px, 2.5dvh, 32px) clamp(12px, 3vw, 48px);
   display: flex; flex-direction: column; justify-content: space-evenly;
 }
-#menu-page .menu-container h3 { margin: 0.3em 0; font-size: clamp(1.1em, min(2.4vw, 4vh), 2em); }
-#menu-page .button-group { gap: clamp(8px, 1.5vw, 24px); margin-bottom: 1vh; }
-#menu-page .menu-container button { font-size: clamp(1em, min(2.4vw, 4vh), 2em); padding: 0.45em 1em; border-radius: 14px; }
-#menu-page #start-game { font-size: clamp(1.1em, min(2.6vw, 4.4vh), 2.2em); margin-top: 1vh; padding: 0.5em; }
-#menu-page .md-quiz-link-wrap { margin-top: 1.2vh; }
-#menu-page a.md-quiz-link { font-size: clamp(16px, min(2.2vw, 3.6vh), 30px); }
-#menu-page .md-quiz-link-hint { font-size: clamp(12px, min(1.4vw, 2.2vh), 18px); }
+#menu-page .menu-container h3 { margin: 0.3em 0; font-size: clamp(1.1em, min(2.4vw, 4vh), 2em);font-size:clamp(1.1em, min(2.4vw, 4dvh), 2em); }
+#menu-page .button-group { gap: clamp(8px, 1.5vw, 24px); margin-bottom: 1vh;margin-bottom:1dvh; }
+#menu-page .menu-container button { font-size: clamp(1em, min(2.4vw, 4vh), 2em);font-size:clamp(1em, min(2.4vw, 4dvh), 2em); padding: 0.45em 1em; border-radius: 14px; }
+#menu-page #start-game { font-size: clamp(1.1em, min(2.6vw, 4.4vh), 2.2em);font-size:clamp(1.1em, min(2.6vw, 4.4dvh), 2.2em); margin-top: 1vh;margin-top:1dvh; padding: 0.5em; }
+#menu-page .md-quiz-link-wrap { margin-top: 1.2vh;margin-top:1.2dvh; }
+#menu-page a.md-quiz-link { font-size: clamp(16px, min(2.2vw, 3.6vh), 30px);font-size:clamp(16px, min(2.2vw, 3.6dvh), 30px); }
+#menu-page .md-quiz-link-hint { font-size: clamp(12px, min(1.4vw, 2.2vh), 18px);font-size:clamp(12px, min(1.4vw, 2.2dvh), 18px); }
 </style>
-<style id="md-fit">
+<style id="md-fit">/*md-dvh*/
 /* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
 @media (min-width: 601px) and (max-height: 640px){
  html body #game-page:not(.hidden){padding-top:2px}
- html body #game-page header h1{font-size:clamp(16px,6vh,1.6em);margin:0}
- html body #game-page header h2{font-size:clamp(12px,4vh,1.1em);margin:0}
- html body #game-page header > div{margin-bottom:0.4vh !important;font-size:clamp(11px,3.2vh,1em)}
- html body #header-back-btn{top:2px;padding:0.6vh 1.2vw;font-size:clamp(11px,3.2vh,0.9em)}
- html body #game-page .warning-msg{font-size:clamp(10px,3vh,1em);padding:0.4vh 1vw;margin:0.3vh auto 0.6vh}
+ html body #game-page header h1{font-size:clamp(16px,6vh,1.6em);font-size:clamp(16px,6dvh,1.6em);margin:0}
+ html body #game-page header h2{font-size:clamp(12px,4vh,1.1em);font-size:clamp(12px,4dvh,1.1em);margin:0}
+ html body #game-page header > div{margin-bottom:0.4vh !important;margin-bottom:0.4dvh !important;font-size:clamp(11px,3.2vh,1em);font-size:clamp(11px,3.2dvh,1em)}
+ html body #header-back-btn{top:2px;padding:0.6vh 1.2vw;padding:0.6dvh 1.2vw;font-size:clamp(11px,3.2vh,0.9em);font-size:clamp(11px,3.2dvh,0.9em)}
+ html body #game-page .warning-msg{font-size:clamp(10px,3vh,1em);font-size:clamp(10px,3dvh,1em);padding:0.4vh 1vw;padding:0.4dvh 1vw;margin:0.3vh auto 0.6vh;margin:0.3dvh auto 0.6dvh}
  html body #feedback-message{height:auto;margin:0}
  html body #game-page .game-area{min-height:0}
- html body #game-page .control-panel{padding:0.8vh 1vw}
- html body #game-page .control-panel button{padding:0.8vh 2vw;font-size:clamp(11px,3.6vh,1em)}
- html body .word-option{font-size:clamp(1em,min(3.4vw,6.4vh),4em)}
- html body .chosen-word{font-size:clamp(0.9em,min(2.6vw,4.6vh),3em)}
+ html body #game-page .control-panel{padding:0.8vh 1vw;padding:0.8dvh 1vw}
+ html body #game-page .control-panel button{padding:0.8vh 2vw;padding:0.8dvh 2vw;font-size:clamp(11px,3.6vh,1em);font-size:clamp(11px,3.6dvh,1em)}
+ html body .word-option{font-size:clamp(1em,min(3.4vw,6.4vh),4em);font-size:clamp(1em,min(3.4vw,6.4dvh),4em)}
+ html body .chosen-word{font-size:clamp(0.9em,min(2.6vw,4.6vh),3em);font-size:clamp(0.9em,min(2.6vw,4.6dvh),3em)}
 }
 @media (max-height: 640px){
- html body #menu-page h1{font-size:clamp(16px,6vh,2.4em)}
- html body #menu-page h2{font-size:clamp(12px,4vh,1.6em)}
- html body #menu-page .menu-container{margin-top:0.8vh;padding:1.2vh 3vw}
- html body #menu-page .menu-container h3{font-size:clamp(12px,3.6vh,1.6em);margin:0.2em 0}
- html body #menu-page .button-group{margin-bottom:0.4vh}
- html body #menu-page .menu-container button{font-size:clamp(12px,3.8vh,1.6em);padding:0.35em 0.9em}
- html body #menu-page #start-game{font-size:clamp(13px,4vh,1.8em);padding:0.35em;margin-top:0.6vh}
- html body #menu-page .md-quiz-link-wrap{margin-top:0.6vh}
- html body #menu-page a.md-quiz-link{font-size:clamp(12px,3.6vh,22px);padding:0.5vh 2vw}
- html body #menu-page .md-quiz-link-hint{font-size:clamp(10px,2.6vh,14px);margin-top:0.2vh}
+ html body #menu-page h1{font-size:clamp(16px,6vh,2.4em);font-size:clamp(16px,6dvh,2.4em)}
+ html body #menu-page h2{font-size:clamp(12px,4vh,1.6em);font-size:clamp(12px,4dvh,1.6em)}
+ html body #menu-page .menu-container{margin-top:0.8vh;margin-top:0.8dvh;padding:1.2vh 3vw;padding:1.2dvh 3vw}
+ html body #menu-page .menu-container h3{font-size:clamp(12px,3.6vh,1.6em);font-size:clamp(12px,3.6dvh,1.6em);margin:0.2em 0}
+ html body #menu-page .button-group{margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body #menu-page .menu-container button{font-size:clamp(12px,3.8vh,1.6em);font-size:clamp(12px,3.8dvh,1.6em);padding:0.35em 0.9em}
+ html body #menu-page #start-game{font-size:clamp(13px,4vh,1.8em);font-size:clamp(13px,4dvh,1.8em);padding:0.35em;margin-top:0.6vh;margin-top:0.6dvh}
+ html body #menu-page .md-quiz-link-wrap{margin-top:0.6vh;margin-top:0.6dvh}
+ html body #menu-page a.md-quiz-link{font-size:clamp(12px,3.6vh,22px);font-size:clamp(12px,3.6dvh,22px);padding:0.5vh 2vw;padding:0.5dvh 2vw}
+ html body #menu-page .md-quiz-link-hint{font-size:clamp(10px,2.6vh,14px);font-size:clamp(10px,2.6dvh,14px);margin-top:0.2vh;margin-top:0.2dvh}
 }
 </style>
 </head>
