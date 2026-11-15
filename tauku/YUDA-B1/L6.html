@@ -676,6 +676,27 @@
   .option-number { font-size: 0.95em; font-weight: 900; opacity: 1; }
   .warning-msg { width: 100%; box-sizing: border-box; }   /* 原本略寬，手機會出現水平捲軸 */
 }
+/* 入口頁（選單）：滿版、整頁剛好一屏不溢出，字與按鈕隨螢幕縮放（各尺寸通用） */
+#menu-page:not(.hidden) {
+  display: flex; flex-direction: column;
+  height: calc(100vh - 22px); height: calc(100dvh - 22px);
+  margin-top: 0; transform: none; box-sizing: border-box; padding-top: 1vh;
+}
+#menu-page h1 { flex: none; margin: 0.5vh 0 0; font-size: clamp(1.6em, min(5vw, 7vh), 3.2em); }
+#menu-page h2 { flex: none; margin: 0; font-size: clamp(1.1em, min(3vw, 4.4vh), 2em); }
+#menu-page .menu-container {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto;
+  max-width: none; width: 100%; box-sizing: border-box;
+  margin: 1.5vh 0 0; padding: clamp(10px, 2.5vh, 32px) clamp(12px, 3vw, 48px);
+  display: flex; flex-direction: column; justify-content: space-evenly;
+}
+#menu-page .menu-container h3 { margin: 0.3em 0; font-size: clamp(1.1em, min(2.4vw, 4vh), 2em); }
+#menu-page .button-group { gap: clamp(8px, 1.5vw, 24px); margin-bottom: 1vh; }
+#menu-page .menu-container button { font-size: clamp(1em, min(2.4vw, 4vh), 2em); padding: 0.45em 1em; border-radius: 14px; }
+#menu-page #start-game { font-size: clamp(1.1em, min(2.6vw, 4.4vh), 2.2em); margin-top: 1vh; padding: 0.5em; }
+#menu-page .md-quiz-link-wrap { margin-top: 1.2vh; }
+#menu-page a.md-quiz-link { font-size: clamp(16px, min(2.2vw, 3.6vh), 30px); }
+#menu-page .md-quiz-link-hint { font-size: clamp(12px, min(1.4vw, 2.2vh), 18px); }
 </style>
 </head>
 <body>
