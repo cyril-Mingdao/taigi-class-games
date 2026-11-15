@@ -531,6 +531,66 @@
   a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
   .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
 </style>
+<style id="md-fit">
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+@media (orientation: landscape) and (max-height: 640px){
+ html body h1{font-size:clamp(18px,7.5vh,2.5rem);margin:0 0 0.4vh}
+ html body h2{font-size:clamp(12px,4vh,1.2rem);margin-bottom:1.6vh}
+ html body .settings-box{max-width:92vw;width:92vw;padding:1.8vh 2.4vw;box-sizing:border-box}
+ html body .option-group{margin-bottom:1vh}
+ html body .option-group label{font-size:clamp(12px,3.8vh,1.1rem);margin-bottom:0.6vh}
+ html body .qty-grid{grid-template-columns:repeat(6,1fr);gap:1vw}
+ html body .qty-btn{padding:1.2vh 0.4vw;font-size:clamp(13px,4.6vh,1.5rem)}
+ html body .btn-start{padding:1.4vh 0;font-size:clamp(14px,5vh,1.5rem);margin-top:0.6vh}
+ html body .md-quiz-link-wrap{margin-top:1vh}
+ html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);padding:0.8vh 2vw}
+ html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);margin-top:0.3vh}
+ html body #game-screen{padding:0.8vh 1vw 16px;box-sizing:border-box}
+ html body .content-area{flex-direction:row;gap:1vw;margin-bottom:0.8vh}
+ html body .info-panel{flex:1;max-width:32%;padding:0.8vh 0.8vw}
+ html body .info-row,html body .info-val{font-size:clamp(11px,3.6vh,1.4rem)}
+ html body .info-label{width:auto;margin-right:0.6vw}
+ html body .taiyu-box{margin:0.4vh 0;padding:0.4vh;gap:1vw}
+ html body .taiyu-text{font-size:clamp(16px,7vh,2.5rem)}
+ html body .play-audio-btn{width:clamp(24px,8vh,45px);height:clamp(24px,8vh,45px);font-size:clamp(14px,5.4vh,2.2rem)}
+ html body .mandarin-label{font-size:clamp(10px,3vh,1.1rem)}
+ html body .mandarin-text{font-size:clamp(11px,4vh,1.6rem);max-height:14vh}
+ html body .matrix-panel{flex:2;align-items:stretch;justify-content:center;padding:0.8vh;gap:0.8vh}
+ html body .syllable-row{width:100%;min-width:0;justify-content:center;gap:0.6vw;padding-bottom:0;flex:1 1 0;max-height:24vh}
+ html body .target-box{min-height:0;min-width:0}
+ html body .target-header{font-size:clamp(10px,3vh,1.2rem);padding:0.3vh}
+ html body .target-value{font-size:clamp(12px,6vh,2rem)}
+ html body .options-area{min-height:0;margin-bottom:0.4vh}
+ html body .options-grid{grid-template-columns:repeat(4,1fr);gap:1vw}
+ html body .option-card{min-height:0;padding:1.4vh 0.6vw}
+ html body .opt-idx-box{width:clamp(20px,7vh,54px);height:clamp(20px,7vh,54px);font-size:clamp(11px,3.6vh,1.5rem);margin-right:0.6vw}
+ html body .opt-text,html body .opt-text.text-fit-sm,html body .opt-text.text-fit-md,html body .opt-text.text-fit-lg{font-size:clamp(13px,7.5vh,2.1rem)}
+ html body .footer-bar{height:clamp(32px,11vh,60px)}
+ html body .nav-control-btn{height:clamp(26px,8vh,40px)}
+}
+@media (max-width: 767px) and (orientation: portrait){
+ html body #game-screen{padding:6px 6px 34px;box-sizing:border-box}
+ html body .content-area{gap:6px;margin-bottom:6px}
+ html body .info-panel{padding:6px 8px}
+ html body .info-row,html body .info-val{font-size:clamp(14px,2.4vh,1.4rem)}
+ html body .taiyu-box{margin:3px 0;padding:3px;gap:10px}
+ html body .taiyu-text{font-size:clamp(20px,4.6vh,2.5rem)}
+ html body .play-audio-btn{width:clamp(30px,5.6vh,45px);height:clamp(30px,5.6vh,45px);font-size:clamp(18px,4vh,2.2rem)}
+ html body .mandarin-label{font-size:clamp(11px,1.8vh,1.1rem);margin-bottom:0}
+ html body .mandarin-text{font-size:clamp(14px,2.6vh,1.6rem);max-height:7vh}
+ html body .matrix-panel{padding:5px;gap:4px;justify-content:center;align-items:stretch}
+ html body .syllable-row{flex:1 1 0;min-height:0;max-height:12vh;gap:4px;padding-bottom:0;width:100%;min-width:0}
+ html body .target-box{min-height:0;min-width:0}
+ html body .target-header{font-size:clamp(11px,1.9vh,1.2rem);padding:1px}
+ html body .target-value{font-size:clamp(14px,3.4vh,2rem)}
+ html body .options-area{min-height:0;margin-bottom:4px}
+ html body .options-grid{gap:6px}
+ html body .option-card{min-height:0;padding:0.9vh 6px}
+ html body .opt-idx-box{width:clamp(28px,5vh,54px);height:clamp(28px,5vh,54px);font-size:clamp(13px,2.4vh,1.5rem);margin-right:6px}
+ html body .opt-text,html body .opt-text.text-fit-sm,html body .opt-text.text-fit-md,html body .opt-text.text-fit-lg{font-size:clamp(16px,4.2vh,2.1rem)}
+ html body .footer-bar{height:clamp(40px,7vh,60px)}
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 

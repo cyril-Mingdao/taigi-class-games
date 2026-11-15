@@ -698,6 +698,35 @@
 #menu-page a.md-quiz-link { font-size: clamp(16px, min(2.2vw, 3.6vh), 30px); }
 #menu-page .md-quiz-link-hint { font-size: clamp(12px, min(1.4vw, 2.2vh), 18px); }
 </style>
+<style id="md-fit">
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+@media (min-width: 601px) and (max-height: 640px){
+ html body #game-page:not(.hidden){padding-top:2px}
+ html body #game-page header h1{font-size:clamp(16px,6vh,1.6em);margin:0}
+ html body #game-page header h2{font-size:clamp(12px,4vh,1.1em);margin:0}
+ html body #game-page header > div{margin-bottom:0.4vh !important;font-size:clamp(11px,3.2vh,1em)}
+ html body #header-back-btn{top:2px;padding:0.6vh 1.2vw;font-size:clamp(11px,3.2vh,0.9em)}
+ html body #game-page .warning-msg{font-size:clamp(10px,3vh,1em);padding:0.4vh 1vw;margin:0.3vh auto 0.6vh}
+ html body #feedback-message{height:auto;margin:0}
+ html body #game-page .game-area{min-height:0}
+ html body #game-page .control-panel{padding:0.8vh 1vw}
+ html body #game-page .control-panel button{padding:0.8vh 2vw;font-size:clamp(11px,3.6vh,1em)}
+ html body .word-option{font-size:clamp(1em,min(3.4vw,6.4vh),4em)}
+ html body .chosen-word{font-size:clamp(0.9em,min(2.6vw,4.6vh),3em)}
+}
+@media (max-height: 640px){
+ html body #menu-page h1{font-size:clamp(16px,6vh,2.4em)}
+ html body #menu-page h2{font-size:clamp(12px,4vh,1.6em)}
+ html body #menu-page .menu-container{margin-top:0.8vh;padding:1.2vh 3vw}
+ html body #menu-page .menu-container h3{font-size:clamp(12px,3.6vh,1.6em);margin:0.2em 0}
+ html body #menu-page .button-group{margin-bottom:0.4vh}
+ html body #menu-page .menu-container button{font-size:clamp(12px,3.8vh,1.6em);padding:0.35em 0.9em}
+ html body #menu-page #start-game{font-size:clamp(13px,4vh,1.8em);padding:0.35em;margin-top:0.6vh}
+ html body #menu-page .md-quiz-link-wrap{margin-top:0.6vh}
+ html body #menu-page a.md-quiz-link{font-size:clamp(12px,3.6vh,22px);padding:0.5vh 2vw}
+ html body #menu-page .md-quiz-link-hint{font-size:clamp(10px,2.6vh,14px);margin-top:0.2vh}
+}
+</style>
 </head>
 <body>
     <div id="app">
