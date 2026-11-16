@@ -225,7 +225,7 @@
 | 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B4/L2.html |
 | 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B4/L3.html |
 
-## 心智圖配對比輸贏（`mindmap/`）
+## 心智圖配對（`mindmap/`）
 
 ### 真平版國中第1冊
 
