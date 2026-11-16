@@ -1116,5 +1116,23 @@ html body #md-all-btn{white-space:nowrap;padding-left:2px;padding-right:2px}
 @media (orientation: landscape) and (max-height: 640px){html body .qty-grid{grid-template-columns:repeat(7,1fr)}}
 </style>
 <!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body #menu-screen{height:calc(100vh - 22px);min-height:0;box-sizing:border-box;padding:1.6vh 2vw 0;justify-content:flex-start;overflow:hidden}
+ html body #menu-screen h1{flex:none;margin:0;line-height:1.15;font-size:clamp(20px,min(4.8vw,9vh),88px)}
+ html body #menu-screen h2{flex:none;margin:0.4vh 0 1.6vh;font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body #menu-screen .settings-box{flex:1 1 auto;min-height:0;width:100%;max-width:none;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;padding:2vh 3vw;margin:0 0 1vh}
+ html body #menu-screen .option-group{margin:0}
+ html body #menu-screen .option-group label{font-size:clamp(12px,min(2vw,4vh),36px);margin-bottom:1.4vh}
+ html body #menu-screen .qty-grid{grid-template-columns:repeat(7,1fr);gap:1.4vw}
+ html body #menu-screen .qty-btn{padding:2.6vh 0.4vw;line-height:1.1;white-space:nowrap;font-size:clamp(14px,min(3.2vw,7.5vh),68px)}
+ html body #menu-screen .btn-start{margin:0;padding:2.4vh 0;font-size:clamp(14px,min(3vw,6.5vh),60px)}
+ html body #menu-screen .md-quiz-link-wrap{margin:0}
+ html body #menu-screen a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body #menu-screen .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
 </body>
 </html>

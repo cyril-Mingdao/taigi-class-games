@@ -1882,5 +1882,25 @@ html body .question-count-grid{grid-template-columns:repeat(5,1fr)}
 </style>
 <script id="md-all-js">(function(){var b=document.getElementById('md-all-btn');try{b.dataset.count=String(gameData.length);}catch(_){b.hidden=true;}})();</script>
 <!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body .menu-container{height:calc(100vh - 22px);min-height:0;padding:1.6vh 2vw 0;box-sizing:border-box;justify-content:stretch;align-items:stretch;overflow:hidden}
+ html body .menu-card{flex:1 1 auto;min-height:0;width:100%;max-width:none;margin:0 0 1vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;padding:2vh 3vw;border-radius:clamp(16px,2.4vh,30px)}
+ html body .menu-header,html body .menu-section{margin:0}
+ html body .menu-main-title{font-size:clamp(20px,min(4.6vw,9vh),88px);line-height:1.15}
+ html body .menu-sub-title{font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body .menu-section-title{font-size:clamp(13px,min(2.4vw,4.6vh),44px);margin-bottom:1.4vh}
+ html body .game-mode-grid{grid-template-columns:repeat(4,1fr);gap:1.4vw;margin:0}
+ html body .game-mode-button{padding:2.8vh 0.6vw;font-size:clamp(12px,min(2.1vw,4.8vh),44px);border-radius:clamp(12px,2vh,24px)}
+ html body .question-count-grid{grid-template-columns:repeat(5,1fr);gap:1.4vw;margin:0}
+ html body .question-count-button{padding:2.4vh 0.6vw;font-size:clamp(12px,min(2.6vw,5.4vh),52px);border-radius:clamp(12px,2vh,24px)}
+ html body .start-game-button{align-self:center;margin:0;padding:2vh 8vw;font-size:clamp(13px,min(2.8vw,5.8vh),56px)}
+ html body .menu-card .md-quiz-link-wrap{margin:0}
+ html body .menu-card a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body .menu-card .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
 </body>
 </html>

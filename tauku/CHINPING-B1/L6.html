@@ -1264,5 +1264,21 @@
 <!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
 <script id="md-all-js">(function(){var b=document.getElementById('md-all-btn');try{b.dataset.count=String(FULL_GAME_DATA.length);}catch(_){b.hidden=true;}})();</script>
 <!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body #menu-page .menu-container h3{font-size:clamp(14px,min(2.4vw,4.6vh),44px)}
+ html body #menu-page .menu-container .button-group{flex-wrap:nowrap;gap:1.4vw}
+ html body #menu-page .menu-container .button-group button{flex:1 1 0;min-width:0;white-space:nowrap;padding:2.2vh 0.6vw;font-size:clamp(13px,min(2.6vw,5.4vh),52px)}
+}
+/* 直放：加了「全部」後數量鈕變 3 列、窄手機溢出 → 方式 2 欄、數量 3 欄格狀 */
+@media (orientation: portrait){
+ html body #menu-page .menu-container .button-group{display:grid;gap:1.4vh 2.4vw;margin-bottom:0.6vh}
+ html body #menu-page #mode-selection{grid-template-columns:repeat(2,1fr)}
+ html body #menu-page #count-selection{grid-template-columns:repeat(3,1fr)}
+ html body #menu-page .menu-container .button-group button{min-width:0;margin:0;white-space:nowrap;padding:1.3vh 1vw;font-size:clamp(13px,min(5vw,3vh),32px)}
+}
+</style>
+<!-- /md-menufull -->
 </body>
 </html>

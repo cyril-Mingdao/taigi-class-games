@@ -1299,5 +1299,23 @@ function mdSelectAll(btn){
 }
 </script>
 <!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body .container:has(#menuScreen:not(.hidden)){width:100%;max-width:none;margin:0;height:calc(100vh - 22px);min-height:0;padding:1.6vh 2vw 0;box-sizing:border-box;justify-content:stretch;align-items:stretch;overflow:hidden}
+ html body .menu-screen:not(.hidden){flex:1 1 auto;min-height:0;width:100%;max-width:none;margin:0 0 1vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;align-items:stretch;padding:2vh 3vw;border-radius:clamp(16px,2.4vh,30px)}
+ html body .menu-screen .title{margin:0;line-height:1.15;font-size:clamp(20px,min(4.8vw,9vh),88px)}
+ html body .menu-screen .subtitle{margin:0;font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body .menu-screen .menu-section{margin:0}
+ html body .menu-screen .menu-label{font-size:clamp(13px,min(2.4vw,4.6vh),44px);margin-bottom:1.4vh}
+ html body .menu-screen .button-group{gap:1.4vw;flex-wrap:nowrap}
+ html body .menu-screen .menu-button{flex:1 1 0;min-width:0;padding:2.4vh 0.6vw;white-space:nowrap;font-size:clamp(12px,min(2.6vw,5.4vh),52px)}
+ html body .menu-screen .start-button{align-self:center;margin:0;padding:2vh 8vw;font-size:clamp(13px,min(2.8vw,5.8vh),56px)}
+ html body .menu-screen .md-quiz-link-wrap{margin:0}
+ html body .menu-screen a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body .menu-screen .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
 </body>
 </html>
