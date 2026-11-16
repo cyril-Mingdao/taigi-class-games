@@ -742,7 +742,7 @@ html body .nav-button{padding:1vh 2.6vw;padding:1dvh 2.6vw;font-size:clamp(12px,
      <div class="menu-label">
       選擇測驗數量
      </div>
-     <div class="button-group"><button class="menu-button" onclick="selectQuestionCount(5)" id="count5">5題</button> <button class="menu-button" onclick="selectQuestionCount(7)" id="count7">7題</button> <button class="menu-button" onclick="selectQuestionCount(9)" id="count9">9題</button> <button class="menu-button" onclick="selectQuestionCount(11)" id="count11">11題</button> <button class="menu-button" onclick="selectQuestionCount(13)" id="count13">13題</button>
+     <div class="button-group"><button class="menu-button" onclick="selectQuestionCount(5)" id="count5">5題</button> <button class="menu-button" onclick="selectQuestionCount(7)" id="count7">7題</button> <button class="menu-button" onclick="selectQuestionCount(9)" id="count9">9題</button> <button class="menu-button" onclick="selectQuestionCount(11)" id="count11">11題</button> <button class="menu-button" onclick="selectQuestionCount(13)" id="count13">13題</button> <button class="menu-button" id="md-all-btn" onclick="mdSelectAll(this)" title="題庫全部題目，亂數出題">全部</button>
      </div>
     </div><button class="start-button" onclick="startGame()" id="startButton" disabled>開始遊戲</button>
 <div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SUANSU-YUDA-B1L7.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
@@ -1291,5 +1291,15 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
 })();
 </script>
 <!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<script id="md-all-js">
+function mdSelectAll(btn){
+ questionCount=questionDatabase.length;
+ btn.parentNode.querySelectorAll('.menu-button').forEach(function(b){b.classList.remove('selected');});
+ btn.classList.add('selected');
+ updateStartButton();
+}
+</script>
+<!-- /md-all -->
 </body>
 </html>

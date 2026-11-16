@@ -612,6 +612,7 @@ body #game-screen{padding-bottom:22px}
                     <div class="qty-btn" onclick="selectQty(11)">11</div>
                     <div class="qty-btn" onclick="selectQty(13)">13</div>
                     <div class="qty-btn" onclick="selectQty(15)">15</div>
+                    <div class="qty-btn" id="md-all-btn" onclick="selectQty(db.length)" title="題庫全部題目，亂數出題">全部</div>
                 </div>
             </div>
             <button class="btn-start" onclick="startGame()">開始測驗</button>
@@ -1117,5 +1118,12 @@ body #game-screen{padding-bottom:22px}
 })();
 </script>
 <!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<style id="md-all-css">
+html body .qty-grid{grid-template-columns:repeat(4,1fr)}
+html body #md-all-btn{white-space:nowrap;padding-left:2px;padding-right:2px}
+@media (orientation: landscape) and (max-height: 640px){html body .qty-grid{grid-template-columns:repeat(7,1fr)}}
+</style>
+<!-- /md-all -->
 </body>
 </html>

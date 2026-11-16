@@ -749,6 +749,7 @@
                         <button data-count="9">9 個</button>
                         <button data-count="11">11 個</button>
                         <button data-count="13">13 個</button>
+                        <button data-count="0" id="md-all-btn" title="題庫全部題目，亂數出題">全部</button>
                     </div>
                 </section>
                 <button id="start-game" disabled>開始遊戲</button>
@@ -1242,5 +1243,8 @@
 })();
 </script>
 <!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<script id="md-all-js">(function(){var b=document.getElementById('md-all-btn');try{b.dataset.count=String(FULL_GAME_DATA.length);}catch(_){b.hidden=true;}})();</script>
+<!-- /md-all -->
 </body>
 </html>

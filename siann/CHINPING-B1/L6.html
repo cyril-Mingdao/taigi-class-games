@@ -1203,7 +1203,7 @@ html body .menu-container{box-sizing:border-box;min-height:0;height:100vh;height
      <div class="menu-section-title">
       選擇測驗數量
      </div>
-     <div class="question-count-grid"><button class="question-count-button" data-count="5">5題</button> <button class="question-count-button" data-count="7">7題</button> <button class="question-count-button" data-count="9">9題</button> <button class="question-count-button" data-count="11">11題</button>
+     <div class="question-count-grid"><button class="question-count-button" data-count="5">5題</button> <button class="question-count-button" data-count="7">7題</button> <button class="question-count-button" data-count="9">9題</button> <button class="question-count-button" data-count="11">11題</button> <button class="question-count-button" id="md-all-btn" data-count="0" title="題庫全部題目，亂數出題">全部</button>
      </div>
     </div><button class="start-game-button" id="startGameButton" disabled>開始遊戲</button>
 <div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SIANN-CHINPING-B1L6.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
@@ -1856,5 +1856,11 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
 })();
 </script>
 <!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<style id="md-all-css">
+html body .question-count-grid{grid-template-columns:repeat(5,1fr)}
+</style>
+<script id="md-all-js">(function(){var b=document.getElementById('md-all-btn');try{b.dataset.count=String(gameData.length);}catch(_){b.hidden=true;}})();</script>
+<!-- /md-all -->
 </body>
 </html>
