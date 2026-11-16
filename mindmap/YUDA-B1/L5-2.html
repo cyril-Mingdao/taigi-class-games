@@ -649,6 +649,12 @@ html body .question-selector>div>img{width:auto;max-width:100%;height:auto;max-h
 html body .navigation-buttons{gap:clamp(6px,1vw,15px);padding:0 clamp(4px,1vw,20px)}
 html body .nav-btn{white-space:nowrap;word-break:keep-all;flex:1 1 0;min-width:max-content;padding-left:clamp(6px,1vw,1.5rem);padding-right:clamp(6px,1vw,1.5rem)}
 </style>
+<style id="md-mmswap">/* 手機直放：題目在上、選項在下 © 2026 詹宗龍（臺中明道中學） */
+@media (max-width: 768px) and (orientation: portrait){
+ html body .game-area .right-panel{order:-1;padding:2.6rem 0.5rem 0.5rem}
+ html body .game-area .left-panel{order:0;border-bottom:none;border-top:3px solid rgba(74,144,226,0.2);padding:0.6rem 0.6rem 0.5rem}
+}
+</style>
 </head>
  <body>
   <div class="container">
