@@ -227,6 +227,27 @@
 
 ## 心智圖配對比輸贏（`mindmap/`）
 
+### 真平版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 趣味的誤會 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L1.html |
+| 第2課 啥台語嘛有火星文 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L2.html |
+| 第3課 人佮獅 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L3.html |
+| 第4課 龜兔走標 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L4.html |
+| 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L5.html |
+| 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L6.html |
+
+### 康軒版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 ChatGPT敢會曉講台語 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B2/L1.html |
+| 第2課 收成 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B2/L2.html |
+| 第3課 工作犬 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B2/L3.html |
+| 第4課 一擺上有意義的活動 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B2/L4.html |
+| 第5課 媠花 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B2/L5.html |
+
 ### 育達版高中全1冊
 
 | 課次 | 連結 |
@@ -240,3 +261,20 @@
 | 第6課 化妝品 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L6.html |
 | 第7課 我的人生，我創造 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L7.html |
 | 第8課 翕相師傅 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L8.html |
+
+### 全華版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 媠花 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B3/L1.html |
+| 第2課 阮兜這條街 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B3/L2.html |
+| 第3課 一字多音真心適 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B3/L3.html |
+| 第4課 喝玲瑯，踅街路 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B3/L4.html |
+
+### 康軒版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 鴛鴦菜脯卵 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B4/L1.html |
+| 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B4/L2.html |
+| 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B4/L3.html |
