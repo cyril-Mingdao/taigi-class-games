@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  全華版國中第1冊 第1課 日頭公變魔術，有影抑無影？ — 台語課堂遊戲「選詞塌空」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「全華圖書股份有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 23 日取得該公司之《著作使用同意書》，
+  並經該公司 115 年 9 月 24 日回覆確認符合第五條「非營利之教育及教學目的」之使用。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放引用之外部程式庫
+  （如 oikasu1.github.io/snd）、字型與樣式（如 tauhu.tw）之著作權屬各原權利人。
+  除全華圖書股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1課 日頭公變魔術，有影抑無影？</title>
+<link rel="icon" id="md-icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%2300838F%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2250%22%20font-size%3D%2248%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFFFFF%22%20font-family%3D%22Microsoft%20JhengHei%2CPingFang%20TC%2CNoto%20Sans%20TC%2Csans-serif%22%3E%E8%8F%AF%3C/text%3E%3C/svg%3E">
+  <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: tauhu-oo, sans-serif;
+            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 25%, #a29bfe 50%, #00cec9 75%, #55efc4 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            height: 100%;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(129, 236, 236, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(116, 185, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(85, 239, 196, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .container {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .menu-screen {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .game-screen {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px 40px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            width: 95%;
+            max-width: 1400px;
+            aspect-ratio: 16/7;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .title {
+            color: #4a5568;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .menu-section {
+            margin: 12px 0;
+        }
+
+        .menu-label {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .menu-button {
+            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
+            color: white;
+            border: 2px solid transparent;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            box-shadow: 
+                0 4px 15px rgba(129, 236, 236, 0.4),
+                0 0 20px rgba(116, 185, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .menu-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .menu-button:hover::before {
+            left: 100%;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(129, 236, 236, 0.6),
+                0 0 30px rgba(116, 185, 255, 0.5);
+            background: linear-gradient(135deg, #00cec9 0%, #55efc4 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button.selected {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            transform: scale(1.05);
+            box-shadow: 
+                0 6px 20px rgba(85, 239, 196, 0.6),
+                0 0 40px rgba(129, 236, 236, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .start-button {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 32px;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            margin-top: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 6px 20px rgba(85, 239, 196, 0.4),
+                0 0 30px rgba(129, 236, 236, 0.4);
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .start-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .start-button:hover::before {
+            left: 100%;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 30px rgba(85, 239, 196, 0.6),
+                0 0 50px rgba(129, 236, 236, 0.6);
+            background: linear-gradient(135deg, #00cec9 0%, #74b9ff 100%);
+        }
+
+        .start-button:disabled {
+            background: #4a5568;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: #718096;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .game-info {
+            display: flex;
+            gap: 25px;
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #81ecec, #74b9ff, #55efc4);
+            height: 100%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(129, 236, 236, 0.5);
+        }
+
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .question-text {
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .blank {
+            color: #ff0000;
+            font-weight: bold;
+            margin: 0 8px;
+            display: inline;
+        }
+
+        .highlight-word {
+            background: linear-gradient(135deg, #55efc4 0%, #81ecec 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 0 5px;
+            box-shadow: 
+                0 2px 8px rgba(85, 239, 196, 0.4),
+                0 0 15px rgba(129, 236, 236, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        .notice-text {
+            background: #fff9c4;
+            color: #d32f2f;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.4;
+            font-weight: 500;
+            border: 1px solid #ffd54f;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-button {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            padding: 25px 20px;
+            font-size: 1.2rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 95px;
+            word-wrap: break-word;
+            hyphens: auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 15px rgba(45, 55, 72, 0.3),
+                0 0 20px rgba(74, 85, 104, 0.2);
+        }
+
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-button:hover::before {
+            left: 100%;
+        }
+
+        .option-button:hover {
+            border-color: #81ecec;
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(129, 236, 236, 0.4),
+                0 0 30px rgba(116, 185, 255, 0.3);
+            background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
+        }
+
+        .option-button.correct {
+            background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
+            color: white;
+            border-color: #00b894;
+            box-shadow: 
+                0 8px 25px rgba(0, 184, 148, 0.6),
+                0 0 40px rgba(85, 239, 196, 0.4);
+            font-weight: bold;
+        }
+
+        .option-button.incorrect {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            border-color: #fd79a8;
+            box-shadow: 
+                0 8px 25px rgba(253, 121, 168, 0.6),
+                0 0 40px rgba(232, 67, 147, 0.4);
+            font-weight: bold;
+        }
+
+        .option-button.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .option-label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 12px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #718096;
+        }
+
+        .option-button {
+            position: relative;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-family: tauhu-oo, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 4px 15px rgba(116, 185, 255, 0.3),
+                0 0 20px rgba(162, 155, 254, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-button:hover::before {
+            left: 100%;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 8px 25px rgba(116, 185, 255, 0.5),
+                0 0 30px rgba(162, 155, 254, 0.4);
+            background: linear-gradient(135deg, #81ecec 0%, #55efc4 100%);
+        }
+
+        .nav-button:disabled {
+            background: #4a5568;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: #718096;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #00cec9 0%, #55efc4 100%);
+        }
+
+        .back-button:hover {
+            box-shadow: 
+                0 8px 25px rgba(0, 206, 201, 0.5),
+                0 0 30px rgba(85, 239, 196, 0.4);
+            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.6rem;
+                margin-bottom: 3px;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .menu-section {
+                margin: 8px 0;
+            }
+
+            .menu-label {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+
+            .menu-button {
+                padding: 6px 14px;
+                font-size: 0.95rem;
+                min-width: 100px;
+            }
+
+            .start-button {
+                padding: 8px 24px;
+                font-size: 1.1rem;
+                margin-top: 12px;
+            }
+            
+            .game-screen {
+                aspect-ratio: auto;
+                padding: 12px 15px;
+                height: auto;
+                min-height: auto;
+            }
+
+            .game-header {
+                margin-bottom: 8px;
+            }
+            
+            .game-info {
+                font-size: 0.75rem;
+                gap: 8px;
+            }
+
+            .progress-bar {
+                margin: 0 10px;
+                height: 6px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                line-height: 1.4;
+            }
+
+            .highlight-word {
+                padding: 4px 10px;
+                font-size: 1rem;
+            }
+
+            .options-grid {
+                gap: 8px;
+                margin-top: 8px;
+            }
+            
+            .option-button {
+                font-size: 1.1rem;
+                padding: 14px 12px;
+                min-height: 55px;
+                border-radius: 12px;
+            }
+
+            .option-label {
+                font-size: 1.5rem;
+                left: 10px;
+            }
+
+            .notice-text {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+                margin-top: 8px;
+            }
+
+            .game-controls {
+                margin-top: 8px;
+            }
+
+            .nav-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .menu-screen {
+                padding: 15px;
+            }
+
+            .game-screen {
+                padding: 10px 12px;
+            }
+
+            .game-header {
+                flex-direction: column;
+                gap: 6px;
+                align-items: stretch;
+            }
+
+            .progress-bar {
+                margin: 0;
+                order: -1;
+            }
+
+            .game-info {
+                justify-content: space-between;
+            }
+
+            .question-text {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .options-grid {
+                gap: 6px;
+            }
+
+            .option-button {
+                padding: 8px 6px;
+                min-height: 45px;
+                font-size: 0.8rem;
+            }
+
+            .option-label {
+                font-size: 1.2rem;
+                left: 6px;
+            }
+
+            .notice-text {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+                margin-top: 6px;
+            }
+
+            .nav-button {
+                padding: 7px 14px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ <style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+<style id="md-fit">/*md-dvh*/
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+@media (orientation: landscape) and (max-height: 640px){
+ html body .container{padding:1vh 1.5vw;padding:1dvh 1.5vw;min-height:0;height:100vh;height:100dvh;height:100dvh;box-sizing:border-box;justify-content:center}
+ html body .menu-screen{max-width:96vw;width:96vw;padding:1.6vh 2vw;padding:1.6dvh 2vw;border-radius:18px;box-sizing:border-box}
+ html body .title{font-size:clamp(18px,7vh,2.5rem);font-size:clamp(18px,7dvh,2.5rem);margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body .subtitle{font-size:clamp(12px,4vh,1.2rem);font-size:clamp(12px,4dvh,1.2rem);margin-bottom:1vh;margin-bottom:1dvh}
+ html body .menu-section{margin:1vh 0;margin:1dvh 0}
+ html body .menu-label{font-size:clamp(13px,4.4vh,1.3rem);font-size:clamp(13px,4.4dvh,1.3rem);margin-bottom:0.8vh;margin-bottom:0.8dvh}
+ html body .menu-button{padding:1.2vh 1.6vw;padding:1.2dvh 1.6vw;font-size:clamp(12px,4vh,1.1rem);font-size:clamp(12px,4dvh,1.1rem);min-width:0}
+ html body .start-button{padding:1.4vh 3vw;padding:1.4dvh 3vw;font-size:clamp(13px,4.6vh,1.3rem);font-size:clamp(13px,4.6dvh,1.3rem);margin-top:1vh;margin-top:1dvh}
+ html body .md-quiz-link-wrap{margin-top:1vh;margin-top:1dvh}
+ html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);font-size:clamp(12px,3.8dvh,18px);padding:0.8vh 2vw;padding:0.8dvh 2vw}
+ html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);font-size:clamp(10px,2.8dvh,13px);margin-top:0.3vh;margin-top:0.3dvh}
+}
+/* 遊戲頁（v11）：滿版一屏；題目在上、選項區吃掉剩餘空間、選項字由 md-fit-js 自動放到最大 */
+html body .container:has(#gameScreen:not(.hidden)){width:100%;max-width:none;margin:0;padding:1vmin 1vmin 22px;height:100vh;height:100dvh;height:100dvh;min-height:0;box-sizing:border-box;justify-content:stretch;align-items:stretch}
+html body .game-screen{aspect-ratio:auto;width:100%;max-width:none;height:100%;min-height:0;padding:1.4vmin 2vmin;box-sizing:border-box;overflow:hidden;border-radius:clamp(12px,2vmin,20px);justify-content:flex-start;gap:1.2vmin}
+html body .game-header{flex:none;margin:0}
+html body .game-info{font-size:clamp(12px,min(3vh,1.7vw),30px);font-size:clamp(12px,min(3dvh,1.7vw),30px)}
+html body .progress-bar{height:clamp(6px,1.2vh,14px);height:clamp(6px,1.2dvh,14px)}
+html body .question-area{flex:1 1 0;min-height:0;width:100%;justify-content:flex-start;align-items:stretch}
+html body .question-text{flex:none;font-size:clamp(18px,min(8.5vh,4.4vw),110px);font-size:clamp(18px,min(8.5dvh,4.4vw),110px);margin:0.4vh 0 1.8vh;margin:0.4dvh 0 1.8dvh;line-height:1.3}
+html body .highlight-word{padding:0.2em 0.5em}
+html body .options-grid{flex:1 1 0;min-height:0;width:100%;max-width:none;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:2.2vh 1.6vw;gap:2.2dvh 1.6vw}
+html body .option-button{min-height:0;height:100%;box-sizing:border-box;overflow:hidden;padding:1vh calc(2vw + min(4.6vh,2.4vw) + 6px);padding:1dvh calc(2vw + min(4.6dvh,2.4vw) + 6px);border-radius:clamp(12px,2.4vh,26px);border-radius:clamp(12px,2.4dvh,26px)}
+html body .option-button>span[id^="optionText"]{display:block;min-width:0;max-width:100%;line-height:1.15;overflow-wrap:normal;word-break:keep-all}
+html body .option-label{font-size:clamp(16px,min(6.4vh,3.2vw),70px);font-size:clamp(16px,min(6.4dvh,3.2vw),70px);left:1.2vw}
+html body .notice-text{flex:none;align-self:center;font-size:clamp(11px,min(2.6vh,1.5vw),26px);font-size:clamp(11px,min(2.6dvh,1.5vw),26px);padding:0.5vh 1.2vw;padding:0.5dvh 1.2vw;margin:1.4vh 0 0;margin:1.4dvh 0 0}
+html body .game-controls{flex:none;margin:0}
+html body .nav-button{padding:1vh 2.6vw;padding:1dvh 2.6vw;font-size:clamp(12px,min(3.2vh,1.8vw),30px);font-size:clamp(12px,min(3.2dvh,1.8vw),30px)}
+@media (orientation: portrait){
+ html body .game-info{font-size:clamp(12px,min(2.2vh,3.4vw),28px);font-size:clamp(12px,min(2.2dvh,3.4vw),28px)}
+ html body .question-text{font-size:clamp(18px,min(5vh,6.6vw),90px);font-size:clamp(18px,min(5dvh,6.6vw),90px);margin:0.4vh 0 1.4vh;margin:0.4dvh 0 1.4dvh}
+ html body .options-grid{gap:1.4vh 2.4vw;gap:1.4dvh 2.4vw}
+ html body .option-button{padding:1vh calc(3vw + min(3.6vh,5vw) + 6px);padding:1dvh calc(3vw + min(3.6dvh,5vw) + 6px)}
+ html body .option-label{font-size:clamp(16px,min(4.6vh,6.4vw),60px);font-size:clamp(16px,min(4.6dvh,6.4vw),60px);left:2.4vw}
+ html body .notice-text{font-size:clamp(11px,min(1.8vh,3vw),24px);font-size:clamp(11px,min(1.8dvh,3vw),24px)}
+ html body .nav-button{padding:1vh 4vw;padding:1dvh 4vw;font-size:clamp(12px,min(2.2vh,3.8vw),28px);font-size:clamp(12px,min(2.2dvh,3.8vw),28px)}
+}
+@media (orientation: portrait) and (max-width: 560px){
+ html body .options-grid{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+ <body oncontextmenu="return false;">
+  <script src="/_sdk/element_sdk.js"></script>
+  <div class="container"><!-- 選單畫面 -->
+   <div id="menuScreen" class="menu-screen">
+    <h1 class="title" id="mainTitle">選詞塌空</h1>
+    <p class="subtitle" id="subTitle">第1課 日頭公變魔術，有影抑無影？</p>
+    <div class="menu-section">
+     <div class="menu-label">
+      選擇遊戲方式
+     </div>
+     <div class="button-group"><button class="menu-button" onclick="selectGameMode('taiwanese')" id="mode1">台語語詞</button> <button class="menu-button" onclick="selectGameMode('romanization')" id="mode2">台羅拼音</button>
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-label">
+      選擇測驗數量
+     </div>
+     <div class="button-group"><button class="menu-button" onclick="selectQuestionCount(5)" id="count5">5題</button> <button class="menu-button" onclick="selectQuestionCount(7)" id="count7">7題</button> <button class="menu-button" onclick="selectQuestionCount(9)" id="count9">9題</button> <button class="menu-button" onclick="selectQuestionCount(11)" id="count11">11題</button> <button class="menu-button" onclick="selectQuestionCount(13)" id="count13">13題</button> <button class="menu-button" id="md-all-btn" onclick="mdSelectAll(this)" title="題庫全部題目，亂數出題">全部</button>
+     </div>
+    </div><button class="start-button" onclick="startGame()" id="startButton" disabled>開始遊戲</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SUANSU-CHUANHWA-B1L1.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+   </div><!-- 遊戲畫面 -->
+   <div id="gameScreen" class="game-screen hidden">
+    <div class="game-header">
+     <div class="game-info"><span>項次: <span id="currentItem">-</span></span> <span>頁數: <span id="currentPage">-</span></span> <span>華語: <span id="chineseTranslation">-</span></span>
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+     </div>
+     <div class="game-info"><span id="questionCounter">1/5</span>
+     </div>
+    </div>
+    <div class="question-area">
+     <div class="question-text" id="questionText">
+      載入中...
+     </div>
+     <div class="options-grid"><button class="option-button" onclick="selectAnswer(0)" id="option0"> <span class="option-label">A</span> <span id="optionText0">選項A</span> </button> <button class="option-button" onclick="selectAnswer(1)" id="option1"> <span class="option-label">B</span> <span id="optionText1">選項B</span> </button> <button class="option-button" onclick="selectAnswer(2)" id="option2"> <span class="option-label">C</span> <span id="optionText2">選項C</span> </button> <button class="option-button" onclick="selectAnswer(3)" id="option3"> <span class="option-label">D</span> <span id="optionText3">選項D</span> </button>
+     </div>
+     <div class="notice-text">
+      適合的答案可能毋但一个，若拄著才請老師共學生仔解說
+     </div>
+    </div>
+    <div class="game-controls"><button class="nav-button" onclick="previousQuestion()" id="prevButton" disabled>上一題</button> <button class="nav-button back-button" onclick="backToMenu()">返回選單</button> <button class="nav-button" onclick="nextQuestion()" id="nextButton" disabled>下一題</button>
+    </div>
+   </div>
+  </div>
+  <script>
+        // 題目資料庫
+        const questionDatabase = [
+            {item: 1, page: 7, taiwanese: "透早", romanization: "thàu-tsá", chinese: "大清早、七早八早", sentence: "伊透早就出門矣"},
+            {item: 2, page: 7, taiwanese: "日頭", romanization: "ji̍t/li̍t-thâu", chinese: "太陽", sentence: "今仔日的日頭真猛"},
+            {item: 3, page: 7, taiwanese: "共", romanization: "kā", chinese: "給；跟；幫；把", sentence: "我共你講，你毋通共別人講"},
+            {item: 4, page: 7, taiwanese: "天頂", romanization: "thinn-tíng", chinese: "天上", sentence: "天頂天公，地下母舅公"},
+            {item: 5, page: 7, taiwanese: "白殕殕", romanization: "pe̍h-phú-phú", chinese: "天空暗灰的樣子", sentence: "天頂白殕殕，敢若欲落雨"},
+            {item: 6, page: 7, taiwanese: "毯仔", romanization: "thán-á", chinese: "毯子", sentence: "寒天愛蓋較厚的毯仔"},
+            {item: 7, page: 7, taiwanese: "未", romanization: "buē/bē", chinese: "尚未、還沒", sentence: "天猶未光，雞就啼矣"},
+            {item: 8, page: 7, taiwanese: "啼", romanization: "thî", chinese: "禽鳥鳴叫", sentence: "透早雞仔咧啼"},
+            {item: 9, page: 7, taiwanese: "吠", romanization: "puī", chinese: "狗吠叫", sentence: "狗仔看著生份人就吠"},
+            {item: 10, page: 7, taiwanese: "早頓店", romanization: "tsá-tǹg-tiàm", chinese: "早餐店", sentence: "阮兜邊仔有一間早頓店"},
+            {item: 11, page: 7, taiwanese: "鼎灶", romanization: "tiánn-tsàu", chinese: "鍋子和爐灶", sentence: "阿媽透早就佇鼎灶邊無閒"},
+            {item: 12, page: 7, taiwanese: "沖沖滾", romanization: "tshiâng-tshiâng-kún", chinese: "沸騰、熱鬧滾滾", sentence: "鼎內的湯沖沖滾"},
+            {item: 13, page: 8, taiwanese: "早起", romanization: "tsá-khí", chinese: "早上", sentence: "早起時空氣上清爽"},
+            {item: 14, page: 8, taiwanese: "青蘢蘢", romanization: "tshenn/tshinn-lìng-lìng", chinese: "草木蒼翠欲滴", sentence: "山頂的樹仔青蘢蘢"},
+            {item: 15, page: 8, taiwanese: "攏", romanization: "lóng", chinese: "都、皆、全部", sentence: "阿明共退休金攏提去炒股票"},
+            {item: 16, page: 8, taiwanese: "精神", romanization: "tsing-sîn", chinese: "指人的神志狀況/睡醒", sentence: "伊的精神無啥好，你莫閣共伊吵矣"},
+            {item: 17, page: 8, taiwanese: "隨个仔隨个", romanization: "suî-ê-á suî-ê", chinese: "一個接一個", sentence: "學生隨个仔隨个入去教室"},
+            {item: 18, page: 8, taiwanese: "咧", romanization: "teh/leh", chinese: "在；副詞後綴", sentence: "伊咧讀冊"},
+            {item: 19, page: 8, taiwanese: "無閒", romanization: "bô-îng", chinese: "忙碌；沒空", sentence: "伊的工課真濟，足無閒的"},
+            {item: 20, page: 8, taiwanese: "中晝", romanization: "tiong-tàu", chinese: "中午、午時/指午餐", sentence: "十二點欲食中晝矣！"},
+            {item: 21, page: 8, taiwanese: "燒烘烘", romanization: "sio-hōng-hōng", chinese: "溫度很高、悶熱", sentence: "熱天的教室燒烘烘"},
+            {item: 22, page: 8, taiwanese: "火爐", romanization: "hué/hé-lôo", chinese: "火爐", sentence: "寒天圍佇火爐邊食火鍋"},
+            {item: 23, page: 8, taiwanese: "咱", romanization: "lán", chinese: "我們；我們的；您、您們", sentence: "咱著愛較斟酌咧"},
+            {item: 24, page: 8, taiwanese: "腹肚", romanization: "pak/bak-tóo", chinese: "肚子", sentence: "你無代無誌哪會腹肚疼？"},
+            {item: 25, page: 8, taiwanese: "著", romanization: "tio̍h", chinese: "對/輪到/得到/必須/結果", sentence: "阿明開店做生理有趁著一點仔錢"},
+            {item: 26, page: 8, taiwanese: "推", romanization: "thui", chinese: "大吃、大喝", sentence: "伊一个人推三碗飯"},
+            {item: 27, page: 8, taiwanese: "予", romanization: "hōo", chinese: "給予/被…/任由/讓/後綴", sentence: "我予你一个面子，這件代誌就準拄煞"},
+            {item: 28, page: 8, taiwanese: "氣力", romanization: "khuì-la̍t", chinese: "力氣", sentence: "食予飽才有氣力做工課"},
+            {item: 29, page: 8, taiwanese: "通", romanization: "thang", chinese: "可以", sentence: "菜熥燒通好食"},
+            {item: 30, page: 8, taiwanese: "拚", romanization: "piànn", chinese: "努力做、打拚", sentence: "伊為著考試拚甲半暝"},
+            {item: 31, page: 8, taiwanese: "下晡", romanization: "ē-poo", chinese: "下午", sentence: "下晡我欲招阿美仔去𨑨迌"},
+            {item: 32, page: 8, taiwanese: "穡頭", romanization: "sit-thâu", chinese: "工作、活兒", sentence: "田裡的穡頭做袂了"},
+            {item: 33, page: 9, taiwanese: "欲暗仔", romanization: "beh-àm-á", chinese: "傍晚", sentence: "欲暗仔鳥仔攏飛轉去岫"},
+            {item: 34, page: 9, taiwanese: "黃錦錦", romanization: "n̂g-gìm-gìm", chinese: "顏色金黃", sentence: "稻仔熟甲黃錦錦"},
+            {item: 35, page: 9, taiwanese: "椪柑", romanization: "phòng-kam", chinese: "椪柑", sentence: "過年食椪柑，大吉大利"},
+            {item: 36, page: 9, taiwanese: "佮", romanization: "kah", chinese: "和；搭配；附帶；適合", sentence: "我欲佮伊來去看電影"},
+            {item: 37, page: 9, taiwanese: "鳥隻", romanization: "tsiáu-tsiah", chinese: "鳥類", sentence: "樹林內有真濟鳥隻"},
+            {item: 38, page: 9, taiwanese: "相𫝛", romanization: "sio-siāng/siâng", chinese: "一樣", sentence: "𪜶兩个生做相𫝛"},
+            {item: 39, page: 9, taiwanese: "家己", romanization: "ka-kī / ka-tī", chinese: "自己、本身", sentence: "欲成功愛靠家己認真拍拚"},
+            {item: 40, page: 9, taiwanese: "岫", romanization: "siū", chinese: "巢穴/禽或畜單位", sentence: "鳥仔岫內底有卵"},
+            {item: 41, page: 9, taiwanese: "暗暝仔", romanization: "àm-mê/mî-á", chinese: "夜晚", sentence: "暗暝仔的天星真光"},
+            {item: 42, page: 9, taiwanese: "烏趖趖", romanization: "oo-sô-sô", chinese: "很黑、烏黑", sentence: "停電了後厝內烏趖趖"},
+            {item: 43, page: 9, taiwanese: "墨盤", romanization: "ba̍k-puânn", chinese: "硯台", sentence: "寫書法愛先佇墨盤磨墨"},
+            {item: 44, page: 9, taiwanese: "天星", romanization: "thinn-tshinn", chinese: "星星", sentence: "庄跤的天星特別濟"},
+            {item: 45, page: 9, taiwanese: "爍", romanization: "sih", chinese: "閃爍", sentence: "天頂的天星一直爍"},
+            {item: 46, page: 9, taiwanese: "一下", romanization: "tsi̍t-ē", chinese: "一下", sentence: "電火爍一下就熄去"},
+            {item: 47, page: 9, taiwanese: "袂輸", romanization: "bē/buē-su", chinese: "好比、好像", sentence: "伊看著我袂輸看著鬼咧"},
+            {item: 48, page: 9, taiwanese: "火金蛄", romanization: "hué/hé-kim-koo", chinese: "螢火蟲", sentence: "熱天暗暝仔看著火金蛄"},
+            {item: 49, page: 9, taiwanese: "講", romanization: "kóng", chinese: "說", sentence: "阿母講明仔載欲落雨"},
+            {item: 50, page: 9, taiwanese: "猶未", romanization: "iáu-buē/bē", chinese: "尚未", sentence: "你寄的批我猶未收著"},
+            {item: 51, page: 9, taiwanese: "睏", romanization: "khùn", chinese: "睡覺", sentence: "我中晝食飽就愛睏"},
+            {item: 52, page: 10, taiwanese: "人人", romanization: "lâng-lâng", chinese: "每個人", sentence: "人人攏愛守規矩"},
+            {item: 53, page: 10, taiwanese: "雙生仔囝", romanization: "siang-senn/sinn-á-kiánn", chinese: "雙胞胎", sentence: "𪜶兩个是雙生仔囝"},
+            {item: 54, page: 10, taiwanese: "有時", romanization: "ū-sî", chinese: "有時候", sentence: "伊有時歡喜，有時受氣"},
+            {item: 55, page: 10, taiwanese: "躼", romanization: "lò", chinese: "長得高", sentence: "阿兄生做真躼"},
+            {item: 56, page: 10, taiwanese: "閣", romanization: "koh", chinese: "又/出乎意料/用在句尾", sentence: "厝主閣喝欲起厝稅矣"},
+            {item: 57, page: 10, taiwanese: "會", romanization: "ē", chinese: "會、能夠", sentence: "伊閣會唱歌閣會跳舞"},
+            {item: 58, page: 10, taiwanese: "覕相揣", romanization: "bih-sio-tshuē/tshē", chinese: "捉迷藏", sentence: "囡仔佇公園覕相揣"},
+            {item: 59, page: 10, taiwanese: "伊", romanization: "i", chinese: "他、她、牠、它", sentence: "若講甲伊知，喙鬚會拍結"},
+            {item: 60, page: 10, taiwanese: "睏精神", romanization: "khùn tsing-sîn", chinese: "睡醒", sentence: "伊睏精神就去洗面"},
+            {item: 61, page: 10, taiwanese: "躼跤", romanization: "lò-kha", chinese: "高個子", sentence: "伊是阮班上躼跤的人"},
+            {item: 62, page: 10, taiwanese: "瘦卑巴", romanization: "sán-pi-pa", chinese: "極瘦", sentence: "伊足揀食，莫怪瘦卑巴"},
+            {item: 63, page: 10, taiwanese: "沓沓", romanization: "ta̍uh-ta̍uh", chinese: "慢慢地", sentence: "沓沓仔行，毋免傷緊"},
+            {item: 64, page: 10, taiwanese: "勼", romanization: "kiu", chinese: "收縮、蜷縮", sentence: "寒甲規身軀勼做伙"},
+            {item: 65, page: 10, taiwanese: "甲", romanization: "kah", chinese: "到/到…的地步/既然/哪會", sentence: "阿母氣甲袂講話，干焦直直捶心肝"},
+            {item: 66, page: 10, taiwanese: "一漢仔疕", romanization: "tsi̍t-hàn-á-phí", chinese: "身形嬌小", sentence: "伊細漢的時干焦一漢仔疕"},
+            {item: 67, page: 11, taiwanese: "食飯", romanization: "tsia̍h-pn̄g", chinese: "吃飯", sentence: "緊來食飯矣"},
+            {item: 68, page: 11, taiwanese: "飽", romanization: "pá", chinese: "飽", sentence: "食予飽才去讀冊"},
+            {item: 69, page: 11, taiwanese: "就", romanization: "tō/tsiū", chinese: "就", sentence: "食飽就去寫功課"},
+            {item: 70, page: 11, taiwanese: "氣力", romanization: "khuì-la̍t", chinese: "力氣", sentence: "食予飽才有氣力做工課"},
+            {item: 71, page: 11, taiwanese: "矮頓", romanization: "é/ué-tǹg", chinese: "身材矮壯", sentence: "伊生做矮頓矮頓"},
+            {item: 72, page: 11, taiwanese: "直", romanization: "ti̍t", chinese: "一直、不斷", sentence: "伊直哭袂停"},
+            {item: 73, page: 11, taiwanese: "抽懸", romanization: "thiu-kuân", chinese: "身形抽高", sentence: "伊這兩年抽懸足濟"},
+            {item: 74, page: 11, taiwanese: "黃昏", romanization: "hông-hun", chinese: "傍晚", sentence: "黃昏不殺雞"},
+            {item: 75, page: 11, taiwanese: "閣再", romanization: "koh-tsài", chinese: "再、又", sentence: "伊閣再來揣我"},
+            {item: 76, page: 11, taiwanese: "躼跤躼手", romanization: "lò-kha-lò-tshiú", chinese: "手腳修長", sentence: "伊生做躼跤躼手"},
+            {item: 77, page: 11, taiwanese: "落山", romanization: "lo̍h-suann", chinese: "下山", sentence: "日頭落山矣，緊轉去"},
+            {item: 78, page: 11, taiwanese: "走去", romanization: "tsáu-khì", chinese: "跑去", sentence: "狗仔走去覕佇眠床跤"},
+            {item: 79, page: 11, taiwanese: "覕", romanization: "bih", chinese: "躲、藏", sentence: "你敢知影伊覕佇佗位？"},
+            {item: 80, page: 11, taiwanese: "月娘", romanization: "gue̍h/ge̍h-niû", chinese: "月亮", sentence: "中秋的月娘特別圓"},
+            {item: 81, page: 11, taiwanese: "浮", romanization: "phû", chinese: "浮出、升起", sentence: "月娘慢慢仔浮出來"},
+            {item: 82, page: 11, taiwanese: "又閣", romanization: "iū-koh", chinese: "又、再", sentence: "伊又閣袂記得紮冊"},
+            {item: 83, page: 11, taiwanese: "趖", romanization: "sô", chinese: "爬行/緩慢/遊蕩", sentence: "伊做代誌真𠢕趖"},
+            {item: 84, page: 12, taiwanese: "跤底", romanization: "kha-té/tué", chinese: "腳底", sentence: "行傷久跤底會疼"},
+            {item: 85, page: 12, taiwanese: "若", romanization: "ná", chinese: "好像", sentence: "伊歡喜甲若囡仔咧"},
+            {item: 86, page: 12, taiwanese: "黏黐", romanization: "liâm-thi", chinese: "像黏膠一樣黏", sentence: "小妹共阿母黏甲若黏黐"},
+            {item: 87, page: 12, taiwanese: "定定", romanization: "tiānn-tiānn", chinese: "經常；靜止不動", sentence: "阿美定定佮我講私奇話"},
+            {item: 88, page: 12, taiwanese: "共", romanization: "kā", chinese: "給；跟；幫；把", sentence: "我共你講，你毋通共別人講"},
+            {item: 89, page: 12, taiwanese: "黏牢牢", romanization: "liâm-tiâu-tiâu", chinese: "黏得緊緊的", sentence: "糖仔黏牢牢佇桌頂"},
+            {item: 90, page: 12, taiwanese: "袂輸", romanization: "bē/buē-su", chinese: "好比、好像", sentence: "伊看著我袂輸看著鬼咧"},
+            {item: 91, page: 12, taiwanese: "司公仔象桮", romanization: "sai-kong-á-siūnn-pue", chinese: "比喻形影不離", sentence: "𪜶兩个若司公仔象桮"},
+            {item: 92, page: 12, taiwanese: "相依相倚", romanization: "sio-i sio-uá", chinese: "互相依靠", sentence: "𪜶兄弟仔相依相倚"},
+            {item: 93, page: 12, taiwanese: "剝", romanization: "pak", chinese: "取下、剝下", sentence: "共壁頂的貼紙剝起來"}
+        ];
+
+        // 遊戲狀態
+        let gameMode = null;
+        let questionCount = null;
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let selectedAnswer = null;
+
+        // 音效創建函數
+        function createAudioContext() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            return audioContext;
+        }
+
+        function playCorrectSound() {
+            try {
+                const audioContext = createAudioContext();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        function playIncorrectSound() {
+            try {
+                const audioContext = createAudioContext();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3
+                oscillator.frequency.setValueAtTime(196, audioContext.currentTime + 0.15); // G3
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.4);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        // 選單功能
+        function selectGameMode(mode) {
+            gameMode = mode;
+            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById(mode === 'taiwanese' ? 'mode1' : 'mode2').classList.add('selected');
+            updateStartButton();
+        }
+
+        function selectQuestionCount(count) {
+            questionCount = count;
+            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById(`count${count}`).classList.add('selected');
+            updateStartButton();
+        }
+
+        function updateStartButton() {
+            const startButton = document.getElementById('startButton');
+            if (gameMode && questionCount) {
+                startButton.disabled = false;
+            } else {
+                startButton.disabled = true;
+            }
+        }
+
+        function startGame() {
+            if (!gameMode || !questionCount) return;
+            
+            // 隨機選擇題目
+            const shuffled = [...questionDatabase].sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, questionCount);
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questionCount).fill(null);
+            
+            // 切換到遊戲畫面
+            document.getElementById('menuScreen').classList.add('hidden');
+            document.getElementById('gameScreen').classList.remove('hidden');
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            const correctAnswer = gameMode === 'taiwanese' ? question.taiwanese : question.romanization;
+            
+            // 更新題目資訊
+            document.getElementById('currentItem').textContent = question.item;
+            document.getElementById('currentPage').textContent = question.page;
+            document.getElementById('chineseTranslation').textContent = question.chinese;
+            document.getElementById('questionCounter').textContent = `${currentQuestionIndex + 1}/${questionCount}`;
+            
+            // 更新進度條
+            const progress = ((currentQuestionIndex + 1) / questionCount) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            
+            // 創建選項
+            const options = [correctAnswer];
+            const otherQuestions = questionDatabase.filter(q => q !== question);
+            
+            // 隨機選擇3個錯誤選項
+            while (options.length < 4) {
+                const randomQuestion = otherQuestions[Math.floor(Math.random() * otherQuestions.length)];
+                const wrongAnswer = gameMode === 'taiwanese' ? randomQuestion.taiwanese : randomQuestion.romanization;
+                if (!options.includes(wrongAnswer)) {
+                    options.push(wrongAnswer);
+                }
+            }
+            
+            // 打亂選項順序
+            const shuffledOptions = options.sort(() => 0.5 - Math.random());
+            
+            // 根據遊戲模式更新題目文字
+            let questionText;
+            if (gameMode === 'taiwanese') {
+                // 台語語詞模式：在例句中挖空台語詞
+                questionText = question.sentence.replace(correctAnswer, '<span class="blank">______</span>');
+            } else {
+                // 台羅拼音模式：在例句中將台語詞用下底線呈現
+                questionText = question.sentence.replace(question.taiwanese, '<span class="blank">______</span>');
+            }
+            document.getElementById('questionText').innerHTML = questionText;
+            
+            // 更新選項按鈕
+            shuffledOptions.forEach((option, index) => {
+                const button = document.getElementById(`option${index}`);
+                const textElement = document.getElementById(`optionText${index}`);
+                textElement.textContent = option;
+                
+                // 重置按鈕狀態
+                button.className = 'option-button';
+                button.disabled = false;
+                
+                // 調整字體大小
+                adjustFontSize(textElement, option);
+            });
+            
+            // 重置選擇狀態
+            selectedAnswer = null;
+            updateNavigationButtons();
+        }
+
+        function adjustFontSize(element, text) {
+            // 根據文字長度和複雜度調整字體大小
+            let fontSize = 1.8; // 基礎字體大小 (rem)
+            
+            // 根據螢幕寬度調整基礎大小
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 480) {
+                fontSize = 1.8; // 小螢幕 - 單欄排列有更多空間
+            } else if (screenWidth <= 768) {
+                fontSize = 1.9; // 中等螢幕 - 單欄排列有更多空間
+            }
+            
+            // 根據文字長度調整
+            if (text.length > 15) {
+                fontSize *= 0.85; // 長文字縮小
+            } else if (text.length > 10) {
+                fontSize *= 0.92; // 中等長度文字稍微縮小
+            }
+            
+            // 檢查是否包含複雜字符（羅馬拼音符號）
+            if (/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/.test(text) || text.includes('/')) {
+                fontSize *= 0.92;
+            }
+            
+            element.style.fontSize = `${fontSize}rem`;
+        }
+
+        function selectAnswer(optionIndex) {
+            const question = currentQuestions[currentQuestionIndex];
+            const correctAnswer = gameMode === 'taiwanese' ? question.taiwanese : question.romanization;
+            const selectedText = document.getElementById(`optionText${optionIndex}`).textContent;
+            const button = document.getElementById(`option${optionIndex}`);
+            
+            // 如果選擇正確答案
+            if (selectedText === correctAnswer) {
+                selectedAnswer = optionIndex;
+                userAnswers[currentQuestionIndex] = selectedText;
+                
+                // 標記正確答案並禁用所有選項
+                for (let i = 0; i < 4; i++) {
+                    const btn = document.getElementById(`option${i}`);
+                    const text = document.getElementById(`optionText${i}`).textContent;
+                    btn.disabled = true;
+                    
+                    if (text === correctAnswer) {
+                        btn.classList.add('correct');
+                    }
+                }
+                
+                playCorrectSound();
+                updateNavigationButtons();
+            } else {
+                // 選擇錯誤答案，只標記這個選項為錯誤，但不禁用其他選項
+                button.classList.add('incorrect');
+                button.disabled = true;
+                playIncorrectSound();
+            }
+        }
+
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            prevButton.disabled = currentQuestionIndex === 0;
+            nextButton.disabled = currentQuestionIndex === questionCount - 1;
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+                
+                // 如果這題已經回答過，顯示之前的答案狀態
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    showPreviousAnswer();
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questionCount - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+                
+                // 如果這題已經回答過，顯示之前的答案狀態
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    showPreviousAnswer();
+                }
+            }
+        }
+
+        function showPreviousAnswer() {
+            const question = currentQuestions[currentQuestionIndex];
+            const correctAnswer = gameMode === 'taiwanese' ? question.taiwanese : question.romanization;
+            const userAnswer = userAnswers[currentQuestionIndex];
+            
+            // 找到用戶選擇的選項
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById(`option${i}`);
+                const text = document.getElementById(`optionText${i}`).textContent;
+                button.disabled = true;
+                
+                if (text === correctAnswer) {
+                    button.classList.add('correct');
+                } else if (text === userAnswer) {
+                    button.classList.add('incorrect');
+                    selectedAnswer = i;
+                }
+            }
+        }
+
+        function backToMenu() {
+            document.getElementById('gameScreen').classList.add('hidden');
+            document.getElementById('menuScreen').classList.remove('hidden');
+            
+            // 重置遊戲狀態
+            gameMode = null;
+            questionCount = null;
+            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            updateStartButton();
+        }
+
+        // 防止右鍵和文字選取
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+
+        // 鍵盤快捷鍵
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('gameScreen').classList.contains('hidden')) return;
+            
+            if (e.key >= '1' && e.key <= '4') {
+                const optionIndex = parseInt(e.key) - 1;
+                if (selectedAnswer === null) {
+                    selectAnswer(optionIndex);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                previousQuestion();
+            } else if (e.key === 'ArrowRight') {
+                nextQuestion();
+            }
+        });
+
+        // 監聽螢幕尺寸變化，重新調整字體大小
+        window.addEventListener('resize', function() {
+            if (!document.getElementById('gameScreen').classList.contains('hidden')) {
+                // 重新調整當前題目的選項字體大小
+                for (let i = 0; i < 4; i++) {
+                    const textElement = document.getElementById(`optionText${i}`);
+                    if (textElement && textElement.textContent) {
+                        adjustFontSize(textElement, textElement.textContent);
+                    }
+                }
+            }
+        });
+
+        // Element SDK 配置
+        const defaultConfig = {
+            main_title: "選詞塌空",
+            sub_title: "第1課 日頭公變魔術，有影抑無影？"
+        };
+
+        async function onConfigChange(config) {
+            document.getElementById('mainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('subTitle').textContent = config.sub_title || defaultConfig.sub_title;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["sub_title", config.sub_title || defaultConfig.sub_title]
+            ]);
+        }
+
+        // 初始化 Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+<script id="md-fit-js">
+/* 選項文字配合外框自動放大縮小（儘可能最大化）— © 2026 詹宗龍 */
+(function(){
+function fitOne(b){var t=b.querySelector('[id^="optionText"]');if(!t||!b.offsetWidth)return;
+var cs=getComputedStyle(b);
+var w=b.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight)-2,h=b.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-2;
+if(w<20||h<10)return;w=Math.floor(w);t.style.maxWidth=w+'px';t.style.fontWeight='bold';
+var lo=10,hi=Math.max(12,Math.min(h*0.8,260)),best=lo;
+for(var i=0;i<14;i++){var m=(lo+hi)/2;t.style.fontSize=m+'px';if(t.scrollWidth<=t.clientWidth+1&&t.offsetHeight<=h*0.94){best=m;lo=m;}else hi=m;}
+t.style.fontWeight='';t.style.fontSize=Math.floor(best)+'px';}
+function fitAll(){document.querySelectorAll('.option-button').forEach(fitOne);}
+var raf=0;function later(){cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){raf=requestAnimationFrame(fitAll);});}
+window.mdFitOptions=later;
+if(typeof window.adjustFontSize==='function'){var o=window.adjustFontSize;window.adjustFontSize=function(e,s){o(e,s);later();};}
+if(window.ResizeObserver){var g=document.querySelector('.options-grid');if(g)new ResizeObserver(later).observe(g);}
+window.addEventListener('resize',later);window.addEventListener('orientationchange',later);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
+})();
+</script>
+<!-- md-fs：浮動全螢幕切換鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-fs-css">
+#md-fs-btn{position:fixed;right:4px;top:4px;left:auto;bottom:auto;z-index:2147483646;width:40px;height:40px;padding:0;margin:0;border:2px solid #FFD400;border-radius:50%;background:rgba(17,17,17,.8);color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.55;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .15s;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#md-fs-btn[hidden]{display:none}
+#md-fs-btn:hover,#md-fs-btn:focus-visible,#md-fs-btn.drag{opacity:1;outline:none}
+#md-fs-btn.drag{cursor:grabbing}
+#md-fs-btn svg{width:22px;height:22px;display:block;pointer-events:none}
+#md-fs-btn .md-fs-exit{display:none}
+#md-fs-btn.on .md-fs-enter{display:none}
+#md-fs-btn.on .md-fs-exit{display:block}
+@media print{#md-fs-btn{display:none}}
+</style>
+<button type="button" id="md-fs-btn" title="全螢幕（可拖曳移位）" aria-label="全螢幕" hidden>
+<svg class="md-fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+<svg class="md-fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+</button>
+<script id="md-fs-js">
+(function(){
+ var b=document.getElementById('md-fs-btn'),d=document,e=d.documentElement,K='md-fs-pos';
+ var req=e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen;
+ var ok=d.fullscreenEnabled||d.webkitFullscreenEnabled||d.msFullscreenEnabled;
+ if(!b||!req||ok===false){return;}
+ b.hidden=false;
+ function cur(){return d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement;}
+ function sync(){var on=!!cur();b.classList.toggle('on',on);var t=on?'取消全螢幕':'全螢幕';b.title=t+'（可拖曳移位）';b.setAttribute('aria-label',t);}
+ function toggle(){
+  if(cur()){(d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen).call(d);}
+  else{var p=req.call(e);if(p&&p.catch){p.catch(function(){});}}
+ }
+ var pos=null;
+ function place(){
+  if(!pos)return;
+  var w=b.offsetWidth||40,h=b.offsetHeight||40;
+  var x=Math.max(0,Math.min(innerWidth-w,pos.x*innerWidth)),y=Math.max(0,Math.min(innerHeight-h,pos.y*innerHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.right='auto';b.style.bottom='auto';
+ }
+ try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&isFinite(s.x)&&isFinite(s.y))pos=s;}catch(_){}
+ place();addEventListener('resize',place);
+ var st=null,moved=false;
+ b.addEventListener('pointerdown',function(ev){if(ev.button>0)return;var r=b.getBoundingClientRect();st={x:ev.clientX,y:ev.clientY,ox:ev.clientX-r.left,oy:ev.clientY-r.top};moved=false;try{b.setPointerCapture(ev.pointerId);}catch(_){}});
+ b.addEventListener('pointermove',function(ev){
+  if(!st)return;
+  if(!moved&&Math.abs(ev.clientX-st.x)+Math.abs(ev.clientY-st.y)<8)return;
+  moved=true;b.classList.add('drag');
+  pos={x:(ev.clientX-st.ox)/innerWidth,y:(ev.clientY-st.oy)/innerHeight};place();
+ });
+ function end(){if(!st)return;st=null;b.classList.remove('drag');if(moved){try{localStorage.setItem(K,JSON.stringify(pos));}catch(_){}}}
+ b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+ b.addEventListener('click',function(ev){
+  ev.preventDefault();ev.stopPropagation();
+  if(moved){moved=false;return;}
+  toggle();b.blur();
+ });
+ d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);
+ sync();
+})();
+</script>
+<!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<script id="md-all-js">
+function mdSelectAll(btn){
+ questionCount=questionDatabase.length;
+ btn.parentNode.querySelectorAll('.menu-button').forEach(function(b){b.classList.remove('selected');});
+ btn.classList.add('selected');
+ updateStartButton();
+}
+</script>
+<!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body .container:has(#menuScreen:not(.hidden)){width:100%;max-width:none;margin:0;height:calc(100vh - 22px);min-height:0;padding:1.6vh 2vw 0;box-sizing:border-box;justify-content:stretch;align-items:stretch;overflow:hidden}
+ html body .menu-screen:not(.hidden){flex:1 1 auto;min-height:0;width:100%;max-width:none;margin:0 0 1vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;align-items:stretch;padding:2vh 3vw;border-radius:clamp(16px,2.4vh,30px)}
+ html body .menu-screen .title{margin:0;line-height:1.15;font-size:clamp(20px,min(4.8vw,9vh),88px)}
+ html body .menu-screen .subtitle{margin:0;font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body .menu-screen .menu-section{margin:0}
+ html body .menu-screen .menu-label{font-size:clamp(13px,min(2.4vw,4.6vh),44px);margin-bottom:1.4vh}
+ html body .menu-screen .button-group{gap:1.4vw;flex-wrap:nowrap}
+ html body .menu-screen .menu-button{flex:1 1 0;min-width:0;padding:2.4vh 0.6vw;white-space:nowrap;font-size:clamp(12px,min(2.6vw,5.4vh),52px)}
+ html body .menu-screen .start-button{align-self:center;margin:0;padding:2vh 8vw;font-size:clamp(13px,min(2.8vw,5.8vh),56px)}
+ html body .menu-screen .md-quiz-link-wrap{margin:0}
+ html body .menu-screen a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body .menu-screen .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
+<div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">課文及音檔來源：全華圖書（經授權使用）｜© 2026 詹宗龍</div>
+</body>
+</html>

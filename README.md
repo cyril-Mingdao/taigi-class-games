@@ -20,6 +20,8 @@
 | `YUDA-B1` | 育達版高中全1冊 |
 | `CHUANHWA-B3` | 全華版國中第3冊 |
 | `KANGHSUAN-B4` | 康軒版國中第4冊 |
+| `CHUANHWA-B1` | 全華版國中第1冊 |
+| `CHUANHWA-B2` | 全華版國中第2冊 |
 | `common` | 共用（不分版本） |
 
 完整課次連結見 [links.md](links.md)。

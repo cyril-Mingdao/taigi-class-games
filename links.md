@@ -63,6 +63,23 @@
 | 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B4/L2.html |
 | 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B4/L3.html |
 
+### 全華版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 日頭公變魔術，有影抑無影？ | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B1/L1.html |
+| 第2課 香菇頭 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B1/L2.html |
+| 第3課 芫荽皮蛋豬血粿Pizza | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B1/L3.html |
+| 第4課 生活中的AI | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B1/L4.html |
+
+### 全華版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B2/L1.html |
+| 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B2/L2.html |
+| 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B2/L3.html |
+
 ## 咱來餾生份字（`siann/`）
 
 ### 真平版國中第1冊
@@ -116,6 +133,23 @@
 | 第1課 鴛鴦菜脯卵 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B4/L1.html |
 | 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B4/L2.html |
 | 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B4/L3.html |
+
+### 全華版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 日頭公變魔術，有影抑無影？ | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B1/L1.html |
+| 第2課 香菇頭 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B1/L2.html |
+| 第3課 芫荽皮蛋豬血粿Pizza | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B1/L3.html |
+| 第4課 生活中的AI | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B1/L4.html |
+
+### 全華版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B2/L1.html |
+| 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B2/L2.html |
+| 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B2/L3.html |
 
 ## 選詞塌空（`suansu/`）
 
@@ -171,6 +205,23 @@
 | 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B4/L2.html |
 | 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B4/L3.html |
 
+### 全華版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 日頭公變魔術，有影抑無影？ | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B1/L1.html |
+| 第2課 香菇頭 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B1/L2.html |
+| 第3課 芫荽皮蛋豬血粿Pizza | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B1/L3.html |
+| 第4課 生活中的AI | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B1/L4.html |
+
+### 全華版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B2/L1.html |
+| 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B2/L2.html |
+| 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B2/L3.html |
+
 ## 咱來鬥句（`tauku/`）
 
 ### 真平版國中第1冊
@@ -225,6 +276,23 @@
 | 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B4/L2.html |
 | 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B4/L3.html |
 
+### 全華版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 日頭公變魔術，有影抑無影？ | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B1/L1.html |
+| 第2課 香菇頭 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B1/L2.html |
+| 第3課 芫荽皮蛋豬血粿Pizza | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B1/L3.html |
+| 第4課 生活中的AI | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B1/L4.html |
+
+### 全華版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B2/L1.html |
+| 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B2/L2.html |
+| 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B2/L3.html |
+
 ## 心智圖配對（`mindmap/`）
 
 ### 真平版國中第1冊
@@ -278,3 +346,20 @@
 | 第1課 鴛鴦菜脯卵 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B4/L1.html |
 | 第2課 寄話 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B4/L2.html |
 | 第3課 千途萬途，肯行就有前途 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B4/L3.html |
+
+### 全華版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 日頭公變魔術，有影抑無影？ | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B1/L1.html |
+| 第2課 香菇頭 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B1/L2.html |
+| 第3課 芫荽皮蛋豬血粿Pizza | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B1/L3.html |
+| 第4課 生活中的AI | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B1/L4.html |
+
+### 全華版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B2/L1.html |
+| 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B2/L2.html |
+| 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B2/L3.html |
