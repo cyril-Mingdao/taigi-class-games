@@ -80,6 +80,23 @@
 | 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B2/L2.html |
 | 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B2/L3.html |
 
+### 康軒版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 講咱的話 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B1/L1.html |
+| 第2課 鬥陣 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B1/L2.html |
+| 第3課 真珠奶茶 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B1/L3.html |
+| 第4課 你有載具無？ | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B1/L4.html |
+
+### 康軒版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B3/L1.html |
+| 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B3/L2.html |
+| 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B3/L3.html |
+
 ## 咱來餾生份字（`siann/`）
 
 ### 真平版國中第1冊
@@ -150,6 +167,23 @@
 | 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B2/L1.html |
 | 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B2/L2.html |
 | 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B2/L3.html |
+
+### 康軒版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 講咱的話 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B1/L1.html |
+| 第2課 鬥陣 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B1/L2.html |
+| 第3課 真珠奶茶 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B1/L3.html |
+| 第4課 你有載具無？ | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B1/L4.html |
+
+### 康軒版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B3/L1.html |
+| 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B3/L2.html |
+| 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B3/L3.html |
 
 ## 選詞塌空（`suansu/`）
 
@@ -222,6 +256,23 @@
 | 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B2/L2.html |
 | 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B2/L3.html |
 
+### 康軒版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 講咱的話 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B1/L1.html |
+| 第2課 鬥陣 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B1/L2.html |
+| 第3課 真珠奶茶 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B1/L3.html |
+| 第4課 你有載具無？ | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B1/L4.html |
+
+### 康軒版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B3/L1.html |
+| 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B3/L2.html |
+| 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B3/L3.html |
+
 ## 咱來鬥句（`tauku/`）
 
 ### 真平版國中第1冊
@@ -293,6 +344,23 @@
 | 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B2/L2.html |
 | 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B2/L3.html |
 
+### 康軒版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 講咱的話 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B1/L1.html |
+| 第2課 鬥陣 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B1/L2.html |
+| 第3課 真珠奶茶 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B1/L3.html |
+| 第4課 你有載具無？ | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B1/L4.html |
+
+### 康軒版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B3/L1.html |
+| 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B3/L2.html |
+| 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B3/L3.html |
+
 ## 心智圖配對（`mindmap/`）
 
 ### 真平版國中第1冊
@@ -363,3 +431,20 @@
 | 第1課 無事坐巴士 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B2/L1.html |
 | 第2課 討海人的期待 平安佮滿載 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B2/L2.html |
 | 第3課 烏嘛嘛 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B2/L3.html |
+
+### 康軒版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 講咱的話 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B1/L1.html |
+| 第2課 鬥陣 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B1/L2.html |
+| 第3課 真珠奶茶 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B1/L3.html |
+| 第4課 你有載具無？ | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B1/L4.html |
+
+### 康軒版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B3/L1.html |
+| 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B3/L2.html |
+| 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B3/L3.html |

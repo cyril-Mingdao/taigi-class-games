@@ -22,6 +22,8 @@
 | `KANGHSUAN-B4` | 康軒版國中第4冊 |
 | `CHUANHWA-B1` | 全華版國中第1冊 |
 | `CHUANHWA-B2` | 全華版國中第2冊 |
+| `KANGHSUAN-B1` | 康軒版國中第1冊 |
+| `KANGHSUAN-B3` | 康軒版國中第3冊 |
 | `common` | 共用（不分版本） |
 
 完整課次連結見 [links.md](links.md)。
