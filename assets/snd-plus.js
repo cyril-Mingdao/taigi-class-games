@@ -76,7 +76,8 @@
     var s = String(raw || '').normalize('NFC');
     s = s.replace(/[(（][^)）]*[)）]/g, ' ')
       .replace(CJK, ' ')
-      .replace(/[，。！？、,.!?；;：:「」『』“”"…]/g, ' ');
+      .replace(/\s*[；;]\s*/g, ' / ')                 // 「lâi-khì；laih」分號也是異讀
+      .replace(/[，。！？、,.!?：:「」『』“”"…]/g, ' ');
     var whole = s.split(/\s+\/\s+/);
     s = whole[alt && whole.length > 1 ? 1 : 0];
     return s.replace(/\/\s+/g, '/')
