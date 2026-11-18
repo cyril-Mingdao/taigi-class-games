@@ -21,36 +21,35 @@
 html,body{margin:0}
 body{background:var(--black);color:var(--white);font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;
   background-image:radial-gradient(circle at 100% 0,rgba(255,212,0,.10),transparent 42%),radial-gradient(circle at 0 100%,rgba(255,255,255,.05),transparent 40%);min-height:100vh}
-.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 28px}
-header.top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-header.top h1{margin:0;font-size:clamp(22px,4vw,30px);color:var(--yellow);letter-spacing:.04em}
-header.top .roma{color:var(--white);opacity:.85;font-size:clamp(14px,2.4vw,18px)}
+.wrap{max-width:1180px;margin:0 auto;padding:12px 16px 20px}
+header.top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+header.top h1{margin:0;font-size:clamp(20px,3.4vw,26px);color:var(--yellow);letter-spacing:.04em}
+header.top .roma{color:var(--white);opacity:.85;font-size:clamp(13px,2vw,16px)}
 body.embedded header.top{display:none}
-/* 出版社 */
-.pubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.pub{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:2px solid #3a3a3a;background:var(--gray);
-  color:var(--white);font:inherit;cursor:pointer;text-align:left;transition:transform .15s,border-color .15s,background .15s}
+/* 出版社：一列膠囊 */
+.pubs{display:flex;gap:8px}
+.pub{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px 10px;border-radius:12px;border:2px solid #3a3a3a;background:var(--gray);
+  color:var(--white);font:inherit;cursor:pointer;transition:transform .15s,border-color .15s,background .15s}
 .pub:hover{transform:translateY(-2px);border-color:var(--yellow)}
-.pub .ic{flex:none;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font-size:26px;font-weight:900;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
-.pub b{display:block;font-size:20px;line-height:1.2}
-.pub small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.pub .ic{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:18px;font-weight:900;box-shadow:inset 0 -2px 0 rgba(0,0,0,.25)}
+.pub b{font-size:17px;line-height:1.2;white-space:nowrap}
+.pub small{color:var(--muted);font-size:12px;white-space:nowrap}
 .pub[aria-selected=true]{background:var(--yellow);border-color:var(--yellow);color:var(--black)}
 .pub[aria-selected=true] small{color:#3b3200}
-.pub.all{justify-content:center}
 .pub.all .ic{background:var(--black);color:var(--yellow);border:2px solid var(--yellow)}
 /* 冊別 */
-.vols{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border-left:6px solid var(--pub)}
+.vols{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:7px 10px;border-radius:10px;background:rgba(255,255,255,.04);border-left:5px solid var(--pub)}
 .vols:empty{display:none}
-.vol{border:2px solid var(--white);background:transparent;color:var(--white);font-family:inherit;font-weight:700;font-size:17px;line-height:1;padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
+.vol{border:2px solid var(--white);background:transparent;color:var(--white);font-family:inherit;font-weight:700;font-size:15px;line-height:1;padding:7px 14px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
 .vol:hover{background:rgba(255,212,0,.18)}
 .vol[aria-selected=true]{background:var(--white);color:var(--black);box-shadow:0 0 0 3px var(--pub)}
 /* 課次 */
-.book{margin-top:16px}
-.bookhead{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:20px}
-.bookhead .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:18px;font-weight:900}
-.bookhead .n{color:var(--muted);font-size:14px;font-weight:400}
+.book{margin-top:12px}
+.bookhead{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:17px}
+.bookhead .ic{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-size:14px;font-weight:900}
+.bookhead .n{color:var(--muted);font-size:13px;font-weight:400}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-.card{position:relative;display:flex;flex-direction:column;gap:8px;min-height:104px;padding:14px 16px 14px 22px;border-radius:14px;background:var(--white);color:var(--black);
+.card{position:relative;display:flex;flex-direction:column;gap:8px;min-height:96px;padding:12px 16px 12px 22px;border-radius:14px;background:var(--white);color:var(--black);
   text-decoration:none;overflow:hidden;box-shadow:0 2px 0 rgba(0,0,0,.4);transition:transform .15s,box-shadow .15s,background .15s}
 .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--c,var(--pub))}
 .card .no{align-self:flex-start;background:var(--black);color:var(--yellow);font-weight:900;font-size:14px;padding:4px 10px;border-radius:999px;letter-spacing:.05em}
@@ -59,15 +58,22 @@ body.embedded header.top{display:none}
 .card:hover,.card:focus-visible{transform:translateY(-4px);background:var(--yellow);box-shadow:0 10px 22px rgba(0,0,0,.45);outline:none}
 .card:hover .go,.card:focus-visible .go{opacity:1;transform:translateX(3px)}
 .empty{color:var(--muted);padding:24px 0}
-footer{margin-top:22px;padding-top:12px;border-top:1px solid #333;color:var(--muted);font-size:12px;line-height:1.7;text-align:center}
+footer{margin-top:16px;padding-top:10px;border-top:1px solid #333;color:var(--muted);font-size:12px;line-height:1.7;text-align:center}
+@media (max-width:760px){ .pub small{display:none} }
 @media (max-width:520px){
-  .wrap{padding:12px 12px 20px}
-  .pubs{grid-template-columns:repeat(2,1fr)}
-  .pub{padding:10px}.pub .ic{width:36px;height:36px;font-size:21px}.pub b{font-size:17px}
-  .vol{font-size:15px;padding:9px 14px}
-  .grid{grid-template-columns:1fr}
-  .card{min-height:0;flex-direction:row;align-items:center}
-  .card .t{font-size:17px;padding-right:20px}
+  .wrap{padding:8px 8px 14px}
+  .pubs{gap:5px}
+  .pub{flex-direction:column;gap:3px;padding:5px 2px;border-radius:10px}
+  .pub .ic{width:26px;height:26px;font-size:16px;border-radius:7px}
+  .pub b{font-size:13px}.pub .s{display:none}
+  .vols{margin-top:7px;padding:5px 6px;gap:5px}
+  .vol{font-size:14px;padding:7px 11px}
+  .book{margin-top:9px}
+  .bookhead{font-size:15px;margin-bottom:6px}
+  .grid{grid-template-columns:1fr;gap:7px}
+  .card{min-height:0;flex-direction:row;align-items:center;gap:10px;padding:9px 12px 9px 18px}
+  .card .no{font-size:13px;padding:3px 8px;flex:none}
+  .card .t{font-size:16px;padding-right:20px}
 }
 </style>
 </head>
@@ -104,14 +110,14 @@ function renderPubs(){
   pubsUsed.forEach(function(p){
     var n=books.filter(function(b){return b.pub===p.id}).length;
     var b=el('button','pub'); b.type='button'; b.setAttribute('role','tab'); b.setAttribute('aria-selected',cur.pub===p.id);
-    var tx=el('span'); tx.appendChild(el('b',null,p.id==='common'?p.name:p.name+'版')); tx.appendChild(el('small',null,p.id==='common'?'不分版本':n+' 冊'));
-    b.appendChild(icon(p)); b.appendChild(tx);
+    var nm=el('b',null,p.name); if(p.id!=='common') nm.appendChild(el('span','s','版')); b.title=p.name+'版（'+n+' 冊）';
+    b.appendChild(icon(p)); b.appendChild(nm); b.appendChild(el('small',null,n+'冊'));
     b.onclick=function(){cur.pub=p.id; cur.book=null; render(true)}; box.appendChild(b);
   });
   if(pubsUsed.length>1){
     var a=el('button','pub all'); a.type='button'; a.setAttribute('role','tab'); a.setAttribute('aria-selected',cur.pub==='all');
-    var ic=el('span','ic','全'); var tx=el('span'); tx.appendChild(el('b',null,'全部冊別')); tx.appendChild(el('small',null,'一次攤開'));
-    a.appendChild(ic); a.appendChild(tx); a.onclick=function(){cur.pub='all'; render(true)}; box.appendChild(a);
+    var ic=el('span','ic','全'); var nm=el('b',null,'全部'); nm.appendChild(el('span','s','冊別')); a.title='全部冊別一次攤開';
+    a.appendChild(ic); a.appendChild(nm); a.onclick=function(){cur.pub='all'; render(true)}; box.appendChild(a);
   }
 }
 function card(l,p){
