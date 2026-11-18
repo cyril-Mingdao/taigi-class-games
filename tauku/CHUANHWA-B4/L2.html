@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  全華版國中第4冊 第2課 白賊話 — 台語課堂遊戲「咱來鬥句」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「全華圖書股份有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 23 日取得該公司之《著作使用同意書》，
+  並經該公司 115 年 9 月 24 日回覆確認符合第五條「非營利之教育及教學目的」之使用。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放使用自製 snd-plus.js（音檔即時連結教育部辭典官方錄音，著作權屬教育部）；
+  字型與樣式（如 tauhu.tw）之著作權屬各原權利人。
+  除全華圖書股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第2課 白賊話</title>
+<link rel="icon" id="md-icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23455A64%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2250%22%20font-size%3D%2248%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFFFFF%22%20font-family%3D%22Microsoft%20JhengHei%2CPingFang%20TC%2CNoto%20Sans%20TC%2Csans-serif%22%3E%E8%8F%AF%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+    
+    <style>/*md-dvh*/
+        /* --- 動態背景動畫定義 --- */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 全局設定與柔和度調整 --- */
+        body {
+            font-family: 'tauhu-oo', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* 全頁繽紛漸層背景 + 動畫 */
+            background: linear-gradient(-45deg, #fce4ec, #f8bbd0, #e1bee7, #c5cae9, #b3e5fc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            
+            color: #333;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;min-height:100dvh; 
+        }
+
+        #app {
+            width: 100%;
+            max-width: 1000px;
+            /* 1. 整體上移：移除上方 padding */
+            padding: 0 20px 20px 20px; 
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* 1. 整體上移：透過負 margin 讓內容更往上靠 */
+        .page {
+            margin-top: 20px; 
+            transform: translateY(-20px); 
+        }
+
+        /* 螢幕適配 */
+        @media (max-width: 600px) {
+            #app { padding: 0 10px 10px 10px; }
+            h1 { font-size: 1.6em; margin-top: 10px; }
+            h2 { font-size: 1.1em; }
+            #word-options { gap: 8px; }
+            .word-option { padding: 8px 10px; font-size: 0.9em; }
+            .chosen-word { font-size: 1.1em; }
+            /* 針對小螢幕，資訊重新排列 */
+            #answer-info .info-details-container { 
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                gap: 3px;
+            }
+            
+            /* 正確解答和正確選項組合：佔滿整行，標題和內容分行 */
+            #answer-info .info-item.info-full {
+                flex: 0 0 100%;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            
+            #answer-info .info-item.info-full strong {
+                display: block;
+                margin-bottom: 3px;
+                font-size: 0.9em;
+            }
+            
+            #answer-info .info-item.info-full span {
+                display: block;
+                font-size: 0.95em;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            
+            /* 項次、頁數、華語解釋：三欄並排，標題和內容分行 */
+            #answer-info .info-item.info-third {
+                flex: 0 0 calc(33.33% - 2px);
+                text-align: center;
+            }
+            
+            #answer-info .info-item.info-third strong {
+                display: block;
+                font-size: 0.85em;
+                margin-bottom: 2px;
+            }
+            
+            #answer-info .info-item.info-third span {
+                display: block;
+                font-size: 0.9em;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            #header-back-btn { font-size: 0.9em; padding: 5px 10px; }
+            .control-panel button { padding: 8px 12px; font-size: 1em; }
+
+            /* ↓↓↓ 6.2 吋手機專用重新配置 ↓↓↓ */
+
+            body {
+                justify-content: flex-start;  /* 讓內容從上方開始排，不居中 */
+            }
+
+            .page {
+                margin-top: 5px;
+                transform: none;              /* 手機版不再往下偏移，騰出下方空間 */
+            }
+
+            h1 {
+                font-size: 1.4em;
+                margin-bottom: 0.1em;
+            }
+
+            h2 {
+                font-size: 1em;
+                margin-bottom: 4px;
+            }
+
+            /* 遊戲主區塊改為依螢幕高度配置，去除固定長寬比避免中央擠在一起 */
+            .game-area {
+                aspect-ratio: auto;
+                max-height: none;
+                height: calc(100vh - 260px);height:calc(100dvh - 260px);  /* 預留給標題、警語與下方按鈕列 */
+                margin-top: 0;
+            }
+
+            /* 三個區塊重新分配比例，避免互相壓縮重疊 */
+            .result-area {
+                flex: 1.1;
+                padding: 2px 4px;
+            }
+
+            .options-area {
+                flex: 2.1;
+                padding: 2px 4px;
+                align-items: flex-start;      /* 從上方開始排選項 */
+                overflow-y: hidden;           /* 手機版不再出現捲動條 */
+            }
+
+            #answer-info {
+                flex: 2.2;
+                padding: 0 4px 4px 4px;
+            }
+
+            /* 手機版字體與內距微縮，讓 6~8 個選項完整顯示在畫面中 */
+            .word-option,
+            .chosen-word {
+                padding: 4px 8px;
+                font-size: 0.9em;
+            }
+
+            .info-content {
+                padding: 4px 6px;
+            }
+
+            #result-feedback {
+                font-size: 1.2em !important;
+                margin-bottom: 4px !important;
+            }
+
+            .control-panel {
+                padding: 6px 6px 8px 6px;
+                margin-top: 0;
+            }
+
+            .control-panel button {
+                padding: 6px 8px;
+                font-size: 0.95em;
+            }
+        }
+
+        /* 禁止選取文字與右鍵 */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* 主標題 - 漸層文字 */
+        h1 { 
+            text-align: center; margin-bottom: 0.1em;
+            background: linear-gradient(to right, #8e24aa, #ec407a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            position: relative; 
+        }
+        
+        /* 副標題 - 修正行距 */
+        h2 { 
+            text-align: center; 
+            margin-top: 0;
+            margin-bottom: 5px; 
+            line-height: 1.2; 
+            background: linear-gradient(to right, #f4511e, #ff5722);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* header 區域設定 */
+        header {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* 返回選單按鈕 */
+        #header-back-btn {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            padding: 5px 12px;
+            background: linear-gradient(to bottom, #90caf9, #42a5f5);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.2s;
+            z-index: 100;
+        }
+        #header-back-btn:hover {
+            background: linear-gradient(to bottom, #42a5f5, #1e88e5);
+        }
+
+        /* 黃底紅字提示訊息 */
+        .warning-msg {
+            background-color: #fff59d; /* 柔和黃 */
+            color: #d32f2f; /* 紅字 */
+            padding: 8px 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1em;
+            margin: 5px auto 10px auto;
+            border: 2px solid #fbc02d;
+            width: 95%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* 臨時的錯誤/確認訊息區塊 */
+        #feedback-message {
+            color: #d32f2f; 
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            height: 1.2em; 
+        }
+
+        /* --- 遊戲區塊與導角 (16:5) --- */
+        .game-area {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            aspect-ratio: 16 / 5; 
+            max-height: calc(100vh - 200px);max-height:calc(100dvh - 200px); 
+            border: none;
+            border-radius: 20px 20px 0 0; /* 柔和導角 */
+            box-shadow: 0 10px 25px rgba(100, 100, 255, 0.15);
+            background-color: #ffffff;
+            overflow: hidden;
+            margin-top: 0px;
+            position: relative;
+        }
+
+        /* 區域 1: 頂部作答區域 (橘/黃漸層) - 項目被選擇欄 */
+        .result-area {
+            flex: 1.5; /* 調整佔比 */
+            background: linear-gradient(to bottom, #fff3e0, #ffe0b2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px; 
+            z-index: 10;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+
+        #chosen-words {
+            width: 95%;
+            border-bottom: 3px dashed #ff980080;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            min-height: 30px; 
+            padding-bottom: 2px;
+            gap: 5px;
+        }
+
+        /* 區域 2: 中間選項區域 (綠/藍漸層) - 項目待選擇欄 */
+        .options-area {
+            flex: 3.3; /* 調整佔比 */
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px; 
+            overflow-y: auto;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+
+        #word-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; 
+            justify-content: center;
+            width: 95%;
+            transition: opacity 0.3s;
+        }
+        
+        /* 區域 3: 題目資訊 (Answer Info) - 獨立區塊 */
+        #answer-info {
+            position: relative; 
+            width: 100%;
+            flex: 7.5; /* 給予足夠空間顯示資訊 */
+            padding: 2px;
+            background: transparent; 
+            box-sizing: border-box;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            pointer-events: auto;
+        }
+
+        /* --- 語詞按鈕樣式 (糖果質感) --- */
+        .word-option, .chosen-word {
+            padding: 6px 12px; 
+            border-radius: 30px; 
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            font-size: 1em; 
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* 一般選項 (綠色系) */
+        .word-option {
+            background: linear-gradient(145deg, #a5d6a7, #81c784);
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+            color: #1b5e20; 
+        }
+
+        .option-number {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-bottom: -3px;
+        }
+        .word-option .option-number { color: #1b5e20; }
+
+        .word-option:hover { 
+            background: linear-gradient(145deg, #81c784, #66bb6a);
+            transform: translateY(-2px);
+        }
+        .word-option:active { 
+            box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3); 
+            transform: translateY(1px); 
+        }
+
+        /* 被選取的語詞樣式 (橘色系) */
+        .chosen-word {
+            background: linear-gradient(145deg, #ffb74d, #ff9800);
+            box-shadow: 0 4px 10px rgba(239, 108, 0, 0.3);
+            color: #fff;
+            font-size: 1.2em;
+            margin: 2px;
+            padding: 6px 12px;
+        }
+        
+        .chosen-word .option-number { color: #fff; }
+        
+        .chosen-word:hover { 
+            background: linear-gradient(145deg, #ff9800, #f57c00);
+            transform: translateY(-2px);
+        }
+        .chosen-word:active { 
+             box-shadow: 0 2px 5px rgba(239, 108, 0, 0.3);
+             transform: translateY(1px); 
+        }
+
+        .hidden { display: none !important; }
+
+        /* --- 控制面板 --- */
+        .control-panel {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background: linear-gradient(to top, #e3f2fd, #bbdefb);
+            border: none;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            max-width: 1000px;
+            margin-top: -3px;
+            position: relative;
+        }
+
+        .control-panel button {
+            padding: 10px 20px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 12px; 
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            color: white;
+        }
+        .control-panel button:active { transform: translateY(2px); }
+        
+        /* 禁用狀態樣式 */
+        .control-panel button:disabled {
+            background: #e0e0e0 !important;
+            color: #9e9e9e !important;
+            box-shadow: none !important;
+            cursor: not-allowed;
+            border: 2px solid #bdbdbd;
+        }
+
+        /* 上一題按鈕 (紫色漸層) */
+        #prev-button {
+            background: linear-gradient(to bottom, #ab47bc, #8e24aa);
+            box-shadow: 0 4px 10px rgba(142, 36, 170, 0.4);
+        }
+        #prev-button:active { box-shadow: 0 2px 5px rgba(142, 36, 170, 0.4); }
+
+        #submit-button { 
+            background: linear-gradient(to bottom, #ff8a65, #ff5722);
+            box-shadow: 0 4px 10px rgba(230, 81, 0, 0.4);
+        }
+        #submit-button:active { box-shadow: 0 2px 5px rgba(230, 81, 0, 0.4); }
+
+        #undo-button { 
+            background: linear-gradient(to bottom, #bdbdbd, #9e9e9e);
+            box-shadow: 0 4px 10px rgba(158, 158, 158, 0.4);
+        }
+        #undo-button:active { box-shadow: 0 2px 5px rgba(158, 158, 158, 0.4); }
+
+        #next-button { 
+            background: linear-gradient(to bottom, #81c784, #43a047);
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.4);
+        }
+        #next-button:active { box-shadow: 0 2px 5px rgba(46, 125, 50, 0.4); }
+
+        /* 加寬資訊方框 */
+        .info-content {
+            width: 99%; 
+            max-width: 99%; 
+            overflow: hidden; 
+            max-height: 100%; 
+            padding: 0 10px; /* 移除上下白邊 */
+            background: rgba(255, 255, 255, 0.6); /* 稍微透明一點 */
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 凸顯回饋訊息 */
+        #result-feedback {
+            font-size: 1.4em !important; 
+            font-weight: 900 !important; 
+            margin-bottom: 5px !important;
+            margin-top: 0 !important;
+            padding: 2px 15px;
+            border-radius: 10px;
+            animation: pulse 0.8s infinite alternate; 
+            display: block; 
+            background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2));
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        @keyframes pulse {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0.9; transform: scale(1.02); }
+        }
+
+        /* 資訊由左至右配置容器 */
+        .info-details-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; 
+            width: 100%;
+            gap: 5px; 
+            padding: 0;
+        }
+
+        /* 欄位通用樣式 */
+        .info-details-container .info-item {
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+            min-width: 40px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            line-height: 1.2; 
+        }
+
+        /* --- 調整欄寬分配 --- */
+        .info-details-container .info-item:nth-child(1) { flex: 4; } /* Correct Sentence */
+        .info-details-container .info-item:nth-child(2) { flex: 2; } /* Correct Combo */
+        .info-details-container .info-item:nth-child(3) { flex: 0.6; } /* Index */
+        .info-details-container .info-item:nth-child(4) { flex: 0.6; } /* Page */
+        .info-details-container .info-item:nth-child(5) { flex: 3; } /* Chinese */
+
+
+        /* 標題樣式 */
+        .info-details-container .info-item strong {
+            font-size: 1em; 
+            margin-bottom: 2px; 
+            display: block;
+            color: #5e35b1; 
+        }
+        
+        /* 內容樣式 (單行不跳行) */
+        .info-details-container .info-item span {
+            font-size: 0.95em; 
+            font-weight: normal; 
+            display: block; 
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            width: 100%; 
+        }
+        
+        /* 針對華語解釋欄位給予更明顯的顏色 */
+        .info-details-container .info-item:nth-child(5) span {
+            color: #0277bd; 
+            font-weight: bold;
+        }
+
+        /* --- 選單樣式 --- */
+        .menu-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .menu-container button {
+            padding: 10px 15px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 10px; /* 導角 */
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            color: #1565c0; 
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.2s;
+            box-shadow: 0 3px 6px rgba(33, 150, 243, 0.2);
+            font-weight: bold;
+        }
+        .menu-container button.selected {
+            background: linear-gradient(to bottom, #42a5f5, #1e88e5);
+            color: white;
+            box-shadow: 0 3px 8px rgba(13, 71, 161, 0.4);
+        }
+        .menu-container button:active { transform: translateY(2px); }
+
+        #start-game {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 1.2em;
+            background: linear-gradient(to bottom, #a5d6a7, #81c784);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 15px; 
+            opacity: 0.6;
+            box-shadow: 0 4px 10px rgba(56, 142, 60, 0.3);
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        #start-game:enabled {
+            opacity: 1;
+            background: linear-gradient(to bottom, #66bb6a, #43a047);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.5);
+        }
+        #start-game:enabled:active { 
+            transform: translateY(2px); 
+            box-shadow: 0 2px 6px rgba(46, 125, 50, 0.5);
+        }
+
+    </style>
+<style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+<style id="md-bigchip">/*md-dvh*/
+/* 投影用滿版大字（2026-11-15 老師要求）：拿掉左右留白、遊戲區填滿螢幕高度、選項與題號放大；手機版另有調整 — © 2026 詹宗龍 */
+@media (min-width: 601px) {
+  #app { max-width: none; padding: 0 1.5vw; }
+  #game-page:not(.hidden) {
+    display: flex; flex-direction: column;
+    height: calc(100vh - 22px);height:calc(100dvh - 22px); height: calc(100dvh - 22px);   /* 底部留給右下角出版社標示 */
+    margin-top: 0; transform: none; box-sizing: border-box; padding-top: 6px;
+  }
+  #game-page header { flex: none; }
+  #game-page header h1 { margin-top: 2px; margin-bottom: 0; }
+  #game-page .warning-msg { width: 100%; box-sizing: border-box; flex: none; }
+  #game-page .game-area { flex: 1 1 auto; min-height: 260px; aspect-ratio: auto; max-height: none; }
+  #game-page .control-panel { max-width: none; flex: none; }
+  .result-area { flex: 1.6; }
+  .options-area { flex: 4; padding: 1vh 1vw;padding:1dvh 1vw; }
+  #answer-info { flex: none; }   /* 公布答案後的解說區依內容高度，不擠掉選項 */
+  #chosen-words, #word-options { width: 99%; }
+  #word-options { gap: 2vh 1.6vw;gap:2dvh 1.6vw; }
+  .word-option, .chosen-word {
+    padding: 0.6vh 1.6vw 1vh;padding:0.6dvh 1.6vw 1dvh;
+    border-radius: 999px;
+    line-height: 1.1;
+    border-width: 3px;
+  }
+  .word-option { font-size: clamp(1.6em, min(3.4vw, 6.4vh), 4em);font-size:clamp(1.6em, min(3.4vw, 6.4dvh), 4em); }
+  .chosen-word { font-size: clamp(1.3em, min(2.6vw, 4.6vh), 3em);font-size:clamp(1.3em, min(2.6vw, 4.6dvh), 3em); margin: 3px; }
+  .option-number { font-size: 0.6em; font-weight: 900; opacity: 1; margin-bottom: 0; }
+}
+@media (max-width: 600px) {
+  .option-number { font-size: 0.95em; font-weight: 900; opacity: 1; }
+  .warning-msg { width: 100%; box-sizing: border-box; }   /* 原本略寬，手機會出現水平捲軸 */
+}
+/* 入口頁（選單）：滿版、整頁剛好一屏不溢出，字與按鈕隨螢幕縮放（各尺寸通用） */
+#menu-page:not(.hidden) {
+  display: flex; flex-direction: column;
+  height: calc(100vh - 22px);height:calc(100dvh - 22px); height: calc(100dvh - 22px);
+  margin-top: 0; transform: none; box-sizing: border-box; padding-top: 1vh;padding-top:1dvh;
+}
+#menu-page h1 { flex: none; margin: 0.5vh 0 0;margin:0.5dvh 0 0; font-size: clamp(1.6em, min(5vw, 7vh), 3.2em);font-size:clamp(1.6em, min(5vw, 7dvh), 3.2em); }
+#menu-page h2 { flex: none; margin: 0; font-size: clamp(1.1em, min(3vw, 4.4vh), 2em);font-size:clamp(1.1em, min(3vw, 4.4dvh), 2em); }
+#menu-page .menu-container {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto;
+  max-width: none; width: 100%; box-sizing: border-box;
+  margin: 1.5vh 0 0;margin:1.5dvh 0 0; padding: clamp(10px, 2.5vh, 32px) clamp(12px, 3vw, 48px);padding:clamp(10px, 2.5dvh, 32px) clamp(12px, 3vw, 48px);
+  display: flex; flex-direction: column; justify-content: space-evenly;
+}
+#menu-page .menu-container h3 { margin: 0.3em 0; font-size: clamp(1.1em, min(2.4vw, 4vh), 2em);font-size:clamp(1.1em, min(2.4vw, 4dvh), 2em); }
+#menu-page .button-group { gap: clamp(8px, 1.5vw, 24px); margin-bottom: 1vh;margin-bottom:1dvh; }
+#menu-page .menu-container button { font-size: clamp(1em, min(2.4vw, 4vh), 2em);font-size:clamp(1em, min(2.4vw, 4dvh), 2em); padding: 0.45em 1em; border-radius: 14px; }
+#menu-page #start-game { font-size: clamp(1.1em, min(2.6vw, 4.4vh), 2.2em);font-size:clamp(1.1em, min(2.6vw, 4.4dvh), 2.2em); margin-top: 1vh;margin-top:1dvh; padding: 0.5em; }
+#menu-page .md-quiz-link-wrap { margin-top: 1.2vh;margin-top:1.2dvh; }
+#menu-page a.md-quiz-link { font-size: clamp(16px, min(2.2vw, 3.6vh), 30px);font-size:clamp(16px, min(2.2vw, 3.6dvh), 30px); }
+#menu-page .md-quiz-link-hint { font-size: clamp(12px, min(1.4vw, 2.2vh), 18px);font-size:clamp(12px, min(1.4vw, 2.2dvh), 18px); }
+</style>
+<style id="md-fit">/*md-dvh*/
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+@media (min-width: 601px) and (max-height: 640px){
+ html body #game-page:not(.hidden){padding-top:2px}
+ html body #game-page header h1{font-size:clamp(16px,6vh,1.6em);font-size:clamp(16px,6dvh,1.6em);margin:0}
+ html body #game-page header h2{font-size:clamp(12px,4vh,1.1em);font-size:clamp(12px,4dvh,1.1em);margin:0}
+ html body #game-page header > div{margin-bottom:0.4vh !important;margin-bottom:0.4dvh !important;font-size:clamp(11px,3.2vh,1em);font-size:clamp(11px,3.2dvh,1em)}
+ html body #header-back-btn{top:2px;padding:0.6vh 1.2vw;padding:0.6dvh 1.2vw;font-size:clamp(11px,3.2vh,0.9em);font-size:clamp(11px,3.2dvh,0.9em)}
+ html body #game-page .warning-msg{font-size:clamp(10px,3vh,1em);font-size:clamp(10px,3dvh,1em);padding:0.4vh 1vw;padding:0.4dvh 1vw;margin:0.3vh auto 0.6vh;margin:0.3dvh auto 0.6dvh}
+ html body #feedback-message{height:auto;margin:0}
+ html body #game-page .game-area{min-height:0}
+ html body #game-page .control-panel{padding:0.8vh 1vw;padding:0.8dvh 1vw}
+ html body #game-page .control-panel button{padding:0.8vh 2vw;padding:0.8dvh 2vw;font-size:clamp(11px,3.6vh,1em);font-size:clamp(11px,3.6dvh,1em)}
+ html body .word-option{font-size:clamp(1em,min(3.4vw,6.4vh),4em);font-size:clamp(1em,min(3.4vw,6.4dvh),4em)}
+ html body .chosen-word{font-size:clamp(0.9em,min(2.6vw,4.6vh),3em);font-size:clamp(0.9em,min(2.6vw,4.6dvh),3em)}
+}
+@media (max-height: 640px){
+ html body #menu-page h1{font-size:clamp(16px,6vh,2.4em);font-size:clamp(16px,6dvh,2.4em)}
+ html body #menu-page h2{font-size:clamp(12px,4vh,1.6em);font-size:clamp(12px,4dvh,1.6em)}
+ html body #menu-page .menu-container{margin-top:0.8vh;margin-top:0.8dvh;padding:1.2vh 3vw;padding:1.2dvh 3vw}
+ html body #menu-page .menu-container h3{font-size:clamp(12px,3.6vh,1.6em);font-size:clamp(12px,3.6dvh,1.6em);margin:0.2em 0}
+ html body #menu-page .button-group{margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body #menu-page .menu-container button{font-size:clamp(12px,3.8vh,1.6em);font-size:clamp(12px,3.8dvh,1.6em);padding:0.35em 0.9em}
+ html body #menu-page #start-game{font-size:clamp(13px,4vh,1.8em);font-size:clamp(13px,4dvh,1.8em);padding:0.35em;margin-top:0.6vh;margin-top:0.6dvh}
+ html body #menu-page .md-quiz-link-wrap{margin-top:0.6vh;margin-top:0.6dvh}
+ html body #menu-page a.md-quiz-link{font-size:clamp(12px,3.6vh,22px);font-size:clamp(12px,3.6dvh,22px);padding:0.5vh 2vw;padding:0.5dvh 2vw}
+ html body #menu-page .md-quiz-link-hint{font-size:clamp(10px,2.6vh,14px);font-size:clamp(10px,2.6dvh,14px);margin-top:0.2vh;margin-top:0.2dvh}
+}
+</style>
+</head>
+<body>
+    <div id="app">
+        <div id="menu-page" class="page">
+            <h1>咱來鬥句</h1>
+            <h2>第2課 白賊話</h2>
+            <div class="menu-container">
+                <section>
+                    <h3>請選擇遊戲方式</h3>
+                    <div id="mode-selection" class="button-group">
+                        <button data-mode="taigi">台語生份字</button>
+                        <button data-mode="tāilô">台羅生份字</button>
+                    </div>
+                </section>
+                <section>
+                    <h3>請選擇測驗數量</h3>
+                    <div id="count-selection" class="button-group">
+                        <button data-count="5">5 個</button>
+                        <button data-count="7">7 個</button>
+                        <button data-count="9">9 個</button>
+                        <button data-count="11">11 個</button>
+                        <button data-count="13">13 個</button>
+                        <button data-count="0" id="md-all-btn" title="題庫全部題目，亂數出題">全部</button>
+                    </div>
+                </section>
+                <button id="start-game" disabled>開始遊戲</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/TAUKU-CHUANHWA-B4L2.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+            </div>
+        </div>
+
+        <div id="game-page" class="page hidden">
+            <header>
+                <button id="header-back-btn">返回選單</button>
+                
+                <h1>咱來鬥句</h1>
+                <h2>第2課 白賊話</h2>
+                <div style="text-align: center; margin-bottom: 5px; color: #8e24aa;">
+                    <span id="current-progress"></span>
+                </div>
+            </header>
+            
+            <div class="warning-msg">配對的答案可能毋但一个符合情境，若有拄著才請老師共學生解說</div>
+
+            <div id="feedback-message" class="hidden"></div>
+
+            <div class="game-area">
+                <div class="result-area">
+                    <div id="chosen-words">
+                        </div>
+                </div>
+                
+                <div class="options-area">
+                    <div id="word-options">
+                        </div>
+                </div>
+
+                <div id="answer-info" class="hidden">
+                    <div class="info-content">
+                        <p id="result-feedback"></p> 
+                        
+                        <div class="info-details-container">
+                            <div class="info-item info-full"><strong>正確解答</strong> <span id="correct-sentence"></span></div>
+                            <div class="info-item info-full"><strong>正確選項組合</strong> <span id="correct-combo"></span></div>
+                            <div class="info-item info-third"><strong>項次</strong> <span id="question-index"></span></div>
+                            <div class="info-item info-third"><strong>頁數</strong> <span id="question-page"></span></div>
+                            <div class="info-item info-third"><strong>華語解釋</strong> <span id="question-chinese"></span></div>
+                        </div>
+                        
+                        </div>
+                </div>
+            </div>
+            
+            <div class="control-panel">
+                <button id="prev-button" disabled>上一題</button>
+                <button id="undo-button" disabled>清除</button>
+                <button id="submit-button">公布答案</button>
+                <button id="next-button" class="hidden">下一題</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- 音效播放功能 (使用 Web Audio API) ---
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playAudio(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'correct') {
+                // 正確音效：高音叮
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(523.25, now); // C5
+                oscillator.frequency.exponentialRampToValueAtTime(1046.5, now + 0.1); // C6
+                
+                gainNode.gain.setValueAtTime(0.3, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                
+                oscillator.start(now);
+                oscillator.stop(now + 0.5);
+            } else if (type === 'wrong') {
+                // 錯誤音效：低音嗡
+                oscillator.type = 'sawtooth';
+                oscillator.frequency.setValueAtTime(150, now);
+                oscillator.frequency.linearRampToValueAtTime(100, now + 0.3);
+                
+                gainNode.gain.setValueAtTime(0.3, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                
+                oscillator.start(now);
+                oscillator.stop(now + 0.3);
+            }
+        }
+
+        // 完整的題目資料庫 (第2課)
+        const FULL_GAME_DATA = [
+            { index: 1, page: 32, taigi: "老母", tailo: "lāu-bú", chinese: "母親", example: "老母煮的菜上好食", parts: ["老母", "煮的菜", "上好食", ""] },
+            { index: 2, page: 32, taigi: "攏", tailo: "lóng", chinese: "都、皆、全部", example: "阿明共退休金攏提去炒股票", parts: ["阿明共", "退休金", "攏", "提去炒股票"] },
+            { index: 3, page: 32, taigi: "教", tailo: "kà", chinese: "教導", example: "老師教阮唱台語歌", parts: ["老師", "教", "阮唱", "台語歌"] },
+            { index: 4, page: 32, taigi: "囡仔", tailo: "gín-á", chinese: "小孩子", example: "伊的囡仔真古錐", parts: ["伊的", "囡仔", "真", "古錐"] },
+            { index: 5, page: 32, taigi: "老實", tailo: "láu-si̍t", chinese: "誠實", example: "做人愛老實", parts: ["做人", "愛", "老實", ""] },
+            { index: 6, page: 32, taigi: "是按怎", tailo: "sī-án-tsuánn", chinese: "為什麼", example: "你是按怎無來上課？", parts: ["你", "是按怎", "無來", "上課？"] },
+            { index: 7, page: 32, taigi: "𪜶", tailo: "in", chinese: "他們；他們的", example: "𪜶兩个感情真好", parts: ["𪜶", "兩个", "感情", "真好"] },
+            { index: 8, page: 32, taigi: "家己", tailo: "ka-kī / ka-tī", chinese: "自己、本身", example: "欲成功愛靠家己認真拍拚", parts: ["欲成功", "愛靠", "家己", "認真拍拚"] },
+            { index: 9, page: 32, taigi: "閣", tailo: "koh", chinese: "又/出乎意料/用在句尾", example: "厝主閣喝欲起厝稅矣", parts: ["厝主", "閣", "喝欲起", "厝稅矣"] },
+            { index: 10, page: 32, taigi: "白賊話", tailo: "pe̍h-tsha̍t-uē", chinese: "謊話", example: "毋通講白賊話", parts: ["毋通", "講", "白賊話", ""] },
+            { index: 11, page: 32, taigi: "細漢", tailo: "sè/suè-hàn", chinese: "年齡較小的", example: "細漢的時陣", parts: ["細漢", "的", "時陣", ""] },
+            { index: 12, page: 32, taigi: "便若", tailo: "piān-nā", chinese: "凡是、只要", example: "伊便若歇睏就去釣魚", parts: ["伊", "便若", "歇睏就", "去釣魚"] },
+            { index: 13, page: 32, taigi: "阮", tailo: "guán / gún", chinese: "我們/我/我的", example: "阮欲走矣，你咧？", parts: ["阮", "欲走", "矣，", "你咧？"] },
+            { index: 14, page: 32, taigi: "阿母", tailo: "a-bú", chinese: "媽媽", example: "阿母逐工攏真無閒", parts: ["阿母", "逐工攏", "真", "無閒"] },
+            { index: 15, page: 32, taigi: "暗矣", tailo: "àm--ah", chinese: "天黑了", example: "暗矣，緊轉去食飯", parts: ["暗矣，", "緊轉去", "食飯", ""] },
+            { index: 16, page: 32, taigi: "煮飯", tailo: "tsú-pn̄g", chinese: "做飯", example: "今仔日阿爸煮飯", parts: ["今仔日", "阿爸", "煮飯", ""] },
+            { index: 17, page: 32, taigi: "知影", tailo: "tsai-iánn", chinese: "知道、懂得", example: "你敢知影伊叫做啥物名？", parts: ["你敢", "知影", "伊叫做", "啥物名？"] },
+            { index: 18, page: 32, taigi: "欲", tailo: "beh / bueh", chinese: "表意願；表假設；將要", example: "定定都睏到欲上課矣才欲起來", parts: ["定定都睏到", "欲", "上課矣", "才欲起來"] },
+            { index: 19, page: 32, taigi: "規葩", tailo: "kui pha", chinese: "一長串", example: "伊講規葩的道理", parts: ["伊講", "規葩", "的", "道理"] },
+            { index: 20, page: 32, taigi: "猶", tailo: "iáu/iah/ah/á/iá", chinese: "還", example: "這台車猶會使騎", parts: ["這台車", "猶", "會使", "騎"] },
+            { index: 21, page: 32, taigi: "足", tailo: "tsiok/tsok", chinese: "非常、很、十分", example: "海邊的湧激足懸", parts: ["海邊的", "湧激", "足", "懸"] },
+            { index: 22, page: 32, taigi: "光", tailo: "kng", chinese: "天亮、明亮", example: "天猶未光伊就起來矣", parts: ["天猶未", "光", "伊就", "起來矣"] },
+            { index: 23, page: 32, taigi: "哪有", tailo: "ná ū", chinese: "哪有、怎麼會", example: "哪有人按呢做代誌？", parts: ["哪有", "人按呢", "做", "代誌？"] },
+            { index: 24, page: 32, taigi: "敢是", tailo: "kám/kiám-sī", chinese: "疑問詞", example: "伊敢是恁老師？", parts: ["伊", "敢是", "恁", "老師？"] },
+            { index: 25, page: 32, taigi: "驚", tailo: "kiann", chinese: "害怕/驚嚇/恐怕", example: "我啥物攏毋驚", parts: ["我", "啥物", "攏毋", "驚"] },
+            { index: 26, page: 32, taigi: "枵", tailo: "iau", chinese: "餓", example: "我腹肚枵矣", parts: ["我", "腹肚", "枵", "矣"] },
+            { index: 27, page: 32, taigi: "趕緊", tailo: "kuánn-kín", chinese: "趕快", example: "落雨矣，趕緊入來", parts: ["落雨", "矣，", "趕緊", "入來"] },
+            { index: 28, page: 32, taigi: "攢", tailo: "tshuân", chinese: "張羅、準備", example: "物件我攏攢好矣", parts: ["物件", "我攏", "攢", "好矣"] },
+            { index: 29, page: 32, taigi: "暗頓", tailo: "àm-tǹg", chinese: "晚餐、晚飯", example: "暗頓食飽了後來去公園行行咧", parts: ["暗頓", "食飽了後", "來去", "公園行行咧"] },
+            { index: 30, page: 32, taigi: "灶跤", tailo: "tsàu-kha", chinese: "廚房", example: "阿媽佇灶跤煮飯", parts: ["阿媽", "佇", "灶跤", "煮飯"] },
+            { index: 31, page: 32, taigi: "無閒𩑾𩑾", tailo: "bô-îng-tshih-tshih", chinese: "非常忙碌", example: "接著訂單，逐家攏無閒𩑾𩑾", parts: ["接著", "訂單，", "逐家攏", "無閒𩑾𩑾"] },
+            { index: 32, page: 32, taigi: "誠", tailo: "tsiânn", chinese: "很、非常", example: "阿母誠𠢕佮人講價", parts: ["阿母", "誠", "𠢕佮", "人講價"] },
+            { index: 33, page: 32, taigi: "跤手", tailo: "kha-tshiú", chinese: "人手、幫手", example: "店內真無閒，欠跤手", parts: ["店內真", "無閒，", "欠", "跤手"] },
+            { index: 34, page: 32, taigi: "鬥相共", tailo: "tàu-sann-kāng", chinese: "幫忙", example: "有代誌逐家來鬥相共", parts: ["有代誌", "逐家", "來", "鬥相共"] },
+            { index: 35, page: 32, taigi: "那", tailo: "ná", chinese: "一邊…一邊…", example: "風景誠媠咱那行那欣賞", parts: ["風景", "誠媠咱", "那", "行那欣賞"] },
+            { index: 36, page: 32, taigi: "應", tailo: "ìn", chinese: "回答", example: "叫你哪攏毋應？", parts: ["叫你哪", "攏毋", "應？", ""] },
+            { index: 37, page: 32, taigi: "有夠", tailo: "ū-kàu", chinese: "足夠", example: "錢有夠用就好", parts: ["錢", "有夠", "用", "就好"] },
+            { index: 38, page: 32, taigi: "拭", tailo: "tshit", chinese: "擦", example: "會曉偷食，袂曉拭喙", parts: ["會曉偷食，", "袂曉", "拭", "喙"] },
+            { index: 39, page: 32, taigi: "頭殼額", tailo: "thâu-khak-gia̍h", chinese: "額頭", example: "伊的頭殼額攏是汗", parts: ["伊的", "頭殼額", "攏", "是汗"] },
+            { index: 40, page: 32, taigi: "汗", tailo: "kuānn", chinese: "汗水", example: "運動了後流規身軀汗", parts: ["運動了後", "流", "規身軀", "汗"] },
+            { index: 41, page: 33, taigi: "一時仔", tailo: "tsi̍t-sî-á", chinese: "一會兒", example: "你小等一時仔", parts: ["你", "小等", "一時仔", ""] },
+            { index: 42, page: 33, taigi: "閣", tailo: "koh", chinese: "又/出乎意料/用在句尾", example: "厝主閣喝欲起厝稅矣", parts: ["厝主", "閣", "喝欲起", "厝稅矣"] },
+            { index: 43, page: 33, taigi: "灶跤", tailo: "tsàu-kha", chinese: "廚房", example: "阿媽佇灶跤煮飯", parts: ["阿媽", "佇", "灶跤", "煮飯"] },
+            { index: 44, page: 33, taigi: "探", tailo: "thàm", chinese: "探看、察看", example: "伊探頭看窗仔外", parts: ["伊", "探", "頭看", "窗仔外"] },
+            { index: 45, page: 33, taigi: "咧", tailo: "teh/leh", chinese: "在；副詞後綴", example: "伊咧讀冊", parts: ["伊", "咧", "讀冊", ""] },
+            { index: 46, page: 33, taigi: "創啥", tailo: "tshòng-siánn", chinese: "做什麼", example: "外口嚇嚇叫是咧創啥物", parts: ["外口嚇", "嚇叫是咧", "創啥", "物"] },
+            { index: 47, page: 33, taigi: "應", tailo: "ìn", chinese: "回答", example: "叫你哪攏毋應？", parts: ["叫你哪", "攏毋", "應？", ""] },
+            { index: 48, page: 33, taigi: "毋過", tailo: "m̄-koh/kò/kù", chinese: "不過、但是", example: "𪜶兜雖然散赤，毋過真幸福", parts: ["𪜶兜雖然", "散赤，", "毋過", "真幸福"] },
+            { index: 49, page: 33, taigi: "手裡", tailo: "tshiú--lí", chinese: "手中", example: "伊手裡捏一張批", parts: ["伊", "手裡", "捏一", "張批"] },
+            { index: 50, page: 33, taigi: "當咧", tailo: "tng-teh/tih", chinese: "正在、正值", example: "我當咧無閒，你莫共我吵", parts: ["我", "當咧", "無閒，", "你莫共我吵"] },
+            { index: 51, page: 33, taigi: "摸", tailo: "bong", chinese: "摸、撫弄", example: "囡仔愛摸狗仔的頭", parts: ["囡仔愛", "摸", "狗仔", "的頭"] },
+            { index: 52, page: 33, taigi: "干焦", tailo: "kan-na/tann/ta", chinese: "只有、僅僅", example: "干焦賰遮的菜爾爾，你欲無？", parts: ["干焦", "賰遮的", "菜爾爾，", "你欲無？"] },
+            { index: 53, page: 33, taigi: "爾爾", tailo: "niā-niā", chinese: "而已", example: "我規身軀干焦十箍爾爾", parts: ["我規身軀", "干焦", "十箍", "爾爾"] },
+            { index: 54, page: 33, taigi: "上尾", tailo: "siōng/siāng-bué/bé", chinese: "最後", example: "報名到昨昏是上尾工", parts: ["報名到", "昨昏是", "上尾", "工"] },
+            { index: 55, page: 33, taigi: "愈", tailo: "jú/lú", chinese: "連接比較關係", example: "天氣愈來愈熱", parts: ["天氣", "愈", "來", "愈熱"] },
+            { index: 56, page: 33, taigi: "趣味", tailo: "tshù-bī", chinese: "有趣；興趣", example: "這本尪仔冊真趣味。", parts: ["這本", "尪仔冊真", "趣味。", ""] },
+            { index: 57, page: 33, taigi: "本底", tailo: "pún-té", chinese: "本來", example: "伊本底欲來，落尾無閒", parts: ["伊", "本底", "欲來，", "落尾無閒"] },
+            { index: 58, page: 33, taigi: "落尾", tailo: "lo̍h/lōo-bué/bé", chinese: "後來、最後", example: "落尾我就去高雄讀冊", parts: ["落尾", "我就去", "高雄", "讀冊"] },
+            { index: 59, page: 33, taigi: "捀", tailo: "phâng", chinese: "端", example: "緊捀幾項仔飯菜入來", parts: ["緊", "捀", "幾項仔", "飯菜入來"] },
+            { index: 60, page: 33, taigi: "桌頂", tailo: "toh-tíng", chinese: "桌上", example: "冊囥佇桌頂", parts: ["冊囥", "佇", "桌頂", ""] },
+            { index: 61, page: 33, taigi: "豐沛", tailo: "phong-phài", chinese: "菜餚豐盛", example: "今仔日的暗頓誠豐沛", parts: ["今仔日", "的", "暗頓誠", "豐沛"] },
+            { index: 62, page: 34, taigi: "毋是", tailo: "m̄ sī", chinese: "不是", example: "這毋是我的", parts: ["這", "毋是", "我的", ""] },
+            { index: 63, page: 34, taigi: "干焦", tailo: "kan-na/tann/ta", chinese: "只有、僅僅", example: "干焦賰遮的菜爾爾，你欲無？", parts: ["干焦", "賰遮的", "菜爾爾，", "你欲無？"] },
+            { index: 64, page: 34, taigi: "規葩", tailo: "kui pha", chinese: "一長串", example: "伊講規葩的道理", parts: ["伊講", "規葩", "的", "道理"] },
+            { index: 65, page: 34, taigi: "古錐", tailo: "kóo-tsui", chinese: "可愛", example: "阮兩个孫仔生做有夠古錐", parts: ["阮兩个孫", "仔生做", "有夠", "古錐"] },
+            { index: 66, page: 34, taigi: "體貼", tailo: "thé-thiap", chinese: "體貼", example: "伊誠體貼序大人", parts: ["伊誠", "體貼", "序", "大人"] },
+            { index: 67, page: 34, taigi: "刁工", tailo: "thiau-kang", chinese: "專程、特地", example: "伊刁工來看我", parts: ["伊", "刁工", "來", "看我"] },
+            { index: 68, page: 34, taigi: "甲", tailo: "kah", chinese: "到/到…的地步/既然/哪會", example: "阿母氣甲袂講話，干焦直直捶心肝", parts: ["阿母氣", "甲", "袂講話，", "干焦直直捶心肝"] },
+            { index: 69, page: 34, taigi: "輕輕鬆鬆", tailo: "khin-khin-sang-sang", chinese: "很輕鬆", example: "伊輕輕鬆鬆就考一百分", parts: ["伊", "輕輕鬆鬆", "就考", "一百分"] },
+            { index: 70, page: 34, taigi: "無愛", tailo: "bô-ài/bua̋i", chinese: "不要", example: "我無愛去彼間店買", parts: ["我", "無愛", "去彼", "間店買"] },
+            { index: 71, page: 34, taigi: "予", tailo: "hōo", chinese: "給予/被…/任由/讓/後綴", example: "我予你一个面子，這件代誌就準拄煞", parts: ["我", "予", "你一个面子，", "這件代誌就準拄煞"] },
+            { index: 72, page: 34, taigi: "囝兒", tailo: "kiánn-jî", chinese: "子女", example: "序大人攏疼囝兒", parts: ["序", "大人", "攏疼", "囝兒"] },
+            { index: 73, page: 34, taigi: "工課", tailo: "khang-khuè", chinese: "工作、事情", example: "我的工課足濟的", parts: ["我的", "工課", "足濟", "的"] },
+            { index: 74, page: 34, taigi: "足", tailo: "tsiok/tsok", chinese: "非常、很、十分", example: "海邊的湧激足懸", parts: ["海邊的", "湧激", "足", "懸"] },
+            { index: 75, page: 34, taigi: "了工", tailo: "liáu-kang", chinese: "白費工夫", example: "按呢做傷了工矣", parts: ["按呢", "做傷", "了工", "矣"] },
+            { index: 76, page: 34, taigi: "犧牲", tailo: "hi-sing", chinese: "犧牲", example: "伊為家庭犧牲真濟", parts: ["伊為", "家庭", "犧牲", "真濟"] },
+            { index: 77, page: 34, taigi: "永遠", tailo: "íng-uán", chinese: "永遠", example: "我永遠會記得你", parts: ["我", "永遠", "會記得", "你"] },
+            { index: 78, page: 34, taigi: "比", tailo: "pí", chinese: "比較", example: "阿兄比我較懸", parts: ["阿兄", "比", "我", "較懸"] },
+            { index: 79, page: 34, taigi: "看著", tailo: "khuànn-tio̍h", chinese: "看到", example: "看著日頭落山就好來轉矣", parts: ["看著", "日頭落山", "就好", "來轉矣"] },
+            { index: 80, page: 34, taigi: "較", tailo: "khah", chinese: "比較；再怎麼樣也…；更…", example: "你愛的物件佇較內面", parts: ["你愛的", "物件佇", "較", "內面"] },
+            { index: 81, page: 34, taigi: "濟", tailo: "tsē / tsuē", chinese: "多", example: "真濟人予伊騙甲戇戇踅", parts: ["真", "濟", "人予伊騙", "甲戇戇踅"] },
+            { index: 82, page: 34, taigi: "食飯", tailo: "tsia̍h-pn̄g", chinese: "吃飯", example: "逐家來食飯矣", parts: ["逐家", "來", "食飯", "矣"] },
+            { index: 83, page: 34, taigi: "繼續", tailo: "kè-sio̍k", chinese: "繼續", example: "食飽閣繼續讀冊", parts: ["食飽", "閣", "繼續", "讀冊"] },
+            { index: 84, page: 34, taigi: "講白賊", tailo: "kóng-pe̍h-tsha̍t", chinese: "說謊", example: "囡仔毋通講白賊", parts: ["囡仔", "毋通", "講白賊", ""] },
+            { index: 85, page: 34, taigi: "好食", tailo: "hó-tsia̍h", chinese: "好吃", example: "阿媽煮的菜真好食", parts: ["阿媽煮", "的", "菜真", "好食"] },
+            { index: 86, page: 34, taigi: "先", tailo: "sing", chinese: "先", example: "你先食，我隨來", parts: ["你", "先", "食，", "我隨來"] },
+            { index: 87, page: 34, taigi: "夾", tailo: "ngeh", chinese: "用筷子夾", example: "伊夾一塊肉予我", parts: ["伊", "夾", "一塊肉", "予我"] },
+            { index: 88, page: 34, taigi: "予", tailo: "hōo", chinese: "給予/被…/任由/讓/後綴", example: "我予你一个面子，這件代誌就準拄煞", parts: ["我", "予", "你一个面子，", "這件代誌就準拄煞"] },
+            { index: 89, page: 34, taigi: "無幾喙", tailo: "bô kuí tshuì", chinese: "沒吃幾口", example: "伊食無幾喙就飽矣", parts: ["伊食", "無幾喙", "就", "飽矣"] },
+            { index: 90, page: 34, taigi: "好玄", tailo: "hònn-hiân", chinese: "好奇", example: "囡仔對啥物攏真好玄", parts: ["囡仔對", "啥物", "攏真", "好玄"] },
+            { index: 91, page: 34, taigi: "共", tailo: "kā", chinese: "給；跟；幫；把", example: "我共你講，你毋通共別人講", parts: ["我", "共", "你講，", "你毋通共別人講"] },
+            { index: 92, page: 34, taigi: "騙", tailo: "phiàn", chinese: "欺騙", example: "你莫騙我", parts: ["你莫", "騙", "我", ""] },
+            { index: 93, page: 34, taigi: "食飽", tailo: "tsia̍h-pá", chinese: "吃飽", example: "腹肚枵無才調做工課，愛食飽才有氣力", parts: ["腹肚枵無才調做工課，", "愛", "食飽", "才有氣力"] },
+            { index: 94, page: 34, taigi: "彼", tailo: "he", chinese: "那個", example: "彼是我的冊", parts: ["彼", "是我", "的冊", ""] },
+            { index: 95, page: 34, taigi: "到尾", tailo: "kàu-bué", chinese: "到最後", example: "伊到尾嘛無來", parts: ["伊", "到尾", "嘛無", "來"] },
+            { index: 96, page: 34, taigi: "窮菜尾", tailo: "khîng tshài-bué", chinese: "把剩菜吃完", example: "阿母定定咧窮菜尾", parts: ["阿母", "定定", "咧", "窮菜尾"] },
+            { index: 97, page: 34, taigi: "清氣啖啖", tailo: "tshing-khì-tam-tam", chinese: "非常乾淨", example: "碗食甲清氣啖啖", parts: ["碗食", "甲", "清氣啖啖", ""] },
+            { index: 98, page: 34, taigi: "變做", tailo: "piàn-tsò", chinese: "變成", example: "細雨變做大雨", parts: ["細雨", "變做", "大雨", ""] },
+            { index: 99, page: 34, taigi: "疼痛", tailo: "thiànn-thàng", chinese: "疼愛、關切憐惜", example: "你就愛好好仔共伊疼痛", parts: ["你就愛", "好好仔", "共伊", "疼痛"] },
+            { index: 100, page: 34, taigi: "證據", tailo: "tsìng-kì", chinese: "證據", example: "警察揣著證據矣", parts: ["警察", "揣著", "證據", "矣"] },
+            { index: 101, page: 35, taigi: "這馬", tailo: "tsit-má", chinese: "現在", example: "這馬的人攏罕得寫批矣", parts: ["這馬", "的人攏", "罕得", "寫批矣"] },
+            { index: 102, page: 35, taigi: "逐擺", tailo: "ta̍k-pái", chinese: "每次", example: "伊逐擺攏欲佮人相諍", parts: ["伊", "逐擺", "攏欲佮", "人相諍"] },
+            { index: 103, page: 35, taigi: "敲電話", tailo: "khà tiān-uē", chinese: "打電話", example: "我逐暗敲電話予阿母", parts: ["我逐暗", "敲電話", "予", "阿母"] },
+            { index: 104, page: 35, taigi: "食飽未", tailo: "tsia̍h-pá--buē", chinese: "吃飽了沒", example: "阿伯，你食飽未？", parts: ["阿伯，", "你", "食飽未？", ""] },
+            { index: 105, page: 35, taigi: "攏", tailo: "lóng", chinese: "都、皆、全部", example: "阿明共退休金攏提去炒股票", parts: ["阿明共", "退休金", "攏", "提去炒股票"] },
+            { index: 106, page: 35, taigi: "應講", tailo: "ìn kóng", chinese: "回答說", example: "伊應講：「免煩惱。」", parts: ["伊", "應講：", "「免煩惱。", "」"] },
+            { index: 107, page: 35, taigi: "照起工", tailo: "tsiàu-khí-kang", chinese: "按部就班", example: "做代誌愛照起工來", parts: ["做代誌", "愛", "照起工", "來"] },
+            { index: 108, page: 35, taigi: "好勢", tailo: "hó-sè", chinese: "舒適", example: "伊睏甲誠好勢", parts: ["伊睏", "甲誠", "好勢", ""] },
+            { index: 109, page: 35, taigi: "驚", tailo: "kiann", chinese: "害怕/驚嚇/恐怕", example: "我啥物攏毋驚", parts: ["我", "啥物", "攏毋", "驚"] },
+            { index: 110, page: 35, taigi: "煩惱", tailo: "huân-ló", chinese: "煩悶，不快活", example: "醫生講伊無要緊，你毋免煩惱", parts: ["醫生講伊", "無要緊，", "你毋免", "煩惱"] },
+            { index: 111, page: 35, taigi: "定著", tailo: "tiānn-tio̍h", chinese: "穩重；一定；決定", example: "恁大漢後生較定著", parts: ["恁大漢", "後生", "較", "定著"] },
+            { index: 112, page: 35, taigi: "疼", tailo: "thiànn", chinese: "疼愛", example: "我細漢佮阿媽蹛，伊足疼我的", parts: ["我細漢佮阿媽蹛，", "伊足", "疼", "我的"] },
+            { index: 113, page: 35, taigi: "囝", tailo: "kiánn", chinese: "兒女", example: "阿母上疼伊的囝", parts: ["阿母上", "疼", "伊的", "囝"] },
+            { index: 114, page: 35, taigi: "心肝", tailo: "sim-kuann", chinese: "心愛的人", example: "你是阿母的心肝", parts: ["你是", "阿母", "的", "心肝"] }
+        ];
+        
+        // 確保所有題目都有四個語詞，不足的用空字串佔位，以便隨機選項填充
+        FULL_GAME_DATA.forEach(item => {
+            while (item.parts.length < 4) {
+                item.parts.push("");
+            }
+        });
+
+        let currentMode = '';
+        let currentCount = 0; 
+        let currentQuestionList = []; 
+        let currentQuestionIndex = 0; 
+        let currentQuestion = null;
+        let chosenWords = [];
+        let availableWords = [];
+
+        // 輔助函數：Fisher-Yates 洗牌算法
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initializeGameQuestions(count) {
+            let shuffledData = shuffleArray([...FULL_GAME_DATA]);
+            currentQuestionList = shuffledData.slice(0, count);
+            currentQuestionIndex = 0;
+            loadCurrentQuestion(currentMode);
+        }
+
+        function prepareQuestion(questionData, mode) {
+            const isTaigi = mode === 'taigi';
+            const correctParts = questionData.parts.filter(p => p !== "");
+            
+            const sequenceWords = correctParts.map(p => {
+                // 如果是台語模式，直接回傳漢字
+                if (isTaigi) return p;
+
+                // 如果是台羅模式：
+                // 1. 先檢查該片段是否包含「當前題目的台語關鍵詞」
+                if (p.includes(questionData.taigi)) {
+                    return p.split(questionData.taigi).join(questionData.tailo);
+                }
+
+                // 2. 若沒有包含當前關鍵詞，則檢查是否完全匹配資料庫中的其他詞彙
+                const dbEntry = FULL_GAME_DATA.find(d => d.taigi === p);
+                return dbEntry ? dbEntry.tailo : p;
+            });
+            
+            const irrelevantCandidates = FULL_GAME_DATA.filter(d => d.index !== questionData.index);
+            const shuffledIrrelevant = shuffleArray(irrelevantCandidates).slice(0, 2);
+            
+            const irrelevantOptions = shuffledIrrelevant.map(d => isTaigi ? d.taigi : d.tailo);
+
+            let allOptions = [...sequenceWords, ...irrelevantOptions];
+            
+            let shuffledOptions = shuffleArray(allOptions.map(word => ({
+                word: word,
+                isCorrectPart: sequenceWords.includes(word) 
+            })));
+
+            shuffledOptions.forEach((item, i) => item.optionNumber = i + 1);
+
+            currentQuestion = {
+                ...questionData,
+                correct_sequence: sequenceWords,
+                availableWords: shuffledOptions,
+            };
+            
+            renderGamePage();
+        }
+
+        // 載入當前題目
+        function loadCurrentQuestion(mode) {
+            if (currentQuestionIndex < currentQuestionList.length) {
+                const questionData = currentQuestionList[currentQuestionIndex];
+                prepareQuestion(questionData, mode);
+                document.getElementById('current-progress').textContent = `第 ${currentQuestionIndex + 1} 題 / 共 ${currentCount} 題`;
+                
+                // 更新上一題按鈕狀態
+                document.getElementById('prev-button').disabled = (currentQuestionIndex === 0);
+                
+            } else {
+                const headerBackBtn=document.getElementById('header-back-btn'); if(headerBackBtn){ headerBackBtn.click(); return; }
+                const backBtn=document.getElementById('back-to-menu'); if(backBtn){ backBtn.click(); } 
+            }
+        }
+
+
+        // --- 渲染與互動邏輯 ---
+
+        function renderOptions() {
+            const optionsDiv = document.getElementById('word-options');
+            optionsDiv.innerHTML = '';
+            
+            // 始終渲染所有未被選中的選項，確保綠色選項不消失
+            currentQuestion.availableWords.forEach((item) => {
+                if (!chosenWords.some(cw => cw.optionNumber === item.optionNumber)) {
+                    const button = document.createElement('button');
+                    button.className = 'word-option';
+                    button.innerHTML = `
+                        <div class="option-number">${item.optionNumber}</div>
+                        <div class="option-word">${item.word}</div>
+                    `;
+                    button.dataset.optionNumber = item.optionNumber;
+                    button.onclick = () => selectWord(item);
+                    optionsDiv.appendChild(button);
+                }
+            });
+        }
+
+        function renderChosenWords() {
+            const chosenDiv = document.getElementById('chosen-words');
+            chosenDiv.innerHTML = '';
+
+            chosenWords.forEach((item) => {
+                const button = document.createElement('button');
+                button.className = 'chosen-word';
+                 button.innerHTML = `
+                    <div class="option-number">${item.optionNumber}</div>
+                    <div class="option-word">${item.word}</div>
+                `;
+                button.dataset.optionNumber = item.optionNumber;
+                button.onclick = () => deselectWord(item);
+                chosenDiv.appendChild(button);
+            });
+
+            document.getElementById('undo-button').disabled = chosenWords.length === 0;
+        }
+
+        function selectWord(item) {
+            chosenWords.push(item);
+            renderChosenWords();
+            renderOptions();
+        }
+
+        function deselectWord(itemToRemove) {
+            chosenWords = chosenWords.filter(item => item.optionNumber !== itemToRemove.optionNumber);
+            renderChosenWords();
+            renderOptions(); 
+        }
+
+        function renderGamePage() {
+            chosenWords = [];
+            document.getElementById('submit-button').textContent = "公布答案";
+            document.getElementById('submit-button').disabled = false;
+            document.getElementById('next-button').classList.add('hidden');
+            
+            document.getElementById('answer-info').classList.add('hidden');
+            document.getElementById('word-options').style.opacity = '1';
+            
+            // 清除臨時訊息
+            document.getElementById('feedback-message').classList.add('hidden'); 
+            document.getElementById('result-feedback').textContent = '';
+
+            renderOptions();
+            renderChosenWords();
+        }
+
+        function submitAnswer() {
+            const feedbackMessageAbove = document.getElementById('feedback-message');
+            feedbackMessageAbove.classList.add('hidden'); 
+
+            const correctSequence = currentQuestion.correct_sequence;
+            const userSequence = chosenWords.map(item => item.word);
+            const feedbackElement = document.getElementById('result-feedback');
+
+            const isCorrect = userSequence.length === correctSequence.length && 
+                              userSequence.every((word, index) => word === correctSequence[index]);
+
+            let resultText;
+            let resultStyle;
+
+            if (isCorrect) {
+                playAudio('correct');
+                resultText = "正確！你著矣，共你拍噗仔！";
+                resultStyle = "color: #1b5e20; background-color: #c8e6c9; border-color: #81c784;"; 
+            } else {
+                playAudio('wrong');
+                resultText = "毋著！請斟酌看解說！"; 
+                resultStyle = "color: #b71c1c; background-color: #ffcdd2; border-color: #e57373;";
+            }
+
+            feedbackElement.textContent = resultText;
+            feedbackElement.style = resultStyle; 
+
+            document.getElementById('submit-button').disabled = true;
+
+            const correctCombo = correctSequence.map(word => {
+                const item = currentQuestion.availableWords.find(a => a.word === word && a.isCorrectPart);
+                return item ? item.optionNumber : 'X';
+            });
+
+            document.getElementById('correct-sentence').textContent = correctSequence.join(' ');
+            document.getElementById('correct-combo').textContent = correctCombo.join(', ');
+            
+            const detail = FULL_GAME_DATA.find(d => d.index === currentQuestion.index);
+            
+            document.getElementById('question-index').textContent = detail.index;
+            document.getElementById('question-page').textContent = detail.page;
+            document.getElementById('question-chinese').textContent = detail.chinese;
+
+            // 移除隱藏選項的邏輯，讓綠色選項保留
+            // document.getElementById('word-options').style.opacity = '0'; 
+            
+            document.getElementById('answer-info').classList.remove('hidden');
+            document.getElementById('next-button').classList.remove('hidden');
+        }
+
+        // 初始化遊戲
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuPage = document.getElementById('menu-page');
+            const gamePage = document.getElementById('game-page');
+            const modeSelection = document.getElementById('mode-selection');
+            const countSelection = document.getElementById('count-selection');
+            const startGameButton = document.getElementById('start-game');
+            const submitButton = document.getElementById('submit-button');
+            const undoButton = document.getElementById('undo-button');
+            const backToMenuButton = document.getElementById('back-to-menu');
+            const nextButton = document.getElementById('next-button');
+            const prevButton = document.getElementById('prev-button'); 
+            
+            const headerBackBtn = document.getElementById('header-back-btn');
+            headerBackBtn.addEventListener('click', () => {
+                gamePage.classList.add('hidden');
+                menuPage.classList.remove('hidden');
+                currentMode = '';
+                currentCount = 0;
+                currentQuestionList = [];
+                modeSelection.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                countSelection.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                updateStartButton();
+            });
+
+            document.addEventListener('contextmenu', event => event.preventDefault());
+            
+            function updateStartButton() {
+                startGameButton.disabled = !(currentMode && currentCount > 0);
+                startGameButton.textContent = startGameButton.disabled ? "請選擇遊戲方式和數量" : `開始 ${currentCount} 題測驗`;
+                if (startGameButton.disabled) {
+                     startGameButton.style.background = "linear-gradient(to bottom, #a5d6a7, #81c784)";
+                     startGameButton.style.boxShadow = "0 4px 10px rgba(56, 142, 60, 0.3)";
+                } else {
+                     startGameButton.style.background = "linear-gradient(to bottom, #66bb6a, #43a047)";
+                     startGameButton.style.boxShadow = "0 4px 12px rgba(46, 125, 50, 0.5)";
+                }
+            }
+
+            modeSelection.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    currentMode = e.target.dataset.mode;
+                    modeSelection.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                    e.target.classList.add('selected');
+                    updateStartButton();
+                }
+            });
+
+            countSelection.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    currentCount = parseInt(e.target.dataset.count);
+                    countSelection.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                    e.target.classList.add('selected');
+                    updateStartButton();
+                }
+            });
+
+            startGameButton.addEventListener('click', () => {
+                if (currentMode && currentCount) {
+                    menuPage.classList.add('hidden');
+                    gamePage.classList.remove('hidden');
+                    initializeGameQuestions(currentCount);
+                }
+            });
+
+            submitButton.addEventListener('click', submitAnswer);
+            undoButton.addEventListener('click', () => {
+                document.getElementById('feedback-message').classList.add('hidden'); 
+                chosenWords.forEach(item => deselectWord(item));
+            });
+
+            if(backToMenuButton) backToMenuButton.addEventListener('click', () => {
+                gamePage.classList.add('hidden');
+                menuPage.classList.remove('hidden');
+                currentMode = '';
+                currentCount = 0;
+                currentQuestionList = [];
+                modeSelection.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                countSelection.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+                updateStartButton();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentQuestionIndex++;
+                loadCurrentQuestion(currentMode);
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    loadCurrentQuestion(currentMode);
+                }
+            });
+
+            updateStartButton();
+        });
+    </script>
+<!-- md-fs：浮動全螢幕切換鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-fs-css">
+#md-fs-btn{position:fixed;right:4px;top:4px;left:auto;bottom:auto;z-index:2147483646;width:40px;height:40px;padding:0;margin:0;border:2px solid #FFD400;border-radius:50%;background:rgba(17,17,17,.8);color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.55;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .15s;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#md-fs-btn[hidden]{display:none}
+#md-fs-btn:hover,#md-fs-btn:focus-visible,#md-fs-btn.drag{opacity:1;outline:none}
+#md-fs-btn.drag{cursor:grabbing}
+#md-fs-btn svg{width:22px;height:22px;display:block;pointer-events:none}
+#md-fs-btn .md-fs-exit{display:none}
+#md-fs-btn.on .md-fs-enter{display:none}
+#md-fs-btn.on .md-fs-exit{display:block}
+@media print{#md-fs-btn{display:none}}
+</style>
+<button type="button" id="md-fs-btn" title="全螢幕（可拖曳移位）" aria-label="全螢幕" hidden>
+<svg class="md-fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+<svg class="md-fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+</button>
+<script id="md-fs-js">
+(function(){
+ var b=document.getElementById('md-fs-btn'),d=document,e=d.documentElement,K='md-fs-pos';
+ var req=e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen;
+ var ok=d.fullscreenEnabled||d.webkitFullscreenEnabled||d.msFullscreenEnabled;
+ if(!b||!req||ok===false){return;}
+ b.hidden=false;
+ function cur(){return d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement;}
+ function sync(){var on=!!cur();b.classList.toggle('on',on);var t=on?'取消全螢幕':'全螢幕';b.title=t+'（可拖曳移位）';b.setAttribute('aria-label',t);}
+ function toggle(){
+  if(cur()){(d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen).call(d);}
+  else{var p=req.call(e);if(p&&p.catch){p.catch(function(){});}}
+ }
+ var pos=null;
+ function place(){
+  if(!pos)return;
+  var w=b.offsetWidth||40,h=b.offsetHeight||40;
+  var x=Math.max(0,Math.min(innerWidth-w,pos.x*innerWidth)),y=Math.max(0,Math.min(innerHeight-h,pos.y*innerHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.right='auto';b.style.bottom='auto';
+ }
+ try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&isFinite(s.x)&&isFinite(s.y))pos=s;}catch(_){}
+ place();addEventListener('resize',place);
+ var st=null,moved=false;
+ b.addEventListener('pointerdown',function(ev){if(ev.button>0)return;var r=b.getBoundingClientRect();st={x:ev.clientX,y:ev.clientY,ox:ev.clientX-r.left,oy:ev.clientY-r.top};moved=false;try{b.setPointerCapture(ev.pointerId);}catch(_){}});
+ b.addEventListener('pointermove',function(ev){
+  if(!st)return;
+  if(!moved&&Math.abs(ev.clientX-st.x)+Math.abs(ev.clientY-st.y)<8)return;
+  moved=true;b.classList.add('drag');
+  pos={x:(ev.clientX-st.ox)/innerWidth,y:(ev.clientY-st.oy)/innerHeight};place();
+ });
+ function end(){if(!st)return;st=null;b.classList.remove('drag');if(moved){try{localStorage.setItem(K,JSON.stringify(pos));}catch(_){}}}
+ b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+ b.addEventListener('click',function(ev){
+  ev.preventDefault();ev.stopPropagation();
+  if(moved){moved=false;return;}
+  toggle();b.blur();
+ });
+ d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);
+ sync();
+})();
+</script>
+<!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<script id="md-all-js">(function(){var b=document.getElementById('md-all-btn');try{b.dataset.count=String(FULL_GAME_DATA.length);}catch(_){b.hidden=true;}})();</script>
+<!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body #menu-page .menu-container h3{font-size:clamp(14px,min(2.4vw,4.6vh),44px)}
+ html body #menu-page .menu-container .button-group{flex-wrap:nowrap;gap:1.4vw}
+ html body #menu-page .menu-container .button-group button{flex:1 1 0;min-width:0;white-space:nowrap;padding:2.2vh 0.6vw;font-size:clamp(13px,min(2.6vw,5.4vh),52px)}
+}
+/* 直放：加了「全部」後數量鈕變 3 列、窄手機溢出 → 方式 2 欄、數量 3 欄格狀 */
+@media (orientation: portrait){
+ html body #menu-page .menu-container .button-group{display:grid;gap:1.4vh 2.4vw;margin-bottom:0.6vh}
+ html body #menu-page #mode-selection{grid-template-columns:repeat(2,1fr)}
+ html body #menu-page #count-selection{grid-template-columns:repeat(3,1fr)}
+ html body #menu-page .menu-container .button-group button{min-width:0;margin:0;white-space:nowrap;padding:1.3vh 1vw;font-size:clamp(13px,min(5vw,3vh),32px)}
+}
+</style>
+<!-- /md-menufull -->
+<div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">全華圖書股份有限公司授權使用｜© 2026 詹宗龍</div>
+</body>
+</html>

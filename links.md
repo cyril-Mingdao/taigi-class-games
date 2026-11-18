@@ -97,6 +97,14 @@
 | 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B3/L2.html |
 | 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/hingim/KANGHSUAN-B3/L3.html |
 
+### 全華版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B4/L1.html |
+| 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B4/L2.html |
+| 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B4/L3.html |
+
 ## 咱來餾生份字（`siann/`）
 
 ### 真平版國中第1冊
@@ -184,6 +192,14 @@
 | 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B3/L1.html |
 | 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B3/L2.html |
 | 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/siann/KANGHSUAN-B3/L3.html |
+
+### 全華版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B4/L1.html |
+| 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B4/L2.html |
+| 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B4/L3.html |
 
 ## 選詞塌空（`suansu/`）
 
@@ -273,6 +289,14 @@
 | 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B3/L2.html |
 | 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/suansu/KANGHSUAN-B3/L3.html |
 
+### 全華版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B4/L1.html |
+| 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B4/L2.html |
+| 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B4/L3.html |
+
 ## 咱來鬥句（`tauku/`）
 
 ### 真平版國中第1冊
@@ -361,6 +385,14 @@
 | 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B3/L2.html |
 | 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/tauku/KANGHSUAN-B3/L3.html |
 
+### 全華版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B4/L1.html |
+| 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B4/L2.html |
+| 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B4/L3.html |
+
 ## 心智圖配對（`mindmap/`）
 
 ### 真平版國中第1冊
@@ -448,3 +480,11 @@
 | 第1課 泅過日月潭 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B3/L1.html |
 | 第2課 舞蹈班的一片天 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B3/L2.html |
 | 第3課 拌拌咧 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/KANGHSUAN-B3/L3.html |
+
+### 全華版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B4/L1.html |
+| 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B4/L2.html |
+| 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B4/L3.html |
