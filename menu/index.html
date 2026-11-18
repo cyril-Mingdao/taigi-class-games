@@ -60,8 +60,23 @@ header.top .roma{display:block;margin-top:4px;color:var(--yellow);font-weight:70
 .card:hover,.card:focus-visible{transform:translateY(-4px);background:var(--yellow);box-shadow:0 10px 22px rgba(0,0,0,.45);outline:none}
 .card:hover .go,.card:focus-visible .go{opacity:1;transform:translateX(3px)}
 .empty{color:var(--muted);padding:24px 0}
-footer{margin-top:16px;padding-top:10px;border-top:1px solid #333;color:var(--muted);font-size:12px;line-height:1.7;text-align:center}
-@media (max-width:760px){ .pub small{display:none} }
+/* 課堂玩法圖 */
+.howto{margin-top:22px}
+.howto h2{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:18px;color:var(--yellow)}
+.howto h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--yellow)}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.shots figure{margin:0;border-radius:14px;overflow:hidden;background:var(--gray);border:1px solid #3a3a3a}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:1280/700;object-fit:cover;background:#222}
+.shots figcaption{padding:7px 10px;font-size:14px;font-weight:700;color:var(--white);text-align:center}
+.howto.hide{display:none}
+/* 頁尾：常用連結＋造訪人數 */
+footer{margin-top:22px;padding:14px 12px 4px;border-top:2px solid var(--yellow);color:var(--muted);font-size:12px;line-height:1.7;text-align:center}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-bottom:10px}
+.links a{color:var(--white);font-size:15px;font-weight:700;text-decoration:none;border-bottom:2px solid transparent}
+.links a:hover{color:var(--yellow);border-bottom-color:var(--yellow)}
+.counter{display:flex;justify-content:center;margin:4px 0 8px}
+.counter img{height:20px}
+@media (max-width:760px){ .pub small{display:none} .shots{grid-template-columns:1fr 1fr} }
 @media (max-width:520px){
   .wrap{padding:8px 8px 14px}
   header.top{padding:10px 10px 9px;margin-bottom:8px;border-radius:12px}
@@ -77,6 +92,7 @@ footer{margin-top:16px;padding-top:10px;border-top:1px solid #333;color:var(--mu
   .card{min-height:0;flex-direction:row;align-items:center;gap:10px;padding:9px 12px 9px 18px}
   .card .no{font-size:13px;padding:3px 8px;flex:none}
   .card .t{font-size:16px;padding-right:20px}
+  .shots{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -86,7 +102,24 @@ footer{margin-top:16px;padding-top:10px;border-top:1px solid #333;color:var(--mu
   <nav class="pubs" id="pubs" role="tablist" aria-label="出版社"></nav>
   <div class="vols" id="vols" role="tablist" aria-label="冊別"></div>
   <main id="main"></main>
-  <footer id="foot"></footer>
+  <section class="howto" id="howto" aria-label="課堂玩法">
+    <h2>課堂玩法</h2>
+    <div class="shots">
+      <figure><img src="img/raise-hand.webp" alt="選項舉牌：左手平舉A、左手高舉B、右手高舉C、右手平舉D" loading="lazy" width="1280" height="691"><figcaption>選項舉牌</figcaption></figure>
+      <figure><img src="img/buzzer.webp" alt="兩人搶按搶答鈴作答" loading="lazy" width="1280" height="707"><figcaption>搶答</figcaption></figure>
+      <figure><img src="img/answer-order.webp" alt="各組依答題順序輪流作答" loading="lazy" width="1280" height="715"><figcaption>答題順序</figcaption></figure>
+    </div>
+  </section>
+  <footer id="foot">
+    <nav class="links" aria-label="常用連結">
+      <a href="https://sutian.moe.edu.tw/zh-hant/" target="_blank" rel="noopener">教育部台語辭典</a>
+      <a href="https://itaigi.tw/k/%E5%8F%B0%E8%AA%9E/" target="_blank" rel="noopener">iTaigi 愛台語</a>
+      <a href="https://www.taigitv.org.tw/taigi-words" target="_blank" rel="noopener">公視台語新詞庫</a>
+      <a href="http://tts001.ivoice.tw:8804/" target="_blank" rel="noopener">陽明交大語音合成</a>
+    </nav>
+    <div class="counter"><img src="https://visitcounter.charliemoomoo.workers.dev/badge/tsongliongtaigi" alt="造訪人數"></div>
+    <div id="credit"></div>
+  </footer>
 </div>
 <script>
 /*! 宗龍的台語課・課次選單 — © 2026 詹宗龍（臺中明道中學）保留一切權利。 */
@@ -152,7 +185,8 @@ function render(user){
   save({pub:cur.pub,book:cur.book});
   if(user){try{history.replaceState(null,'','#'+(cur.pub==='all'?'all':cur.book))}catch(e){}}
 }
-document.getElementById('foot').textContent='真平企業有限公司、康軒文教事業、全華圖書股份有限公司、育達文化事業股份有限公司 授權使用｜© 2026 詹宗龍';
+document.getElementById('credit').textContent='真平企業有限公司、康軒文教事業、全華圖書股份有限公司、育達文化事業股份有限公司 授權使用｜© 2026 詹宗龍';
+if(g==='pen') document.getElementById('howto').classList.add('hide');
 render(false);
 })();
 </script>
