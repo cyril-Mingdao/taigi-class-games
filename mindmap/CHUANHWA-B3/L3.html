@@ -1416,5 +1416,51 @@ html body .nav-btn{white-space:nowrap;word-break:keep-all;flex:1 1 0;min-width:m
 })();
 </script>
 <!-- /md-mmbig -->
+<!-- md-mmpdf：下載 A3 講義 PDF 鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-mmpdf-css">
+#md-pdf-btn{position:absolute;z-index:5;width:56px;height:56px;padding:0;margin:0;border:3px solid #FFD400;border-radius:10px;background:#111111;color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:transform .15s}
+#md-pdf-btn:hover,#md-pdf-btn:focus-visible{transform:scale(1.08);background:#FFD400;color:#111111;outline:none}
+#md-pdf-btn.inside{width:44px;height:44px;opacity:.9}
+#md-pdf-btn svg{width:60%;height:60%;display:block;pointer-events:none}
+#md-pdf-btn.busy{opacity:.6;cursor:progress}
+#md-pdf-tip{position:fixed;left:50%;bottom:40px;transform:translateX(-50%);z-index:2147483646;background:#111111;color:#FFFFFF;border:2px solid #FFD400;border-radius:8px;padding:8px 16px;font-size:16px;pointer-events:none}
+#md-pdf-tip[hidden]{display:none}
+@media print{#md-pdf-btn,#md-pdf-tip{display:none}}
+</style>
+<script id="md-mmpdf-js">
+(function(){
+ var PDF='pdf/L3.pdf',NAME='詹宗龍-全華第3冊-03講義-一字多音真心適心智圖A3';
+ var d=document,img=d.querySelector('#questionSelector img');if(!img)return;
+ var box=img.parentElement;box.style.position='relative';
+ var b=d.createElement('button');b.type='button';b.id='md-pdf-btn';
+ b.title='下載 A3 講義 PDF：'+NAME;b.setAttribute('aria-label','下載 A3 講義 PDF');
+ b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 17v3h16v-3"/></svg>';
+ box.appendChild(b);
+ var tip=d.createElement('div');tip.id='md-pdf-tip';tip.hidden=true;d.body.appendChild(tip);
+ function say(t){tip.textContent=t;tip.hidden=false;clearTimeout(say.t);say.t=setTimeout(function(){tip.hidden=true;},2500);}
+ function place(){
+  var r=img.offsetLeft+img.offsetWidth,gap=16,w=56;
+  if(r+gap+w<=box.clientWidth){b.classList.remove('inside');b.style.left=(r+gap)+'px';b.style.top=img.offsetTop+'px';}
+  else{b.classList.add('inside');b.style.left=(r-44-6)+'px';b.style.top=(img.offsetTop+6)+'px';}
+ }
+ place();window.addEventListener('resize',place);
+ if(window.ResizeObserver)new ResizeObserver(place).observe(img);
+ img.addEventListener('load',place);
+ function plain(){var a=d.createElement('a');a.href=PDF;a.download=NAME+'.pdf';d.body.appendChild(a);a.click();a.remove();say('已開始下載');}
+ b.addEventListener('click',function(e){
+  e.stopPropagation();
+  if(b.classList.contains('busy'))return;
+  if(!window.showSaveFilePicker){plain();return;}
+  var h;
+  window.showSaveFilePicker({suggestedName:NAME+'.pdf',startIn:'desktop',types:[{description:'PDF 講義',accept:{'application/pdf':['.pdf']}}]})
+  .then(function(x){h=x;b.classList.add('busy');return fetch(PDF);})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.blob();})
+  .then(function(blob){return h.createWritable().then(function(w){return w.write(blob).then(function(){return w.close();});});})
+  .then(function(){b.classList.remove('busy');say('已存檔：'+h.name);})
+  .catch(function(err){b.classList.remove('busy');if(err&&err.name==='AbortError')return;plain();});
+ });
+})();
+</script>
+<!-- /md-mmpdf -->
 </body>
 </html>
