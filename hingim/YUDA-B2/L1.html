@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  育達創世紀版高中全1冊 第1課 阮兜的早頓 — 台語課堂遊戲「形音義配對」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「創世紀文化股份有限公司」所有。
+  製作者詹宗龍已於 115 年 11 月 17 日取得該公司用印之《著作財產權授權同意書》，
+  授權於非營利之教育教學用途範圍內重製、改編課文內容、圖片及聲音檔，並為教學目的公開播送、公開上映與公開傳輸。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放使用自製 snd-plus.js（音檔即時連結教育部辭典官方錄音，著作權屬教育部）；
+  字型與樣式（如 tauhu.tw）之著作權屬各原權利人。
+  除創世紀文化股份有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>第1課 阮兜的早頓</title>
+<link rel="icon" id="md-icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23111111%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2250%22%20font-size%3D%2248%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFD400%22%20font-family%3D%22Microsoft%20JhengHei%2CPingFang%20TC%2CNoto%20Sans%20TC%2Csans-serif%22%3E%E8%82%B2%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+    <script src="https://cyril-mingdao.github.io/taigi-class-games/assets/snd-plus.js"></script>
+
+    <style>/*md-dvh*/
+        :root {
+            /* 橘色系主題 */
+            --bg-start: #FFF8E1; 
+            --bg-end: #FFCC80;   
+            --primary-color: #ff9600; 
+            --primary-shadow: #cc7a00;
+            --correct-color: #58cc02; 
+            --correct-shadow: #46a302;
+            --wrong-color: #ff4b4b;   
+            --wrong-shadow: #d12020;
+            --text-color: #4b4b4b;
+            --font-main: 'tauhu-oo', sans-serif;
+            --box-border: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            height: 100vh;height:100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-color);
+        }
+
+        body[oncontextmenu="return false;"] { cursor: default; }
+
+        /* --- 1. 入口選單 --- */
+        #menu-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 { margin-bottom: 0.2em; font-size: 2.5rem; color: #d35400; line-height: 1; }
+        h2 { margin-top: 0; font-size: 1.2rem; color: #8d6e63; font-weight: normal; margin-bottom: 2rem; line-height: 1; }
+
+        .settings-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .option-group { margin-bottom: 1.5rem; text-align: left; }
+        .option-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; font-size: 1.1rem; color: #5d4037; }
+        
+        /* 數量選擇網格 3x2 配置 */
+        .qty-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .qty-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qty-btn.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-shadow);
+            box-shadow: 0 2px 0 var(--primary-shadow);
+        }
+
+        .btn-start {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 0;
+            width: 100%;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            cursor: pointer;
+            transition: transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .btn-start:active { transform: translateY(4px); box-shadow: none; }
+
+        /* --- 2. 遊戲介面配置 --- */
+        #game-screen {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 10px 0 10px; 
+        }
+
+        /* 內容主區域 - 佔據所有剩餘空間 */
+        .content-area {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            align-items: stretch; 
+        }
+
+        /* 左側資訊區 */
+        .info-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 10px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+            border: 2px solid #fff;
+            flex-shrink: 0; 
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1.4rem; 
+        }
+        .info-label {
+            font-weight: bold;
+            color: #795548;
+            width: 70px;
+            flex-shrink: 0;
+        }
+        .info-val {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.4rem; 
+        }
+
+        .taiyu-box {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; 
+            border: 2px solid #ffe0b2;
+        }
+        .taiyu-text {
+            font-size: 2.5rem; 
+            color: #d35400;
+            font-weight: bold;
+        }
+        .play-audio-btn {
+            font-size: 2.2rem; 
+            cursor: pointer;
+            color: #29b6f6;
+            background: white;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 0 #ddd;
+            flex-shrink: 0;
+        }
+        .play-audio-btn:active { transform: scale(0.95); box-shadow: none; }
+
+        .mandarin-label {
+            font-weight: bold; 
+            color: #795548; 
+            width: 100%; 
+            margin-bottom: 2px; 
+            font-size: 1.1rem;
+            text-align: left; 
+        }
+
+        /* 華語文字區域 */
+        .mandarin-text {
+            font-size: 1.6rem; 
+            color: #555;
+            line-height: 1.3;
+            max-height: 80px; 
+            overflow-y: auto; 
+            padding-right: 5px;
+            text-align: center; 
+            
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+        .mandarin-text::-webkit-scrollbar { width: 6px; }
+        .mandarin-text::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 3px; }
+        .mandarin-text.fs-md { font-size: 1.4rem; }
+        .mandarin-text.fs-sm { font-size: 1.2rem; }
+
+        /* 右側答題矩陣區 */
+        .matrix-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 4px; 
+            
+            flex: 1;           
+            min-height: 0;     
+            overflow-y: auto;  
+            overflow-x: auto;  
+            
+            align-items: flex-start; 
+        }
+
+        .syllable-row {
+            display: flex;
+            gap: 8px;
+            width: max-content; 
+            min-width: 100%;    
+            padding-bottom: 5px; 
+        }
+
+        /* 單個目標方塊 */
+        .target-box {
+            flex: 1;
+            border: 2px solid var(--box-border);
+            border-radius: 10px;
+            background: #fdfdfd;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 90px; 
+            transition: all 0.3s;
+            min-width: 60px; 
+        }
+
+        .target-header {
+            background: #f0f0f0;
+            color: #777;
+            font-size: 1.2rem; 
+            padding: 4px;
+            text-align: center;
+            border-bottom: 1px solid var(--box-border);
+            white-space: nowrap; 
+        }
+
+        .target-value {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; 
+            font-weight: bold;
+            color: #ccc; 
+            white-space: nowrap;
+            /* 預防單格文字過多溢出 */
+            overflow-y: auto;
+        }
+
+        .target-value.filled { color: var(--correct-color); }
+
+        /* 呼吸效果 */
+        @keyframes breathe {
+            0% { border-color: #ff4b4b; box-shadow: 0 0 0 0 rgba(255, 75, 75, 0.4); }
+            50% { border-color: #ff4b4b; box-shadow: 0 0 8px 4px rgba(255, 75, 75, 0.2); }
+            100% { border-color: #ff4b4b; box-shadow: 0 0 0 0 rgba(255, 75, 75, 0); }
+        }
+
+        .target-box.active-step {
+            animation: breathe 1.5s infinite;
+            border-width: 2px;
+            background-color: #fffafaf0;
+        }
+        .target-box.active-step .target-header {
+            background-color: #ff4b4b;
+            color: white;
+        }
+        .target-box.active-step .target-value {
+            color: #ff4b4b;
+        }
+
+        /* 選項區域 */
+        .options-area {
+            flex-shrink: 0;
+            height: auto;
+            min-height: 140px;
+            margin-bottom: 5px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .option-card {
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 15px;
+            padding: 8px;
+            box-shadow: 0 4px 0 #e5e5e5;
+            cursor: pointer;
+            transition: all 0.1s;
+            display: flex;
+            align-items: center;
+            min-height: 80px; 
+            overflow: hidden; 
+        }
+        .option-card:active { transform: translateY(4px); box-shadow: none; }
+
+        .opt-idx-box {
+            width: 54px; 
+            height: 54px; 
+            font-size: 1.5rem; 
+            background: #eee;
+            color: #888;
+            border-radius: 12px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 2px solid #ddd;
+        }
+
+        .opt-text {
+            font-size: 2.1rem; 
+            font-weight: bold;
+            color: var(--text-color);
+            flex-grow: 1;
+            text-align: center;
+            word-break: break-word; 
+            line-height: 1.1;       
+        }
+
+        /* 手機版 (6.2吋約對應寬度400-480px以下)，縮小字體 */
+        @media (max-width: 480px) {
+            .opt-text { font-size: 1.6rem; }
+            .text-fit-sm { font-size: 1.3rem; }
+            .text-fit-md { font-size: 1.5rem; }
+            .text-fit-lg { font-size: 1.8rem; }
+            .opt-idx-box { width: 45px; height: 45px; font-size: 1.2rem; margin-right: 8px; }
+        }
+
+        .option-card.correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+            box-shadow: 0 4px 0 var(--correct-shadow);
+        }
+        .option-card.correct .opt-idx-box { background-color: #46a302; color: white; border-color: #388e3c; }
+        .option-card.correct .opt-text { color: white; }
+
+        .option-card.wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+            box-shadow: 0 4px 0 var(--wrong-shadow);
+        }
+        .option-card.wrong .opt-idx-box { background-color: #d12020; color: white; border-color: #b71c1c; }
+        .option-card.wrong .opt-text { color: white; }
+
+        /* --- 底部整合工具列 --- */
+        .footer-bar {
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255,255,255,0);
+            border-top: none; 
+            padding: 0 10px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        /* 底部左側 (選單 + 題號) */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 140px; 
+        }
+        .nav-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 5px 15px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            box-shadow: 0 2px 0 #ddd;
+            font-size: 0.9rem;
+        }
+        .nav-btn:active { transform: translateY(2px); box-shadow: none; }
+        
+        .q-counter {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #d35400;
+        }
+
+        /* 底部中間 (完成訊息) */
+        .footer-center {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #58cc02;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* 底部右側 (上一題 + 下一題) */
+        .footer-right {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            width: 170px; 
+        }
+
+        .nav-control-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 5px; 
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            font-size: 1rem;
+            cursor: pointer;
+            visibility: visible; 
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            flex: 1;
+        }
+        .nav-control-btn:active { transform: translateY(4px); box-shadow: none; }
+        .nav-control-btn:disabled {
+            background-color: #ccc;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        /* RWD */
+        @media (min-width: 768px) {
+            .content-area {
+                flex-direction: row;
+                align-items: stretch; 
+            }
+            .info-panel {
+                flex: 1;
+                max-width: 400px; 
+            }
+            .matrix-panel {
+                flex: 2;
+                align-items: center; 
+            }
+            .syllable-row {
+                width: 100%;
+                justify-content: center;
+            }
+            .options-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            .footer-bar {
+                padding: 0 20px;
+            }
+        }
+        
+        .text-fit-sm { font-size: 1.65rem; }
+        .text-fit-md { font-size: 1.95rem; }
+        .text-fit-lg { font-size: 2.4rem; }
+
+    </style>
+<style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+<style id="md-fit">/*md-dvh*/
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+@media (orientation: landscape) and (max-height: 640px){
+ html body h1{font-size:clamp(18px,7.5vh,2.5rem);font-size:clamp(18px,7.5dvh,2.5rem);margin:0 0 0.4vh;margin:0 0 0.4dvh}
+ html body h2{font-size:clamp(12px,4vh,1.2rem);font-size:clamp(12px,4dvh,1.2rem);margin-bottom:1.6vh;margin-bottom:1.6dvh}
+ html body .settings-box{max-width:92vw;width:92vw;padding:1.8vh 2.4vw;padding:1.8dvh 2.4vw;box-sizing:border-box}
+ html body .option-group{margin-bottom:1vh;margin-bottom:1dvh}
+ html body .option-group label{font-size:clamp(12px,3.8vh,1.1rem);font-size:clamp(12px,3.8dvh,1.1rem);margin-bottom:0.6vh;margin-bottom:0.6dvh}
+ html body .qty-grid{grid-template-columns:repeat(6,1fr);gap:1vw}
+ html body .qty-btn{padding:1.2vh 0.4vw;padding:1.2dvh 0.4vw;font-size:clamp(13px,4.6vh,1.5rem);font-size:clamp(13px,4.6dvh,1.5rem)}
+ html body .btn-start{padding:1.4vh 0;padding:1.4dvh 0;font-size:clamp(14px,5vh,1.5rem);font-size:clamp(14px,5dvh,1.5rem);margin-top:0.6vh;margin-top:0.6dvh}
+ html body .md-quiz-link-wrap{margin-top:1vh;margin-top:1dvh}
+ html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);font-size:clamp(12px,3.8dvh,18px);padding:0.8vh 2vw;padding:0.8dvh 2vw}
+ html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);font-size:clamp(10px,2.8dvh,13px);margin-top:0.3vh;margin-top:0.3dvh}
+ html body #game-screen{padding:0.8vh 1vw 16px;padding:0.8dvh 1vw 16px;box-sizing:border-box}
+ html body .content-area{flex-direction:row;gap:1vw;margin-bottom:0.8vh;margin-bottom:0.8dvh}
+ html body .info-panel{flex:1;max-width:32%;padding:0.8vh 0.8vw;padding:0.8dvh 0.8vw}
+ html body .info-row,html body .info-val{font-size:clamp(11px,3.6vh,1.4rem);font-size:clamp(11px,3.6dvh,1.4rem)}
+ html body .info-label{width:auto;margin-right:0.6vw}
+ html body .taiyu-box{margin:0.4vh 0;margin:0.4dvh 0;padding:0.4vh;padding:0.4dvh;gap:1vw}
+ html body .taiyu-text{font-size:clamp(16px,7vh,2.5rem);font-size:clamp(16px,7dvh,2.5rem)}
+ html body .play-audio-btn{width:clamp(24px,8vh,45px);width:clamp(24px,8dvh,45px);height:clamp(24px,8vh,45px);height:clamp(24px,8dvh,45px);font-size:clamp(14px,5.4vh,2.2rem);font-size:clamp(14px,5.4dvh,2.2rem)}
+ html body .mandarin-label{font-size:clamp(10px,3vh,1.1rem);font-size:clamp(10px,3dvh,1.1rem)}
+ html body .mandarin-text{font-size:clamp(11px,4vh,1.6rem);font-size:clamp(11px,4dvh,1.6rem);max-height:14vh;max-height:14dvh}
+ html body .matrix-panel{flex:2;align-items:stretch;justify-content:center;padding:0.8vh;padding:0.8dvh;gap:0.8vh;gap:0.8dvh}
+ html body .syllable-row{width:100%;min-width:0;justify-content:center;gap:0.6vw;padding-bottom:0;flex:1 1 0;max-height:24vh;max-height:24dvh}
+ html body .target-box{min-height:0;min-width:0}
+ html body .target-header{font-size:clamp(10px,3vh,1.2rem);font-size:clamp(10px,3dvh,1.2rem);padding:0.3vh;padding:0.3dvh}
+ html body .target-value{font-size:clamp(12px,6vh,2rem);font-size:clamp(12px,6dvh,2rem)}
+ html body .options-area{min-height:0;margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body .options-grid{grid-template-columns:repeat(4,1fr);gap:1vw}
+ html body .option-card{min-height:0;padding:1.4vh 0.6vw;padding:1.4dvh 0.6vw}
+ html body .opt-idx-box{width:clamp(20px,7vh,54px);width:clamp(20px,7dvh,54px);height:clamp(20px,7vh,54px);height:clamp(20px,7dvh,54px);font-size:clamp(11px,3.6vh,1.5rem);font-size:clamp(11px,3.6dvh,1.5rem);margin-right:0.6vw}
+ html body .opt-text,html body .opt-text.text-fit-sm,html body .opt-text.text-fit-md,html body .opt-text.text-fit-lg{font-size:clamp(13px,7.5vh,2.1rem);font-size:clamp(13px,7.5dvh,2.1rem)}
+ html body .footer-bar{height:clamp(32px,11vh,60px);height:clamp(32px,11dvh,60px)}
+ html body .nav-control-btn{height:clamp(26px,8vh,40px);height:clamp(26px,8dvh,40px)}
+}
+@media (max-width: 767px) and (orientation: portrait){
+ html body #game-screen{padding:6px 6px 34px;box-sizing:border-box}
+ html body .content-area{gap:6px;margin-bottom:6px}
+ html body .info-panel{padding:6px 8px}
+ html body .info-row,html body .info-val{font-size:clamp(14px,2.4vh,1.4rem);font-size:clamp(14px,2.4dvh,1.4rem)}
+ html body .taiyu-box{margin:3px 0;padding:3px;gap:10px}
+ html body .taiyu-text{font-size:clamp(20px,4.6vh,2.5rem);font-size:clamp(20px,4.6dvh,2.5rem)}
+ html body .play-audio-btn{width:clamp(30px,5.6vh,45px);width:clamp(30px,5.6dvh,45px);height:clamp(30px,5.6vh,45px);height:clamp(30px,5.6dvh,45px);font-size:clamp(18px,4vh,2.2rem);font-size:clamp(18px,4dvh,2.2rem)}
+ html body .mandarin-label{font-size:clamp(11px,1.8vh,1.1rem);font-size:clamp(11px,1.8dvh,1.1rem);margin-bottom:0}
+ html body .mandarin-text{font-size:clamp(14px,2.6vh,1.6rem);font-size:clamp(14px,2.6dvh,1.6rem);max-height:7vh;max-height:7dvh}
+ html body .matrix-panel{padding:5px;gap:4px;justify-content:center;align-items:stretch}
+ html body .syllable-row{flex:1 1 0;min-height:0;max-height:12vh;max-height:12dvh;gap:4px;padding-bottom:0;width:100%;min-width:0}
+ html body .target-box{min-height:0;min-width:0}
+ html body .target-header{font-size:clamp(11px,1.9vh,1.2rem);font-size:clamp(11px,1.9dvh,1.2rem);padding:1px}
+ html body .target-value{font-size:clamp(14px,3.4vh,2rem);font-size:clamp(14px,3.4dvh,2rem)}
+ html body .options-area{min-height:0;margin-bottom:4px}
+ html body .options-grid{gap:6px}
+ html body .option-card{min-height:0;padding:0.9vh 6px;padding:0.9dvh 6px}
+ html body .opt-idx-box{width:clamp(28px,5vh,54px);width:clamp(28px,5dvh,54px);height:clamp(28px,5vh,54px);height:clamp(28px,5dvh,54px);font-size:clamp(13px,2.4vh,1.5rem);font-size:clamp(13px,2.4dvh,1.5rem);margin-right:6px}
+ html body .opt-text,html body .opt-text.text-fit-sm,html body .opt-text.text-fit-md,html body .opt-text.text-fit-lg{font-size:clamp(16px,4.2vh,2.1rem);font-size:clamp(16px,4.2dvh,2.1rem)}
+ html body .footer-bar{height:clamp(40px,7vh,60px);height:clamp(40px,7dvh,60px)}
+}
+</style>
+<style id="md-mobile">
+/* 底部工具列與右下角出版社標示錯開（md-fit 的 html body #game-screen 媒體規則優先） */
+body #game-screen{padding-bottom:22px}
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="menu-screen">
+        <h1>形音義配對</h1>
+        <h2>第1課 阮兜的早頓</h2>
+        <div class="settings-box">
+            
+            <div class="option-group">
+                <label>測驗數量</label>
+                <div class="qty-grid">
+                    <div class="qty-btn selected" onclick="selectQty(5)">5</div>
+                    <div class="qty-btn" onclick="selectQty(7)">7</div>
+                    <div class="qty-btn" onclick="selectQty(9)">9</div>
+                    <div class="qty-btn" onclick="selectQty(11)">11</div>
+                    <div class="qty-btn" onclick="selectQty(13)">13</div>
+                    <div class="qty-btn" onclick="selectQty(15)">15</div>
+                    <div class="qty-btn" id="md-all-btn" onclick="selectQty(db.length)" title="題庫全部題目，亂數出題">全部</div>
+                </div>
+            </div>
+            <button class="btn-start" onclick="startGame()">開始測驗</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/HINGIM-YUDA-B2L1.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+        </div>
+    </div>
+
+    <div id="game-screen">
+        
+        <div class="content-area">
+            
+            <div class="info-panel">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; border-bottom:1px dashed #ccc; padding-bottom:5px;">
+                    <div class="info-row" style="margin:0;">
+                        <span class="info-label">項次</span>
+                        <span class="info-val" id="disp-id">1</span>
+                    </div>
+                    <div class="info-row" style="margin:0;">
+                        <span class="info-label">頁數</span>
+                        <span class="info-val" id="disp-page">6</span>
+                    </div>
+                </div>
+
+                <div class="taiyu-box">
+                    <span class="taiyu-text" id="display-taiyu">呔會</span>
+                    <div class="play-audio-btn" onclick="playCurrentAudio()">🔊</div>
+                </div>
+
+                <div style="margin-top: 5px;">
+                    <div class="mandarin-label">華語</div>
+                    <div class="mandarin-text" id="display-mandarin">怎麼會、豈會</div>
+                </div>
+            </div>
+
+            <div class="matrix-panel" id="matrix-container">
+                </div>
+
+        </div>
+
+        <div class="options-area">
+            <div id="options-grid" class="options-grid">
+                </div>
+        </div>
+
+        <div class="footer-bar">
+            <div class="footer-left">
+                <button class="nav-btn" onclick="returnToMenu()">選單</button>
+                <div class="q-counter">
+                    <span id="current-q-num">1</span> / <span id="total-q-num">5</span>
+                </div>
+            </div>
+
+            <div class="footer-center" id="status-msg">
+                </div>
+
+            <div class="footer-right">
+                <button id="prev-btn" class="nav-control-btn" onclick="prevQuestion()">上一題</button>
+                <button id="next-btn" class="nav-control-btn" onclick="nextQuestion()">下一題</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. 資料庫 (第1課 阮兜的早頓) ---
+        const db = [{"id": 1, "pg": 8, "ty": "記持", "tl": "kì-tî", "i1": "k", "f1": "ì", "t1": "3", "s1": "2", "i2": "t", "f2": "î", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "記憶、記性。"}, {"id": 2, "pg": 8, "ty": "俗麭", "tl": "sio̍k-pháng", "i1": "s", "f1": "io̍k", "t1": "8", "s1": "4", "i2": "ph", "f2": "áng", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "吐司。長條形可以切片的麵包。借自日語「食(しょく)パン」。"}, {"id": 3, "pg": 8, "ty": "大陣", "tl": "tuā tīn", "i1": "t", "f1": "uā", "t1": "7", "s1": "3", "i2": "t", "f2": "īn", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "一大群人。"}, {"id": 4, "pg": 8, "ty": "作穡", "tl": "tsoh-sit", "i1": "ts", "f1": "oh", "t1": "4", "s1": "2", "i2": "s", "f2": "it", "t2": "4", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "(1)從事農務；指耕田、墾地、播種等。(2)工作、幹活。"}, {"id": 5, "pg": 8, "ty": "坩", "tl": "khann", "i1": "kh", "f1": "ann", "t1": "1", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "本意為鍋子，後引申為計算以鍋子為容器的東西。"}, {"id": 6, "pg": 8, "ty": "糜", "tl": "muâi / bê", "i1": "m", "f1": "uâi", "t1": "5", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "稀飯。"}, {"id": 7, "pg": 8, "ty": "蔭瓜仔", "tl": "ìm-kue-á", "i1": "無", "f1": "ìm", "t1": "3", "s1": "2", "i2": "k", "f2": "ue", "t2": "1", "s2": "7", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "醃製的軟嫩醬瓜。"}, {"id": 8, "pg": 9, "ty": "扒", "tl": "pe", "i1": "p", "f1": "e", "t1": "1", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "用筷子把食物撥進嘴裡。"}, {"id": 9, "pg": 9, "ty": "歹喙斗", "tl": "pháinn-tshuì-táu", "i1": "ph", "f1": "áinn", "t1": "2", "s1": "1", "i2": "tsh", "f2": "uì", "t2": "3", "s2": "2", "i3": "t", "f3": "áu", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "挑嘴。形容人對食物很挑剔。"}, {"id": 10, "pg": 9, "ty": "醬菜", "tl": "tsiùnn-tshài", "i1": "ts", "f1": "iùnn", "t1": "3", "s1": "2", "i2": "tsh", "f2": "ài", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "泛指醃漬而成的各種菜蔬。"}, {"id": 11, "pg": 9, "ty": "面憂面結", "tl": "bīn-iu-bīn-kat", "i1": "b", "f1": "īn", "t1": "7", "s1": "3", "i2": "無", "f2": "iu", "t2": "1", "s2": "7", "i3": "b", "f3": "īn", "t3": "7", "s3": "3", "i4": "k", "f4": "at", "t4": "4", "s4": "不變", "md": "愁眉苦臉。"}, {"id": 12, "pg": 9, "ty": "黃酸黃酸", "tl": "n̂g-sng-n̂g-sng", "i1": "無", "f1": "n̂g", "t1": "5", "s1": "7", "i2": "s", "f2": "ng", "t2": "1", "s2": "7", "i3": "無", "f3": "n̂g", "t3": "5", "s3": "7", "i4": "s", "f4": "ng", "t4": "1", "s4": "不變", "md": "有點面黃肌瘦，形容人消瘦，營養不良的樣子。"}, {"id": 13, "pg": 9, "ty": "銀角仔", "tl": "gîn-kak-á / gûn-kak-á", "i1": "g", "f1": "în", "t1": "5", "s1": "7", "i2": "k", "f2": "ak", "t2": "4", "s2": "1", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "銅板。今多泛稱硬幣。"}, {"id": 14, "pg": 9, "ty": "轉骨", "tl": "tńg-kut", "i1": "t", "f1": "ńg", "t1": "2", "s1": "1", "i2": "k", "f2": "ut", "t2": "4", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "人在青春期發育成長，由孩童轉變為大人，第三性徵出現，具有生殖能力。"}, {"id": 15, "pg": 9, "ty": "開脾", "tl": "khui-pî", "i1": "kh", "f1": "ui", "t1": "1", "s1": "7", "i2": "p", "f2": "î", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "開胃、增進食慾。"}, {"id": 16, "pg": 9, "ty": "僫", "tl": "oh", "i1": "無", "f1": "oh", "t1": "4", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "困難、不容易。"}, {"id": 17, "pg": 10, "ty": "數念", "tl": "siàu-liām", "i1": "s", "f1": "iàu", "t1": "3", "s1": "2", "i2": "l", "f2": "iām", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "想念、懷念。"}, {"id": 18, "pg": 10, "ty": "翁婿", "tl": "ang-sài", "i1": "無", "f1": "ang", "t1": "1", "s1": "7", "i2": "s", "f2": "ài", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "丈夫。"}, {"id": 19, "pg": 10, "ty": "稀微", "tl": "hi-bî", "i1": "h", "f1": "i", "t1": "1", "s1": "7", "i2": "b", "f2": "î", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "寂寞、寂寥。"}, {"id": 20, "pg": 11, "ty": "食食", "tl": "tsia̍h-si̍t", "i1": "ts", "f1": "ia̍h", "t1": "8", "s1": "3", "i2": "s", "f2": "i̍t", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "飲食。"}, {"id": 21, "pg": 11, "ty": "冤家量債", "tl": "uan-ke-niû-tsè", "i1": "無", "f1": "uan", "t1": "1", "s1": "7", "i2": "k", "f2": "e", "t2": "1", "s2": "7", "i3": "n", "f3": "iû", "t3": "5", "s3": "7", "i4": "ts", "f4": "è", "t4": "3", "s4": "不變", "md": "吵架。像冤家一樣爭吵不停。"}, {"id": 22, "pg": 11, "ty": "翁某", "tl": "ang-bóo", "i1": "無", "f1": "ang", "t1": "1", "s1": "7", "i2": "b", "f2": "óo", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "夫妻、夫婦。"}];
+
+        // --- 2. 狀態變數 ---
+        let gameQuestions = [];
+        let currentQIndex = 0;
+        let selectedQty = 5; 
+        
+        let questionStates = []; 
+        let autoPlayTimer = null; 
+        
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playBeep(type) {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.3);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            }
+        }
+
+        // --- 3. 遊戲邏輯 ---
+
+        function selectQty(num) {
+            selectedQty = num;
+            document.querySelectorAll('.qty-btn').forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        function startGame() {
+            const count = selectedQty;
+            const shuffledDb = [...db].sort(() => 0.5 - Math.random());
+            gameQuestions = shuffledDb.slice(0, count);
+            
+            questionStates = gameQuestions.map(() => ({
+                step: 0,
+                answers: {} 
+            }));
+            
+            currentQIndex = 0;
+            document.getElementById('menu-screen').style.display = 'none';
+            document.getElementById('game-screen').style.display = 'flex';
+            document.getElementById('total-q-num').textContent = count;
+            
+            loadQuestion(currentQIndex, true);
+        }
+
+        function returnToMenu() {
+            clearTimeout(autoPlayTimer);
+            document.getElementById('game-screen').style.display = 'none';
+            document.getElementById('menu-screen').style.display = 'flex';
+        }
+
+        function loadQuestion(index, autoPlay = true) {
+            clearTimeout(autoPlayTimer);
+
+            const qData = gameQuestions[index];
+            const qState = questionStates[index];
+            
+            document.getElementById('current-q-num').textContent = index + 1;
+            document.getElementById('prev-btn').disabled = (index === 0);
+            
+            document.getElementById('disp-id').textContent = qData.id;
+            document.getElementById('disp-page').textContent = qData.pg;
+            document.getElementById('display-taiyu').textContent = qData.ty;
+
+            const mdText = qData.md;
+            const mdEl = document.getElementById('display-mandarin');
+            mdEl.textContent = mdText;
+            
+            mdEl.className = 'mandarin-text'; 
+            if (mdText.length > 15) {
+                mdEl.classList.add('fs-sm'); 
+            } else if (mdText.length > 10) {
+                mdEl.classList.add('fs-md'); 
+            }
+            
+            // 清除狀態訊息
+            document.getElementById('status-msg').textContent = "";
+            document.getElementById('options-grid').innerHTML = ""; // 先清空選項
+
+            renderMatrix(qData, qState.answers);
+            renderStep(index);
+
+            if (autoPlay) {
+                autoPlayTimer = setTimeout(() => {
+                    playCurrentAudio();
+                }, 800);
+            }
+        }
+
+        function createTargetBox(id, label, filledVal) {
+            const isFilled = filledVal !== undefined;
+            const valText = isFilled ? filledVal : '?';
+            const filledClass = isFilled ? 'filled' : '';
+            return `
+                <div class="target-box" id="target-${id}">
+                    <div class="target-header">${label}</div>
+                    <div class="target-value ${filledClass}" id="val-${id}">${valText}</div>
+                </div>
+            `;
+        }
+
+        function renderMatrix(data, answers) {
+            const container = document.getElementById('matrix-container');
+            let html = '';
+
+            html += '<div class="syllable-row">';
+            html += createTargetBox('i1', '聲母1', answers['i1']);
+            html += createTargetBox('f1', '韻母1', answers['f1']);
+            html += createTargetBox('t1', '聲調1', answers['t1']);
+            html += createTargetBox('s1', '變調1', answers['s1']);
+            html += '</div>';
+
+            if (data.i2) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i2', '聲母2', answers['i2']);
+                html += createTargetBox('f2', '韻母2', answers['f2']);
+                html += createTargetBox('t2', '聲調2', answers['t2']);
+                html += createTargetBox('s2', '變調2', answers['s2']);
+                html += '</div>';
+            }
+
+            if (data.i3) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i3', '聲母3', answers['i3']);
+                html += createTargetBox('f3', '韻母3', answers['f3']);
+                html += createTargetBox('t3', '聲調3', answers['t3']);
+                html += createTargetBox('s3', '變調3', answers['s3']);
+                html += '</div>';
+            }
+
+            if (data.i4) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i4', '聲母4', answers['i4']);
+                html += createTargetBox('f4', '韻母4', answers['f4']);
+                html += createTargetBox('t4', '聲調4', answers['t4']);
+                html += createTargetBox('s4', '變調4', answers['s4']);
+                html += '</div>';
+            }
+
+            container.innerHTML = html;
+        }
+
+        function getStepsForQuestion(data) {
+            let steps = [];
+            steps.push({key: 'i1', ref: 'init1'});
+            steps.push({key: 'f1', ref: 'fin1'});
+            steps.push({key: 't1', ref: 'tone1'});
+            steps.push({key: 's1', ref: 'sandhi1'});
+            
+            if (data.i2) {
+                steps.push({key: 'i2', ref: 'init2'});
+                steps.push({key: 'f2', ref: 'fin2'});
+                steps.push({key: 't2', ref: 'tone2'});
+                steps.push({key: 's2', ref: 'sandhi2'});
+            }
+            if (data.i3) {
+                steps.push({key: 'i3', ref: 'init3'});
+                steps.push({key: 'f3', ref: 'fin3'});
+                steps.push({key: 't3', ref: 'tone3'});
+                steps.push({key: 's3', ref: 'sandhi3'});
+            }
+            if (data.i4) {
+                steps.push({key: 'i4', ref: 'init4'});
+                steps.push({key: 'f4', ref: 'fin4'});
+                steps.push({key: 't4', ref: 'tone4'});
+                steps.push({key: 's4', ref: 'sandhi4'});
+            }
+            return steps;
+        }
+
+        function renderStep(qIdx) {
+            const qData = gameQuestions[qIdx];
+            const qState = questionStates[qIdx];
+            const steps = getStepsForQuestion(qData);
+            
+            document.querySelectorAll('.target-box').forEach(el => el.classList.remove('active-step'));
+
+            if (qState.step >= steps.length) {
+                document.getElementById('status-msg').textContent = "";
+                document.getElementById('options-grid').innerHTML = "";
+                return;
+            }
+
+            // 未完成：清空底部訊息
+            document.getElementById('status-msg').textContent = "";
+
+            const step = steps[qState.step];
+            const correctAns = qData[step.key];
+            
+            const targetEl = document.getElementById(`target-${step.key}`);
+            if(targetEl) targetEl.classList.add('active-step');
+
+            const options = generateOptions(step.key, correctAns);
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
+            
+            const labels = ['A', 'B', 'C', 'D'];
+
+            options.forEach((opt, idx) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-card';
+                
+                const idxBox = document.createElement('div');
+                idxBox.className = 'opt-idx-box';
+                idxBox.textContent = labels[idx];
+                
+                const txt = document.createElement('span');
+                txt.className = 'opt-text';
+                txt.textContent = opt;
+                if (opt.length > 8) txt.classList.add('text-fit-sm');
+                else if (opt.length > 4) txt.classList.add('text-fit-md');
+                else txt.classList.add('text-fit-lg');
+
+                btn.appendChild(idxBox);
+                btn.appendChild(txt);
+
+                btn.onclick = () => checkAnswer(btn, opt, correctAns, step.key, qIdx);
+                grid.appendChild(btn);
+            });
+        }
+
+        // 修改：允許同類型的資料（如聲母1、2、3）互相作為選項
+        function generateOptions(key, correct) {
+            // 判斷當前題目的類型 (i=聲母, f=韻母, t=聲調, s=變調)
+            const prefix = key.charAt(0); 
+            // 找出該類型所有的欄位 (1, 2, 3)
+            const targetCols = [prefix + '1', prefix + '2', prefix + '3', prefix + '4'];
+
+            const allValues = new Set();
+            db.forEach(item => {
+                // 遍歷所有欄位，將同類型的資料都加入候選名單
+                targetCols.forEach(col => {
+                    if (item[col] !== undefined && item[col] !== "") {
+                        allValues.add(item[col]);
+                    }
+                });
+            });
+            
+            allValues.delete(correct);
+            
+            let dist = Array.from(allValues);
+            const selections = [];
+            
+            while(selections.length < 3) {
+                if (dist.length === 0) {
+                    dist = Array.from(allValues);
+                    if (dist.length === 0) break; 
+                }
+                
+                const r = Math.floor(Math.random() * dist.length);
+                selections.push(dist[r]);
+                dist.splice(r, 1);
+            }
+            
+            selections.push(correct);
+            
+            while(selections.length < 4) {
+                 selections.push("-"); 
+            }
+
+            return selections.sort(() => 0.5 - Math.random());
+        }
+
+        function checkAnswer(btn, selected, correct, cellKey, qIdx) {
+            if (qIdx !== currentQIndex) return; 
+            if (btn.classList.contains('correct') || document.querySelector('.option-card.correct')) return;
+
+            if (selected === correct) {
+                btn.classList.add('correct');
+                playBeep('correct');
+                
+                const valDiv = document.getElementById(`val-${cellKey}`);
+                if(valDiv) {
+                    valDiv.textContent = correct;
+                    valDiv.classList.add('filled');
+                }
+
+                questionStates[qIdx].answers[cellKey] = correct;
+                
+                setTimeout(() => {
+                    questionStates[qIdx].step++;
+                    renderStep(qIdx);
+                }, 600);
+            } else {
+                btn.classList.add('wrong');
+                playBeep('wrong');
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                loadQuestion(currentQIndex, false);
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < gameQuestions.length - 1) {
+                currentQIndex++;
+                loadQuestion(currentQIndex, true);
+            } else {
+                returnToMenu();
+            }
+        }
+
+                /* 發音取第一種完整讀音（2026-11-15 修正：多音寫法不再只唸第一個音節）— © 2026 詹宗龍 */
+        function mdTl(raw, han) {
+            let s = String(raw || '').trim();
+            if (!s || /^https?:\/\//.test(s)) return s;
+            s = s.split(/\s+\/\s+/)[0].replace(/\/\s+/g, '/');
+            const n = (String(han || '').match(/[㐀-鿿豈-﫿]|[\ud840-\ud8bf][\udc00-\udfff]/g) || []).length;
+            const cnt = t => t.split(/[\s\-]+/).filter(Boolean).length;
+            const tok = s.replace(/[^\s\-]+/g, w => w.split('/')[0]);
+            const first = s.split('/')[0].trim();
+            if (!n || cnt(tok) === n) return tok;
+            if (cnt(first) === n) return first;
+            return tok;
+        }
+
+        function playCurrentAudio() {
+            const data = gameQuestions[currentQIndex];
+            if (!data) return;
+            const raw = data.tl;
+            const processed = mdTl(raw, data.ty);
+            try {
+                const dummy = document.createElement('div');
+                holo(dummy, processed);
+            } catch (e) {
+                console.error("Audio error:", e);
+            }
+        }
+    </script>
+<!-- md-fs：浮動全螢幕切換鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-fs-css">
+#md-fs-btn{position:fixed;right:4px;top:4px;left:auto;bottom:auto;z-index:2147483646;width:40px;height:40px;padding:0;margin:0;border:2px solid #FFD400;border-radius:50%;background:rgba(17,17,17,.8);color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.55;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .15s;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#md-fs-btn[hidden]{display:none}
+#md-fs-btn:hover,#md-fs-btn:focus-visible,#md-fs-btn.drag{opacity:1;outline:none}
+#md-fs-btn.drag{cursor:grabbing}
+#md-fs-btn svg{width:22px;height:22px;display:block;pointer-events:none}
+#md-fs-btn .md-fs-exit{display:none}
+#md-fs-btn.on .md-fs-enter{display:none}
+#md-fs-btn.on .md-fs-exit{display:block}
+@media print{#md-fs-btn{display:none}}
+</style>
+<button type="button" id="md-fs-btn" title="全螢幕（可拖曳移位）" aria-label="全螢幕" hidden>
+<svg class="md-fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+<svg class="md-fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+</button>
+<script id="md-fs-js">
+(function(){
+ var b=document.getElementById('md-fs-btn'),d=document,e=d.documentElement,K='md-fs-pos';
+ var req=e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen;
+ var ok=d.fullscreenEnabled||d.webkitFullscreenEnabled||d.msFullscreenEnabled;
+ if(!b||!req||ok===false){return;}
+ b.hidden=false;
+ function cur(){return d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement;}
+ function sync(){var on=!!cur();b.classList.toggle('on',on);var t=on?'取消全螢幕':'全螢幕';b.title=t+'（可拖曳移位）';b.setAttribute('aria-label',t);}
+ function toggle(){
+  if(cur()){(d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen).call(d);}
+  else{var p=req.call(e);if(p&&p.catch){p.catch(function(){});}}
+ }
+ var pos=null;
+ function place(){
+  if(!pos)return;
+  var w=b.offsetWidth||40,h=b.offsetHeight||40;
+  var x=Math.max(0,Math.min(innerWidth-w,pos.x*innerWidth)),y=Math.max(0,Math.min(innerHeight-h,pos.y*innerHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.right='auto';b.style.bottom='auto';
+ }
+ try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&isFinite(s.x)&&isFinite(s.y))pos=s;}catch(_){}
+ place();addEventListener('resize',place);
+ var st=null,moved=false;
+ b.addEventListener('pointerdown',function(ev){if(ev.button>0)return;var r=b.getBoundingClientRect();st={x:ev.clientX,y:ev.clientY,ox:ev.clientX-r.left,oy:ev.clientY-r.top};moved=false;try{b.setPointerCapture(ev.pointerId);}catch(_){}});
+ b.addEventListener('pointermove',function(ev){
+  if(!st)return;
+  if(!moved&&Math.abs(ev.clientX-st.x)+Math.abs(ev.clientY-st.y)<8)return;
+  moved=true;b.classList.add('drag');
+  pos={x:(ev.clientX-st.ox)/innerWidth,y:(ev.clientY-st.oy)/innerHeight};place();
+ });
+ function end(){if(!st)return;st=null;b.classList.remove('drag');if(moved){try{localStorage.setItem(K,JSON.stringify(pos));}catch(_){}}}
+ b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+ b.addEventListener('click',function(ev){
+  ev.preventDefault();ev.stopPropagation();
+  if(moved){moved=false;return;}
+  toggle();b.blur();
+ });
+ d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);
+ sync();
+})();
+</script>
+<!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<style id="md-all-css">
+html body .qty-grid{grid-template-columns:repeat(4,1fr)}
+html body #md-all-btn{white-space:nowrap;padding-left:2px;padding-right:2px}
+@media (orientation: landscape) and (max-height: 640px){html body .qty-grid{grid-template-columns:repeat(7,1fr)}}
+</style>
+<!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body #menu-screen{height:calc(100vh - 22px);min-height:0;box-sizing:border-box;padding:1.6vh 2vw 0;justify-content:flex-start;overflow:hidden}
+ html body #menu-screen h1{flex:none;margin:0;line-height:1.15;font-size:clamp(20px,min(4.8vw,9vh),88px)}
+ html body #menu-screen h2{flex:none;margin:0.4vh 0 1.6vh;font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body #menu-screen .settings-box{flex:1 1 auto;min-height:0;width:100%;max-width:none;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;padding:2vh 3vw;margin:0 0 1vh}
+ html body #menu-screen .option-group{margin:0}
+ html body #menu-screen .option-group label{font-size:clamp(12px,min(2vw,4vh),36px);margin-bottom:1.4vh}
+ html body #menu-screen .qty-grid{grid-template-columns:repeat(7,1fr);gap:1.4vw}
+ html body #menu-screen .qty-btn{padding:2.6vh 0.4vw;line-height:1.1;white-space:nowrap;font-size:clamp(14px,min(3.2vw,7.5vh),68px)}
+ html body #menu-screen .btn-start{margin:0;padding:2.4vh 0;font-size:clamp(14px,min(3vw,6.5vh),60px)}
+ html body #menu-screen .md-quiz-link-wrap{margin:0}
+ html body #menu-screen a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body #menu-screen .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
+<div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">創世紀文化股份有限公司授權使用｜© 2026 詹宗龍</div>
+</body>
+</html>

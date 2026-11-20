@@ -25,6 +25,7 @@
 | `KANGHSUAN-B1` | 康軒版國中第1冊 |
 | `KANGHSUAN-B3` | 康軒版國中第3冊 |
 | `CHUANHWA-B4` | 全華版國中第4冊 |
+| `YUDA-B2` | 育達創世紀版高中全1冊 |
 | `common` | 共用（不分版本） |
 
 完整課次連結見 [links.md](links.md)。

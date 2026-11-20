@@ -105,6 +105,19 @@
 | 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B4/L2.html |
 | 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHUANHWA-B4/L3.html |
 
+### 育達創世紀版高中全1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阮兜的早頓 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L1.html |
+| 第2課 明信片 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L2.html |
+| 第3課 高級屎礐仔 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L3.html |
+| 第4課 用魚仔做的冊 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L4.html |
+| 第5課 難忘的旅行 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L5.html |
+| 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L6-1.html |
+| 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L6-2.html |
+| 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L7.html |
+
 ## 咱來餾生份字（`siann/`）
 
 ### 真平版國中第1冊
@@ -200,6 +213,19 @@
 | 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B4/L1.html |
 | 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B4/L2.html |
 | 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHUANHWA-B4/L3.html |
+
+### 育達創世紀版高中全1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阮兜的早頓 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L1.html |
+| 第2課 明信片 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L2.html |
+| 第3課 高級屎礐仔 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L3.html |
+| 第4課 用魚仔做的冊 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L4.html |
+| 第5課 難忘的旅行 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L5.html |
+| 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L6-1.html |
+| 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L6-2.html |
+| 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L7.html |
 
 ## 選詞塌空（`suansu/`）
 
@@ -297,6 +323,19 @@
 | 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B4/L2.html |
 | 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHUANHWA-B4/L3.html |
 
+### 育達創世紀版高中全1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阮兜的早頓 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L1.html |
+| 第2課 明信片 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L2.html |
+| 第3課 高級屎礐仔 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L3.html |
+| 第4課 用魚仔做的冊 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L4.html |
+| 第5課 難忘的旅行 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L5.html |
+| 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L6-1.html |
+| 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L6-2.html |
+| 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L7.html |
+
 ## 咱來鬥句（`tauku/`）
 
 ### 真平版國中第1冊
@@ -393,6 +432,19 @@
 | 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B4/L2.html |
 | 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHUANHWA-B4/L3.html |
 
+### 育達創世紀版高中全1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阮兜的早頓 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L1.html |
+| 第2課 明信片 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L2.html |
+| 第3課 高級屎礐仔 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L3.html |
+| 第4課 用魚仔做的冊 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L4.html |
+| 第5課 難忘的旅行 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L5.html |
+| 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L6-1.html |
+| 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L6-2.html |
+| 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L7.html |
+
 ## 心智圖配對（`mindmap/`）
 
 ### 真平版國中第1冊
@@ -488,3 +540,16 @@
 | 第1課 老城市‧新住民 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B4/L1.html |
 | 第2課 白賊話 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B4/L2.html |
 | 第3課 臺灣海妖 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHUANHWA-B4/L3.html |
+
+### 育達創世紀版高中全1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阮兜的早頓 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L1.html |
+| 第2課 明信片 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L2.html |
+| 第3課 高級屎礐仔 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L3.html |
+| 第4課 用魚仔做的冊 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L4.html |
+| 第5課 難忘的旅行 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L5.html |
+| 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L6-1.html |
+| 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L6-2.html |
+| 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L7.html |
