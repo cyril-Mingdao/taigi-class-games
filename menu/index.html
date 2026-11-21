@@ -181,7 +181,8 @@ function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
 var pubsUsed=D.pubs.filter(function(p){return books.some(function(b){return b.pub===p.id})});
 var st=load(), hash=decodeURIComponent(location.hash.slice(1));
 var hb=books.filter(function(b){return b.book===hash})[0];
-var cur={pub:hb?hb.pub:(hash==='all'?'all':st.pub), book:hb?hb.book:st.book};
+// 2026-11-21 老師要求：五個遊戲總頁一進來預設「全部冊別」（網址 #冊別 仍可指定；點讀筆維持記住上次選擇）
+var cur={pub:hb?hb.pub:((hash==='all'||g!=='pen')?'all':st.pub), book:hb?hb.book:st.book};
 if(cur.pub!=='all'&&!books.some(function(b){return b.pub===cur.pub})) cur.pub=pubsUsed[0].id;
 function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
 function icon(p,cls){var i=el('span',cls||'ic',p.ch);i.style.background=p.c;i.style.color=p.fg;return i}
