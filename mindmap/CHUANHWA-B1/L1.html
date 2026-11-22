@@ -1515,11 +1515,12 @@ html body a.question-btn.md-mmquiz:hover{background:#FFD400;color:#111111!import
 <!-- md-mmmenu2：心智圖入口頁改版 © 2026 詹宗龍（臺中明道中學） -->
 <style id="md-mmmenu2-css">
 :root{--k:#111111;--k2:#2A2A2A;--y:#FFD400;--w:#FFFFFF;--g:#F5F5F5}
-body.mm2-menu{background:var(--k)!important}
+html body{background:var(--k)!important}
+html body .header .title{background:none!important;-webkit-text-fill-color:var(--y)!important;color:var(--y)!important;text-shadow:none!important}
 body.mm2-menu .container{aspect-ratio:auto!important;max-width:none!important;width:100%;height:100vh;height:100dvh;display:flex;flex-direction:column}
 body.mm2-menu .header{flex:none;margin:0!important;padding:clamp(8px,1.6vh,16px) clamp(16px,2.4vw,32px)!important;background:var(--k);border-bottom:4px solid var(--y);display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);text-align:left}
 body.mm2-menu .header .mm2-tag{flex:none;background:var(--y);color:var(--k);font-weight:900;font-size:clamp(13px,1.5vw,18px);padding:.3em .8em;border-radius:999px;letter-spacing:.08em}
-body.mm2-menu .title{margin:0!important;font-size:clamp(20px,3vw,40px)!important;line-height:1.2!important;background:none!important;-webkit-text-fill-color:var(--w)!important;color:var(--w)!important;text-shadow:none!important;font-weight:900;letter-spacing:.04em}
+body.mm2-menu .title{margin:0!important;font-size:clamp(20px,3vw,40px)!important;line-height:1.2!important;background:none!important;-webkit-text-fill-color:var(--y)!important;color:var(--y)!important;text-shadow:none!important;font-weight:900;letter-spacing:.04em}
 body:not(.mm2-menu) .header .mm2-tag{display:none}
 
 body.mm2-menu #questionSelector{flex:1 1 0;min-height:0;margin:0!important;padding:clamp(10px,2vh,24px) clamp(16px,2.4vw,32px) 28px!important;gap:0!important;display:flex;flex-wrap:nowrap!important}
@@ -1608,7 +1609,7 @@ html body .mm2-tools #md-pdf-btn.busy{opacity:.6;cursor:progress}
   var s=d.createElement('span');s.innerHTML='下載 A3 講義<span class="mm2-sub">PDF，可直接列印</span>';pdf.appendChild(s);
   pdf.style.left=pdf.style.top='';tools.appendChild(pdf);
  }
- if(imgBox){map.appendChild(imgBox);var h=d.createElement('div');h.className='mm2-hint';h.textContent='🔍 點心智圖可全螢幕放大';map.appendChild(h);}
+ if(imgBox){map.appendChild(imgBox);imgBox.querySelector('img').title='點一下全螢幕放大';}
  [].slice.call(qs.childNodes).forEach(function(n){if(n.nodeType===3)qs.removeChild(n);});
  wrap.appendChild(map);wrap.appendChild(side);qs.appendChild(wrap);
  function sync(){var on=qs.style.display!=='none';d.body.classList.toggle('mm2-menu',on);if(on)tidy();else restore();}
