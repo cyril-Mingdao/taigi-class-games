@@ -53,6 +53,7 @@ body{background:var(--gray);color:var(--black);font-family:"Microsoft JhengHei",
 .txt .cols .col+.col{border-left:1px solid #999;padding-left:10px}
 .txt .gap{display:inline-block;width:2em}
 .nw{white-space:nowrap}
+.txt .spk{display:inline-block;border:1.3px solid #111;padding:0 .18em;margin:0 .3em .08em 0;line-height:1.12;font-size:.92em;vertical-align:baseline}
 sup.mk{color:var(--red);font-weight:700;font-size:.62em;line-height:0;vertical-align:super;margin:0 1px 0 .5px}
 
 /* 國中版：生份字表 */
