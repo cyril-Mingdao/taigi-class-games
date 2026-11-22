@@ -117,3 +117,10 @@ sup.mk{color:var(--red);font-weight:700;font-size:.62em;line-height:0;vertical-a
 /* 獨立網站（YUDA-B1 等）複本加的「回入口頁」鈕 */
 .bar .back{flex:none;color:var(--white);text-decoration:none;border:2px solid var(--yellow);border-radius:8px;padding:6px 10px;font-weight:700;white-space:nowrap}
 .bar .back:hover,.bar .back:focus-visible{background:var(--yellow);color:var(--black);outline:none}
+
+/* 高中版申論題說明＋右側台語翻譯系統 QR（2026-11-22） */
+.intro.qrin{display:flex;align-items:center;gap:3mm;padding-right:4mm}
+.intro.qrin .it{flex:1;min-width:0}
+.tqr{flex:none;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#111}
+.tqr img{display:block;width:24mm;height:24mm;image-rendering:pixelated}
+.tqr span{font-size:10px;line-height:1.2;margin-top:1px;white-space:nowrap}
