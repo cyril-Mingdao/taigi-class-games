@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  臺灣台語 育達版高中全1冊教案 — 宗龍的台語課（Google 協作平台內嵌頁）
+  頁面所連結之課堂遊戲使用之課文內容、圖片及聲音檔，著作財產權屬「育達文化事業股份有限公司」所有，經授權於非營利之教育教學用途使用。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  未經著作權人書面授權，不得重製、改作、散布或修改本網頁之全部或一部分。
+-->
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="詹宗龍（臺中明道中學）">
+    <meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺灣台語 育達版高中全1冊教案</title>
+    <style>
+        :root {
+            --primary-color: #FFCC00; /* 主色：黃色 */
+            --secondary-color: #111111; /* 輔色：黑色 */
+            --background-color: #FFFFFF; /* 背景：白色 */
+            --card-bg: #FFFFFF;
+            --text-color: #111111;
+            --link-bg: #FAFAFA;
+            --link-hover: #FFCC00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'Microsoft JhengHei', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1; /* 物件行距修改為單距行高 */
+        }
+
+        .header {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            padding: 13px 20px; /* 上下留白縮減三分之二（原 40px 縮減至 13px） */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            line-height: 1;
+        }
+
+        .header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.2em;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .header p.author {
+            margin: 0;
+            font-size: 1.1em;
+            color: #FFFFFF;
+            line-height: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            line-height: 1;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 6px solid var(--primary-color);
+            border-left: 1px solid #E0E0E0;
+            border-right: 1px solid #E0E0E0;
+            border-bottom: 1px solid #E0E0E0;
+            line-height: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            line-height: 1;
+        }
+
+        .pinyin {
+            color: #666666;
+            font-style: italic;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            display: block;
+            line-height: 1;
+        }
+
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .links-list li {
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .links-list a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-color);
+            background-color: var(--link-bg);
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            position: relative;
+            padding-left: 35px;
+            border: 1px solid #EEEEEE;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .links-list a::before {
+            content: "►";
+            position: absolute;
+            left: 12px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .links-list a:hover {
+            background-color: var(--link-hover);
+            color: var(--secondary-color);
+            padding-left: 40px;
+            border-color: var(--primary-color);
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>臺灣台語 育達版高中全1冊教案</h1>
+        <p class="author">教案作者：臺中明道中學 詹宗龍</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <h2>自學點讀筆</h2>
+            <span class="pinyin">tsū-ha̍k tiám-tho̍k-pit</span>
+            <ul class="links-list">
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L1" target="_blank">第1課 美食外送</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L2" target="_blank">第2課 茂林的Rukai族佮烏秫米祭</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L3" target="_blank">第3課 山裡的英雄</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L4" target="_blank">第4課 馬偕之路</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L5-1" target="_blank">第5課 無字的情批-1</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L5-2" target="_blank">第5課 情批-2</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L6" target="_blank">第6課 化妝品</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L7" target="_blank">第7課 我的人生，我創造</a></li>
+                <li><a href="https://cyril-mingdao.github.io/pen/YUDA-B1L8" target="_blank">第8課 翕相師傅</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>咱來餾生份字</h2>
+            <span class="pinyin">lán lâi liū tshenn-hūn-jī</span>
+            <ul class="links-list">
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L1.html" target="_blank">第1課-美食外送</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L2.html" target="_blank">第2課-茂林的Rukai族</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L3.html" target="_blank">第3課-山裡的英雄</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L4.html" target="_blank">第4課-馬偕之路</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L5-1.html" target="_blank">第5課-1無字的情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L5-2.html" target="_blank">第5課-2情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L6.html" target="_blank">第6課-化妝品</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L7.html" target="_blank">第7課-我的人生，我創造</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B1/L8.html" target="_blank">第8課-翕相師傅</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>選詞塌空</h2>
+            <span class="pinyin">suán-sû thap-khang</span>
+            <ul class="links-list">
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L1.html" target="_blank">第1課-美食外送</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L2.html" target="_blank">第2課-茂林的Rukai族</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L3.html" target="_blank">第3課-山裡的英雄</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L4.html" target="_blank">第4課-馬偕之路</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L5-1.html" target="_blank">第5課-1無字的情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L5-2.html" target="_blank">第5課-2情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L6.html" target="_blank">第6課-化妝品</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L7.html" target="_blank">第7課-我的人生，我創造</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B1/L8.html" target="_blank">第8課-翕相師傅</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>咱來鬥句</h2>
+            <span class="pinyin">lán lâi tàu-kù</span>
+            <ul class="links-list">
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L1.html" target="_blank">第1課 美食外送</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L2.html" target="_blank">第2課 茂林的Rukai族</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L3.html" target="_blank">第3課 山裡的英雄</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L4.html" target="_blank">第4課 馬偕之路</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L5-1.html" target="_blank">第5課 1無字的情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L5-2.html" target="_blank">第5課 2情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L6.html" target="_blank">第6課 化妝品</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L7.html" target="_blank">第7課 我的人生，我創造</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B1/L8.html" target="_blank">第8課-翕相師傅</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>心智圖配對</h2>
+            <span class="pinyin">sim-tì-tôo phuè-tuì</span>
+            <ul class="links-list">
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L1.html" target="_blank">第一課 美食外送</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L2.html" target="_blank">第二課 茂林的Rukai族佮烏秫米祭</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L3.html" target="_blank">第三課 山裡的英雄</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L4.html" target="_blank">第四課 馬偕之路</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L5-1.html" target="_blank">第五課 1無字的情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L5-2.html" target="_blank">第五課 2情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L6.html" target="_blank">第六課 化妝品</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L7.html" target="_blank">第七課 我的人生我創造</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B1/L8.html" target="_blank">第八課 翕相師傅</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>學思達講義</h2>
+            <span class="pinyin">ha̍k-su-ta̍t káng-gī</span>
+            <ul class="links-list">
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L1.html" target="_blank">第1課 美食外送</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L2.html" target="_blank">第2課 茂林的Rukai族</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L3.html" target="_blank">第3課 山裡的英雄</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L4.html" target="_blank">第4課 馬偕之路</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L5.html" target="_blank">第5課 無字的情批＋情批</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L6.html" target="_blank">第6課 化妝品</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L7.html" target="_blank">第7課 我的人生，我創造</a></li>
+                <li><a href="https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B1/L8.html" target="_blank">第8課 翕相師傅</a></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
