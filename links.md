@@ -6,11 +6,11 @@
 
 | 遊戲 | GitHub 網址 | Google Sites |
 |---|---|---|
-| 形音義配對 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=hingim | https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%BD%A2%E9%9F%B3%E7%BE%A9 |
-| 咱來餾生份字 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=siann | https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%94%9F%E4%BB%BD%E5%AD%97 |
-| 選詞塌空 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=suansu | https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E9%81%B8%E8%A9%9E%E5%A1%8C%E7%A9%BA |
-| 咱來鬥句 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=tauku | https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%92%B1%E4%BE%86%E9%AC%A5%E5%8F%A5 |
-| 心智圖配對 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=mindmap | https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%BF%83%E6%99%BA%E5%9C%96 |
+| 形音義配對 | <https://cyril-mingdao.github.io/taigi-class-games/menu/?g=hingim> | <https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%BD%A2%E9%9F%B3%E7%BE%A9> |
+| 咱來餾生份字 | <https://cyril-mingdao.github.io/taigi-class-games/menu/?g=siann> | <https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%94%9F%E4%BB%BD%E5%AD%97> |
+| 選詞塌空 | <https://cyril-mingdao.github.io/taigi-class-games/menu/?g=suansu> | <https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E9%81%B8%E8%A9%9E%E5%A1%8C%E7%A9%BA> |
+| 咱來鬥句 | <https://cyril-mingdao.github.io/taigi-class-games/menu/?g=tauku> | <https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%92%B1%E4%BE%86%E9%AC%A5%E5%8F%A5> |
+| 心智圖配對 | <https://cyril-mingdao.github.io/taigi-class-games/menu/?g=mindmap> | <https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%BF%83%E6%99%BA%E5%9C%96> |
 
 ## 形音義配對（`hingim/`）
 
