@@ -4,7 +4,7 @@
 
 - 總目錄：https://cyril-mingdao.github.io/taigi-class-games/（遊戲總頁＋依課名、課次、冊別查找）
 - 一個遊戲一個資料夾，底下依版本分資料夾，每課一個 html：`<遊戲>/<版本代號>/L<課>.html`
-- `menu/?g=<遊戲代號>`：課次選單，Google Sites 五個總頁整頁嵌入的就是這一頁
+- `menu/?g=<遊戲代號>`：課次選單，Google Sites 各總頁（五種遊戲＋學思達講義）整頁嵌入的就是這一頁
 
 | 資料夾 | 遊戲 | 遊戲總頁 |
 |---|---|---|
@@ -13,6 +13,7 @@
 | `suansu/` | 選詞塌空 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=suansu |
 | `tauku/` | 咱來鬥句 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=tauku |
 | `mindmap/` | 心智圖配對 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=mindmap |
+| `hakstat/` | 學思達講義 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=hakstat |
 
 | 版本代號 | 版本 |
 |---|---|
