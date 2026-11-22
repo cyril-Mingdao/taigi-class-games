@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  宗龍的台語課 入口導覽頁 — 彙整台語課各項線上學習工具、練習與測驗的導覽入口
+  Copyright © 2025–2026 詹宗龍（臺中明道中學）. All rights reserved.
+  本網頁之程式碼、版面與教案設計著作權屬詹宗龍所有，僅供非營利之教育教學使用。
+  未經著作權人書面授權，不得重製、改作、散布或修改本網頁之全部或一部分。
+-->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2025–2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<style>
+  :root {
+    --black: #111111;
+    --yellow: #ffd400;
+    --yellow-pale: #fff4bf;
+    --white: #ffffff;
+    --gray-line: #e2e2e2;
+    --text-main: #111111;
+    --text-sub: #3a3a3a;
+  }
+
+  body {
+    font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    font-size: 19px; 
+    line-height: 1.6;
+    color: var(--text-main);
+    
+    /* 禁止選取文字 (CSS) */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 18px;
+    padding: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  /* 卡片本體：白底、細灰框、頂端黃色色條 */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-top: 6px solid var(--yellow);
+    border-radius: 12px;
+    padding: 16px 20px 18px 20px; 
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start; 
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.14);
+  }
+
+  /* 標題區：白底黑字 */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-line);
+    min-width: 0;
+  }
+
+  .icon {
+    font-size: 1.5em;
+    flex-shrink: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .title {
+    font-weight: 800;
+    color: var(--text-main);
+    font-size: 1.12em;
+    margin: 0;
+    /* 長標題自然斷行、兩行長度平均（v3） */
+    white-space: normal;
+    text-wrap: balance;
+    line-height: 1.25;
+  }
+
+  /* 內容區 */
+  .content {
+    flex: 0 0 auto;
+    font-size: 0.92em;
+    line-height: 1.7;
+    color: var(--text-sub);
+    margin-bottom: 16px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+  }
+
+  /* 凸排設計 */
+  .desc-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* 標籤：淡黃底小字，避免與按鈕混淆 */
+  .label {
+    flex-shrink: 0;
+    font-weight: 700;
+    color: var(--text-main);
+    background-color: var(--yellow-pale);
+    border-left: 4px solid var(--yellow);
+    padding: 0 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    line-height: 1.9;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  .text {
+    margin: 0;
+  }
+
+  /* 按鈕：每張卡唯一的實心黑色元素 */
+  .btn {
+    background: var(--black);
+    color: var(--yellow);
+    border: 2px solid var(--black);
+    text-decoration: none;
+    text-align: center;
+    padding: 11px 0; 
+    border-radius: 8px;
+    font-size: 0.98em;
+    font-weight: bold;
+    display: block;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 2px;
+    margin-top: auto;
+  }
+  .btn:hover {
+    background-color: var(--yellow);
+    color: var(--black);
+    opacity: 1;
+  }
+
+  /* RWD 設定 */
+  @media (min-width: 700px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+
+  /* 電腦版 4欄排版 */
+  @media (min-width: 1100px) {
+    .grid-container {
+      grid-template-columns: repeat(4, 1fr); 
+    }
+  }
+
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div class="grid-container">
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🗣️</span>
+      <h3 class="title">1. 華台語翻譯系統</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">華語翻譯成台語漢字＋台語羅馬字，可聽發音。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">提升口說流暢，寫作參考。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%BF%BB%E8%AD%AF%E7%B3%BB%E7%B5%B1" class="btn" target="_blank" rel="noopener noreferrer">前往翻譯</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">💡</span>
+      <h3 class="title">2. 形音義配對</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">透過遊戲配對聲母、韻母、聲調及變調。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">強化形音義連結，提升識字率。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%BD%A2%E9%9F%B3%E7%BE%A9" class="btn" target="_blank" rel="noopener noreferrer">開始配對</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🎮</span>
+      <h3 class="title">3. 咱來餾生份字</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">聽音選台語等四模式測驗。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">鞏固基礎詞彙，訓練聽力辨識。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%94%9F%E4%BB%BD%E5%AD%97" class="btn" target="_blank" rel="noopener noreferrer">開始測驗</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🧩</span>
+      <h3 class="title">4. 選詞塌空</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">依語境選詞填空，類似克漏字。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">強化語境理解，提升閱讀流暢。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E9%81%B8%E8%A9%9E%E5%A1%8C%E7%A9%BA" class="btn" target="_blank" rel="noopener noreferrer">挑戰填空</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🏗️</span>
+      <h3 class="title">5. 咱來鬥句</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">詞彙重組練習，排列完整句子。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">培養建構能力，增強表達自信。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%92%B1%E4%BE%86%E9%AC%A5%E5%8F%A5" class="btn" target="_blank" rel="noopener noreferrer">練習造句</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🧠</span>
+      <h3 class="title">6. 心智圖配對</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">視覺化配對詞彙、解釋或圖片。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">圖像化聯想，建立知識網絡。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%BF%83%E6%99%BA%E5%9C%96" class="btn" target="_blank" rel="noopener noreferrer">開始配對</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">📑</span>
+      <h3 class="title">7. 學思達講義</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">各課學思達講義線上看，一鍵下載 PDF。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">小組共學造句、提問討論，深化理解與表達。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E5%AD%B8%E6%80%9D%E9%81%94%E8%AC%9B%E7%BE%A9" class="btn" target="_blank" rel="noopener noreferrer">開啟講義</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🖊️</span>
+      <h3 class="title">8. 自學點讀筆</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">課文數位化，點字即時聽發音。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">解決發音不便，提升自學效率。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E9%BB%9E%E8%AE%80%E7%AD%86" class="btn" target="_blank" rel="noopener noreferrer">開啟課文</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🔤</span>
+      <h3 class="title">9. 羅馬字發音練習</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">互動練習羅馬字拼讀與聲調。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">精準掌握拼音，解決讀寫困境。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%99%BC%E9%9F%B3%E7%B7%B4%E7%BF%92" class="btn" target="_blank" rel="noopener noreferrer">打好基礎</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🚀</span>
+      <h3 class="title">10. 進階練習</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">提供更多高階挑戰內容。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">持續挑戰自我，邁向流利台語。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E9%80%B2%E9%9A%8E%E7%B7%B4%E7%BF%92" class="btn" target="_blank" rel="noopener noreferrer">前往練習</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🧰</span>
+      <h3 class="title">11. 課程工具</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">整合各類實用教學工具與連結。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">提升學習便利性與備課效率。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E8%AA%B2%E7%A8%8B%E5%B7%A5%E5%85%B7" class="btn" target="_blank" rel="noopener noreferrer">前往工具</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">📝</span>
+      <h3 class="title">12. 互動答題工具</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">學生使用手機進行即時互動及作答</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">即時檢測學習成果，掌握進度。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E7%AD%94%E9%A1%8C%E5%B7%A5%E5%85%B7" class="btn" target="_blank" rel="noopener noreferrer">開始答題</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🎯</span>
+      <h3 class="title">13. 主題互動教學</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">結合特定主題的互動式教學模組。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">提升學習動機，深化主題理解。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/%E4%B8%BB%E9%A1%8C%E6%95%99%E5%AD%B8" class="btn" target="_blank" rel="noopener noreferrer">進入教學</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">⚙️</span>
+      <h3 class="title">14. API進階工具</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">自主開發的高階應用資源。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">深度自主學習，擴充學習機能。</span>
+      </div>
+    </div>
+    <a href="https://sites.google.com/ms.mingdao.edu.tw/tsiam/api%E9%80%B2%E9%9A%8E%E5%B7%A5%E5%85%B7" class="btn" target="_blank" rel="noopener noreferrer">前往工具</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">🖥️</span>
+      <h3 class="title">15. 教學電子白枋</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">提供數位化教學白板，支援即時書寫與展示。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">提升課堂教學互動性，方便重點解說。</span>
+      </div>
+    </div>
+    <a href="https://cyril-mingdao.github.io/taigi-whiteboard/" class="btn" target="_blank" rel="noopener noreferrer">開啟白板</a>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <span class="icon">✅</span>
+      <h3 class="title">16. 線頂測驗</h3>
+    </div>
+    <div class="content">
+      <div class="desc-row">
+        <span class="label">功能</span>
+        <span class="text">各課題型線上測驗，作答自動計分。</span>
+      </div>
+      <div class="desc-row">
+        <span class="label">效益</span>
+        <span class="text">檢核學習成效，掌握個人進度。</span>
+      </div>
+    </div>
+    <a href="https://cyril-mingdao.github.io/taigi-quiz/" class="btn" target="_blank" rel="noopener noreferrer">開始測驗</a>
+  </div>
+
+</div>
+
+<div style='text-align:right;width:100%;justify-content:center;margin-top:10px;'><img src='https://visitcounter.charliemoomoo.workers.dev/badge/tsongliongtaigi'/></div>
+
+<script>
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+  });
+  
+  document.onselectstart = function() {
+    return false;
+  };
+</script>
+
+</body>
+</html>
