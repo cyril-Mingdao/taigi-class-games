@@ -1893,11 +1893,11 @@ html body #g3 .g3-grp.g3-cnt>*{font-size:clamp(18px,min(3vw,6.4vh),58px)}
 html body #g3 .g3-grp.g3-cnt>.g3-n::after{all:unset;content:"題"!important;font-size:.45em;font-weight:700;margin-left:.15em;opacity:.65;align-self:center;margin-top:.45em}
 html body #g3 .g3-grp.g3-cnt>.g3-all{font-size:clamp(16px,min(2.4vw,5.2vh),46px)}
 /* 遊戲方式 */
-html body #g3 .g3-grp.g3-mode>*{justify-content:flex-start;padding:0 clamp(8px,1.1vw,20px);font-size:clamp(14px,min(1.9vw,4.4vh),40px);white-space:normal}
-html body #g3 .g3-grp.g3-mode.g3-m4>*{font-size:clamp(13px,min(1.5vw,3.8vh),34px)}
+html body #g3 .g3-grp.g3-mode>*{justify-content:flex-start;padding:0 clamp(8px,1.1vw,20px);font-size:clamp(14px,min(1.9vw,4.4vh),40px);white-space:nowrap}
+html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:repeat(2,1fr)!important;grid-auto-rows:1fr;max-height:clamp(90px,34vh,300px)}
 #g3 .g3-ico{flex:none;width:2em;height:2em;border-radius:50%;background:var(--k);color:var(--y);display:inline-flex;align-items:center;justify-content:center;font-size:.9em;font-weight:900;letter-spacing:0}
 #g3 .g3-ico svg{width:58%;height:58%}
-#g3 .g3-txt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;text-align:left;word-break:keep-all;overflow-wrap:anywhere}
+#g3 .g3-txt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;text-align:left;white-space:nowrap}
 #g3 .g3-txt small{font-size:.58em;font-weight:700;opacity:.65;margin-top:.25em}
 /* 開始鈕 */
 html body #g3 .g3-start{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;min-height:clamp(54px,13vh,130px);padding:.4em .6em;border-radius:16px;background:var(--y)!important;color:var(--k)!important;border:3px solid var(--y)!important;font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;font-size:clamp(18px,min(2.4vw,5vh),44px);line-height:1.2;letter-spacing:.06em;transition:transform .12s,background .12s;box-shadow:0 6px 0 #b39500!important;opacity:1!important}
@@ -1934,7 +1934,7 @@ html body #g3 .md-quiz-link-hint{display:none}
  #g3 .g3-side{flex:none;overflow:visible}
  #g3 .g3-gap{display:none}
  html body #g3 .g3-grp,html body #g3 .g3-main.g3-one .g3-grp{flex:none;max-height:none;height:auto}
- html body #g3 .g3-grp.g3-mode{grid-template-columns:1fr!important}
+ html body #g3 .g3-grp.g3-mode,html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:1fr!important;max-height:none}
  html body #g3 .g3-grp.g3-mode>*{min-height:clamp(52px,8vh,80px);font-size:clamp(17px,5vw,30px)}
  html body #g3 .g3-grp.g3-cnt{grid-template-columns:repeat(3,1fr)!important}
  html body #g3 .g3-grp.g3-cnt>.g3-all{grid-column:span var(--g3span,1)}
@@ -1947,7 +1947,7 @@ html body #g3 .md-quiz-link-hint{display:none}
  html body #g3 a.md-quiz-link{font-size:clamp(17px,4.8vw,24px)}
 }
 @media (orientation:portrait) and (min-width:600px){
- html body #g3 .g3-grp.g3-mode{grid-template-columns:repeat(2,1fr)!important}
+ html body #g3 .g3-grp.g3-mode,html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:repeat(2,1fr)!important}
 }
 </style>
 <script id="md-gmenu3-js">
@@ -1982,7 +1982,7 @@ html body #g3 .md-quiz-link-hint{display:none}
   grp.classList.add('g3-grp',cls);s.appendChild(grp);main.appendChild(s);}
  var SVG={ear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-7h3zM3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg>',
   eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>'};
- var modeNames=[];
+ var modeNames=[],fitModes=null;
  if(modeGrp){
   [].slice.call(modeGrp.children).forEach(function(b){
    var t=b.textContent.replace(/[🎧👀]/g,'').replace(/\s+/g,'').trim(),ico,small='';
@@ -1992,8 +1992,15 @@ html body #g3 .md-quiz-link-hint{display:none}
    b.innerHTML='<span class="g3-ico">'+ico+'</span><span class="g3-txt">'+t+(small?'<small>'+small+'</small>':'')+'</span>';
    b.setAttribute('data-g3', t);
   });
-  modeGrp.style.gridTemplateColumns='repeat('+Math.min(modeGrp.children.length,4)+',1fr)';
+  modeGrp.style.gridTemplateColumns='repeat('+Math.min(modeGrp.children.length,3)+',1fr)';
   if(modeGrp.children.length>=4)modeGrp.classList.add('g3-m4');
+  /* 方式鈕文字不斷行：放不下就自動縮小字級（老師 2026-11-23） */
+  fitModes=function(){if(!d.body.classList.contains('g3-menu'))return;[].slice.call(modeGrp.children).forEach(function(b){
+   var t=b.querySelector('.g3-txt');if(!t)return;b.style.fontSize='';var fs=parseFloat(getComputedStyle(b).fontSize),i=0;
+   while(t.scrollWidth>t.clientWidth+1&&i<40&&fs>9){fs*=0.95;b.style.fontSize=fs+'px';i++;}});};
+  window.addEventListener('resize',function(){requestAnimationFrame(fitModes);});
+  if(window.ResizeObserver)new ResizeObserver(function(){requestAnimationFrame(fitModes);}).observe(modeGrp);
+  if(d.fonts&&d.fonts.ready)d.fonts.ready.then(fitModes);
   step('選擇遊戲方式',modeGrp,'g3-mode');
  }
  var cnts=[].slice.call(cntGrp.children).filter(function(b){return b.matches('button,.qty-btn');});
@@ -2023,7 +2030,7 @@ html body #g3 .md-quiz-link-hint{display:none}
   var y=cntGrp.querySelector('.selected');sc.textContent=y?(y.classList.contains('g3-all')?'全部題目':y.textContent+' 題'):'尚未選擇';sc.classList.toggle('off',!y);
  }
  new MutationObserver(sum).observe(g,{subtree:true,attributes:true,attributeFilter:['class']});
- function sync(){d.body.classList.toggle('g3-menu',isMenu());sum();}
+ function sync(){d.body.classList.toggle('g3-menu',isMenu());sum();if(typeof fitModes==='function')requestAnimationFrame(fitModes);}
  new MutationObserver(sync).observe(menu,{attributes:true,attributeFilter:['style','class']});
  sync();
 })();
