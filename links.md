@@ -26,6 +26,35 @@
 | 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B1/L5.html |
 | 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B1/L6.html |
 
+### 真平版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 布袋戲尪仔 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B2/L1.html |
+| 第2課 看戲真趣味 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B2/L2.html |
+| 第3課 運動身體好 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B2/L3.html |
+| 第4課 藝術展覽 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B2/L4.html |
+| 第5課 臺灣好所在 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B2/L5.html |
+| 第6課 風聲水影日月潭 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B2/L6.html |
+
+### 真平版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阿母的頭毛 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B3/L1.html |
+| 第2課 阮阿媽專用的電話簿仔 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B3/L2.html |
+| 第3課 綴會著時代的老教授 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B3/L3.html |
+| 第4課 好奇號上火星 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B3/L4.html |
+
+### 真平版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 人生逐位會開花 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B4/L1.html |
+| 第2課 固定心態，沿路阻礙；成長心態，一生無礙 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B4/L2.html |
+| 第3課 思念火金蛄 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B4/L3.html |
+| 第4課 太平洋的風 | https://cyril-mingdao.github.io/taigi-class-games/hingim/CHINPING-B4/L4.html |
+
 ### 康軒版國中第1冊
 
 | 課次 | 連結 |
@@ -142,6 +171,35 @@
 | 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B1/L5.html |
 | 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B1/L6.html |
 
+### 真平版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 布袋戲尪仔 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B2/L1.html |
+| 第2課 看戲真趣味 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B2/L2.html |
+| 第3課 運動身體好 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B2/L3.html |
+| 第4課 藝術展覽 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B2/L4.html |
+| 第5課 臺灣好所在 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B2/L5.html |
+| 第6課 風聲水影日月潭 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B2/L6.html |
+
+### 真平版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阿母的頭毛 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B3/L1.html |
+| 第2課 阮阿媽專用的電話簿仔 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B3/L2.html |
+| 第3課 綴會著時代的老教授 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B3/L3.html |
+| 第4課 好奇號上火星 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B3/L4.html |
+
+### 真平版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 人生逐位會開花 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B4/L1.html |
+| 第2課 固定心態，沿路阻礙；成長心態，一生無礙 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B4/L2.html |
+| 第3課 思念火金蛄 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B4/L3.html |
+| 第4課 太平洋的風 | https://cyril-mingdao.github.io/taigi-class-games/siann/CHINPING-B4/L4.html |
+
 ### 康軒版國中第1冊
 
 | 課次 | 連結 |
@@ -250,6 +308,35 @@
 | 第4課 龜兔走標 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B1/L4.html |
 | 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B1/L5.html |
 | 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B1/L6.html |
+
+### 真平版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 布袋戲尪仔 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B2/L1.html |
+| 第2課 看戲真趣味 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B2/L2.html |
+| 第3課 運動身體好 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B2/L3.html |
+| 第4課 藝術展覽 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B2/L4.html |
+| 第5課 臺灣好所在 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B2/L5.html |
+| 第6課 風聲水影日月潭 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B2/L6.html |
+
+### 真平版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阿母的頭毛 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B3/L1.html |
+| 第2課 阮阿媽專用的電話簿仔 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B3/L2.html |
+| 第3課 綴會著時代的老教授 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B3/L3.html |
+| 第4課 好奇號上火星 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B3/L4.html |
+
+### 真平版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 人生逐位會開花 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B4/L1.html |
+| 第2課 固定心態，沿路阻礙；成長心態，一生無礙 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B4/L2.html |
+| 第3課 思念火金蛄 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B4/L3.html |
+| 第4課 太平洋的風 | https://cyril-mingdao.github.io/taigi-class-games/suansu/CHINPING-B4/L4.html |
 
 ### 康軒版國中第1冊
 
@@ -360,6 +447,35 @@
 | 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B1/L5.html |
 | 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B1/L6.html |
 
+### 真平版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 布袋戲尪仔 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B2/L1.html |
+| 第2課 看戲真趣味 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B2/L2.html |
+| 第3課 運動身體好 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B2/L3.html |
+| 第4課 藝術展覽 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B2/L4.html |
+| 第5課 臺灣好所在 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B2/L5.html |
+| 第6課 風聲水影日月潭 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B2/L6.html |
+
+### 真平版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阿母的頭毛 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B3/L1.html |
+| 第2課 阮阿媽專用的電話簿仔 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B3/L2.html |
+| 第3課 綴會著時代的老教授 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B3/L3.html |
+| 第4課 好奇號上火星 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B3/L4.html |
+
+### 真平版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 人生逐位會開花 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B4/L1.html |
+| 第2課 固定心態，沿路阻礙；成長心態，一生無礙 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B4/L2.html |
+| 第3課 思念火金蛄 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B4/L3.html |
+| 第4課 太平洋的風 | https://cyril-mingdao.github.io/taigi-class-games/tauku/CHINPING-B4/L4.html |
+
 ### 康軒版國中第1冊
 
 | 課次 | 連結 |
@@ -469,6 +585,35 @@
 | 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L5.html |
 | 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B1/L6.html |
 
+### 真平版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 布袋戲尪仔 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B2/L1.html |
+| 第2課 看戲真趣味 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B2/L2.html |
+| 第3課 運動身體好 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B2/L3.html |
+| 第4課 藝術展覽 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B2/L4.html |
+| 第5課 臺灣好所在 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B2/L5.html |
+| 第6課 風聲水影日月潭 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B2/L6.html |
+
+### 真平版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阿母的頭毛 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B3/L1.html |
+| 第2課 阮阿媽專用的電話簿仔 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B3/L2.html |
+| 第3課 綴會著時代的老教授 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B3/L3.html |
+| 第4課 好奇號上火星 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B3/L4.html |
+
+### 真平版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 人生逐位會開花 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B4/L1.html |
+| 第2課 固定心態，沿路阻礙；成長心態，一生無礙 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B4/L2.html |
+| 第3課 思念火金蛄 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B4/L3.html |
+| 第4課 太平洋的風 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/CHINPING-B4/L4.html |
+
 ### 康軒版國中第1冊
 
 | 課次 | 連結 |
@@ -577,6 +722,35 @@
 | 第4課 龜兔走標 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B1/L4.html |
 | 第5課 踅菜市 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B1/L5.html |
 | 第6課 割稻仔飯 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B1/L6.html |
+
+### 真平版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 布袋戲尪仔 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B2/L1.html |
+| 第2課 看戲真趣味 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B2/L2.html |
+| 第3課 運動身體好 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B2/L3.html |
+| 第4課 藝術展覽 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B2/L4.html |
+| 第5課 臺灣好所在 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B2/L5.html |
+| 第6課 風聲水影日月潭 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B2/L6.html |
+
+### 真平版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 阿母的頭毛 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B3/L1.html |
+| 第2課 阮阿媽專用的電話簿仔 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B3/L2.html |
+| 第3課 綴會著時代的老教授 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B3/L3.html |
+| 第4課 好奇號上火星 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B3/L4.html |
+
+### 真平版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 人生逐位會開花 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B4/L1.html |
+| 第2課 固定心態，沿路阻礙；成長心態，一生無礙 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B4/L2.html |
+| 第3課 思念火金蛄 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B4/L3.html |
+| 第4課 太平洋的風 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/CHINPING-B4/L4.html |
 
 ### 康軒版國中第1冊
 

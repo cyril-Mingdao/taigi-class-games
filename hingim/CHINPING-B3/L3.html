@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  真平版國中第3冊 第3課 綴會著時代的老教授 — 台語課堂遊戲「形音義配對」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「真平企業有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 30 日取得該公司簽署之《著作權授權書》（並經 115 年 9 月 29 日明道中學會議確認），
+  同意於非營利之教育教學用途範圍內重製及改編後上傳網路供學生使用。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放使用自製 snd-plus.js（音檔即時連結教育部辭典官方錄音，著作權屬教育部）；
+  字型與樣式（如 tauhu.tw）之著作權屬各原權利人。
+  除真平企業有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>第3課 綴會著時代的老教授</title>
+<link rel="icon" id="md-icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23827717%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2250%22%20font-size%3D%2248%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFFFFF%22%20font-family%3D%22Microsoft%20JhengHei%2CPingFang%20TC%2CNoto%20Sans%20TC%2Csans-serif%22%3E%E7%9C%9F%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+    <script src="https://cyril-mingdao.github.io/taigi-class-games/assets/snd-plus.js"></script>
+
+    <style>/*md-dvh*/
+        :root {
+            /* 橘色系主題 */
+            --bg-start: #FFF8E1; 
+            --bg-end: #FFCC80;   
+            --primary-color: #ff9600; 
+            --primary-shadow: #cc7a00;
+            --correct-color: #58cc02; 
+            --correct-shadow: #46a302;
+            --wrong-color: #ff4b4b;   
+            --wrong-shadow: #d12020;
+            --text-color: #4b4b4b;
+            --font-main: 'tauhu-oo', sans-serif;
+            --box-border: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            height: 100vh;height:100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-color);
+        }
+
+        body[oncontextmenu="return false;"] { cursor: default; }
+
+        /* --- 1. 入口選單 --- */
+        #menu-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 { margin-bottom: 0.2em; font-size: 2.5rem; color: #d35400; line-height: 1; }
+        h2 { margin-top: 0; font-size: 1.2rem; color: #8d6e63; font-weight: normal; margin-bottom: 2rem; line-height: 1; }
+
+        .settings-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .option-group { margin-bottom: 1.5rem; text-align: left; }
+        .option-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; font-size: 1.1rem; color: #5d4037; }
+        
+        /* 數量選擇網格 3x2 配置 */
+        .qty-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .qty-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qty-btn.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-shadow);
+            box-shadow: 0 2px 0 var(--primary-shadow);
+        }
+
+        .btn-start {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 0;
+            width: 100%;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            cursor: pointer;
+            transition: transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .btn-start:active { transform: translateY(4px); box-shadow: none; }
+
+        /* --- 2. 遊戲介面配置 --- */
+        #game-screen {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 10px 0 10px; 
+        }
+
+        /* 內容主區域 - 佔據所有剩餘空間 */
+        .content-area {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            align-items: stretch; 
+        }
+
+        /* 左側資訊區 */
+        .info-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 10px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+            border: 2px solid #fff;
+            flex-shrink: 0; 
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1.4rem; 
+        }
+        .info-label {
+            font-weight: bold;
+            color: #795548;
+            width: 70px;
+            flex-shrink: 0;
+        }
+        .info-val {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.4rem; 
+        }
+
+        .taiyu-box {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; 
+            border: 2px solid #ffe0b2;
+        }
+        .taiyu-text {
+            font-size: 2.5rem; 
+            color: #d35400;
+            font-weight: bold;
+        }
+        .play-audio-btn {
+            font-size: 2.2rem; 
+            cursor: pointer;
+            color: #29b6f6;
+            background: white;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 0 #ddd;
+            flex-shrink: 0;
+        }
+        .play-audio-btn:active { transform: scale(0.95); box-shadow: none; }
+
+        .mandarin-label {
+            font-weight: bold; 
+            color: #795548; 
+            width: 100%; 
+            margin-bottom: 2px; 
+            font-size: 1.1rem;
+            text-align: left; 
+        }
+
+        /* 華語文字區域 */
+        .mandarin-text {
+            font-size: 1.6rem; 
+            color: #555;
+            line-height: 1.3;
+            max-height: 80px; 
+            overflow-y: auto; 
+            padding-right: 5px;
+            text-align: center; 
+            
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+        .mandarin-text::-webkit-scrollbar { width: 6px; }
+        .mandarin-text::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 3px; }
+        .mandarin-text.fs-md { font-size: 1.4rem; }
+        .mandarin-text.fs-sm { font-size: 1.2rem; }
+
+        /* 右側答題矩陣區 */
+        .matrix-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 4px; 
+            
+            flex: 1;           
+            min-height: 0;     
+            overflow-y: auto;  
+            overflow-x: auto;  
+            
+            align-items: flex-start; 
+        }
+
+        .syllable-row {
+            display: flex;
+            gap: 8px;
+            width: max-content; 
+            min-width: 100%;    
+            padding-bottom: 5px; 
+        }
+
+        /* 單個目標方塊 */
+        .target-box {
+            flex: 1;
+            border: 2px solid var(--box-border);
+            border-radius: 10px;
+            background: #fdfdfd;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 90px; 
+            transition: all 0.3s;
+            min-width: 60px; 
+        }
+
+        .target-header {
+            background: #f0f0f0;
+            color: #777;
+            font-size: 1.2rem; 
+            padding: 4px;
+            text-align: center;
+            border-bottom: 1px solid var(--box-border);
+            white-space: nowrap; 
+        }
+
+        .target-value {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; 
+            font-weight: bold;
+            color: #ccc; 
+            white-space: nowrap;
+            /* 預防單格文字過多溢出 */
+            overflow-y: auto;
+        }
+
+        .target-value.filled { color: var(--correct-color); }
+
+        /* 呼吸效果 */
+        @keyframes breathe {
+            0% { border-color: #ff4b4b; box-shadow: 0 0 0 0 rgba(255, 75, 75, 0.4); }
+            50% { border-color: #ff4b4b; box-shadow: 0 0 8px 4px rgba(255, 75, 75, 0.2); }
+            100% { border-color: #ff4b4b; box-shadow: 0 0 0 0 rgba(255, 75, 75, 0); }
+        }
+
+        .target-box.active-step {
+            animation: breathe 1.5s infinite;
+            border-width: 2px;
+            background-color: #fffafaf0;
+        }
+        .target-box.active-step .target-header {
+            background-color: #ff4b4b;
+            color: white;
+        }
+        .target-box.active-step .target-value {
+            color: #ff4b4b;
+        }
+
+        /* 選項區域 */
+        .options-area {
+            flex-shrink: 0;
+            height: auto;
+            min-height: 140px;
+            margin-bottom: 5px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .option-card {
+            background: white;
+            border: 2px solid #e5e5e5;
+            border-radius: 15px;
+            padding: 8px;
+            box-shadow: 0 4px 0 #e5e5e5;
+            cursor: pointer;
+            transition: all 0.1s;
+            display: flex;
+            align-items: center;
+            min-height: 80px; 
+            overflow: hidden; 
+        }
+        .option-card:active { transform: translateY(4px); box-shadow: none; }
+
+        .opt-idx-box {
+            width: 54px; 
+            height: 54px; 
+            font-size: 1.5rem; 
+            background: #eee;
+            color: #888;
+            border-radius: 12px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 2px solid #ddd;
+        }
+
+        .opt-text {
+            font-size: 2.1rem; 
+            font-weight: bold;
+            color: var(--text-color);
+            flex-grow: 1;
+            text-align: center;
+            word-break: break-word; 
+            line-height: 1.1;       
+        }
+
+        /* 手機版 (6.2吋約對應寬度400-480px以下)，縮小字體 */
+        @media (max-width: 480px) {
+            .opt-text { font-size: 1.6rem; }
+            .text-fit-sm { font-size: 1.3rem; }
+            .text-fit-md { font-size: 1.5rem; }
+            .text-fit-lg { font-size: 1.8rem; }
+            .opt-idx-box { width: 45px; height: 45px; font-size: 1.2rem; margin-right: 8px; }
+        }
+
+        .option-card.correct {
+            background-color: var(--correct-color);
+            border-color: var(--correct-color);
+            box-shadow: 0 4px 0 var(--correct-shadow);
+        }
+        .option-card.correct .opt-idx-box { background-color: #46a302; color: white; border-color: #388e3c; }
+        .option-card.correct .opt-text { color: white; }
+
+        .option-card.wrong {
+            background-color: var(--wrong-color);
+            border-color: var(--wrong-color);
+            box-shadow: 0 4px 0 var(--wrong-shadow);
+        }
+        .option-card.wrong .opt-idx-box { background-color: #d12020; color: white; border-color: #b71c1c; }
+        .option-card.wrong .opt-text { color: white; }
+
+        /* --- 底部整合工具列 --- */
+        .footer-bar {
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255,255,255,0);
+            border-top: none; 
+            padding: 0 10px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        /* 底部左側 (選單 + 題號) */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 140px; 
+        }
+        .nav-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 5px 15px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            box-shadow: 0 2px 0 #ddd;
+            font-size: 0.9rem;
+        }
+        .nav-btn:active { transform: translateY(2px); box-shadow: none; }
+        
+        .q-counter {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #d35400;
+        }
+
+        /* 底部中間 (完成訊息) */
+        .footer-center {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #58cc02;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* 底部右側 (上一題 + 下一題) */
+        .footer-right {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            width: 170px; 
+        }
+
+        .nav-control-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 5px; 
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 0 var(--primary-shadow);
+            font-size: 1rem;
+            cursor: pointer;
+            visibility: visible; 
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            flex: 1;
+        }
+        .nav-control-btn:active { transform: translateY(4px); box-shadow: none; }
+        .nav-control-btn:disabled {
+            background-color: #ccc;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        /* RWD */
+        @media (min-width: 768px) {
+            .content-area {
+                flex-direction: row;
+                align-items: stretch; 
+            }
+            .info-panel {
+                flex: 1;
+                max-width: 400px; 
+            }
+            .matrix-panel {
+                flex: 2;
+                align-items: center; 
+            }
+            .syllable-row {
+                width: 100%;
+                justify-content: center;
+            }
+            .options-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+            .footer-bar {
+                padding: 0 20px;
+            }
+        }
+        
+        .text-fit-sm { font-size: 1.65rem; }
+        .text-fit-md { font-size: 1.95rem; }
+        .text-fit-lg { font-size: 2.4rem; }
+
+    </style>
+<style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+<style id="md-fit">/*md-dvh*/
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+@media (orientation: landscape) and (max-height: 640px){
+ html body h1{font-size:clamp(18px,7.5vh,2.5rem);font-size:clamp(18px,7.5dvh,2.5rem);margin:0 0 0.4vh;margin:0 0 0.4dvh}
+ html body h2{font-size:clamp(12px,4vh,1.2rem);font-size:clamp(12px,4dvh,1.2rem);margin-bottom:1.6vh;margin-bottom:1.6dvh}
+ html body .settings-box{max-width:92vw;width:92vw;padding:1.8vh 2.4vw;padding:1.8dvh 2.4vw;box-sizing:border-box}
+ html body .option-group{margin-bottom:1vh;margin-bottom:1dvh}
+ html body .option-group label{font-size:clamp(12px,3.8vh,1.1rem);font-size:clamp(12px,3.8dvh,1.1rem);margin-bottom:0.6vh;margin-bottom:0.6dvh}
+ html body .qty-grid{grid-template-columns:repeat(6,1fr);gap:1vw}
+ html body .qty-btn{padding:1.2vh 0.4vw;padding:1.2dvh 0.4vw;font-size:clamp(13px,4.6vh,1.5rem);font-size:clamp(13px,4.6dvh,1.5rem)}
+ html body .btn-start{padding:1.4vh 0;padding:1.4dvh 0;font-size:clamp(14px,5vh,1.5rem);font-size:clamp(14px,5dvh,1.5rem);margin-top:0.6vh;margin-top:0.6dvh}
+ html body .md-quiz-link-wrap{margin-top:1vh;margin-top:1dvh}
+ html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);font-size:clamp(12px,3.8dvh,18px);padding:0.8vh 2vw;padding:0.8dvh 2vw}
+ html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);font-size:clamp(10px,2.8dvh,13px);margin-top:0.3vh;margin-top:0.3dvh}
+ html body #game-screen{padding:0.8vh 1vw 16px;padding:0.8dvh 1vw 16px;box-sizing:border-box}
+ html body .content-area{flex-direction:row;gap:1vw;margin-bottom:0.8vh;margin-bottom:0.8dvh}
+ html body .info-panel{flex:1;max-width:32%;padding:0.8vh 0.8vw;padding:0.8dvh 0.8vw}
+ html body .info-row,html body .info-val{font-size:clamp(11px,3.6vh,1.4rem);font-size:clamp(11px,3.6dvh,1.4rem)}
+ html body .info-label{width:auto;margin-right:0.6vw}
+ html body .taiyu-box{margin:0.4vh 0;margin:0.4dvh 0;padding:0.4vh;padding:0.4dvh;gap:1vw}
+ html body .taiyu-text{font-size:clamp(16px,7vh,2.5rem);font-size:clamp(16px,7dvh,2.5rem)}
+ html body .play-audio-btn{width:clamp(24px,8vh,45px);width:clamp(24px,8dvh,45px);height:clamp(24px,8vh,45px);height:clamp(24px,8dvh,45px);font-size:clamp(14px,5.4vh,2.2rem);font-size:clamp(14px,5.4dvh,2.2rem)}
+ html body .mandarin-label{font-size:clamp(10px,3vh,1.1rem);font-size:clamp(10px,3dvh,1.1rem)}
+ html body .mandarin-text{font-size:clamp(11px,4vh,1.6rem);font-size:clamp(11px,4dvh,1.6rem);max-height:14vh;max-height:14dvh}
+ html body .matrix-panel{flex:2;align-items:stretch;justify-content:center;padding:0.8vh;padding:0.8dvh;gap:0.8vh;gap:0.8dvh}
+ html body .syllable-row{width:100%;min-width:0;justify-content:center;gap:0.6vw;padding-bottom:0;flex:1 1 0;max-height:24vh;max-height:24dvh}
+ html body .target-box{min-height:0;min-width:0}
+ html body .target-header{font-size:clamp(10px,3vh,1.2rem);font-size:clamp(10px,3dvh,1.2rem);padding:0.3vh;padding:0.3dvh}
+ html body .target-value{font-size:clamp(12px,6vh,2rem);font-size:clamp(12px,6dvh,2rem)}
+ html body .options-area{min-height:0;margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body .options-grid{grid-template-columns:repeat(4,1fr);gap:1vw}
+ html body .option-card{min-height:0;padding:1.4vh 0.6vw;padding:1.4dvh 0.6vw}
+ html body .opt-idx-box{width:clamp(20px,7vh,54px);width:clamp(20px,7dvh,54px);height:clamp(20px,7vh,54px);height:clamp(20px,7dvh,54px);font-size:clamp(11px,3.6vh,1.5rem);font-size:clamp(11px,3.6dvh,1.5rem);margin-right:0.6vw}
+ html body .opt-text,html body .opt-text.text-fit-sm,html body .opt-text.text-fit-md,html body .opt-text.text-fit-lg{font-size:clamp(13px,7.5vh,2.1rem);font-size:clamp(13px,7.5dvh,2.1rem)}
+ html body .footer-bar{height:clamp(32px,11vh,60px);height:clamp(32px,11dvh,60px)}
+ html body .nav-control-btn{height:clamp(26px,8vh,40px);height:clamp(26px,8dvh,40px)}
+}
+@media (max-width: 767px) and (orientation: portrait){
+ html body #game-screen{padding:6px 6px 34px;box-sizing:border-box}
+ html body .content-area{gap:6px;margin-bottom:6px}
+ html body .info-panel{padding:6px 8px}
+ html body .info-row,html body .info-val{font-size:clamp(14px,2.4vh,1.4rem);font-size:clamp(14px,2.4dvh,1.4rem)}
+ html body .taiyu-box{margin:3px 0;padding:3px;gap:10px}
+ html body .taiyu-text{font-size:clamp(20px,4.6vh,2.5rem);font-size:clamp(20px,4.6dvh,2.5rem)}
+ html body .play-audio-btn{width:clamp(30px,5.6vh,45px);width:clamp(30px,5.6dvh,45px);height:clamp(30px,5.6vh,45px);height:clamp(30px,5.6dvh,45px);font-size:clamp(18px,4vh,2.2rem);font-size:clamp(18px,4dvh,2.2rem)}
+ html body .mandarin-label{font-size:clamp(11px,1.8vh,1.1rem);font-size:clamp(11px,1.8dvh,1.1rem);margin-bottom:0}
+ html body .mandarin-text{font-size:clamp(14px,2.6vh,1.6rem);font-size:clamp(14px,2.6dvh,1.6rem);max-height:7vh;max-height:7dvh}
+ html body .matrix-panel{padding:5px;gap:4px;justify-content:center;align-items:stretch}
+ html body .syllable-row{flex:1 1 0;min-height:0;max-height:12vh;max-height:12dvh;gap:4px;padding-bottom:0;width:100%;min-width:0}
+ html body .target-box{min-height:0;min-width:0}
+ html body .target-header{font-size:clamp(11px,1.9vh,1.2rem);font-size:clamp(11px,1.9dvh,1.2rem);padding:1px}
+ html body .target-value{font-size:clamp(14px,3.4vh,2rem);font-size:clamp(14px,3.4dvh,2rem)}
+ html body .options-area{min-height:0;margin-bottom:4px}
+ html body .options-grid{gap:6px}
+ html body .option-card{min-height:0;padding:0.9vh 6px;padding:0.9dvh 6px}
+ html body .opt-idx-box{width:clamp(28px,5vh,54px);width:clamp(28px,5dvh,54px);height:clamp(28px,5vh,54px);height:clamp(28px,5dvh,54px);font-size:clamp(13px,2.4vh,1.5rem);font-size:clamp(13px,2.4dvh,1.5rem);margin-right:6px}
+ html body .opt-text,html body .opt-text.text-fit-sm,html body .opt-text.text-fit-md,html body .opt-text.text-fit-lg{font-size:clamp(16px,4.2vh,2.1rem);font-size:clamp(16px,4.2dvh,2.1rem)}
+ html body .footer-bar{height:clamp(40px,7vh,60px);height:clamp(40px,7dvh,60px)}
+}
+</style>
+<style id="md-mobile">
+/* 底部工具列與右下角出版社標示錯開（md-fit 的 html body #game-screen 媒體規則優先） */
+body #game-screen{padding-bottom:22px}
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="menu-screen">
+        <h1>形音義配對</h1>
+        <h2>第3課 綴會著時代的老教授</h2>
+        <div class="settings-box">
+            
+            <div class="option-group">
+                <label>測驗數量</label>
+                <div class="qty-grid">
+                    <div class="qty-btn selected" onclick="selectQty(5)">5</div>
+                    <div class="qty-btn" onclick="selectQty(7)">7</div>
+                    <div class="qty-btn" onclick="selectQty(9)">9</div>
+                    <div class="qty-btn" onclick="selectQty(11)">11</div>
+                    <div class="qty-btn" onclick="selectQty(13)">13</div>
+                    <div class="qty-btn" id="md-all-btn" onclick="selectQty(db.length)" title="題庫全部題目，亂數出題">全部</div>
+                </div>
+            </div>
+            <button class="btn-start" onclick="startGame()">開始測驗</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/HINGIM-CHINPING-B3L3.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+        </div>
+    </div>
+
+    <div id="game-screen">
+        
+        <div class="content-area">
+            
+            <div class="info-panel">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; border-bottom:1px dashed #ccc; padding-bottom:5px;">
+                    <div class="info-row" style="margin:0;">
+                        <span class="info-label">項次</span>
+                        <span class="info-val" id="disp-id">1</span>
+                    </div>
+                    <div class="info-row" style="margin:0;">
+                        <span class="info-label">頁數</span>
+                        <span class="info-val" id="disp-page">6</span>
+                    </div>
+                </div>
+
+                <div class="taiyu-box">
+                    <span class="taiyu-text" id="display-taiyu">呔會</span>
+                    <div class="play-audio-btn" onclick="playCurrentAudio()">🔊</div>
+                </div>
+
+                <div style="margin-top: 5px;">
+                    <div class="mandarin-label">華語</div>
+                    <div class="mandarin-text" id="display-mandarin">怎麼會、豈會</div>
+                </div>
+            </div>
+
+            <div class="matrix-panel" id="matrix-container">
+                </div>
+
+        </div>
+
+        <div class="options-area">
+            <div id="options-grid" class="options-grid">
+                </div>
+        </div>
+
+        <div class="footer-bar">
+            <div class="footer-left">
+                <button class="nav-btn" onclick="returnToMenu()">選單</button>
+                <div class="q-counter">
+                    <span id="current-q-num">1</span> / <span id="total-q-num">5</span>
+                </div>
+            </div>
+
+            <div class="footer-center" id="status-msg">
+                </div>
+
+            <div class="footer-right">
+                <button id="prev-btn" class="nav-control-btn" onclick="prevQuestion()">上一題</button>
+                <button id="next-btn" class="nav-control-btn" onclick="nextQuestion()">下一題</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. 資料庫 (第3課 綴會著時代的老教授) ---
+        const db = [{"id": 1, "pg": 40, "ty": "甲", "tl": "kah", "i1": "k", "f1": "ah", "t1": "4", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "到/到…的地步/既然/哪會"}, {"id": 2, "pg": 40, "ty": "這馬", "tl": "tsit-má", "i1": "ts", "f1": "it", "t1": "4", "s1": "8", "i2": "m", "f2": "á", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "現在"}, {"id": 3, "pg": 40, "ty": "攏", "tl": "lóng", "i1": "l", "f1": "óng", "t1": "2", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "都、皆、全部"}, {"id": 4, "pg": 40, "ty": "毋免", "tl": "m̄ bián", "i1": "無", "f1": "m̄", "t1": "7", "s1": "3", "i2": "b", "f2": "ián", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不用"}, {"id": 5, "pg": 40, "ty": "𤲍", "tl": "kheh/khueh", "i1": "kh", "f1": "eh", "t1": "4", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "擠"}, {"id": 6, "pg": 40, "ty": "日頭", "tl": "ji̍t/li̍t-thâu", "i1": "j", "f1": "i̍t", "t1": "8", "s1": "4", "i2": "th", "f2": "âu", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "太陽"}, {"id": 7, "pg": 41, "ty": "糞埽", "tl": "pùn-sò", "i1": "p", "f1": "ùn", "t1": "3", "s1": "2", "i2": "s", "f2": "ò", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "垃圾"}, {"id": 8, "pg": 41, "ty": "毋過", "tl": "m̄-koh/kò/kù", "i1": "無", "f1": "m̄", "t1": "7", "s1": "3", "i2": "k", "f2": "oh", "t2": "4", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不過、但是"}, {"id": 9, "pg": 41, "ty": "嘛是", "tl": "mā sī", "i1": "m", "f1": "ā", "t1": "7", "s1": "3", "i2": "s", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "也是"}, {"id": 10, "pg": 41, "ty": "家己", "tl": "ka-kī / ka-tī", "i1": "k", "f1": "a", "t1": "1", "s1": "7", "i2": "k", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "自己、本身"}, {"id": 11, "pg": 42, "ty": "阮", "tl": "guán / gún", "i1": "g", "f1": "uán", "t1": "2", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "我們/我/我的"}, {"id": 12, "pg": 42, "ty": "厝邊", "tl": "tshù-pinn", "i1": "tsh", "f1": "ù", "t1": "3", "s1": "2", "i2": "p", "f2": "inn", "t2": "1", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "鄰居/房子的旁邊、附近"}, {"id": 13, "pg": 42, "ty": "伊", "tl": "i", "i1": "無", "f1": "i", "t1": "1", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "他、她、牠、它"}, {"id": 14, "pg": 42, "ty": "欲", "tl": "beh / bueh", "i1": "b", "f1": "eh", "t1": "4", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "表意願；表假設；將要"}, {"id": 15, "pg": 42, "ty": "佮", "tl": "kah", "i1": "k", "f1": "ah", "t1": "4", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "和；搭配；附帶；適合"}, {"id": 16, "pg": 42, "ty": "無仝款", "tl": "bô kāng-khuán", "i1": "b", "f1": "ô", "t1": "5", "s1": "7", "i2": "k", "f2": "āng", "t2": "7", "s2": "3", "i3": "kh", "f3": "uán", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不一樣"}, {"id": 17, "pg": 42, "ty": "生活", "tl": "sing-ua̍h", "i1": "s", "f1": "ing", "t1": "1", "s1": "7", "i2": "無", "f2": "ua̍h", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "生活"}, {"id": 18, "pg": 42, "ty": "真濟", "tl": "tsin-tsē", "i1": "ts", "f1": "in", "t1": "1", "s1": "7", "i2": "ts", "f2": "ē", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "很多"}, {"id": 19, "pg": 42, "ty": "已經", "tl": "í-king", "i1": "無", "f1": "í", "t1": "2", "s1": "1", "i2": "k", "f2": "ing", "t2": "1", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "已經"}, {"id": 20, "pg": 42, "ty": "網路", "tl": "bāng-lōo", "i1": "b", "f1": "āng", "t1": "7", "s1": "3", "i2": "l", "f2": "ōo", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "網路"}, {"id": 21, "pg": 42, "ty": "慣勢", "tl": "kuàn-sì", "i1": "k", "f1": "uàn", "t1": "3", "s1": "2", "i2": "s", "f2": "ì", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "習慣"}, {"id": 22, "pg": 42, "ty": "手機仔", "tl": "tshiú-ki-á", "i1": "tsh", "f1": "iú", "t1": "2", "s1": "1", "i2": "k", "f2": "i", "t2": "1", "s2": "7", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "手機"}, {"id": 23, "pg": 42, "ty": "資料", "tl": "tsu-liāu", "i1": "ts", "f1": "u", "t1": "1", "s1": "7", "i2": "l", "f2": "iāu", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "資料"}, {"id": 24, "pg": 42, "ty": "三不五時", "tl": "sam-put-gōo-sî", "i1": "s", "f1": "am", "t1": "1", "s1": "7", "i2": "p", "f2": "ut", "t2": "4", "s2": "8", "i3": "g", "f3": "ōo", "t3": "7", "s3": "3", "i4": "s", "f4": "î", "t4": "5", "s4": "不變", "md": "不時"}, {"id": 25, "pg": 42, "ty": "厝邊兜", "tl": "tshù-pinn-tau", "i1": "tsh", "f1": "ù", "t1": "3", "s1": "2", "i2": "p", "f2": "inn", "t2": "1", "s2": "7", "i3": "t", "f3": "au", "t3": "1", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "鄰居"}, {"id": 26, "pg": 42, "ty": "囡仔", "tl": "gín-á", "i1": "g", "f1": "ín", "t1": "2", "s1": "1", "i2": "無", "f2": "á", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "小孩子"}, {"id": 27, "pg": 42, "ty": "做伙", "tl": "tsò/tsuè-hé", "i1": "ts", "f1": "ò", "t1": "3", "s1": "2", "i2": "h", "f2": "é", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "一起/往來"}, {"id": 28, "pg": 42, "ty": "輸贏", "tl": "su-iânn", "i1": "s", "f1": "u", "t1": "1", "s1": "7", "i2": "無", "f2": "iânn", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "輸或贏"}, {"id": 29, "pg": 42, "ty": "少年家", "tl": "siàu-liân-ke", "i1": "s", "f1": "iàu", "t1": "3", "s1": "2", "i2": "l", "f2": "iân", "t2": "5", "s2": "7", "i3": "k", "f3": "e", "t3": "1", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "年輕人"}, {"id": 31, "pg": 42, "ty": "毋但", "tl": "m̄-nā/ niā", "i1": "無", "f1": "m̄", "t1": "7", "s1": "3", "i2": "n", "f2": "ā", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不只、不但"}, {"id": 32, "pg": 42, "ty": "按呢", "tl": "án-ne/ni", "i1": "無", "f1": "án", "t1": "2", "s1": "1", "i2": "n", "f2": "e", "t2": "1", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "這樣、如此"}, {"id": 33, "pg": 42, "ty": "四序", "tl": "sù-sī", "i1": "s", "f1": "ù", "t1": "3", "s1": "2", "i2": "s", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "井井有條、妥當/讓人覺得舒服安適的感覺"}, {"id": 34, "pg": 42, "ty": "猛掠", "tl": "mé-lia̍h", "i1": "m", "f1": "é", "t1": "2", "s1": "1", "i2": "l", "f2": "ia̍h", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "動作敏捷"}, {"id": 35, "pg": 42, "ty": "少年", "tl": "siàu-liân", "i1": "s", "f1": "iàu", "t1": "3", "s1": "2", "i2": "l", "f2": "iân", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "年輕"}, {"id": 36, "pg": 44, "ty": "接接", "tl": "tsih-tsiap", "i1": "ts", "f1": "ih", "t1": "4", "s1": "2", "i2": "ts", "f2": "iap", "t2": "4", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "接洽"}, {"id": 37, "pg": 44, "ty": "熟似", "tl": "si̍k-sāi", "i1": "s", "f1": "i̍k", "t1": "8", "s1": "4", "i2": "s", "f2": "āi", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "熟識/素來認識"}, {"id": 38, "pg": 44, "ty": "當咧", "tl": "tng-teh/tih", "i1": "t", "f1": "ng", "t1": "1", "s1": "7", "i2": "t", "f2": "eh", "t2": "4", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "正在、正值"}, {"id": 39, "pg": 44, "ty": "苦毒", "tl": "khóo-to̍k", "i1": "kh", "f1": "óo", "t1": "2", "s1": "1", "i2": "t", "f2": "o̍k", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "虐待"}, {"id": 40, "pg": 44, "ty": "拄開始", "tl": "tú-khai-sí", "i1": "t", "f1": "ú", "t1": "2", "s1": "1", "i2": "kh", "f2": "ai", "t2": "1", "s2": "7", "i3": "s", "f3": "í", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "剛開始"}, {"id": 41, "pg": 44, "ty": "好佳哉", "tl": "hó-ka-tsài", "i1": "h", "f1": "ó", "t1": "2", "s1": "1", "i2": "k", "f2": "a", "t2": "1", "s2": "7", "i3": "ts", "f3": "ài", "t3": "3", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "幸虧"}, {"id": 42, "pg": 44, "ty": "按怎", "tl": "án-tsuánn/nuá/ná", "i1": "無", "f1": "án", "t1": "2", "s1": "1", "i2": "ts", "f2": "uánn", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "怎麼、怎樣"}, {"id": 43, "pg": 44, "ty": "搝", "tl": "khiú", "i1": "kh", "f1": "iú", "t1": "2", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "拉扯"}, {"id": 44, "pg": 44, "ty": "入來", "tl": "ji̍p-lâi", "i1": "j", "f1": "i̍p", "t1": "8", "s1": "4", "i2": "l", "f2": "âi", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "進來"}, {"id": 45, "pg": 44, "ty": "分享", "tl": "hun-hióng/hiáng", "i1": "h", "f1": "un", "t1": "1", "s1": "7", "i2": "h", "f2": "ióng", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "分享"}, {"id": 46, "pg": 44, "ty": "一下仔", "tl": "tsi̍t-ē-á", "i1": "ts", "f1": "i̍t", "t1": "8", "s1": "4", "i2": "無", "f2": "ē", "t2": "7", "s2": "不變", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "一會兒"}, {"id": 47, "pg": 44, "ty": "好勢", "tl": "hó-sè", "i1": "h", "f1": "ó", "t1": "2", "s1": "1", "i2": "s", "f2": "è", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "舒適"}, {"id": 48, "pg": 44, "ty": "目睭", "tl": "ba̍k-tsiu", "i1": "b", "f1": "a̍k", "t1": "8", "s1": "4", "i2": "ts", "f2": "iu", "t2": "1", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "眼睛"}, {"id": 49, "pg": 44, "ty": "好玄", "tl": "hònn-hiân", "i1": "h", "f1": "ònn", "t1": "3", "s1": "2", "i2": "h", "f2": "iân", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "好奇"}, {"id": 50, "pg": 44, "ty": "啥物", "tl": "siánn-mih", "i1": "s", "f1": "iánn", "t1": "2", "s1": "1", "i2": "m", "f2": "ih", "t2": "4", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "什麼"}, {"id": 51, "pg": 44, "ty": "無仝", "tl": "bô kāng/kâng", "i1": "b", "f1": "ô", "t1": "5", "s1": "7", "i2": "k", "f2": "āng", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不一樣"}, {"id": 52, "pg": 44, "ty": "遐爾", "tl": "hiah-nī", "i1": "h", "f1": "iah", "t1": "4", "s1": "2", "i2": "n", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "這麼"}, {"id": 53, "pg": 44, "ty": "生活", "tl": "sing-ua̍h", "i1": "s", "f1": "ing", "t1": "1", "s1": "7", "i2": "無", "f2": "ua̍h", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "生活"}, {"id": 54, "pg": 45, "ty": "毋管", "tl": "m̄-kuán", "i1": "無", "f1": "m̄", "t1": "7", "s1": "3", "i2": "k", "f2": "uán", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不論、無論"}, {"id": 55, "pg": 45, "ty": "古早", "tl": "kóo-tsá", "i1": "k", "f1": "óo", "t1": "2", "s1": "1", "i2": "ts", "f2": "á", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "從前、以前"}, {"id": 56, "pg": 45, "ty": "抑是", "tl": "ia̍h/iah/a̍h/ah-sī", "i1": "無", "f1": "ia̍h", "t1": "8", "s1": "3", "i2": "s", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "或是"}, {"id": 57, "pg": 45, "ty": "為著", "tl": "uī-tio̍h", "i1": "無", "f1": "uī", "t1": "7", "s1": "3", "i2": "t", "f2": "io̍h", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "為了"}, {"id": 58, "pg": 45, "ty": "人類", "tl": "jîn-luī", "i1": "j", "f1": "în", "t1": "5", "s1": "7", "i2": "l", "f2": "uī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "人類"}, {"id": 59, "pg": 45, "ty": "利便", "tl": "lī-piān", "i1": "l", "f1": "ī", "t1": "7", "s1": "3", "i2": "p", "f2": "iān", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "方便、便利"}, {"id": 60, "pg": 45, "ty": "拚勢", "tl": "piànn-sè", "i1": "p", "f1": "iànn", "t1": "3", "s1": "2", "i2": "s", "f2": "è", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "拚命"}, {"id": 61, "pg": 45, "ty": "走揣", "tl": "tsáu-tshuē/ tshē", "i1": "ts", "f1": "áu", "t1": "2", "s1": "1", "i2": "tsh", "f2": "uē", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "到處尋找。"}, {"id": 62, "pg": 45, "ty": "按呢", "tl": "án-ne/ni", "i1": "無", "f1": "án", "t1": "2", "s1": "1", "i2": "n", "f2": "e", "t2": "1", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "這樣、如此"}, {"id": 63, "pg": 45, "ty": "好好仔", "tl": "hó-hó-á", "i1": "h", "f1": "ó", "t1": "2", "s1": "1", "i2": "h", "f2": "ó", "t2": "2", "s2": "1", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "好好地"}, {"id": 64, "pg": 45, "ty": "學習", "tl": "ha̍k-si̍p", "i1": "h", "f1": "a̍k", "t1": "8", "s1": "4", "i2": "s", "f2": "i̍p", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "學習"}, {"id": 65, "pg": 45, "ty": "生活", "tl": "sing-ua̍h", "i1": "s", "f1": "ing", "t1": "1", "s1": "7", "i2": "無", "f2": "ua̍h", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "生活"}, {"id": 66, "pg": 45, "ty": "毋是", "tl": "m̄ sī", "i1": "無", "f1": "m̄", "t1": "7", "s1": "3", "i2": "s", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不是"}, {"id": 67, "pg": 45, "ty": "無彩", "tl": "bô-tshái", "i1": "b", "f1": "ô", "t1": "5", "s1": "7", "i2": "tsh", "f2": "ái", "t2": "2", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "可惜；枉然；浪費"}, {"id": 68, "pg": 45, "ty": "手機仔", "tl": "tshiú-ki-á", "i1": "tsh", "f1": "iú", "t1": "2", "s1": "1", "i2": "k", "f2": "i", "t2": "1", "s2": "7", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "手機"}, {"id": 69, "pg": 45, "ty": "無偌久", "tl": "bô-guā/juā/luā-kú", "i1": "b", "f1": "ô", "t1": "5", "s1": "7", "i2": "g", "f2": "uā", "t2": "7", "s2": "3", "i3": "k", "f3": "ú", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "不久"}, {"id": 70, "pg": 45, "ty": "芳貢貢", "tl": "phang-kòng-kòng", "i1": "ph", "f1": "ang", "t1": "1", "s1": "7", "i2": "k", "f2": "òng", "t2": "3", "s2": "2", "i3": "k", "f3": "òng", "t3": "3", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "形容香氣很盛"}, {"id": 71, "pg": 45, "ty": "焦麵", "tl": "ta-mī", "i1": "t", "f1": "a", "t1": "1", "s1": "7", "i2": "m", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "乾麵"}, {"id": 73, "pg": 45, "ty": "按呢", "tl": "án-ne/ni", "i1": "無", "f1": "án", "t1": "2", "s1": "1", "i2": "n", "f2": "e", "t2": "1", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "這樣、如此"}, {"id": 74, "pg": 45, "ty": "開破", "tl": "khui-phuà", "i1": "kh", "f1": "ui", "t1": "1", "s1": "7", "i2": "ph", "f2": "uà", "t2": "3", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "用言語啟發他人，使人悟出道理。"}, {"id": 75, "pg": 45, "ty": "頕頭", "tl": "Tàm/tìm-thâu", "i1": "t", "f1": "àm", "t1": "3", "s1": "2", "i2": "th", "f2": "âu", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "點頭/打招呼"}, {"id": 76, "pg": 45, "ty": "伊", "tl": "i", "i1": "無", "f1": "i", "t1": "1", "s1": "不變", "i2": "", "f2": "", "t2": "", "s2": "", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "他、她、牠、它"}, {"id": 77, "pg": 45, "ty": "遮爾", "tl": "tsiah-nī", "i1": "ts", "f1": "iah", "t1": "4", "s1": "2", "i2": "n", "f2": "ī", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "多麼、這麼"}, {"id": 78, "pg": 45, "ty": "生活", "tl": "sing-ua̍h", "i1": "s", "f1": "ing", "t1": "1", "s1": "7", "i2": "無", "f2": "ua̍h", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "生活"}, {"id": 79, "pg": 45, "ty": "學習", "tl": "ha̍k-si̍p", "i1": "h", "f1": "a̍k", "t1": "8", "s1": "4", "i2": "s", "f2": "i̍p", "t2": "8", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "學習"}, {"id": 80, "pg": 45, "ty": "發明", "tl": "huat-bîng", "i1": "h", "f1": "uat", "t1": "4", "s1": "8", "i2": "b", "f2": "îng", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "發明"}, {"id": 81, "pg": 45, "ty": "好好仔", "tl": "hó-hó-á", "i1": "h", "f1": "ó", "t1": "2", "s1": "1", "i2": "h", "f2": "ó", "t2": "2", "s2": "1", "i3": "無", "f3": "á", "t3": "2", "s3": "不變", "i4": "", "f4": "", "t4": "", "s4": "", "md": "好好地"}, {"id": 82, "pg": 45, "ty": "利便", "tl": "lī-piān", "i1": "l", "f1": "ī", "t1": "7", "s1": "3", "i2": "p", "f2": "iān", "t2": "7", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "方便、便利"}, {"id": 83, "pg": 45, "ty": "時行", "tl": "sî-kiânn", "i1": "s", "f1": "î", "t1": "5", "s1": "7", "i2": "k", "f2": "iânn", "t2": "5", "s2": "不變", "i3": "", "f3": "", "t3": "", "s3": "", "i4": "", "f4": "", "t4": "", "s4": "", "md": "流行"}];
+
+        // --- 2. 狀態變數 ---
+        let gameQuestions = [];
+        let currentQIndex = 0;
+        let selectedQty = 5; 
+        
+        let questionStates = []; 
+        let autoPlayTimer = null; 
+        
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playBeep(type) {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } else {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.3);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            }
+        }
+
+        // --- 3. 遊戲邏輯 ---
+
+        function selectQty(num) {
+            selectedQty = num;
+            document.querySelectorAll('.qty-btn').forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        function startGame() {
+            const count = selectedQty;
+            const shuffledDb = [...db].sort(() => 0.5 - Math.random());
+            gameQuestions = shuffledDb.slice(0, count);
+            
+            questionStates = gameQuestions.map(() => ({
+                step: 0,
+                answers: {} 
+            }));
+            
+            currentQIndex = 0;
+            document.getElementById('menu-screen').style.display = 'none';
+            document.getElementById('game-screen').style.display = 'flex';
+            document.getElementById('total-q-num').textContent = count;
+            
+            loadQuestion(currentQIndex, true);
+        }
+
+        function returnToMenu() {
+            clearTimeout(autoPlayTimer);
+            document.getElementById('game-screen').style.display = 'none';
+            document.getElementById('menu-screen').style.display = 'flex';
+        }
+
+        function loadQuestion(index, autoPlay = true) {
+            clearTimeout(autoPlayTimer);
+
+            const qData = gameQuestions[index];
+            const qState = questionStates[index];
+            
+            document.getElementById('current-q-num').textContent = index + 1;
+            document.getElementById('prev-btn').disabled = (index === 0);
+            
+            document.getElementById('disp-id').textContent = qData.id;
+            document.getElementById('disp-page').textContent = qData.pg;
+            document.getElementById('display-taiyu').textContent = qData.ty;
+
+            const mdText = qData.md;
+            const mdEl = document.getElementById('display-mandarin');
+            mdEl.textContent = mdText;
+            
+            mdEl.className = 'mandarin-text'; 
+            if (mdText.length > 15) {
+                mdEl.classList.add('fs-sm'); 
+            } else if (mdText.length > 10) {
+                mdEl.classList.add('fs-md'); 
+            }
+            
+            // 清除狀態訊息
+            document.getElementById('status-msg').textContent = "";
+            document.getElementById('options-grid').innerHTML = ""; // 先清空選項
+
+            renderMatrix(qData, qState.answers);
+            renderStep(index);
+
+            if (autoPlay) {
+                autoPlayTimer = setTimeout(() => {
+                    playCurrentAudio();
+                }, 800);
+            }
+        }
+
+        function createTargetBox(id, label, filledVal) {
+            const isFilled = filledVal !== undefined;
+            const valText = isFilled ? filledVal : '?';
+            const filledClass = isFilled ? 'filled' : '';
+            return `
+                <div class="target-box" id="target-${id}">
+                    <div class="target-header">${label}</div>
+                    <div class="target-value ${filledClass}" id="val-${id}">${valText}</div>
+                </div>
+            `;
+        }
+
+        function renderMatrix(data, answers) {
+            const container = document.getElementById('matrix-container');
+            let html = '';
+
+            html += '<div class="syllable-row">';
+            html += createTargetBox('i1', '聲母1', answers['i1']);
+            html += createTargetBox('f1', '韻母1', answers['f1']);
+            html += createTargetBox('t1', '聲調1', answers['t1']);
+            html += createTargetBox('s1', '變調1', answers['s1']);
+            html += '</div>';
+
+            if (data.i2) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i2', '聲母2', answers['i2']);
+                html += createTargetBox('f2', '韻母2', answers['f2']);
+                html += createTargetBox('t2', '聲調2', answers['t2']);
+                html += createTargetBox('s2', '變調2', answers['s2']);
+                html += '</div>';
+            }
+
+            if (data.i3) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i3', '聲母3', answers['i3']);
+                html += createTargetBox('f3', '韻母3', answers['f3']);
+                html += createTargetBox('t3', '聲調3', answers['t3']);
+                html += createTargetBox('s3', '變調3', answers['s3']);
+                html += '</div>';
+            }
+
+            if (data.i4) {
+                html += '<div class="syllable-row">';
+                html += createTargetBox('i4', '聲母4', answers['i4']);
+                html += createTargetBox('f4', '韻母4', answers['f4']);
+                html += createTargetBox('t4', '聲調4', answers['t4']);
+                html += createTargetBox('s4', '變調4', answers['s4']);
+                html += '</div>';
+            }
+
+            container.innerHTML = html;
+        }
+
+        function getStepsForQuestion(data) {
+            let steps = [];
+            steps.push({key: 'i1', ref: 'init1'});
+            steps.push({key: 'f1', ref: 'fin1'});
+            steps.push({key: 't1', ref: 'tone1'});
+            steps.push({key: 's1', ref: 'sandhi1'});
+            
+            if (data.i2) {
+                steps.push({key: 'i2', ref: 'init2'});
+                steps.push({key: 'f2', ref: 'fin2'});
+                steps.push({key: 't2', ref: 'tone2'});
+                steps.push({key: 's2', ref: 'sandhi2'});
+            }
+            if (data.i3) {
+                steps.push({key: 'i3', ref: 'init3'});
+                steps.push({key: 'f3', ref: 'fin3'});
+                steps.push({key: 't3', ref: 'tone3'});
+                steps.push({key: 's3', ref: 'sandhi3'});
+            }
+            if (data.i4) {
+                steps.push({key: 'i4', ref: 'init4'});
+                steps.push({key: 'f4', ref: 'fin4'});
+                steps.push({key: 't4', ref: 'tone4'});
+                steps.push({key: 's4', ref: 'sandhi4'});
+            }
+            return steps;
+        }
+
+        function renderStep(qIdx) {
+            const qData = gameQuestions[qIdx];
+            const qState = questionStates[qIdx];
+            const steps = getStepsForQuestion(qData);
+            
+            document.querySelectorAll('.target-box').forEach(el => el.classList.remove('active-step'));
+
+            if (qState.step >= steps.length) {
+                document.getElementById('status-msg').textContent = "";
+                document.getElementById('options-grid').innerHTML = "";
+                return;
+            }
+
+            // 未完成：清空底部訊息
+            document.getElementById('status-msg').textContent = "";
+
+            const step = steps[qState.step];
+            const correctAns = qData[step.key];
+            
+            const targetEl = document.getElementById(`target-${step.key}`);
+            if(targetEl) targetEl.classList.add('active-step');
+
+            const options = generateOptions(step.key, correctAns);
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
+            
+            const labels = ['A', 'B', 'C', 'D'];
+
+            options.forEach((opt, idx) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-card';
+                
+                const idxBox = document.createElement('div');
+                idxBox.className = 'opt-idx-box';
+                idxBox.textContent = labels[idx];
+                
+                const txt = document.createElement('span');
+                txt.className = 'opt-text';
+                txt.textContent = opt;
+                if (opt.length > 8) txt.classList.add('text-fit-sm');
+                else if (opt.length > 4) txt.classList.add('text-fit-md');
+                else txt.classList.add('text-fit-lg');
+
+                btn.appendChild(idxBox);
+                btn.appendChild(txt);
+
+                btn.onclick = () => checkAnswer(btn, opt, correctAns, step.key, qIdx);
+                grid.appendChild(btn);
+            });
+        }
+
+        // 修改：允許同類型的資料（如聲母1、2、3）互相作為選項
+        function generateOptions(key, correct) {
+            // 判斷當前題目的類型 (i=聲母, f=韻母, t=聲調, s=變調)
+            const prefix = key.charAt(0); 
+            // 找出該類型所有的欄位 (1, 2, 3)
+            const targetCols = [prefix + '1', prefix + '2', prefix + '3', prefix + '4'];
+
+            const allValues = new Set();
+            db.forEach(item => {
+                // 遍歷所有欄位，將同類型的資料都加入候選名單
+                targetCols.forEach(col => {
+                    if (item[col] !== undefined && item[col] !== "") {
+                        allValues.add(item[col]);
+                    }
+                });
+            });
+            
+            allValues.delete(correct);
+            
+            let dist = Array.from(allValues);
+            const selections = [];
+            
+            while(selections.length < 3) {
+                if (dist.length === 0) {
+                    dist = Array.from(allValues);
+                    if (dist.length === 0) break; 
+                }
+                
+                const r = Math.floor(Math.random() * dist.length);
+                selections.push(dist[r]);
+                dist.splice(r, 1);
+            }
+            
+            selections.push(correct);
+            
+            while(selections.length < 4) {
+                 selections.push("-"); 
+            }
+
+            return selections.sort(() => 0.5 - Math.random());
+        }
+
+        function checkAnswer(btn, selected, correct, cellKey, qIdx) {
+            if (qIdx !== currentQIndex) return; 
+            if (btn.classList.contains('correct') || document.querySelector('.option-card.correct')) return;
+
+            if (selected === correct) {
+                btn.classList.add('correct');
+                playBeep('correct');
+                
+                const valDiv = document.getElementById(`val-${cellKey}`);
+                if(valDiv) {
+                    valDiv.textContent = correct;
+                    valDiv.classList.add('filled');
+                }
+
+                questionStates[qIdx].answers[cellKey] = correct;
+                
+                setTimeout(() => {
+                    questionStates[qIdx].step++;
+                    renderStep(qIdx);
+                }, 600);
+            } else {
+                btn.classList.add('wrong');
+                playBeep('wrong');
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                loadQuestion(currentQIndex, false);
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < gameQuestions.length - 1) {
+                currentQIndex++;
+                loadQuestion(currentQIndex, true);
+            } else {
+                returnToMenu();
+            }
+        }
+
+                /* 發音取第一種完整讀音（2026-11-15 修正：多音寫法不再只唸第一個音節）— © 2026 詹宗龍 */
+        function mdTl(raw, han) {
+            let s = String(raw || '').trim();
+            if (!s || /^https?:\/\//.test(s)) return s;
+            s = s.split(/\s+\/\s+/)[0].replace(/\/\s+/g, '/');
+            const n = (String(han || '').match(/[㐀-鿿豈-﫿]|[\ud840-\ud8bf][\udc00-\udfff]/g) || []).length;
+            const cnt = t => t.split(/[\s\-]+/).filter(Boolean).length;
+            const tok = s.replace(/[^\s\-]+/g, w => w.split('/')[0]);
+            const first = s.split('/')[0].trim();
+            if (!n || cnt(tok) === n) return tok;
+            if (cnt(first) === n) return first;
+            return tok;
+        }
+
+        function playCurrentAudio() {
+            const data = gameQuestions[currentQIndex];
+            if (!data) return;
+            const raw = data.tl;
+            const processed = mdTl(raw, data.ty);
+            try {
+                const dummy = document.createElement('div');
+                holo(dummy, processed);
+            } catch (e) {
+                console.error("Audio error:", e);
+            }
+        }
+    </script>
+<!-- md-fs：浮動全螢幕切換鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-fs-css">
+#md-fs-btn{position:fixed;right:4px;top:4px;left:auto;bottom:auto;z-index:2147483646;width:40px;height:40px;padding:0;margin:0;border:2px solid #FFD400;border-radius:50%;background:rgba(17,17,17,.8);color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.55;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .15s;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#md-fs-btn[hidden]{display:none}
+#md-fs-btn:hover,#md-fs-btn:focus-visible,#md-fs-btn.drag{opacity:1;outline:none}
+#md-fs-btn.drag{cursor:grabbing}
+#md-fs-btn svg{width:22px;height:22px;display:block;pointer-events:none}
+#md-fs-btn .md-fs-exit{display:none}
+#md-fs-btn.on .md-fs-enter{display:none}
+#md-fs-btn.on .md-fs-exit{display:block}
+@media print{#md-fs-btn{display:none}}
+</style>
+<button type="button" id="md-fs-btn" title="全螢幕（可拖曳移位）" aria-label="全螢幕" hidden>
+<svg class="md-fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+<svg class="md-fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+</button>
+<script id="md-fs-js">
+(function(){
+ var b=document.getElementById('md-fs-btn'),d=document,e=d.documentElement,K='md-fs-pos';
+ var req=e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen;
+ var ok=d.fullscreenEnabled||d.webkitFullscreenEnabled||d.msFullscreenEnabled;
+ if(!b||!req||ok===false){return;}
+ b.hidden=false;
+ function cur(){return d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement;}
+ function sync(){var on=!!cur();b.classList.toggle('on',on);var t=on?'取消全螢幕':'全螢幕';b.title=t+'（可拖曳移位）';b.setAttribute('aria-label',t);}
+ function toggle(){
+  if(cur()){(d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen).call(d);}
+  else{var p=req.call(e);if(p&&p.catch){p.catch(function(){});}}
+ }
+ var pos=null;
+ function place(){
+  if(!pos)return;
+  var w=b.offsetWidth||40,h=b.offsetHeight||40;
+  var x=Math.max(0,Math.min(innerWidth-w,pos.x*innerWidth)),y=Math.max(0,Math.min(innerHeight-h,pos.y*innerHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.right='auto';b.style.bottom='auto';
+ }
+ try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&isFinite(s.x)&&isFinite(s.y))pos=s;}catch(_){}
+ place();addEventListener('resize',place);
+ var st=null,moved=false;
+ b.addEventListener('pointerdown',function(ev){if(ev.button>0)return;var r=b.getBoundingClientRect();st={x:ev.clientX,y:ev.clientY,ox:ev.clientX-r.left,oy:ev.clientY-r.top};moved=false;try{b.setPointerCapture(ev.pointerId);}catch(_){}});
+ b.addEventListener('pointermove',function(ev){
+  if(!st)return;
+  if(!moved&&Math.abs(ev.clientX-st.x)+Math.abs(ev.clientY-st.y)<8)return;
+  moved=true;b.classList.add('drag');
+  pos={x:(ev.clientX-st.ox)/innerWidth,y:(ev.clientY-st.oy)/innerHeight};place();
+ });
+ function end(){if(!st)return;st=null;b.classList.remove('drag');if(moved){try{localStorage.setItem(K,JSON.stringify(pos));}catch(_){}}}
+ b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+ b.addEventListener('click',function(ev){
+  ev.preventDefault();ev.stopPropagation();
+  if(moved){moved=false;return;}
+  toggle();b.blur();
+ });
+ d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);
+ sync();
+})();
+</script>
+<!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<style id="md-all-css">
+html body .qty-grid{grid-template-columns:repeat(4,1fr)}
+html body #md-all-btn{white-space:nowrap;padding-left:2px;padding-right:2px}
+@media (orientation: landscape) and (max-height: 640px){html body .qty-grid{grid-template-columns:repeat(7,1fr)}}
+</style>
+<!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body #menu-screen{height:calc(100vh - 22px);min-height:0;box-sizing:border-box;padding:1.6vh 2vw 0;justify-content:flex-start;overflow:hidden}
+ html body #menu-screen h1{flex:none;margin:0;line-height:1.15;font-size:clamp(20px,min(4.8vw,9vh),88px)}
+ html body #menu-screen h2{flex:none;margin:0.4vh 0 1.6vh;font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body #menu-screen .settings-box{flex:1 1 auto;min-height:0;width:100%;max-width:none;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;padding:2vh 3vw;margin:0 0 1vh}
+ html body #menu-screen .option-group{margin:0}
+ html body #menu-screen .option-group label{font-size:clamp(12px,min(2vw,4vh),36px);margin-bottom:1.4vh}
+ html body #menu-screen .qty-grid{grid-template-columns:repeat(7,1fr);gap:1.4vw}
+ html body #menu-screen .qty-btn{padding:2.6vh 0.4vw;line-height:1.1;white-space:nowrap;font-size:clamp(14px,min(3.2vw,7.5vh),68px)}
+ html body #menu-screen .btn-start{margin:0;padding:2.4vh 0;font-size:clamp(14px,min(3vw,6.5vh),60px)}
+ html body #menu-screen .md-quiz-link-wrap{margin:0}
+ html body #menu-screen a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body #menu-screen .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
+<!-- md-gmenu3 -->
+<!-- md-gmenu3：課堂遊戲入口頁黑黃白版型 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-gmenu3-css">
+#g3{--k:#111111;--k2:#2A2A2A;--k3:#3a3a3a;--y:#FFD400;--w:#FFFFFF;--g:#F5F5F5;display:none}
+html body.g3-menu{overflow:hidden!important;background:#111111!important}
+html body.g3-menu #g3{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;background:var(--k);color:var(--w);font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;overflow:hidden}
+#g3 *{box-sizing:border-box}
+#g3 .g3-head{flex:none;display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);padding:clamp(8px,1.6vh,16px) clamp(70px,6vw,90px) clamp(8px,1.6vh,16px) clamp(16px,2.4vw,32px);border-bottom:4px solid var(--y)}
+#g3 .g3-tag{flex:none;background:var(--y);color:var(--k);font-weight:900;font-size:clamp(13px,min(1.6vw,3vh),24px);padding:.3em .9em;border-radius:999px;letter-spacing:.08em}
+html body #g3 .g3-title{flex:1 1 auto;min-width:0;margin:0;text-align:left;background:none!important;-webkit-text-fill-color:var(--y)!important;color:var(--y)!important;text-shadow:none!important;font-weight:900;font-size:clamp(20px,min(3.2vw,6.4vh),52px);line-height:1.2;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#g3 .g3-book{flex:none;color:var(--w);border:2px solid var(--w);border-radius:999px;padding:.25em .9em;font-weight:700;font-size:clamp(12px,min(1.3vw,2.6vh),20px);opacity:.9}
+#g3 .g3-body{flex:1 1 0;min-height:0;display:flex;gap:clamp(12px,2vw,28px);padding:clamp(10px,2.2vh,26px) clamp(16px,2.4vw,32px) 28px}
+#g3 .g3-main{flex:1 1 0;min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(10px,2vh,22px)}
+#g3 .g3-step{flex:1 1 0;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.6vh,18px);background:var(--k2);border:2px solid var(--k3);border-radius:18px;padding:clamp(10px,2vh,22px) clamp(12px,1.6vw,24px)}
+#g3 .g3-h{flex:none;color:var(--y);font-weight:900;font-size:clamp(14px,min(1.8vw,3.4vh),30px);letter-spacing:.06em;display:flex;align-items:center;gap:.5em}
+#g3 .g3-h b{display:inline-flex;align-items:center;justify-content:center;width:1.6em;height:1.6em;border-radius:50%;background:var(--y);color:var(--k);font-size:.85em}
+#g3 .g3-side{flex:0 0 clamp(240px,27vw,420px);min-height:0;display:flex;flex-direction:column;gap:clamp(8px,1.8vh,18px);background:var(--k2);border:2px solid var(--k3);border-radius:18px;padding:clamp(12px,2.2vh,24px) clamp(12px,1.4vw,22px);overflow:auto}
+#g3 .g3-sum{display:flex;flex-direction:column;gap:.4em;background:var(--k);border-radius:12px;padding:.8em 1em;font-size:clamp(13px,min(1.4vw,2.8vh),22px);line-height:1.3}
+#g3 .g3-sum div{display:flex;gap:.6em}
+#g3 .g3-sum span{flex:none;color:#aaa}
+#g3 .g3-sum strong{color:var(--w);font-weight:900;min-width:0;overflow-wrap:anywhere}
+#g3 .g3-sum strong.off{color:#777;font-weight:500}
+#g3 .g3-sep{flex:none;height:1px;background:#444}
+#g3 .g3-gap{flex:1 1 0}
+#g3 .g3-main.g3-one{justify-content:center}
+#g3 .g3-main.g3-one .g3-step{flex:none;padding-top:clamp(16px,4vh,48px);padding-bottom:clamp(16px,4vh,48px)}
+html body #g3 .g3-main.g3-one .g3-grp{flex:none;height:clamp(70px,34vh,320px);max-height:none}
+/* 按鈕群組（原容器搬進來） */
+html body #g3 .g3-grp{all:unset;box-sizing:border-box;display:grid;gap:clamp(8px,1.2vw,16px);width:100%;flex:1 1 0;min-height:0;max-height:clamp(60px,30vh,260px)}
+html body #g3 .g3-grp>*:not(button):not(.qty-btn){display:none!important}
+html body #g3 .g3-grp>button,html body #g3 .g3-grp>.qty-btn{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex!important;align-items:center;justify-content:center;gap:.5em;min-width:0;min-height:0;margin:0;text-align:center;overflow:visible;background:var(--w);color:var(--k);border:3px solid var(--w);border-radius:16px;font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;line-height:1.15;white-space:nowrap;transition:transform .12s,background .12s,border-color .12s,box-shadow .12s;-webkit-tap-highlight-color:transparent}
+html body #g3 .g3-grp>[hidden]{display:none!important}
+html body #g3 .g3-grp>*>*{pointer-events:none}
+html body #g3 .g3-grp>*:hover,html body #g3 .g3-grp>*:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 3px var(--y);outline:none}
+html body #g3 .g3-grp>.selected{background:var(--y)!important;border-color:var(--y)!important;color:var(--k)!important;box-shadow:0 0 0 4px var(--w)!important}
+html body #g3 .g3-grp>*::before,html body #g3 .g3-grp>*::after{content:none!important;animation:none!important}
+html body #g3 .g3-grp>.selected::before{all:unset;content:"✓"!important;position:absolute;top:-.55em;right:-.4em;width:1.5em;height:1.5em;border-radius:50%;background:var(--k);color:var(--y);border:3px solid var(--y);display:flex;align-items:center;justify-content:center;font-size:clamp(11px,min(1.1vw,2.2vh),18px);font-weight:900}
+/* 題數 */
+html body #g3 .g3-grp.g3-cnt>*{font-size:clamp(18px,min(3vw,6.4vh),58px)}
+html body #g3 .g3-grp.g3-cnt>.g3-n::after{all:unset;content:"題"!important;font-size:.45em;font-weight:700;margin-left:.15em;opacity:.65;align-self:center;margin-top:.45em}
+html body #g3 .g3-grp.g3-cnt>.g3-all{font-size:clamp(16px,min(2.4vw,5.2vh),46px)}
+/* 遊戲方式 */
+html body #g3 .g3-grp.g3-mode>*{justify-content:flex-start;padding:0 clamp(8px,1.1vw,20px);font-size:clamp(14px,min(1.9vw,4.4vh),40px);white-space:nowrap}
+html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:repeat(2,1fr)!important;grid-auto-rows:1fr;max-height:clamp(90px,34vh,300px)}
+#g3 .g3-ico{flex:none;width:2em;height:2em;border-radius:50%;background:var(--k);color:var(--y);display:inline-flex;align-items:center;justify-content:center;font-size:.9em;font-weight:900;letter-spacing:0}
+#g3 .g3-ico svg{width:58%;height:58%}
+#g3 .g3-txt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;text-align:left;white-space:nowrap}
+#g3 .g3-txt small{font-size:.58em;font-weight:700;opacity:.65;margin-top:.25em}
+/* 開始鈕 */
+html body #g3 .g3-start{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;min-height:clamp(54px,13vh,130px);padding:.4em .6em;border-radius:16px;background:var(--y)!important;color:var(--k)!important;border:3px solid var(--y)!important;font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;font-size:clamp(18px,min(2.4vw,5vh),44px);line-height:1.2;letter-spacing:.06em;transition:transform .12s,background .12s;box-shadow:0 6px 0 #b39500!important;opacity:1!important}
+html body #g3 .g3-start:not(:disabled):hover,html body #g3 .g3-start:not(:disabled):focus-visible{transform:translateY(-2px);outline:none;background:#ffe14d!important}
+html body #g3 .g3-start:not(:disabled):active{transform:translateY(4px);box-shadow:0 2px 0 #b39500!important}
+html body #g3 .g3-start:disabled{cursor:not-allowed;background:transparent!important;color:#888!important;border:3px dashed #555!important;box-shadow:none!important;font-size:clamp(14px,min(1.6vw,3.4vh),28px);letter-spacing:.02em}
+/* 線上測驗 */
+html body #g3 .md-quiz-link-wrap{all:unset;display:block}
+html body #g3 a.md-quiz-link{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:.6em;width:100%;padding:clamp(8px,1.6vh,16px) clamp(10px,1vw,16px);border-radius:14px;background:var(--k);color:var(--y);border:3px solid var(--y);font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;font-size:clamp(14px,min(1.6vw,3.2vh),26px);line-height:1.2;transition:background .12s,color .12s,transform .12s}
+html body #g3 a.md-quiz-link:hover,html body #g3 a.md-quiz-link:focus-visible{background:var(--y);color:var(--k);transform:translateY(-2px);outline:none}
+html body #g3 a.md-quiz-link .g3-sub{display:block;text-wrap:balance;font-size:.6em;font-weight:500;opacity:.8;margin-top:.2em}
+html body #g3 .md-quiz-link-hint{display:none}
+/* 矮螢幕橫放（手機橫拿） */
+@media (orientation:landscape) and (max-height:520px){
+ #g3 .g3-head{padding-top:4px;padding-bottom:4px;border-bottom-width:3px}
+ #g3 .g3-body{padding:8px 12px 24px;gap:10px}
+ #g3 .g3-main{gap:8px}
+ #g3 .g3-step{padding:6px 10px;gap:6px;border-radius:12px}
+ #g3 .g3-side{padding:8px 10px;gap:6px;border-radius:12px}
+ #g3 .g3-sum{padding:.4em .7em;font-size:12px}
+ #g3 .g3-sep,#g3 .g3-txt small,html body #g3 a.md-quiz-link .g3-sub{display:none}
+ html body #g3 .g3-grp>button,html body #g3 .g3-grp>.qty-btn{border-radius:10px;border-width:2px}
+ html body #g3 .g3-start{min-height:44px;border-radius:12px;box-shadow:0 3px 0 #b39500}
+ html body #g3 a.md-quiz-link{padding:6px 10px;border-width:2px;border-radius:12px}
+}
+/* 直放（手機） */
+@media (orientation:portrait){
+ html body.g3-menu #g3{overflow-y:auto}
+ #g3 .g3-head{flex-wrap:wrap;padding-right:64px;row-gap:6px}
+ html body #g3 .g3-title{white-space:normal;font-size:clamp(20px,6vw,40px);flex-basis:100%;order:3}
+ #g3 .g3-body{flex:none;flex-direction:column;padding:12px 14px 44px}
+ #g3 .g3-main{flex:none}
+ #g3 .g3-step{flex:none}
+ #g3 .g3-side{flex:none;overflow:visible}
+ #g3 .g3-gap{display:none}
+ html body #g3 .g3-grp,html body #g3 .g3-main.g3-one .g3-grp{flex:none;max-height:none;height:auto}
+ html body #g3 .g3-grp.g3-mode,html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:1fr!important;max-height:none}
+ html body #g3 .g3-grp.g3-mode>*{min-height:clamp(52px,8vh,80px);font-size:clamp(17px,5vw,30px)}
+ html body #g3 .g3-grp.g3-cnt{grid-template-columns:repeat(3,1fr)!important}
+ html body #g3 .g3-grp.g3-cnt>.g3-all{grid-column:span var(--g3span,1)}
+ html body #g3 .g3-grp.g3-cnt>*{min-height:clamp(52px,8vh,80px);font-size:clamp(20px,6.4vw,36px)}
+ html body #g3 .g3-grp.g3-cnt>.g3-all{font-size:clamp(17px,5vw,30px)}
+ #g3 .g3-h{font-size:clamp(16px,4.6vw,24px)}
+ #g3 .g3-sum{font-size:clamp(14px,4vw,20px)}
+ html body #g3 .g3-start{font-size:clamp(20px,6vw,32px);min-height:64px}
+ html body #g3 .g3-start:disabled{font-size:clamp(16px,4.4vw,24px)}
+ html body #g3 a.md-quiz-link{font-size:clamp(17px,4.8vw,24px)}
+}
+@media (orientation:portrait) and (min-width:600px){
+ html body #g3 .g3-grp.g3-mode,html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
+<script id="md-gmenu3-js">
+(function(){
+ var d=document;if(d.getElementById('g3'))return;
+ var menu=['menu-screen','menuContainer','menuScreen','menu-page'].map(function(i){return d.getElementById(i);}).filter(Boolean)[0];
+ if(!menu)return;
+ var byClass=menu.id==='menuScreen'||menu.id==='menu-page';
+ function isMenu(){return byClass?!menu.classList.contains('hidden'):menu.style.display!=='none';}
+ function txt(sel){var e=menu.querySelector(sel);return e?e.textContent.replace(/\s+/g,' ').trim():'';}
+ var game=txt('h1,.menu-main-title,.title')||'課堂遊戲';
+ var sub=txt('h2,.menu-sub-title,.subtitle');var m=sub.match(/第\s*\d.*$/);if(m)sub=m[0];
+ /* 冊別（由網址代號判斷） */
+ var book='',pm=location.pathname.match(/\/(CHINPING|KANGHSUAN|CHUANHWA|YUDA)-B(\d+)\//);
+ if(pm){var B={'YUDA-B1':'育達全1冊','YUDA-B2':'育達創世紀全1冊'},P={CHINPING:'真平',KANGHSUAN:'康軒',CHUANHWA:'全華',YUDA:'育達'};book=B[pm[1]+'-B'+pm[2]]||(P[pm[1]]+'第'+pm[2]+'冊');}
+ /* 找原本元件 */
+ var cntGrp=menu.querySelector('.qty-grid,.question-count-grid,#count-selection');
+ if(!cntGrp){var b5=menu.querySelector('#count5');cntGrp=b5&&b5.parentElement;}
+ var modeGrp=menu.querySelector('.game-mode-grid,#mode-selection');
+ if(!modeGrp){var m1=menu.querySelector('#mode1');modeGrp=m1&&m1.parentElement;}
+ var start=menu.querySelector('.btn-start,#startGameButton,#startButton,#start-game');
+ var quiz=menu.querySelector('.md-quiz-link-wrap');
+ if(!cntGrp||!start)return;
+ /* 版面 */
+ var g=d.createElement('div');g.id='g3';g.setAttribute('role','main');
+ g.innerHTML='<header class="g3-head"><span class="g3-tag"></span><div class="g3-title"></div>'+(book?'<span class="g3-book"></span>':'')+'</header>'+
+  '<div class="g3-body"><section class="g3-main"></section><aside class="g3-side"></aside></div>';
+ g.querySelector('.g3-tag').textContent=game;g.querySelector('.g3-title').textContent=sub;
+ if(book)g.querySelector('.g3-book').textContent=book;
+ var main=g.querySelector('.g3-main'),side=g.querySelector('.g3-side'),n=0;
+ function step(title,grp,cls){var s=d.createElement('div');s.className='g3-step';s.innerHTML='<div class="g3-h"><b>'+(++n)+'</b>'+title+'</div>';
+  grp.classList.add('g3-grp',cls);s.appendChild(grp);main.appendChild(s);}
+ var SVG={ear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-7h3zM3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg>',
+  eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>'};
+ var modeNames=[],fitModes=null;
+ if(modeGrp){
+  [].slice.call(modeGrp.children).forEach(function(b){
+   var t=b.textContent.replace(/[🎧👀]/g,'').replace(/\s+/g,'').trim(),ico,small='';
+   if(/^聽/.test(t))ico=SVG.ear;else if(/^看/.test(t))ico=SVG.eye;
+   else if(/台羅|臺羅/.test(t)){ico='Lô';small=game.indexOf('鬥句')>=0?'用台羅拼音鬥句':'選項用台羅拼音';}
+   else {ico='漢';small=game.indexOf('鬥句')>=0?'用台語漢字鬥句':'選項用台語漢字';}
+   b.innerHTML='<span class="g3-ico">'+ico+'</span><span class="g3-txt">'+t+(small?'<small>'+small+'</small>':'')+'</span>';
+   b.setAttribute('data-g3', t);
+  });
+  modeGrp.style.gridTemplateColumns='repeat('+Math.min(modeGrp.children.length,3)+',1fr)';
+  if(modeGrp.children.length>=4)modeGrp.classList.add('g3-m4');
+  /* 方式鈕文字不斷行：放不下就自動縮小字級（老師 2026-11-23） */
+  fitModes=function(){if(!d.body.classList.contains('g3-menu'))return;[].slice.call(modeGrp.children).forEach(function(b){
+   var t=b.querySelector('.g3-txt');if(!t)return;b.style.fontSize='';var fs=parseFloat(getComputedStyle(b).fontSize),i=0;
+   while(t.scrollWidth>t.clientWidth+1&&i<40&&fs>9){fs*=0.95;b.style.fontSize=fs+'px';i++;}});};
+  window.addEventListener('resize',function(){requestAnimationFrame(fitModes);});
+  if(window.ResizeObserver)new ResizeObserver(function(){requestAnimationFrame(fitModes);}).observe(modeGrp);
+  if(d.fonts&&d.fonts.ready)d.fonts.ready.then(fitModes);
+  step('選擇遊戲方式',modeGrp,'g3-mode');
+ }
+ var cnts=[].slice.call(cntGrp.children).filter(function(b){return b.matches('button,.qty-btn');});
+ /* 題庫不多於題數時隱藏該題數鈕（用「全部」即可） */
+ var bank=0;try{bank=(typeof db!=='undefined'&&db.length)||(typeof gameData!=='undefined'&&gameData.length)||(typeof questionDatabase!=='undefined'&&questionDatabase.length)||(typeof FULL_GAME_DATA!=='undefined'&&FULL_GAME_DATA.length)||0;}catch(_){}
+ cnts.forEach(function(b){var k=b.textContent.match(/\d+/);if(bank&&k&&b.id!=='md-all-btn'&&+k[0]>=bank&&+k[0]!==5){b.hidden=true;b.classList.remove('selected');}});
+ cnts=cnts.filter(function(b){return !b.hidden;});
+ cnts.forEach(function(b){var k=b.textContent.match(/\d+/);if(k&&b.id!=='md-all-btn'){b.textContent=k[0];b.classList.add('g3-n');b.setAttribute('aria-label',k[0]+'題');}else b.classList.add('g3-all');});
+ cntGrp.style.gridTemplateColumns='repeat('+cnts.length+',1fr)';
+ var al=cntGrp.querySelector('.g3-all');if(al)al.style.setProperty('--g3span',3-(cnts.length-1)%3);
+ step('選擇題數',cntGrp,'g3-cnt');
+ if(!modeGrp)main.classList.add('g3-one');
+ /* 右側面板 */
+ side.innerHTML='<div class="g3-h"><b>'+(++n)+'</b>開始練習</div><div class="g3-sum">'+(modeGrp?'<div><span>方式</span><strong class="g3-sm"></strong></div>':'')+'<div><span>題數</span><strong class="g3-sc"></strong></div></div>';
+ start.classList.add('g3-start');side.appendChild(start);
+ /* 開始鈕文字統一「開始遊戲」（老師 2026-11-23；鬥句原本會被程式改成「開始 N 題測驗」） */
+ function lab(){if(start.textContent!=='開始遊戲')start.textContent='開始遊戲';}
+ lab();new MutationObserver(lab).observe(start,{childList:true,characterData:true,subtree:true});
+ var gp=d.createElement('div');gp.className='g3-gap';side.appendChild(gp);
+ if(quiz){var a=quiz.querySelector('a');if(a){var h=quiz.querySelector('.md-quiz-link-hint');a.innerHTML='<span aria-hidden="true">📝</span><span>線上測驗<span class="g3-sub">'+(h?h.textContent:'另開視窗作答，成績上傳給老師')+'</span></span>';}
+  side.appendChild(quiz);}
+ d.body.appendChild(g);
+ /* 已選摘要 */
+ var sm=side.querySelector('.g3-sm'),sc=side.querySelector('.g3-sc');
+ function sum(){
+  if(sm){var x=modeGrp.querySelector('.selected');sm.textContent=x?x.getAttribute('data-g3'):'尚未選擇';sm.classList.toggle('off',!x);}
+  var y=cntGrp.querySelector('.selected');sc.textContent=y?(y.classList.contains('g3-all')?'全部題目':y.textContent+' 題'):'尚未選擇';sc.classList.toggle('off',!y);
+ }
+ new MutationObserver(sum).observe(g,{subtree:true,attributes:true,attributeFilter:['class']});
+ function sync(){d.body.classList.toggle('g3-menu',isMenu());sum();if(typeof fitModes==='function')requestAnimationFrame(fitModes);}
+ new MutationObserver(sync).observe(menu,{attributes:true,attributeFilter:['style','class']});
+ sync();
+})();
+</script>
+<!-- /md-gmenu3 -->
+<div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">真平企業有限公司授權使用｜© 2026 詹宗龍</div>
+</body>
+</html>

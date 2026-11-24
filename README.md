@@ -18,6 +18,9 @@
 | 版本代號 | 版本 |
 |---|---|
 | `CHINPING-B1` | 真平版國中第1冊 |
+| `CHINPING-B2` | 真平版國中第2冊 |
+| `CHINPING-B3` | 真平版國中第3冊 |
+| `CHINPING-B4` | 真平版國中第4冊 |
 | `KANGHSUAN-B1` | 康軒版國中第1冊 |
 | `KANGHSUAN-B2` | 康軒版國中第2冊 |
 | `KANGHSUAN-B3` | 康軒版國中第3冊 |

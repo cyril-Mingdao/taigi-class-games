@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<!--
+  【著作權聲明】
+  真平版國中第2冊 第1課 布袋戲尪仔 — 台語課堂遊戲「咱來餾生份字」
+  本網頁使用之課文內容、圖片及聲音檔，著作財產權屬「真平企業有限公司」所有。
+  製作者詹宗龍已於 115 年 9 月 30 日取得該公司簽署之《著作權授權書》（並經 115 年 9 月 29 日明道中學會議確認），
+  同意於非營利之教育教學用途範圍內重製及改編後上傳網路供學生使用。
+  本網頁之程式碼、版面與教案設計 Copyright © 2026 詹宗龍（臺中明道中學）. All rights reserved.
+  僅供非營利之教育教學使用。
+  詞條與拼音參考教育部《臺灣台語常用詞辭典》、《臺灣台語羅馬字拼音方案》；聲音播放使用自製 snd-plus.js（音檔即時連結教育部辭典官方錄音，著作權屬教育部）；
+  字型與樣式（如 tauhu.tw）之著作權屬各原權利人。
+  除真平企業有限公司依前開授權使用外，任何人未經著作權人書面授權，
+  不得重製、改作、散布或修改本網頁之全部或一部分，違者將依著作權法追究民事及刑事責任。
+-->
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="詹宗龍（臺中明道中學）">
+<meta name="copyright" content="© 2026 詹宗龍（臺中明道中學）。保留一切權利。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1課 布袋戲尪仔</title>
+<link rel="icon" id="md-icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23283593%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2250%22%20font-size%3D%2248%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%20fill%3D%22%23FFFFFF%22%20font-family%3D%22Microsoft%20JhengHei%2CPingFang%20TC%2CNoto%20Sans%20TC%2Csans-serif%22%3E%E7%9C%9F%3C/text%3E%3C/svg%3E">
+  <link href="https://tauhu.tw/tauhu-oo.css" rel="stylesheet">
+  <script src="https://cyril-mingdao.github.io/taigi-class-games/assets/snd-plus.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>/*md-dvh*/
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: tauhu-oo, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 14%, #45b7d1 28%, #96ceb4 42%, #feca57 56%, #fd79a8 70%, #a29bfe 84%, #00b894 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 20s ease infinite;
+            height: 100%;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        /* 入口頁面樣式 */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            min-height: 100vh;min-height:100dvh;
+            overflow-y: auto;
+        }
+
+        .menu-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin: auto;
+        }
+
+        .menu-header {
+            margin-bottom: 12px;
+        }
+
+        .menu-main-title {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .menu-sub-title {
+            font-size: 20px;
+            color: #5a67d8;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .menu-section {
+            margin-bottom: 12px;
+        }
+
+        .menu-section-title {
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .game-mode-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .game-mode-button {
+            background: linear-gradient(135deg, #fff, #f8f9ff);
+            border: 3px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 18px 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            color: #4a5568;
+            position: relative;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .game-mode-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .game-mode-button:hover::before {
+            left: 100%;
+        }
+
+        .game-mode-button:hover {
+            border-color: #4299e1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(66, 153, 225, 0.3);
+        }
+
+        .game-mode-button.selected {
+            background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+            border-color: #38b2ac;
+            color: #234e52;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(56, 178, 172, 0.4);
+        }
+
+        .question-count-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .question-count-button {
+            background: linear-gradient(135deg, #fff, #f0fff4);
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 12px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a5568;
+            line-height: 1;
+        }
+
+        .question-count-button:hover {
+            border-color: #48bb78;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .question-count-button.selected {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-color: #48bb78;
+            color: #22543d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .start-game-button {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 16px 35px;
+            border-radius: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            margin-top: 10px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            line-height: 1;
+        }
+
+        .start-game-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+        }
+
+        .start-game-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* 遊戲頁面樣式 */
+        .game-container {
+            display: none;
+            height: 100vh;height:100dvh;
+            padding: 15px;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .game-container.active {
+            display: flex;
+        }
+
+        .left-panel {
+            width: 30%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            height: calc(100vh - 30px);height:calc(100dvh - 30px);
+            overflow-y: auto;
+            line-height: 1.2;
+        }
+
+        .right-panel {
+            width: 70%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 18px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            height: calc(100vh - 30px);height:calc(100dvh - 30px);
+            overflow-y: auto;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .game-main-title {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .game-sub-title {
+            font-size: 18px;
+            color: #5a67d8;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .play-audio-button {
+            width: 100%;
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            margin-bottom: 0;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            line-height: 1.2;
+        }
+
+        .play-audio-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.5);
+        }
+
+        .play-audio-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .question-info {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 12px;
+            border-radius: 15px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 0;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            line-height: 1.2;
+        }
+
+        .info-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .info-label {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2e7d32;
+            min-width: 160px;
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+
+        .info-value {
+            font-size: 32px;
+            color: #1b5e20;
+            flex: 1;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+
+        .chinese-item {
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 2px solid #4caf50;
+            margin-top: 8px;
+            min-height: 100px;
+        }
+
+        .chinese-item .info-label {
+            margin-bottom: 8px;
+            min-width: auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .chinese-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1565c0;
+            line-height: 1.2;
+            word-break: break-word;
+            text-align: center;
+            width: 100%;
+        }
+
+        .progress-section {
+            margin-bottom: 0;
+        }
+
+        .progress-text {
+            font-size: 17px;
+            color: #2d3748;
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(135deg, #ddd6fe, #e0e7ff);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            transition: width 0.5s ease;
+            width: 0%;
+            border-radius: 8px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+
+        .nav-button {
+            flex: 1;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            box-shadow: 0 6px 20px rgba(45, 55, 72, 0.4);
+            line-height: 1.2;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.5);
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .prev-button {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+        }
+
+        .prev-button:hover {
+            box-shadow: 0 8px 25px rgba(229, 62, 62, 0.5);
+            background: linear-gradient(135deg, #c53030, #9c2626);
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 18px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+            line-height: 1.2;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(108, 92, 231, 0.5);
+        }
+
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question-text {
+            font-size: 64px;
+            font-weight: bold;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .option-button {
+            background: linear-gradient(135deg, #fff, #f8faff);
+            border: 3px solid #e2e8f0;
+            border-radius: 25px;
+            padding: 30px 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: tauhu-oo, sans-serif;
+            font-weight: bold;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            min-height: 130px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            margin: 0 0.2cm;
+        }
+
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .option-button:hover::before {
+            left: 100%;
+        }
+
+        .option-button:hover {
+            border-color: #45b7d1;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(69, 183, 209, 0.3);
+        }
+
+        .option-button.correct {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            border-color: #48bb78;
+            color: #22543d;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.4);
+            animation: correctPulse 0.6s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: translateY(-2px) scale(1.05); }
+            50% { transform: translateY(-2px) scale(1.1); }
+            100% { transform: translateY(-2px) scale(1.05); }
+        }
+
+        .option-button.incorrect {
+            background: linear-gradient(135deg, #fed7d7, #feb2b2);
+            border-color: #e53e3e;
+            color: #742a2a;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(229, 62, 62, 0.3);
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0) translateY(-1px); }
+            25% { transform: translateX(-5px) translateY(-1px); }
+            75% { transform: translateX(5px) translateY(-1px); }
+        }
+
+        .option-button.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .option-label {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 25px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+        }
+
+        .option-text {
+            font-size: 36px;
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .option-text.small {
+            font-size: 28px;
+        }
+
+        .option-text.medium {
+            font-size: 32px;
+        }
+
+        .results-screen {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .results-screen.active {
+            display: block;
+        }
+
+        .results-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .results-score {
+            font-size: 24px;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        .restart-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: tauhu-oo, sans-serif;
+        }
+
+        .restart-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1200px) {
+            .game-container {
+                padding: 12px;
+                gap: 12px;
+            }
+            
+            .left-panel {
+                width: 32%;
+                padding: 18px;
+            }
+            
+            .right-panel {
+                width: 68%;
+                padding: 22px;
+            }
+            
+            .question-text {
+                font-size: 58px;
+            }
+            
+            .option-text {
+                font-size: 32px;
+            }
+            
+            .option-text.small {
+                font-size: 26px;
+            }
+            
+            .option-text.medium {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .menu-container {
+                padding: 15px;
+            }
+            
+            .menu-card {
+                padding: 35px 30px;
+                max-width: 650px;
+            }
+            
+            .game-mode-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .game-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 20px;
+            }
+            
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+            
+            .left-panel {
+                order: 2;
+                padding: 25px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .left-panel > * {
+                flex: 1;
+                min-width: 200px;
+                margin: 5px;
+            }
+            
+            .right-panel {
+                order: 1;
+                padding: 30px;
+            }
+            
+            .options-grid {
+                max-width: 750px;
+                gap: 16px;
+            }
+            
+            .option-button {
+                min-height: 120px;
+                padding: 25px 22px;
+            }
+            
+            .question-text {
+                font-size: 54px;
+            }
+            
+            .option-text {
+                font-size: 30px;
+            }
+            
+            .option-text.small {
+                font-size: 24px;
+            }
+            
+            .option-text.medium {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-card {
+                padding: 30px 25px;
+                margin: 15px;
+            }
+            
+            .menu-main-title {
+                font-size: 30px;
+            }
+            
+            .menu-section-title {
+                font-size: 20px;
+            }
+            
+            .game-mode-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .game-mode-button {
+                padding: 20px 18px;
+                font-size: 16px;
+            }
+            
+            .question-count-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .question-count-button {
+                padding: 15px 12px;
+                font-size: 16px;
+            }
+            
+            .left-panel {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .left-panel > * {
+                margin: 8px 0;
+                min-width: auto;
+            }
+            
+            .right-panel {
+                padding: 25px;
+            }
+            
+            .game-main-title {
+                font-size: 26px;
+            }
+            
+            .game-sub-title {
+                font-size: 18px;
+            }
+            
+            .question-text {
+                font-size: 38px;
+                margin-bottom: 25px;
+            }
+            
+            .options-grid {
+                gap: 14px;
+                max-width: 550px;
+            }
+            
+            .option-button {
+                min-height: 110px;
+                padding: 22px 18px;
+            }
+            
+            .option-text {
+                font-size: 26px;
+            }
+            
+            .option-text.small {
+                font-size: 20px;
+            }
+            
+            .option-text.medium {
+                font-size: 23px;
+            }
+            
+            .option-label {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                margin-right: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-container {
+                padding: 8px;
+                min-height: 100vh;min-height:100dvh;
+            }
+            
+            .menu-card {
+                padding: 18px 15px;
+                margin: 5px;
+            }
+            
+            .menu-main-title {
+                font-size: 22px;
+            }
+            
+            .menu-sub-title {
+                font-size: 15px;
+            }
+            
+            .menu-section-title {
+                font-size: 16px;
+            }
+            
+            .menu-section {
+                margin-bottom: 8px;
+            }
+            
+            .game-mode-button {
+                padding: 14px 12px;
+                font-size: 13px;
+            }
+            
+            .question-count-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+            
+            .question-count-button {
+                padding: 10px 6px;
+                font-size: 14px;
+            }
+            
+            .start-game-button {
+                padding: 14px 28px;
+                font-size: 17px;
+                margin-top: 8px;
+            }
+            
+            .game-container {
+                padding: 6px;
+                gap: 8px;
+                height: 100vh;height:100dvh;
+            }
+            
+            .left-panel {
+                padding: 12px;
+                border-radius: 18px;
+                gap: 8px;
+                height: calc(100vh - 12px);height:calc(100dvh - 12px);
+            }
+            
+            .right-panel {
+                padding: 12px;
+                border-radius: 18px;
+                height: calc(100vh - 12px);height:calc(100dvh - 12px);
+            }
+            
+            .game-header {
+                margin-bottom: 8px;
+            }
+            
+            .game-main-title {
+                font-size: 18px;
+            }
+            
+            .game-sub-title {
+                font-size: 13px;
+            }
+            
+            .question-text {
+                font-size: 24px;
+                margin-bottom: 12px;
+                min-height: 60px;
+            }
+            
+            .options-grid {
+                gap: 8px;
+                max-width: none;
+            }
+            
+            .option-button {
+                min-height: 65px;
+                padding: 12px 10px;
+                border-radius: 15px;
+                margin: 0;
+            }
+            
+            .option-text {
+                font-size: 16px;
+            }
+            
+            .option-text.small {
+                font-size: 13px;
+            }
+            
+            .option-text.medium {
+                font-size: 14px;
+            }
+            
+            .option-label {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+                margin-right: 10px;
+            }
+            
+            .play-audio-button {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .back-button {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .nav-button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .progress-text {
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+            
+            .info-title {
+                font-size: 24px;
+                margin-bottom: 6px;
+            }
+            
+            .info-label {
+                font-size: 20px;
+                min-width: 100px;
+            }
+            
+            .info-value {
+                font-size: 20px;
+            }
+            
+            .chinese-value {
+                font-size: 20px;
+            }
+            
+            .chinese-item {
+                padding: 8px 12px;
+                min-height: 60px;
+                margin-top: 6px;
+            }
+            
+            .question-info {
+                padding: 8px;
+                margin-bottom: 0;
+            }
+            
+            .info-item {
+                margin-bottom: 4px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .menu-main-title {
+                font-size: 22px;
+            }
+            
+            .game-main-title {
+                font-size: 20px;
+            }
+            
+            .question-text {
+                font-size: 35px;
+            }
+            
+            .option-text {
+                font-size: 19px;
+            }
+            
+            .option-text.small {
+                font-size: 16px;
+            }
+            
+            .option-text.medium {
+                font-size: 17px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ <style>
+  .md-quiz-link-wrap { text-align: center; margin-top: 14px; }
+  a.md-quiz-link { display: inline-block; padding: 12px 26px; border-radius: 30px; background: #111; color: #ffd400 !important;
+    border: 3px solid #ffd400; font-size: 18px; font-weight: bold; text-decoration: none !important; line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-family: inherit; }
+  a.md-quiz-link:hover { background: #ffd400; color: #111 !important; }
+  .md-quiz-link-hint { display: block; margin-top: 6px; font-size: 13px; color: #555; }
+</style>
+<style id="md-fit">/*md-dvh*/
+/* 響應式修正（各種螢幕不溢出可顯示範圍；矮螢幕時字級隨高度縮放）— © 2026 詹宗龍 */
+.navigation-buttons{display:flex;gap:6px;flex-wrap:nowrap}
+.navigation-buttons .nav-button{flex:1 1 0;min-width:0}
+/* 遊戲頁（v10）：一屏不捲動；橫放左欄按鈕放大填滿、題目置頂、選項填滿；直放按鈕收到下方 */
+html body .game-container{height:100vh;height:100dvh;height:100dvh;padding:1vmin 1vmin 20px;gap:1vmin;box-sizing:border-box;overflow:hidden}
+html body .left-panel,html body .right-panel{height:auto;min-height:0;overflow:hidden;box-sizing:border-box;border-radius:clamp(12px,2vmin,25px);margin:0}
+html body .left-panel>*{margin:0;min-width:0;box-sizing:border-box}
+html body .right-panel{display:flex;flex-direction:column}
+html body .game-header{flex:none;margin-bottom:0.6vmin}
+html body .question-area{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-start}
+html body .question-text{flex:none;min-height:0;margin:0 0 1.6vmin;line-height:1.35}
+html body .options-grid{flex:1;min-height:0;width:100%;max-width:none;margin:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr}
+html body .option-button{min-height:0;height:100%;margin:0;justify-content:flex-start;box-sizing:border-box}
+html body .option-label{flex:none}
+html body .options-grid{grid-auto-rows:minmax(0,1fr);grid-template-columns:repeat(2,minmax(0,1fr))}
+html body .option-button{overflow:hidden}
+html body .option-text{display:block;flex:1 1 auto;min-width:0;text-align:left;line-height:1.15;overflow-wrap:normal}
+html body .back-button{width:100%;max-width:100%;box-sizing:border-box}
+@media (orientation: landscape){
+ html body .game-container{flex-direction:row}
+ html body .left-panel{order:0;width:24%;flex:none;flex-direction:column;flex-wrap:nowrap;justify-content:space-between;align-items:stretch;padding:2vh 1.2vw;padding:2dvh 1.2vw;gap:2vh;gap:2dvh}
+ html body .right-panel{order:0;width:auto;flex:1 1 0;padding:1.6vh 1.6vw;padding:1.6dvh 1.6vw}
+ html body .play-audio-section{flex:1.3 1 0;max-height:28vh;max-height:28dvh;min-height:0}
+ html body .play-audio-button{height:100%;padding:1vh 0.6vw;padding:1dvh 0.6vw;font-size:clamp(14px,min(4.8vh,2vw),44px);font-size:clamp(14px,min(4.8dvh,2vw),44px);border-radius:clamp(12px,2.2vh,24px);border-radius:clamp(12px,2.2dvh,24px)}
+ html body .progress-section{flex:none}
+ html body .progress-text{font-size:clamp(12px,min(4vh,1.8vw),36px);font-size:clamp(12px,min(4dvh,1.8vw),36px);margin-bottom:1vh;margin-bottom:1dvh}
+ html body .progress-bar{height:clamp(8px,1.5vh,18px);height:clamp(8px,1.5dvh,18px)}
+ html body .navigation-buttons{flex:1 1 0;max-height:24vh;max-height:24dvh;min-height:0;gap:0.8vw}
+ html body .nav-button{height:100%;padding:1vh 0.4vw;padding:1dvh 0.4vw;font-size:clamp(13px,min(4.4vh,1.9vw),40px);font-size:clamp(13px,min(4.4dvh,1.9vw),40px);border-radius:clamp(10px,2vh,20px);border-radius:clamp(10px,2dvh,20px)}
+ html body .back-button{flex:0.8 1 0;max-height:20vh;max-height:20dvh;min-height:0;padding:1vh 0.4vw;padding:1dvh 0.4vw;font-size:clamp(13px,min(4.4vh,1.9vw),40px);font-size:clamp(13px,min(4.4dvh,1.9vw),40px);border-radius:clamp(10px,2vh,20px);border-radius:clamp(10px,2dvh,20px)}
+ html body .question-info{flex:none;padding:1.2vh 0.8vw;padding:1.2dvh 0.8vw}
+ html body .info-title{font-size:clamp(13px,min(4.6vh,2vw),42px);font-size:clamp(13px,min(4.6dvh,2vw),42px);margin-bottom:0.6vh;margin-bottom:0.6dvh}
+ html body .info-item{margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body .info-label,html body .info-value,html body .chinese-value{font-size:clamp(12px,min(3.8vh,1.7vw),34px);font-size:clamp(12px,min(3.8dvh,1.7vw),34px);min-width:0}
+ html body .chinese-item{min-height:0;padding:0.8vh 0.6vw;padding:0.8dvh 0.6vw;margin-top:0.6vh;margin-top:0.6dvh}
+ html body .chinese-item .info-label{margin-bottom:0.4vh;margin-bottom:0.4dvh}
+ html body .game-main-title{font-size:clamp(14px,min(4.4vh,2.4vw),48px);font-size:clamp(14px,min(4.4dvh,2.4vw),48px)}
+ html body .game-sub-title{font-size:clamp(11px,min(3vh,1.7vw),32px);font-size:clamp(11px,min(3dvh,1.7vw),32px)}
+ html body .question-text{font-size:clamp(18px,min(10vh,4.6vw),120px);font-size:clamp(18px,min(10dvh,4.6vw),120px)}
+ html body .options-grid{gap:2.4vh 1.4vw;gap:2.4dvh 1.4vw}
+ html body .option-button{padding:1.6vh 1.4vw;padding:1.6dvh 1.4vw;border-radius:clamp(12px,2.4vh,26px);border-radius:clamp(12px,2.4dvh,26px)}
+ html body .option-text{font-size:clamp(14px,min(9vh,3.6vw),100px);font-size:clamp(14px,min(9dvh,3.6vw),100px)}
+ html body .option-text.medium{font-size:clamp(13px,min(7.6vh,3.1vw),86px);font-size:clamp(13px,min(7.6dvh,3.1vw),86px)}
+ html body .option-text.small{font-size:clamp(12px,min(6.2vh,2.6vw),70px);font-size:clamp(12px,min(6.2dvh,2.6vw),70px)}
+ html body .option-label{width:clamp(22px,min(8vh,3.4vw),90px);width:clamp(22px,min(8dvh,3.4vw),90px);height:clamp(22px,min(8vh,3.4vw),90px);height:clamp(22px,min(8dvh,3.4vw),90px);font-size:clamp(12px,min(4.2vh,1.8vw),46px);font-size:clamp(12px,min(4.2dvh,1.8vw),46px);margin-right:1vw}
+}
+@media (orientation: portrait){
+ html body .game-container{flex-direction:column}
+ html body .right-panel{order:1;width:100%;flex:1 1 0;padding:1.4vh 3vw;padding:1.4dvh 3vw}
+ html body .left-panel{order:2;width:100%;flex:none;display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"info info" "audio nav" "prog back";gap:1.2vh 2.4vw;gap:1.2dvh 2.4vw;padding:1.4vh 3vw;padding:1.4dvh 3vw;align-items:center}
+ html body .play-audio-section{grid-area:audio}
+ html body .question-info{grid-area:info;padding:0.8vh 2vw;padding:0.8dvh 2vw}
+ html body .progress-section{grid-area:prog}
+ html body .navigation-buttons{grid-area:nav;gap:2vw}
+ html body .back-button{grid-area:back}
+ html body .play-audio-button,html body .nav-button,html body .back-button{padding:1.6vh 1vw;padding:1.6dvh 1vw;font-size:clamp(13px,min(2.6vh,4.4vw),36px);font-size:clamp(13px,min(2.6dvh,4.4vw),36px);border-radius:clamp(10px,1.8vh,20px);border-radius:clamp(10px,1.8dvh,20px)}
+ html body .progress-text{font-size:clamp(12px,min(2.2vh,3.8vw),30px);font-size:clamp(12px,min(2.2dvh,3.8vw),30px);margin-bottom:0.6vh;margin-bottom:0.6dvh}
+ html body .progress-bar{height:clamp(8px,1vh,16px);height:clamp(8px,1dvh,16px)}
+ html body .info-title{display:none}
+ html body .question-info .info-item{display:inline-flex;margin:0 4vw 0 0}
+ html body .question-info .chinese-item{display:flex;flex-direction:row;align-items:baseline;width:100%;min-height:0;padding:0.6vh 2vw;padding:0.6dvh 2vw;margin:0.4vh 0 0;margin:0.4dvh 0 0;box-sizing:border-box}
+ html body .chinese-item .info-label{width:auto;margin:0 2vw 0 0;flex:none}
+ html body .chinese-value{text-align:left}
+ html body .info-label,html body .info-value,html body .chinese-value{font-size:clamp(12px,min(2.4vh,4vw),32px);font-size:clamp(12px,min(2.4dvh,4vw),32px);min-width:0}
+ html body .game-main-title{font-size:clamp(16px,min(3.2vh,6vw),48px);font-size:clamp(16px,min(3.2dvh,6vw),48px)}
+ html body .game-sub-title{font-size:clamp(12px,min(2.2vh,4.2vw),32px);font-size:clamp(12px,min(2.2dvh,4.2vw),32px)}
+ html body .question-text{font-size:clamp(20px,min(5.4vh,8vw),110px);font-size:clamp(20px,min(5.4dvh,8vw),110px)}
+ html body .options-grid{gap:1.4vh 2.4vw;gap:1.4dvh 2.4vw}
+ html body .option-button{padding:1vh 2.4vw;padding:1dvh 2.4vw;border-radius:clamp(12px,2vh,26px);border-radius:clamp(12px,2dvh,26px)}
+ html body .option-text{font-size:clamp(15px,min(4.4vh,6vw),76px);font-size:clamp(15px,min(4.4dvh,6vw),76px)}
+ html body .option-text.medium{font-size:clamp(14px,min(3.8vh,5.2vw),66px);font-size:clamp(14px,min(3.8dvh,5.2vw),66px)}
+ html body .option-text.small{font-size:clamp(13px,min(3.2vh,4.4vw),56px);font-size:clamp(13px,min(3.2dvh,4.4vw),56px)}
+ html body .option-label{width:clamp(24px,min(4.4vh,7vw),72px);width:clamp(24px,min(4.4dvh,7vw),72px);height:clamp(24px,min(4.4vh,7vw),72px);height:clamp(24px,min(4.4dvh,7vw),72px);font-size:clamp(12px,min(2.4vh,4vw),36px);font-size:clamp(12px,min(2.4dvh,4vw),36px);margin-right:2vw}
+}
+@media (orientation: portrait) and (max-width: 560px){
+ html body .options-grid{grid-template-columns:minmax(0,1fr)}
+ html body .option-text{font-size:clamp(16px,min(3.8vh,7.4vw),76px);font-size:clamp(16px,min(3.8dvh,7.4vw),76px)}
+ html body .option-text.medium{font-size:clamp(15px,min(3.4vh,6.6vw),66px);font-size:clamp(15px,min(3.4dvh,6.6vw),66px)}
+ html body .option-text.small{font-size:clamp(14px,min(3vh,5.8vw),56px);font-size:clamp(14px,min(3dvh,5.8vw),56px)}
+}
+/* 入口頁：一屏不捲動；直放時模式鈕兩欄、字級隨高度縮放 */
+html body .menu-container{box-sizing:border-box;min-height:0;height:100vh;height:100dvh;height:100dvh}
+@media (orientation: portrait){
+ html body .menu-container{padding:1.4vh 3vw 20px;padding:1.4dvh 3vw 20px}
+ html body .menu-card{padding:clamp(12px,2.4vh,30px) clamp(12px,4vw,30px);padding:clamp(12px,2.4dvh,30px) clamp(12px,4vw,30px);margin:auto;box-sizing:border-box}
+ html body .menu-header{margin-bottom:1.4vh;margin-bottom:1.4dvh}
+ html body .menu-main-title{font-size:clamp(20px,min(4.4vh,8vw),40px);font-size:clamp(20px,min(4.4dvh,8vw),40px)}
+ html body .menu-sub-title{font-size:clamp(13px,min(2.6vh,4.6vw),22px);font-size:clamp(13px,min(2.6dvh,4.6vw),22px)}
+ html body .menu-section{margin-bottom:1.4vh;margin-bottom:1.4dvh}
+ html body .menu-section-title{font-size:clamp(15px,min(3vh,5vw),24px);font-size:clamp(15px,min(3dvh,5vw),24px);margin-bottom:1vh;margin-bottom:1dvh}
+ html body .game-mode-grid{grid-template-columns:1fr 1fr;gap:1.2vh 2.4vw;gap:1.2dvh 2.4vw;margin-bottom:0}
+ html body .game-mode-button{padding:clamp(10px,2.4vh,22px) 1vw;padding:clamp(10px,2.4dvh,22px) 1vw;font-size:clamp(13px,min(2.4vh,4.2vw),19px);font-size:clamp(13px,min(2.4dvh,4.2vw),19px)}
+ html body .question-count-grid{grid-template-columns:repeat(4,1fr);gap:2vw;margin-bottom:0}
+ html body .question-count-button{padding:clamp(8px,1.8vh,16px) 1vw;padding:clamp(8px,1.8dvh,16px) 1vw;font-size:clamp(13px,min(2.4vh,4.2vw),19px);font-size:clamp(13px,min(2.4dvh,4.2vw),19px)}
+ html body .start-game-button{padding:clamp(10px,2vh,18px) 8vw;padding:clamp(10px,2dvh,18px) 8vw;font-size:clamp(15px,min(2.8vh,5vw),24px);font-size:clamp(15px,min(2.8dvh,5vw),24px);margin-top:1vh;margin-top:1dvh}
+}
+@media (orientation: landscape) and (max-height: 640px){
+ html body .menu-container{padding:1vh 2vw;padding:1dvh 2vw;min-height:0;height:100vh;height:100dvh;height:100dvh;box-sizing:border-box;justify-content:center}
+ html body .menu-card{max-width:96vw;width:96vw;padding:1.6vh 2vw;padding:1.6dvh 2vw;margin:0;border-radius:18px;box-sizing:border-box}
+ html body .menu-header{margin-bottom:1vh;margin-bottom:1dvh}
+ html body .menu-main-title{font-size:clamp(18px,7vh,36px);font-size:clamp(18px,7dvh,36px)}
+ html body .menu-sub-title{font-size:clamp(12px,4vh,20px);font-size:clamp(12px,4dvh,20px)}
+ html body .menu-section{margin-bottom:1vh;margin-bottom:1dvh}
+ html body .menu-section-title{font-size:clamp(13px,4.4vh,22px);font-size:clamp(13px,4.4dvh,22px);margin-bottom:0.8vh;margin-bottom:0.8dvh}
+ html body .game-mode-grid{grid-template-columns:repeat(4,1fr);gap:1vw;margin-bottom:0}
+ html body .game-mode-button{padding:1.8vh 0.6vw;padding:1.8dvh 0.6vw;font-size:clamp(11px,3.8vh,17px);font-size:clamp(11px,3.8dvh,17px);border-radius:14px}
+ html body .question-count-grid{grid-template-columns:repeat(4,1fr);gap:1vw}
+ html body .question-count-button{padding:1.4vh 0.6vw;padding:1.4dvh 0.6vw;font-size:clamp(12px,4vh,18px);font-size:clamp(12px,4dvh,18px)}
+ html body .start-game-button{padding:1.6vh 3vw;padding:1.6dvh 3vw;font-size:clamp(13px,4.6vh,20px);font-size:clamp(13px,4.6dvh,20px);margin-top:0.6vh;margin-top:0.6dvh}
+ html body .md-quiz-link-wrap{margin-top:1vh;margin-top:1dvh}
+ html body a.md-quiz-link{font-size:clamp(12px,3.8vh,18px);font-size:clamp(12px,3.8dvh,18px);padding:0.8vh 2vw;padding:0.8dvh 2vw}
+ html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);font-size:clamp(10px,2.8dvh,13px);margin-top:0.3vh;margin-top:0.3dvh}
+}
+</style>
+</head>
+ <body oncontextmenu="return false;"><!-- 入口選單頁面 -->
+  <div class="menu-container" id="menuContainer">
+   <div class="menu-card">
+    <div class="menu-header">
+     <div class="menu-main-title" id="menuMainTitle">
+      咱來餾生份字
+     </div>
+     <div class="menu-sub-title" id="menuSubTitle">
+      真平版國中第2冊 第一課 布袋戲尪仔
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-section-title">
+      選擇遊戲方式
+     </div>
+     <div class="game-mode-grid"><button class="game-mode-button" data-mode="1"> 🎧 聽音檔選台語 </button> <button class="game-mode-button" data-mode="2"> 🎧 聽音檔選台羅 </button> <button class="game-mode-button" data-mode="3"> 👀 看台語選台羅 </button> <button class="game-mode-button" data-mode="4"> 👀 看台羅選台語 </button>
+     </div>
+    </div>
+    <div class="menu-section">
+     <div class="menu-section-title">
+      選擇測驗數量
+     </div>
+     <div class="question-count-grid"><button class="question-count-button" data-count="5">5題</button> <button class="question-count-button" data-count="7">7題</button> <button class="question-count-button" data-count="9">9題</button> <button class="question-count-button" data-count="11">11題</button> <button class="question-count-button" data-count="13">13題</button> <button class="question-count-button" id="md-all-btn" data-count="0" title="題庫全部題目，亂數出題">全部</button>
+     </div>
+    </div><button class="start-game-button" id="startGameButton" disabled>開始遊戲</button>
+<div class="md-quiz-link-wrap"><a class="md-quiz-link" href="https://cyril-mingdao.github.io/taigi-quiz/SIANN-CHINPING-B2L1.html" target="_blank" rel="noopener" title="另開視窗，用學校帳號登入作答並記錄成績">📝 線上測驗</a><span class="md-quiz-link-hint">另開視窗・用學校帳號登入・25 題記錄成績</span></div>
+   </div>
+  </div><!-- 遊戲頁面 -->
+  <div class="game-container" id="gameContainer">
+   <div class="left-panel">
+    <div class="play-audio-section" id="audioSection"><button class="play-audio-button" id="playAudioButton" onclick="playCurrentAudio()"> 🔊 點擊播放音檔 </button>
+    </div>
+    <div class="question-info" id="questionInfo" style="display: none;">
+     <div class="info-title">
+      題目資訊
+     </div>
+     <div class="info-item"><span class="info-label">項次：</span> <span class="info-value" id="infoId">-</span>
+     </div>
+     <div class="info-item"><span class="info-label">頁數：</span> <span class="info-value" id="infoPage">-</span>
+     </div>
+     <div class="info-item chinese-item">
+      <div class="info-label">
+       華語解釋
+      </div>
+      <div class="info-value chinese-value" id="infoChinese">
+       -
+      </div>
+     </div>
+    </div>
+    <div class="progress-section" id="progressSection">
+     <div class="progress-text" id="progressText">
+      準備開始
+     </div>
+     <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+     </div>
+    </div>
+    <div class="navigation-buttons" id="navigationButtons" style="display: none;"><button class="nav-button prev-button" id="prevButton" onclick="previousQuestion()"> 上一題 </button> <button class="nav-button next-button" id="nextButton" onclick="nextQuestion()"> 下一題 </button>
+    </div><button class="back-button" onclick="backToMenu()">返回選單</button>
+   </div>
+   <div class="right-panel">
+    <div class="game-header">
+     <div class="game-main-title" id="gameMainTitle">
+      咱來餾生份字
+     </div>
+     <div class="game-sub-title" id="gameSubTitle">
+      真平版國中第2冊 第一課 布袋戲尪仔
+     </div>
+    </div>
+    <div class="question-area" id="questionArea">
+     <div class="question-text" id="questionText">
+      準備開始遊戲
+     </div>
+     <div class="options-grid" id="optionsGrid"><button class="option-button" id="optionA" onclick="selectAnswer(0)"> <span class="option-label">A</span> <span class="option-text" id="optionTextA">準備中...</span> </button> <button class="option-button" id="optionB" onclick="selectAnswer(1)"> <span class="option-label">B</span> <span class="option-text" id="optionTextB">準備中...</span> </button> <button class="option-button" id="optionC" onclick="selectAnswer(2)"> <span class="option-label">C</span> <span class="option-text" id="optionTextC">準備中...</span> </button> <button class="option-button" id="optionD" onclick="selectAnswer(3)"> <span class="option-label">D</span> <span class="option-text" id="optionTextD">準備中...</span> </button>
+     </div>
+    </div>
+    <div class="results-screen" id="resultsScreen">
+     <div class="results-title">
+      遊戲結束！
+     </div>
+     <div class="results-score" id="resultsScore">
+      你答對了 0 題
+     </div><button class="restart-button" onclick="backToMenu()">返回選單</button>
+    </div>
+   </div>
+  </div>
+  <script>
+        // 遊戲資料
+        const gameData = [
+            {id: 1, page: 6, taiwanese: "紩", romanization: "thīnn", chinese: "縫紉、縫合"},
+            {id: 2, page: 6, taiwanese: "尪仔", romanization: "ang-á", chinese: "泛指所有的人偶"},
+            {id: 3, page: 6, taiwanese: "敢", romanization: "kám", chinese: "表疑問"},
+            {id: 4, page: 6, taiwanese: "細漢", romanization: "sè/suè-hàn", chinese: "年齡較小的(3)"},
+            {id: 5, page: 6, taiwanese: "猶閣", romanization: "iáu/iah/ah/á/iá-koh", chinese: "還、依然、仍舊"},
+            {id: 6, page: 6, taiwanese: "會記得", romanization: "ē-kì--tit/tsit/lit/lih/eh", chinese: "記得"},
+            {id: 7, page: 6, taiwanese: "伊", romanization: "i", chinese: "他、她、牠、它"},
+            {id: 8, page: 6, taiwanese: "佇", romanization: "tī", chinese: "在…地方或時間"},
+            {id: 9, page: 6, taiwanese: "逐工", romanization: "ta̍k-kang", chinese: "每天"},
+            {id: 10, page: 6, taiwanese: "睏晝", romanization: "khùn-tàu", chinese: "午睡"},
+            {id: 11, page: 6, taiwanese: "彼陣", romanization: "hit-tsūn", chinese: "那時、那陣子"},
+            {id: 12, page: 6, taiwanese: "拄到", romanization: "tú-kàu", chinese: "初次到達、剛到"},
+            {id: 13, page: 6, taiwanese: "生份", romanization: "senn/sinn-hūn tshenn/tshinn-hūn", chinese: "陌生"},
+            {id: 14, page: 6, taiwanese: "環境", romanization: "khuân-kíng", chinese: "周圍地方的狀況"},
+            {id: 15, page: 6, taiwanese: "攏", romanization: "lóng", chinese: "都、皆、全部"},
+            {id: 16, page: 6, taiwanese: "嘛嘛吼", romanization: "mà-mà-háu", chinese: "嚎啕大哭"},
+            {id: 17, page: 6, taiwanese: "按呢", romanization: "án-ne/ni", chinese: "這樣、如此"},
+            {id: 18, page: 7, taiwanese: "落尾", romanization: "lo̍h/lōo-bué/bé", chinese: "後來、最後"},
+            {id: 19, page: 7, taiwanese: "共", romanization: "kā", chinese: "把、將(4)"},
+            {id: 20, page: 7, taiwanese: "閣", romanization: "koh", chinese: "又、再、還(3)"},
+            {id: 21, page: 7, taiwanese: "慣勢", romanization: "kuàn-sì", chinese: "習慣"},
+            {id: 22, page: 7, taiwanese: "媠", romanization: "suí", chinese: "漂亮的、美麗的"},
+            {id: 23, page: 7, taiwanese: "袂輸", romanization: "bē/buē-su", chinese: "好比、好像"},
+            {id: 24, page: 7, taiwanese: "原底", romanization: "guân-té/tué", chinese: "原本、原先"},
+            {id: 25, page: 7, taiwanese: "啥物", romanization: "siánn-mih/mi̍h", chinese: "什麼"},
+            {id: 26, page: 7, taiwanese: "手藝", romanization: "tshiú-gē", chinese: "手工技藝"},
+            {id: 27, page: 7, taiwanese: "到今", romanization: "kàu-tann", chinese: "及今、如今、至今"},
+            {id: 28, page: 8, taiwanese: "行", romanization: "kiânn", chinese: "走(5)"},
+            {id: 29, page: 8, taiwanese: "傱", romanization: "tsông", chinese: "慌亂奔忙(2)"},
+            {id: 30, page: 8, taiwanese: "毋但", romanization: "m̄-nā/ niā", chinese: "不只、不但"},
+            {id: 31, page: 8, taiwanese: "嘛", romanization: "mā", chinese: "也(3)"},
+            {id: 32, page: 8, taiwanese: "吐劍光", romanization: "thòo-kiàm-kng", chinese: "銳氣攝人"},
+            {id: 33, page: 9, taiwanese: "膨風", romanization: "phòng-hong", chinese: "吹牛；脹氣"},
+            {id: 34, page: 9, taiwanese: "精傱", romanization: "tsing-tsông", chinese: "精明成器"},
+            {id: 35, page: 9, taiwanese: "莫", romanization: "mài", chinese: "不要"},
+            {id: 36, page: 9, taiwanese: "弄", romanization: "lāng", chinese: "把玩、戲耍(4)"},
+            {id: 37, page: 9, taiwanese: "身", romanization: "sian", chinese: "單位量詞(5)"},
+            {id: 38, page: 9, taiwanese: "戇", romanization: "gōng", chinese: "笨、傻"},
+            {id: 39, page: 9, taiwanese: "無聲無說", romanization: "bô-siann-bô-sueh/seh", chinese: "不動聲色"},
+            {id: 40, page: 9, taiwanese: "消風", romanization: "siau-hong", chinese: "洩氣、漏氣"}
+        ];
+
+        // 遊戲狀態
+        let selectedGameMode = null;
+        let selectedQuestionCount = null;
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let currentCorrectAnswer = 0;
+
+        // 選單頁面邏輯
+        document.addEventListener('DOMContentLoaded', function() {
+            // 遊戲模式選擇
+            document.querySelectorAll('.game-mode-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.game-mode-button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedGameMode = parseInt(this.dataset.mode);
+                    checkStartButton();
+                });
+            });
+
+            // 題目數量選擇
+            document.querySelectorAll('.question-count-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.question-count-button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedQuestionCount = parseInt(this.dataset.count);
+                    checkStartButton();
+                });
+            });
+
+            // 開始遊戲按鈕
+            document.getElementById('startGameButton').addEventListener('click', startGame);
+        });
+
+        function checkStartButton() {
+            const startButton = document.getElementById('startGameButton');
+            if (selectedGameMode && selectedQuestionCount) {
+                startButton.disabled = false;
+            } else {
+                startButton.disabled = true;
+            }
+        }
+
+        // 音效
+        function playCorrectSound() {
+            try {
+                // 創建正確音效 - 愉快的鈴聲
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (error) {
+                // 備用音效
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+                audio.volume = 0.3;
+                audio.play().catch(() => {});
+            }
+        }
+
+        function playIncorrectSound() {
+            try {
+                // 創建錯誤音效 - 低沉的錯誤聲
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3
+                oscillator.frequency.setValueAtTime(196, audioContext.currentTime + 0.15); // G3
+                oscillator.frequency.setValueAtTime(174.61, audioContext.currentTime + 0.3); // F3
+                
+                gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.6);
+                
+                oscillator.type = 'sawtooth';
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.6);
+            } catch (error) {
+                // 備用音效
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
+                audio.volume = 0.2;
+                audio.play().catch(() => {});
+            }
+        }
+
+        // 獲取音檔 URL
+                /* 發音取第一種完整讀音（2026-11-15 修正：多音寫法不再只唸第一個音節）— © 2026 詹宗龍 */
+        function mdTl(raw, han) {
+            let s = String(raw || '').trim();
+            if (!s || /^https?:\/\//.test(s)) return s;
+            s = s.split(/\s+\/\s+/)[0].replace(/\/\s+/g, '/');
+            const n = (String(han || '').match(/[㐀-鿿豈-﫿]|[\ud840-\ud8bf][\udc00-\udfff]/g) || []).length;
+            const cnt = t => t.split(/[\s\-]+/).filter(Boolean).length;
+            const tok = s.replace(/[^\s\-]+/g, w => w.split('/')[0]);
+            const first = s.split('/')[0].trim();
+            if (!n || cnt(tok) === n) return tok;
+            if (cnt(first) === n) return first;
+            return tok;
+        }
+
+        function getAudioUrl(romanization, han) {
+            const audioRoman = mdTl(romanization, han);
+            return audioRoman;
+        }
+
+        // 播放當前音檔
+        function playCurrentAudio() {
+            if (currentQuestionIndex >= currentQuestions.length) return;
+            
+            const currentQuestion = currentQuestions[currentQuestionIndex];
+            const audioUrl = getAudioUrl(currentQuestion.romanization, currentQuestion.taiwanese);
+            
+            const button = document.getElementById('playAudioButton');
+            if (typeof holo === 'function') {
+                holo(button, audioUrl);
+            }
+        }
+
+        // 自動播放音檔
+        function autoPlayAudio() {
+            if (selectedGameMode === 1 || selectedGameMode === 2) {
+                setTimeout(() => {
+                    playCurrentAudio();
+                }, 500);
+            }
+        }
+
+        // 開始遊戲
+        function startGame() {
+            // 隨機選擇題目
+            const shuffled = [...gameData].sort(() => Math.random() - 0.5);
+            currentQuestions = shuffled.slice(0, selectedQuestionCount);
+            
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            
+            // 切換到遊戲頁面
+            document.getElementById('menuContainer').style.display = 'none';
+            document.getElementById('gameContainer').classList.add('active');
+            
+            // 根據遊戲模式顯示/隱藏音檔按鈕
+            const audioSection = document.getElementById('audioSection');
+            if (selectedGameMode === 1 || selectedGameMode === 2) {
+                audioSection.style.display = 'block';
+            } else {
+                audioSection.style.display = 'none';
+            }
+            
+            showQuestion();
+        }
+
+        // 顯示題目
+        function showQuestion() {
+            if (currentQuestionIndex >= currentQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = currentQuestions[currentQuestionIndex];
+            const questionText = document.getElementById('questionText');
+            const progressText = document.getElementById('progressText');
+            const progressFill = document.getElementById('progressFill');
+            const questionInfo = document.getElementById('questionInfo');
+            const navigationButtons = document.getElementById('navigationButtons');
+
+            // 更新進度
+            progressText.textContent = `第 ${currentQuestionIndex + 1} 題 / 共 ${selectedQuestionCount} 題`;
+            progressFill.style.width = `${(currentQuestionIndex / selectedQuestionCount) * 100}%`;
+
+            // 根據遊戲模式設置題目文字和顯示題目資訊
+            switch (selectedGameMode) {
+                case 1:
+                    questionText.textContent = '請聽音檔，選擇正確的台語';
+                    questionInfo.style.display = 'none';
+                    break;
+                case 2:
+                    questionText.textContent = '請聽音檔，選擇正確的台羅';
+                    questionInfo.style.display = 'none';
+                    break;
+                case 3:
+                    questionText.textContent = question.taiwanese;
+                    showQuestionInfoForVisualMode(question);
+                    break;
+                case 4:
+                    questionText.textContent = question.romanization;
+                    showQuestionInfoForVisualMode(question);
+                    break;
+            }
+
+            // 顯示導航按鈕
+            navigationButtons.style.display = 'flex';
+            updateNavigationButtons();
+
+            // 生成選項
+            generateOptions();
+            
+            // 自動播放音檔
+            autoPlayAudio();
+        }
+
+        // 顯示題目詳細資訊
+        function showQuestionInfo(question) {
+            const questionInfo = document.getElementById('questionInfo');
+            document.getElementById('infoId').textContent = question.id;
+            document.getElementById('infoPage').textContent = question.page;
+            document.getElementById('infoChinese').textContent = question.chinese;
+            questionInfo.style.display = 'block';
+        }
+
+        // 顯示視覺模式的題目資訊（只顯示項次、頁數、華語）
+        function showQuestionInfoForVisualMode(question) {
+            const questionInfo = document.getElementById('questionInfo');
+            document.getElementById('infoId').textContent = question.id;
+            document.getElementById('infoPage').textContent = question.page;
+            document.getElementById('infoChinese').textContent = question.chinese;
+            questionInfo.style.display = 'block';
+        }
+
+        // 更新導航按鈕狀態
+        function updateNavigationButtons() {
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            prevButton.disabled = (currentQuestionIndex === 0);
+            nextButton.disabled = (currentQuestionIndex >= currentQuestions.length - 1);
+        }
+
+        // 生成選項
+        function generateOptions() {
+            const question = currentQuestions[currentQuestionIndex];
+            let correctAnswer, wrongAnswers;
+
+            // 根據遊戲模式決定正確答案和錯誤選項
+            switch (selectedGameMode) {
+                case 1:
+                    correctAnswer = question.taiwanese;
+                    wrongAnswers = getRandomWrongAnswers(question, 'taiwanese');
+                    break;
+                case 2:
+                    correctAnswer = question.romanization;
+                    wrongAnswers = getRandomWrongAnswers(question, 'romanization');
+                    break;
+                case 3:
+                    correctAnswer = question.romanization;
+                    wrongAnswers = getRandomWrongAnswers(question, 'romanization');
+                    break;
+                case 4:
+                    correctAnswer = question.taiwanese;
+                    wrongAnswers = getRandomWrongAnswers(question, 'taiwanese');
+                    break;
+            }
+
+            // 隨機排列選項
+            const allOptions = [correctAnswer, ...wrongAnswers];
+            const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
+            currentCorrectAnswer = shuffledOptions.indexOf(correctAnswer);
+
+            // 設置選項文字和樣式
+            const optionElements = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+
+            for (let i = 0; i < 4; i++) {
+                const optionElement = document.getElementById(optionElements[i]);
+                const buttonElement = document.getElementById(buttonElements[i]);
+                
+                optionElement.textContent = shuffledOptions[i];
+                
+                // 重置按鈕狀態
+                buttonElement.className = 'option-button';
+                buttonElement.disabled = false;
+                
+                // 根據文字長度調整字體大小
+                adjustFontSize(optionElement, shuffledOptions[i]);
+            }
+        }
+
+        // 調整字體大小
+        function adjustFontSize(element, text) {
+            element.className = 'option-text';
+            
+            if ((text.length > 15) || (text.includes('/') && text.length > 10)) {
+                element.classList.add('small');
+            } else if ((text.length > 10) || text.includes('-') || text.includes('̍') || text.includes('̄')) {
+                element.classList.add('medium');
+            }
+        }
+
+        // 獲取隨機錯誤答案
+        function getRandomWrongAnswers(currentQuestion, type) {
+            const otherQuestions = gameData.filter(q => 
+                q.taiwanese !== currentQuestion.taiwanese && 
+                q.romanization !== currentQuestion.romanization
+            );
+            
+            const shuffled = otherQuestions.sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, 3).map(q => q[type]);
+        }
+
+        // 選擇答案
+        function selectAnswer(selectedIndex) {
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+            const selectedButton = document.getElementById(buttonElements[selectedIndex]);
+
+            // 檢查是否已經選過這個選項
+            if (selectedButton.classList.contains('correct') || selectedButton.classList.contains('incorrect')) {
+                return;
+            }
+
+            if (selectedIndex === currentCorrectAnswer) {
+                // 正確答案
+                selectedButton.classList.add('correct');
+                correctAnswers++;
+                playCorrectSound();
+                
+                // 禁用所有按鈕，因為已經答對了
+                buttonElements.forEach(id => {
+                    document.getElementById(id).classList.add('disabled');
+                });
+            } else {
+                // 錯誤答案
+                selectedButton.classList.add('incorrect');
+                selectedButton.classList.add('disabled'); // 只禁用這個錯誤的選項
+                playIncorrectSound();
+                // 其他選項仍可繼續選擇
+            }
+        }
+
+        // 上一題
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                resetQuestionState();
+                showQuestion();
+            }
+        }
+
+        // 下一題
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                resetQuestionState();
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // 重置題目狀態
+        function resetQuestionState() {
+            const buttonElements = ['optionA', 'optionB', 'optionC', 'optionD'];
+            const optionTexts = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById(buttonElements[i]);
+                const optionText = document.getElementById(optionTexts[i]);
+                
+                button.className = 'option-button';
+                button.disabled = false;
+                optionText.className = 'option-text';
+            }
+        }
+
+        // 顯示結果
+        function showResults() {
+            document.getElementById('questionArea').style.display = 'none';
+            document.getElementById('resultsScreen').classList.add('active');
+            document.getElementById('resultsScore').textContent = `你答對了 ${correctAnswers} / ${selectedQuestionCount} 題`;
+            
+            // 更新進度為完成
+            document.getElementById('progressText').textContent = '遊戲完成！';
+            document.getElementById('progressFill').style.width = '100%';
+        }
+
+        // 返回選單
+        function backToMenu() {
+            // 重置遊戲狀態
+            selectedGameMode = null;
+            selectedQuestionCount = null;
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            
+            // 重置UI選擇
+            document.querySelectorAll('.game-mode-button').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.question-count-button').forEach(b => b.classList.remove('selected'));
+            document.getElementById('startGameButton').disabled = true;
+            
+            // 切換回選單頁面
+            document.getElementById('gameContainer').classList.remove('active');
+            document.getElementById('menuContainer').style.display = 'flex';
+            
+            // 重置遊戲頁面
+            document.getElementById('questionArea').style.display = 'flex';
+            document.getElementById('resultsScreen').classList.remove('active');
+            document.getElementById('questionText').textContent = '準備開始遊戲';
+            document.getElementById('progressText').textContent = '準備開始';
+            document.getElementById('progressFill').style.width = '0%';
+            
+            // 隱藏題目資訊和導航按鈕
+            document.getElementById('questionInfo').style.display = 'none';
+            document.getElementById('navigationButtons').style.display = 'none';
+            
+            // 重置選項
+            const optionTexts = ['optionTextA', 'optionTextB', 'optionTextC', 'optionTextD'];
+            const buttons = ['optionA', 'optionB', 'optionC', 'optionD'];
+            
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(optionTexts[i]).textContent = '準備中...';
+                document.getElementById(optionTexts[i]).className = 'option-text';
+                document.getElementById(buttons[i]).className = 'option-button';
+                document.getElementById(buttons[i]).disabled = false;
+            }
+        }
+
+        // 初始化 Element SDK
+        const defaultConfig = {
+            main_title: "咱來餾生份字",
+            sub_title: " 真平版國中第2冊 第一課 布袋戲尪仔"
+        };
+
+        async function onConfigChange(config) {
+            document.getElementById('menuMainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('menuSubTitle').textContent = config.sub_title || defaultConfig.sub_title;
+            document.getElementById('gameMainTitle').textContent = config.main_title || defaultConfig.main_title;
+            document.getElementById('gameSubTitle').textContent = config.sub_title || defaultConfig.sub_title;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["sub_title", config.sub_title || defaultConfig.sub_title]
+            ]);
+        }
+
+        // 初始化 SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script id="md-fit-js">
+/* 選項文字配合外框自動放大縮小（儘可能最大化）— © 2026 詹宗龍 */
+(function(){
+function fitOne(b){var t=b.querySelector('.option-text');if(!t||!b.offsetWidth)return;t.style.fontSize='10px';
+var cs=getComputedStyle(b),l=b.querySelector('.option-label');
+var lw=l?l.offsetWidth+parseFloat(getComputedStyle(l).marginRight||0):0;
+var w=b.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight)-lw-2,h=b.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-2;
+if(w<20||h<10)return;w=Math.floor(w);h=Math.floor(h);t.style.maxWidth=w+'px';
+var lo=10,hi=Math.max(12,Math.min(h*0.72,240)),best=lo;
+for(var i=0;i<14;i++){var m=(lo+hi)/2;t.style.fontSize=m+'px';if(t.scrollWidth<=t.clientWidth+1&&t.offsetHeight<=h*0.92){best=m;lo=m;}else hi=m;}
+t.style.fontSize=Math.floor(best)+'px';}
+function fitAll(){document.querySelectorAll('.option-button').forEach(fitOne);}
+var raf=0;function later(){cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){raf=requestAnimationFrame(fitAll);});}
+window.mdFitOptions=later;
+if(typeof window.adjustFontSize==='function'){var o=window.adjustFontSize;window.adjustFontSize=function(e,s){o(e,s);later();};}
+window.addEventListener('resize',later);window.addEventListener('orientationchange',later);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
+})();
+</script>
+<!-- md-fs：浮動全螢幕切換鈕 © 2026 詹宗龍（臺中市明道中學） -->
+<style id="md-fs-css">
+#md-fs-btn{position:fixed;right:4px;top:4px;left:auto;bottom:auto;z-index:2147483646;width:40px;height:40px;padding:0;margin:0;border:2px solid #FFD400;border-radius:50%;background:rgba(17,17,17,.8);color:#FFD400;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.55;box-shadow:0 2px 6px rgba(0,0,0,.35);transition:opacity .15s;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#md-fs-btn[hidden]{display:none}
+#md-fs-btn:hover,#md-fs-btn:focus-visible,#md-fs-btn.drag{opacity:1;outline:none}
+#md-fs-btn.drag{cursor:grabbing}
+#md-fs-btn svg{width:22px;height:22px;display:block;pointer-events:none}
+#md-fs-btn .md-fs-exit{display:none}
+#md-fs-btn.on .md-fs-enter{display:none}
+#md-fs-btn.on .md-fs-exit{display:block}
+@media print{#md-fs-btn{display:none}}
+</style>
+<button type="button" id="md-fs-btn" title="全螢幕（可拖曳移位）" aria-label="全螢幕" hidden>
+<svg class="md-fs-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+<svg class="md-fs-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+</button>
+<script id="md-fs-js">
+(function(){
+ var b=document.getElementById('md-fs-btn'),d=document,e=d.documentElement,K='md-fs-pos';
+ var req=e.requestFullscreen||e.webkitRequestFullscreen||e.msRequestFullscreen;
+ var ok=d.fullscreenEnabled||d.webkitFullscreenEnabled||d.msFullscreenEnabled;
+ if(!b||!req||ok===false){return;}
+ b.hidden=false;
+ function cur(){return d.fullscreenElement||d.webkitFullscreenElement||d.msFullscreenElement;}
+ function sync(){var on=!!cur();b.classList.toggle('on',on);var t=on?'取消全螢幕':'全螢幕';b.title=t+'（可拖曳移位）';b.setAttribute('aria-label',t);}
+ function toggle(){
+  if(cur()){(d.exitFullscreen||d.webkitExitFullscreen||d.msExitFullscreen).call(d);}
+  else{var p=req.call(e);if(p&&p.catch){p.catch(function(){});}}
+ }
+ var pos=null;
+ function place(){
+  if(!pos)return;
+  var w=b.offsetWidth||40,h=b.offsetHeight||40;
+  var x=Math.max(0,Math.min(innerWidth-w,pos.x*innerWidth)),y=Math.max(0,Math.min(innerHeight-h,pos.y*innerHeight));
+  b.style.left=x+'px';b.style.top=y+'px';b.style.right='auto';b.style.bottom='auto';
+ }
+ try{var s=JSON.parse(localStorage.getItem(K)||'null');if(s&&isFinite(s.x)&&isFinite(s.y))pos=s;}catch(_){}
+ place();addEventListener('resize',place);
+ var st=null,moved=false;
+ b.addEventListener('pointerdown',function(ev){if(ev.button>0)return;var r=b.getBoundingClientRect();st={x:ev.clientX,y:ev.clientY,ox:ev.clientX-r.left,oy:ev.clientY-r.top};moved=false;try{b.setPointerCapture(ev.pointerId);}catch(_){}});
+ b.addEventListener('pointermove',function(ev){
+  if(!st)return;
+  if(!moved&&Math.abs(ev.clientX-st.x)+Math.abs(ev.clientY-st.y)<8)return;
+  moved=true;b.classList.add('drag');
+  pos={x:(ev.clientX-st.ox)/innerWidth,y:(ev.clientY-st.oy)/innerHeight};place();
+ });
+ function end(){if(!st)return;st=null;b.classList.remove('drag');if(moved){try{localStorage.setItem(K,JSON.stringify(pos));}catch(_){}}}
+ b.addEventListener('pointerup',end);b.addEventListener('pointercancel',end);
+ b.addEventListener('click',function(ev){
+  ev.preventDefault();ev.stopPropagation();
+  if(moved){moved=false;return;}
+  toggle();b.blur();
+ });
+ d.addEventListener('fullscreenchange',sync);d.addEventListener('webkitfullscreenchange',sync);
+ sync();
+})();
+</script>
+<!-- /md-fs -->
+<!-- md-all：入口頁「全部」題數鈕，題庫全部亂數出題（© 2026 詹宗龍） -->
+<style id="md-all-css">
+html body .question-count-grid{grid-template-columns:repeat(5,1fr)}
+</style>
+<script id="md-all-js">(function(){var b=document.getElementById('md-all-btn');try{b.dataset.count=String(gameData.length);}catch(_){b.hidden=true;}})();</script>
+<!-- /md-all -->
+<!-- md-menufull：入口頁橫放滿版、物件隨螢幕放大（© 2026 詹宗龍） -->
+<style id="md-menufull">/*md-dvh*/
+@media (orientation: landscape){
+ html body .menu-container{height:calc(100vh - 22px);min-height:0;padding:1.6vh 2vw 0;box-sizing:border-box;justify-content:stretch;align-items:stretch;overflow:hidden}
+ html body .menu-card{flex:1 1 auto;min-height:0;width:100%;max-width:none;margin:0 0 1vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-evenly;padding:2vh 3vw;border-radius:clamp(16px,2.4vh,30px)}
+ html body .menu-header,html body .menu-section{margin:0}
+ html body .menu-main-title{font-size:clamp(20px,min(4.6vw,9vh),88px);line-height:1.15}
+ html body .menu-sub-title{font-size:clamp(12px,min(2.4vw,4.4vh),40px)}
+ html body .menu-section-title{font-size:clamp(13px,min(2.4vw,4.6vh),44px);margin-bottom:1.4vh}
+ html body .game-mode-grid{grid-template-columns:repeat(4,1fr);gap:1.4vw;margin:0}
+ html body .game-mode-button{padding:2.8vh 0.6vw;font-size:clamp(12px,min(2.1vw,4.8vh),44px);border-radius:clamp(12px,2vh,24px)}
+ html body .question-count-grid{grid-template-columns:repeat(5,1fr);gap:1.4vw;margin:0}
+ html body .question-count-button{padding:2.4vh 0.6vw;font-size:clamp(12px,min(2.6vw,5.4vh),52px);border-radius:clamp(12px,2vh,24px)}
+ html body .start-game-button{align-self:center;margin:0;padding:2vh 8vw;font-size:clamp(13px,min(2.8vw,5.8vh),56px)}
+ html body .menu-card .md-quiz-link-wrap{margin:0}
+ html body .menu-card a.md-quiz-link{font-size:clamp(12px,min(2.2vw,4.4vh),40px);padding:0.9vh 2.6vw}
+ html body .menu-card .md-quiz-link-hint{font-size:clamp(10px,min(1.3vw,2.8vh),24px);margin-top:0.6vh}
+}
+</style>
+<!-- /md-menufull -->
+<!-- md-gmenu3 -->
+<!-- md-gmenu3：課堂遊戲入口頁黑黃白版型 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-gmenu3-css">
+#g3{--k:#111111;--k2:#2A2A2A;--k3:#3a3a3a;--y:#FFD400;--w:#FFFFFF;--g:#F5F5F5;display:none}
+html body.g3-menu{overflow:hidden!important;background:#111111!important}
+html body.g3-menu #g3{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;background:var(--k);color:var(--w);font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;overflow:hidden}
+#g3 *{box-sizing:border-box}
+#g3 .g3-head{flex:none;display:flex;align-items:center;gap:clamp(10px,1.2vw,18px);padding:clamp(8px,1.6vh,16px) clamp(70px,6vw,90px) clamp(8px,1.6vh,16px) clamp(16px,2.4vw,32px);border-bottom:4px solid var(--y)}
+#g3 .g3-tag{flex:none;background:var(--y);color:var(--k);font-weight:900;font-size:clamp(13px,min(1.6vw,3vh),24px);padding:.3em .9em;border-radius:999px;letter-spacing:.08em}
+html body #g3 .g3-title{flex:1 1 auto;min-width:0;margin:0;text-align:left;background:none!important;-webkit-text-fill-color:var(--y)!important;color:var(--y)!important;text-shadow:none!important;font-weight:900;font-size:clamp(20px,min(3.2vw,6.4vh),52px);line-height:1.2;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#g3 .g3-book{flex:none;color:var(--w);border:2px solid var(--w);border-radius:999px;padding:.25em .9em;font-weight:700;font-size:clamp(12px,min(1.3vw,2.6vh),20px);opacity:.9}
+#g3 .g3-body{flex:1 1 0;min-height:0;display:flex;gap:clamp(12px,2vw,28px);padding:clamp(10px,2.2vh,26px) clamp(16px,2.4vw,32px) 28px}
+#g3 .g3-main{flex:1 1 0;min-width:0;min-height:0;display:flex;flex-direction:column;gap:clamp(10px,2vh,22px)}
+#g3 .g3-step{flex:1 1 0;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(8px,1.6vh,18px);background:var(--k2);border:2px solid var(--k3);border-radius:18px;padding:clamp(10px,2vh,22px) clamp(12px,1.6vw,24px)}
+#g3 .g3-h{flex:none;color:var(--y);font-weight:900;font-size:clamp(14px,min(1.8vw,3.4vh),30px);letter-spacing:.06em;display:flex;align-items:center;gap:.5em}
+#g3 .g3-h b{display:inline-flex;align-items:center;justify-content:center;width:1.6em;height:1.6em;border-radius:50%;background:var(--y);color:var(--k);font-size:.85em}
+#g3 .g3-side{flex:0 0 clamp(240px,27vw,420px);min-height:0;display:flex;flex-direction:column;gap:clamp(8px,1.8vh,18px);background:var(--k2);border:2px solid var(--k3);border-radius:18px;padding:clamp(12px,2.2vh,24px) clamp(12px,1.4vw,22px);overflow:auto}
+#g3 .g3-sum{display:flex;flex-direction:column;gap:.4em;background:var(--k);border-radius:12px;padding:.8em 1em;font-size:clamp(13px,min(1.4vw,2.8vh),22px);line-height:1.3}
+#g3 .g3-sum div{display:flex;gap:.6em}
+#g3 .g3-sum span{flex:none;color:#aaa}
+#g3 .g3-sum strong{color:var(--w);font-weight:900;min-width:0;overflow-wrap:anywhere}
+#g3 .g3-sum strong.off{color:#777;font-weight:500}
+#g3 .g3-sep{flex:none;height:1px;background:#444}
+#g3 .g3-gap{flex:1 1 0}
+#g3 .g3-main.g3-one{justify-content:center}
+#g3 .g3-main.g3-one .g3-step{flex:none;padding-top:clamp(16px,4vh,48px);padding-bottom:clamp(16px,4vh,48px)}
+html body #g3 .g3-main.g3-one .g3-grp{flex:none;height:clamp(70px,34vh,320px);max-height:none}
+/* 按鈕群組（原容器搬進來） */
+html body #g3 .g3-grp{all:unset;box-sizing:border-box;display:grid;gap:clamp(8px,1.2vw,16px);width:100%;flex:1 1 0;min-height:0;max-height:clamp(60px,30vh,260px)}
+html body #g3 .g3-grp>*:not(button):not(.qty-btn){display:none!important}
+html body #g3 .g3-grp>button,html body #g3 .g3-grp>.qty-btn{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex!important;align-items:center;justify-content:center;gap:.5em;min-width:0;min-height:0;margin:0;text-align:center;overflow:visible;background:var(--w);color:var(--k);border:3px solid var(--w);border-radius:16px;font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;line-height:1.15;white-space:nowrap;transition:transform .12s,background .12s,border-color .12s,box-shadow .12s;-webkit-tap-highlight-color:transparent}
+html body #g3 .g3-grp>[hidden]{display:none!important}
+html body #g3 .g3-grp>*>*{pointer-events:none}
+html body #g3 .g3-grp>*:hover,html body #g3 .g3-grp>*:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 3px var(--y);outline:none}
+html body #g3 .g3-grp>.selected{background:var(--y)!important;border-color:var(--y)!important;color:var(--k)!important;box-shadow:0 0 0 4px var(--w)!important}
+html body #g3 .g3-grp>*::before,html body #g3 .g3-grp>*::after{content:none!important;animation:none!important}
+html body #g3 .g3-grp>.selected::before{all:unset;content:"✓"!important;position:absolute;top:-.55em;right:-.4em;width:1.5em;height:1.5em;border-radius:50%;background:var(--k);color:var(--y);border:3px solid var(--y);display:flex;align-items:center;justify-content:center;font-size:clamp(11px,min(1.1vw,2.2vh),18px);font-weight:900}
+/* 題數 */
+html body #g3 .g3-grp.g3-cnt>*{font-size:clamp(18px,min(3vw,6.4vh),58px)}
+html body #g3 .g3-grp.g3-cnt>.g3-n::after{all:unset;content:"題"!important;font-size:.45em;font-weight:700;margin-left:.15em;opacity:.65;align-self:center;margin-top:.45em}
+html body #g3 .g3-grp.g3-cnt>.g3-all{font-size:clamp(16px,min(2.4vw,5.2vh),46px)}
+/* 遊戲方式 */
+html body #g3 .g3-grp.g3-mode>*{justify-content:flex-start;padding:0 clamp(8px,1.1vw,20px);font-size:clamp(14px,min(1.9vw,4.4vh),40px);white-space:nowrap}
+html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:repeat(2,1fr)!important;grid-auto-rows:1fr;max-height:clamp(90px,34vh,300px)}
+#g3 .g3-ico{flex:none;width:2em;height:2em;border-radius:50%;background:var(--k);color:var(--y);display:inline-flex;align-items:center;justify-content:center;font-size:.9em;font-weight:900;letter-spacing:0}
+#g3 .g3-ico svg{width:58%;height:58%}
+#g3 .g3-txt{display:flex;flex-direction:column;align-items:flex-start;min-width:0;text-align:left;white-space:nowrap}
+#g3 .g3-txt small{font-size:.58em;font-weight:700;opacity:.65;margin-top:.25em}
+/* 開始鈕 */
+html body #g3 .g3-start{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;min-height:clamp(54px,13vh,130px);padding:.4em .6em;border-radius:16px;background:var(--y)!important;color:var(--k)!important;border:3px solid var(--y)!important;font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;font-size:clamp(18px,min(2.4vw,5vh),44px);line-height:1.2;letter-spacing:.06em;transition:transform .12s,background .12s;box-shadow:0 6px 0 #b39500!important;opacity:1!important}
+html body #g3 .g3-start:not(:disabled):hover,html body #g3 .g3-start:not(:disabled):focus-visible{transform:translateY(-2px);outline:none;background:#ffe14d!important}
+html body #g3 .g3-start:not(:disabled):active{transform:translateY(4px);box-shadow:0 2px 0 #b39500!important}
+html body #g3 .g3-start:disabled{cursor:not-allowed;background:transparent!important;color:#888!important;border:3px dashed #555!important;box-shadow:none!important;font-size:clamp(14px,min(1.6vw,3.4vh),28px);letter-spacing:.02em}
+/* 線上測驗 */
+html body #g3 .md-quiz-link-wrap{all:unset;display:block}
+html body #g3 a.md-quiz-link{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:.6em;width:100%;padding:clamp(8px,1.6vh,16px) clamp(10px,1vw,16px);border-radius:14px;background:var(--k);color:var(--y);border:3px solid var(--y);font-family:tauhu-oo,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:900;font-size:clamp(14px,min(1.6vw,3.2vh),26px);line-height:1.2;transition:background .12s,color .12s,transform .12s}
+html body #g3 a.md-quiz-link:hover,html body #g3 a.md-quiz-link:focus-visible{background:var(--y);color:var(--k);transform:translateY(-2px);outline:none}
+html body #g3 a.md-quiz-link .g3-sub{display:block;text-wrap:balance;font-size:.6em;font-weight:500;opacity:.8;margin-top:.2em}
+html body #g3 .md-quiz-link-hint{display:none}
+/* 矮螢幕橫放（手機橫拿） */
+@media (orientation:landscape) and (max-height:520px){
+ #g3 .g3-head{padding-top:4px;padding-bottom:4px;border-bottom-width:3px}
+ #g3 .g3-body{padding:8px 12px 24px;gap:10px}
+ #g3 .g3-main{gap:8px}
+ #g3 .g3-step{padding:6px 10px;gap:6px;border-radius:12px}
+ #g3 .g3-side{padding:8px 10px;gap:6px;border-radius:12px}
+ #g3 .g3-sum{padding:.4em .7em;font-size:12px}
+ #g3 .g3-sep,#g3 .g3-txt small,html body #g3 a.md-quiz-link .g3-sub{display:none}
+ html body #g3 .g3-grp>button,html body #g3 .g3-grp>.qty-btn{border-radius:10px;border-width:2px}
+ html body #g3 .g3-start{min-height:44px;border-radius:12px;box-shadow:0 3px 0 #b39500}
+ html body #g3 a.md-quiz-link{padding:6px 10px;border-width:2px;border-radius:12px}
+}
+/* 直放（手機） */
+@media (orientation:portrait){
+ html body.g3-menu #g3{overflow-y:auto}
+ #g3 .g3-head{flex-wrap:wrap;padding-right:64px;row-gap:6px}
+ html body #g3 .g3-title{white-space:normal;font-size:clamp(20px,6vw,40px);flex-basis:100%;order:3}
+ #g3 .g3-body{flex:none;flex-direction:column;padding:12px 14px 44px}
+ #g3 .g3-main{flex:none}
+ #g3 .g3-step{flex:none}
+ #g3 .g3-side{flex:none;overflow:visible}
+ #g3 .g3-gap{display:none}
+ html body #g3 .g3-grp,html body #g3 .g3-main.g3-one .g3-grp{flex:none;max-height:none;height:auto}
+ html body #g3 .g3-grp.g3-mode,html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:1fr!important;max-height:none}
+ html body #g3 .g3-grp.g3-mode>*{min-height:clamp(52px,8vh,80px);font-size:clamp(17px,5vw,30px)}
+ html body #g3 .g3-grp.g3-cnt{grid-template-columns:repeat(3,1fr)!important}
+ html body #g3 .g3-grp.g3-cnt>.g3-all{grid-column:span var(--g3span,1)}
+ html body #g3 .g3-grp.g3-cnt>*{min-height:clamp(52px,8vh,80px);font-size:clamp(20px,6.4vw,36px)}
+ html body #g3 .g3-grp.g3-cnt>.g3-all{font-size:clamp(17px,5vw,30px)}
+ #g3 .g3-h{font-size:clamp(16px,4.6vw,24px)}
+ #g3 .g3-sum{font-size:clamp(14px,4vw,20px)}
+ html body #g3 .g3-start{font-size:clamp(20px,6vw,32px);min-height:64px}
+ html body #g3 .g3-start:disabled{font-size:clamp(16px,4.4vw,24px)}
+ html body #g3 a.md-quiz-link{font-size:clamp(17px,4.8vw,24px)}
+}
+@media (orientation:portrait) and (min-width:600px){
+ html body #g3 .g3-grp.g3-mode,html body #g3 .g3-grp.g3-mode.g3-m4{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
+<script id="md-gmenu3-js">
+(function(){
+ var d=document;if(d.getElementById('g3'))return;
+ var menu=['menu-screen','menuContainer','menuScreen','menu-page'].map(function(i){return d.getElementById(i);}).filter(Boolean)[0];
+ if(!menu)return;
+ var byClass=menu.id==='menuScreen'||menu.id==='menu-page';
+ function isMenu(){return byClass?!menu.classList.contains('hidden'):menu.style.display!=='none';}
+ function txt(sel){var e=menu.querySelector(sel);return e?e.textContent.replace(/\s+/g,' ').trim():'';}
+ var game=txt('h1,.menu-main-title,.title')||'課堂遊戲';
+ var sub=txt('h2,.menu-sub-title,.subtitle');var m=sub.match(/第\s*\d.*$/);if(m)sub=m[0];
+ /* 冊別（由網址代號判斷） */
+ var book='',pm=location.pathname.match(/\/(CHINPING|KANGHSUAN|CHUANHWA|YUDA)-B(\d+)\//);
+ if(pm){var B={'YUDA-B1':'育達全1冊','YUDA-B2':'育達創世紀全1冊'},P={CHINPING:'真平',KANGHSUAN:'康軒',CHUANHWA:'全華',YUDA:'育達'};book=B[pm[1]+'-B'+pm[2]]||(P[pm[1]]+'第'+pm[2]+'冊');}
+ /* 找原本元件 */
+ var cntGrp=menu.querySelector('.qty-grid,.question-count-grid,#count-selection');
+ if(!cntGrp){var b5=menu.querySelector('#count5');cntGrp=b5&&b5.parentElement;}
+ var modeGrp=menu.querySelector('.game-mode-grid,#mode-selection');
+ if(!modeGrp){var m1=menu.querySelector('#mode1');modeGrp=m1&&m1.parentElement;}
+ var start=menu.querySelector('.btn-start,#startGameButton,#startButton,#start-game');
+ var quiz=menu.querySelector('.md-quiz-link-wrap');
+ if(!cntGrp||!start)return;
+ /* 版面 */
+ var g=d.createElement('div');g.id='g3';g.setAttribute('role','main');
+ g.innerHTML='<header class="g3-head"><span class="g3-tag"></span><div class="g3-title"></div>'+(book?'<span class="g3-book"></span>':'')+'</header>'+
+  '<div class="g3-body"><section class="g3-main"></section><aside class="g3-side"></aside></div>';
+ g.querySelector('.g3-tag').textContent=game;g.querySelector('.g3-title').textContent=sub;
+ if(book)g.querySelector('.g3-book').textContent=book;
+ var main=g.querySelector('.g3-main'),side=g.querySelector('.g3-side'),n=0;
+ function step(title,grp,cls){var s=d.createElement('div');s.className='g3-step';s.innerHTML='<div class="g3-h"><b>'+(++n)+'</b>'+title+'</div>';
+  grp.classList.add('g3-grp',cls);s.appendChild(grp);main.appendChild(s);}
+ var SVG={ear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-7h3zM3 19a2 2 0 0 0 2 2h1v-7H3z"/></svg>',
+  eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>'};
+ var modeNames=[],fitModes=null;
+ if(modeGrp){
+  [].slice.call(modeGrp.children).forEach(function(b){
+   var t=b.textContent.replace(/[🎧👀]/g,'').replace(/\s+/g,'').trim(),ico,small='';
+   if(/^聽/.test(t))ico=SVG.ear;else if(/^看/.test(t))ico=SVG.eye;
+   else if(/台羅|臺羅/.test(t)){ico='Lô';small=game.indexOf('鬥句')>=0?'用台羅拼音鬥句':'選項用台羅拼音';}
+   else {ico='漢';small=game.indexOf('鬥句')>=0?'用台語漢字鬥句':'選項用台語漢字';}
+   b.innerHTML='<span class="g3-ico">'+ico+'</span><span class="g3-txt">'+t+(small?'<small>'+small+'</small>':'')+'</span>';
+   b.setAttribute('data-g3', t);
+  });
+  modeGrp.style.gridTemplateColumns='repeat('+Math.min(modeGrp.children.length,3)+',1fr)';
+  if(modeGrp.children.length>=4)modeGrp.classList.add('g3-m4');
+  /* 方式鈕文字不斷行：放不下就自動縮小字級（老師 2026-11-23） */
+  fitModes=function(){if(!d.body.classList.contains('g3-menu'))return;[].slice.call(modeGrp.children).forEach(function(b){
+   var t=b.querySelector('.g3-txt');if(!t)return;b.style.fontSize='';var fs=parseFloat(getComputedStyle(b).fontSize),i=0;
+   while(t.scrollWidth>t.clientWidth+1&&i<40&&fs>9){fs*=0.95;b.style.fontSize=fs+'px';i++;}});};
+  window.addEventListener('resize',function(){requestAnimationFrame(fitModes);});
+  if(window.ResizeObserver)new ResizeObserver(function(){requestAnimationFrame(fitModes);}).observe(modeGrp);
+  if(d.fonts&&d.fonts.ready)d.fonts.ready.then(fitModes);
+  step('選擇遊戲方式',modeGrp,'g3-mode');
+ }
+ var cnts=[].slice.call(cntGrp.children).filter(function(b){return b.matches('button,.qty-btn');});
+ /* 題庫不多於題數時隱藏該題數鈕（用「全部」即可） */
+ var bank=0;try{bank=(typeof db!=='undefined'&&db.length)||(typeof gameData!=='undefined'&&gameData.length)||(typeof questionDatabase!=='undefined'&&questionDatabase.length)||(typeof FULL_GAME_DATA!=='undefined'&&FULL_GAME_DATA.length)||0;}catch(_){}
+ cnts.forEach(function(b){var k=b.textContent.match(/\d+/);if(bank&&k&&b.id!=='md-all-btn'&&+k[0]>=bank&&+k[0]!==5){b.hidden=true;b.classList.remove('selected');}});
+ cnts=cnts.filter(function(b){return !b.hidden;});
+ cnts.forEach(function(b){var k=b.textContent.match(/\d+/);if(k&&b.id!=='md-all-btn'){b.textContent=k[0];b.classList.add('g3-n');b.setAttribute('aria-label',k[0]+'題');}else b.classList.add('g3-all');});
+ cntGrp.style.gridTemplateColumns='repeat('+cnts.length+',1fr)';
+ var al=cntGrp.querySelector('.g3-all');if(al)al.style.setProperty('--g3span',3-(cnts.length-1)%3);
+ step('選擇題數',cntGrp,'g3-cnt');
+ if(!modeGrp)main.classList.add('g3-one');
+ /* 右側面板 */
+ side.innerHTML='<div class="g3-h"><b>'+(++n)+'</b>開始練習</div><div class="g3-sum">'+(modeGrp?'<div><span>方式</span><strong class="g3-sm"></strong></div>':'')+'<div><span>題數</span><strong class="g3-sc"></strong></div></div>';
+ start.classList.add('g3-start');side.appendChild(start);
+ /* 開始鈕文字統一「開始遊戲」（老師 2026-11-23；鬥句原本會被程式改成「開始 N 題測驗」） */
+ function lab(){if(start.textContent!=='開始遊戲')start.textContent='開始遊戲';}
+ lab();new MutationObserver(lab).observe(start,{childList:true,characterData:true,subtree:true});
+ var gp=d.createElement('div');gp.className='g3-gap';side.appendChild(gp);
+ if(quiz){var a=quiz.querySelector('a');if(a){var h=quiz.querySelector('.md-quiz-link-hint');a.innerHTML='<span aria-hidden="true">📝</span><span>線上測驗<span class="g3-sub">'+(h?h.textContent:'另開視窗作答，成績上傳給老師')+'</span></span>';}
+  side.appendChild(quiz);}
+ d.body.appendChild(g);
+ /* 已選摘要 */
+ var sm=side.querySelector('.g3-sm'),sc=side.querySelector('.g3-sc');
+ function sum(){
+  if(sm){var x=modeGrp.querySelector('.selected');sm.textContent=x?x.getAttribute('data-g3'):'尚未選擇';sm.classList.toggle('off',!x);}
+  var y=cntGrp.querySelector('.selected');sc.textContent=y?(y.classList.contains('g3-all')?'全部題目':y.textContent+' 題'):'尚未選擇';sc.classList.toggle('off',!y);
+ }
+ new MutationObserver(sum).observe(g,{subtree:true,attributes:true,attributeFilter:['class']});
+ function sync(){d.body.classList.toggle('g3-menu',isMenu());sum();if(typeof fitModes==='function')requestAnimationFrame(fitModes);}
+ new MutationObserver(sync).observe(menu,{attributes:true,attributeFilter:['style','class']});
+ sync();
+})();
+</script>
+<!-- /md-gmenu3 -->
+<div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">真平企業有限公司授權使用｜© 2026 詹宗龍</div>
+</body>
+</html>
