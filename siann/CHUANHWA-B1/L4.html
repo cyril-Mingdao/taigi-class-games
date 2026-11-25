@@ -1181,6 +1181,11 @@ html body .menu-container{box-sizing:border-box;min-height:0;height:100vh;height
  html body .md-quiz-link-hint{font-size:clamp(10px,2.8vh,13px);font-size:clamp(10px,2.8dvh,13px);margin-top:0.3vh;margin-top:0.3dvh}
 }
 </style>
+<style id="md-optcol">/* 橫式：選項直排 左A B／右C D © 2026 詹宗龍（臺中明道中學） */
+@media (orientation: landscape){
+ html body .options-grid{grid-auto-flow:column;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
+}
+</style>
 </head>
  <body oncontextmenu="return false;"><!-- 入口選單頁面 -->
   <div class="menu-container" id="menuContainer">

@@ -725,6 +725,11 @@ html body .nav-button{padding:1vh 2.6vw;padding:1dvh 2.6vw;font-size:clamp(12px,
  html body .options-grid{grid-template-columns:minmax(0,1fr)}
 }
 </style>
+<style id="md-optcol">/* 橫式：選項直排 左A B／右C D © 2026 詹宗龍（臺中明道中學） */
+@media (orientation: landscape){
+ html body .options-grid{grid-auto-flow:column;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
+}
+</style>
 </head>
  <body oncontextmenu="return false;">
   <script src="/_sdk/element_sdk.js"></script>
