@@ -8,12 +8,12 @@
 
 | 資料夾 | 遊戲 | 遊戲總頁 |
 |---|---|---|
-| `hingim/` | 形音義配對 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=hingim |
-| `siann/` | 咱來餾生份字 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=siann |
-| `suansu/` | 選詞塌空 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=suansu |
-| `tauku/` | 咱來鬥句 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=tauku |
-| `mindmap/` | 心智圖配對 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=mindmap |
-| `hakstat/` | 學思達講義 | https://cyril-mingdao.github.io/taigi-class-games/menu/?g=hakstat |
+| `hingim/` | 形音義配對 | |
+| `siann/` | 咱來餾生份字 | |
+| `suansu/` | 選詞塌空 |  |
+| `tauku/` | 咱來鬥句 | |
+| `mindmap/` | 心智圖配對 |  |
+| `hakstat/` | 學思達講義 |  |
 
 | 版本代號 | 版本 |
 |---|---|
