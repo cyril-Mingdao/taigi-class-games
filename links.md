@@ -150,6 +150,42 @@
 | 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L6-2.html |
 | 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B2/L7.html |
 
+### 育達長鴻版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 白糖粿 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B3/L1.html |
+| 第2課 來去屏東海生館蹛一暝 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B3/L2.html |
+| 第3課 四秀仔錢 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B3/L3.html |
+| 第4課 燒銀紙佮放炮仔 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B3/L4.html |
+
+### 育達長鴻版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 踢銅管仔 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B4/L1.html |
+| 第2課 爸仔囝 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B4/L2.html |
+| 第3課 阿媽的目屎 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B4/L3.html |
+| 第4課 未食五日節粽 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B4/L4.html |
+
+### 育達長鴻版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 手機仔 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B5/L1.html |
+| 第2課 雨港基隆，魚鹽規布袋 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B5/L2.html |
+| 第3課 雞卵糕 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B5/L3.html |
+| 第4課 炕窯 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B5/L4.html |
+
+### 育達長鴻版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 舞台 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B6/L1.html |
+| 第2課 藏水沬 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B6/L2.html |
+| 第3課 金山舊街來𨑨迌 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B6/L3.html |
+| 第4課 對減塑到無痕食食 | https://cyril-mingdao.github.io/taigi-class-games/hingim/YUDA-B6/L4.html |
+
 ### 共用（不分版本）
 
 | 課次 | 連結 |
@@ -296,6 +332,42 @@
 | 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L6-2.html |
 | 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B2/L7.html |
 
+### 育達長鴻版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 白糖粿 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B3/L1.html |
+| 第2課 來去屏東海生館蹛一暝 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B3/L2.html |
+| 第3課 四秀仔錢 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B3/L3.html |
+| 第4課 燒銀紙佮放炮仔 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B3/L4.html |
+
+### 育達長鴻版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 踢銅管仔 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B4/L1.html |
+| 第2課 爸仔囝 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B4/L2.html |
+| 第3課 阿媽的目屎 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B4/L3.html |
+| 第4課 未食五日節粽 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B4/L4.html |
+
+### 育達長鴻版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 手機仔 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B5/L1.html |
+| 第2課 雨港基隆，魚鹽規布袋 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B5/L2.html |
+| 第3課 雞卵糕 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B5/L3.html |
+| 第4課 炕窯 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B5/L4.html |
+
+### 育達長鴻版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 舞台 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B6/L1.html |
+| 第2課 藏水沬 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B6/L2.html |
+| 第3課 金山舊街來𨑨迌 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B6/L3.html |
+| 第4課 對減塑到無痕食食 | https://cyril-mingdao.github.io/taigi-class-games/siann/YUDA-B6/L4.html |
+
 ## 選詞塌空（`suansu/`）
 
 ### 真平版國中第1冊
@@ -433,6 +505,42 @@
 | 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L6-1.html |
 | 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L6-2.html |
 | 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B2/L7.html |
+
+### 育達長鴻版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 白糖粿 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B3/L1.html |
+| 第2課 來去屏東海生館蹛一暝 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B3/L2.html |
+| 第3課 四秀仔錢 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B3/L3.html |
+| 第4課 燒銀紙佮放炮仔 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B3/L4.html |
+
+### 育達長鴻版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 踢銅管仔 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B4/L1.html |
+| 第2課 爸仔囝 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B4/L2.html |
+| 第3課 阿媽的目屎 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B4/L3.html |
+| 第4課 未食五日節粽 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B4/L4.html |
+
+### 育達長鴻版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 手機仔 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B5/L1.html |
+| 第2課 雨港基隆，魚鹽規布袋 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B5/L2.html |
+| 第3課 雞卵糕 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B5/L3.html |
+| 第4課 炕窯 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B5/L4.html |
+
+### 育達長鴻版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 舞台 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B6/L1.html |
+| 第2課 藏水沬 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B6/L2.html |
+| 第3課 金山舊街來𨑨迌 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B6/L3.html |
+| 第4課 對減塑到無痕食食 | https://cyril-mingdao.github.io/taigi-class-games/suansu/YUDA-B6/L4.html |
 
 ## 咱來鬥句（`tauku/`）
 
@@ -572,6 +680,42 @@
 | 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L6-2.html |
 | 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B2/L7.html |
 
+### 育達長鴻版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 白糖粿 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B3/L1.html |
+| 第2課 來去屏東海生館蹛一暝 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B3/L2.html |
+| 第3課 四秀仔錢 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B3/L3.html |
+| 第4課 燒銀紙佮放炮仔 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B3/L4.html |
+
+### 育達長鴻版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 踢銅管仔 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B4/L1.html |
+| 第2課 爸仔囝 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B4/L2.html |
+| 第3課 阿媽的目屎 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B4/L3.html |
+| 第4課 未食五日節粽 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B4/L4.html |
+
+### 育達長鴻版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 手機仔 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B5/L1.html |
+| 第2課 雨港基隆，魚鹽規布袋 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B5/L2.html |
+| 第3課 雞卵糕 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B5/L3.html |
+| 第4課 炕窯 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B5/L4.html |
+
+### 育達長鴻版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 舞台 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B6/L1.html |
+| 第2課 藏水沬 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B6/L2.html |
+| 第3課 金山舊街來𨑨迌 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B6/L3.html |
+| 第4課 對減塑到無痕食食 | https://cyril-mingdao.github.io/taigi-class-games/tauku/YUDA-B6/L4.html |
+
 ## 心智圖配對（`mindmap/`）
 
 ### 真平版國中第1冊
@@ -710,6 +854,42 @@
 | 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L6-2.html |
 | 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B2/L7.html |
 
+### 育達長鴻版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 白糖粿 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B3/L1.html |
+| 第2課 來去屏東海生館蹛一暝 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B3/L2.html |
+| 第3課 四秀仔錢 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B3/L3.html |
+| 第4課 燒銀紙佮放炮仔 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B3/L4.html |
+
+### 育達長鴻版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 踢銅管仔 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B4/L1.html |
+| 第2課 爸仔囝 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B4/L2.html |
+| 第3課 阿媽的目屎 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B4/L3.html |
+| 第4課 未食五日節粽 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B4/L4.html |
+
+### 育達長鴻版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 手機仔 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B5/L1.html |
+| 第2課 雨港基隆，魚鹽規布袋 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B5/L2.html |
+| 第3課 雞卵糕 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B5/L3.html |
+| 第4課 炕窯 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B5/L4.html |
+
+### 育達長鴻版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 舞台 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B6/L1.html |
+| 第2課 藏水沬 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B6/L2.html |
+| 第3課 金山舊街來𨑨迌 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B6/L3.html |
+| 第4課 對減塑到無痕食食 | https://cyril-mingdao.github.io/taigi-class-games/mindmap/YUDA-B6/L4.html |
+
 ## 學思達講義（`hakstat/`）
 
 ### 真平版國中第1冊
@@ -846,3 +1026,39 @@
 | 第6課之1 來春 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B2/L6-1.html |
 | 第6課之2 戇阿媽 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B2/L6-2.html |
 | 第7課 歹看面的 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B2/L7.html |
+
+### 育達長鴻版國中第1冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 白糖粿 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B3/L1.html |
+| 第2課 來去屏東海生館蹛一暝 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B3/L2.html |
+| 第3課 四秀仔錢 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B3/L3.html |
+| 第4課 燒銀紙佮放炮仔 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B3/L4.html |
+
+### 育達長鴻版國中第2冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 踢銅管仔 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B4/L1.html |
+| 第2課 爸仔囝 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B4/L2.html |
+| 第3課 阿媽的目屎 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B4/L3.html |
+| 第4課 未食五日節粽 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B4/L4.html |
+
+### 育達長鴻版國中第3冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 手機仔 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B5/L1.html |
+| 第2課 雨港基隆，魚鹽規布袋 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B5/L2.html |
+| 第3課 雞卵糕 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B5/L3.html |
+| 第4課 炕窯 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B5/L4.html |
+
+### 育達長鴻版國中第4冊
+
+| 課次 | 連結 |
+|---|---|
+| 第1課 舞台 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B6/L1.html |
+| 第2課 藏水沬 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B6/L2.html |
+| 第3課 金山舊街來𨑨迌 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B6/L3.html |
+| 第4課 對減塑到無痕食食 | https://cyril-mingdao.github.io/taigi-class-games/hakstat/YUDA-B6/L4.html |
