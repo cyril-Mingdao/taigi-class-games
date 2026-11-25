@@ -2,7 +2,7 @@
 
 宗龍的台語課（臺中明道中學）各版本教科書課堂遊戲，由 Google Sites 內嵌程式碼搬到 GitHub Pages 統一管理。
 
-- 總目錄：https://cyril-mingdao.github.io/taigi-class-games/（遊戲總頁＋依課名、課次、冊別查找）
+- 總目錄：
 - 一個遊戲一個資料夾，底下依版本分資料夾，每課一個 html：`<遊戲>/<版本代號>/L<課>.html`
 - `menu/?g=<遊戲代號>`：課次選單，Google Sites 各總頁（五種遊戲＋學思達講義）整頁嵌入的就是這一頁
 
