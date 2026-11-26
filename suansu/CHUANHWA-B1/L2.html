@@ -925,14 +925,14 @@ html body .nav-button{padding:1vh 2.6vw;padding:1dvh 2.6vw;font-size:clamp(12px,
         // 選單功能
         function selectGameMode(mode) {
             gameMode = mode;
-            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('mode1').parentNode.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
             document.getElementById(mode === 'taiwanese' ? 'mode1' : 'mode2').classList.add('selected');
             updateStartButton();
         }
 
         function selectQuestionCount(count) {
             questionCount = count;
-            document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById(`count${count}`).parentNode.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('selected'));
             document.getElementById(`count${count}`).classList.add('selected');
             updateStartButton();
         }
