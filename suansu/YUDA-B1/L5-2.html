@@ -1450,5 +1450,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"你去共彼跤箱仔拍開": "你去把那個箱子打開", "有影是糖甘蜜甜的滋味": "真的是甜蜜蜜的滋味", "咱無啥物話好講--矣": "我們沒什麼話好說了", "你是咧寫啥物物件": "你是在寫什麼東西", "阮兜有袂少樹奶束仔": "我家有不少橡皮筋", "彼个人就是阮翁啦": "那個人就是我先生啦", "我共遮的筆攏提轉去喔": "我把這些筆都拿回去喔", "你去共窗仔門攏關起來": "你去把窗戶都關起來", "伊閣欲去佗位遊覽--矣？": "他又要去哪裡遊覽了？", "你敢欲做伙去𨑨迌？": "你要不要一起去玩？", "伊彼年著大病，蹛病院": "他那年生了大病，住在醫院", "後禮拜歇熱欲--來去日本": "下禮拜放暑假要去日本", "桌頂全全狗蟻": "桌上全都是螞蟻", "攏是伊講欲按呢做的": "都是他說要這樣做的", "我會共藏佇心肝內": "我會把它藏在心裡", "伊酒啉甲馬西馬西": "他喝酒喝得醉醺醺的", "心肝底若像針咧揻": "心裡好像針在扎", "今已經暗矣，好歇睏矣": "現在已經晚了，該休息了", "伊看起來五十外歲": "他看起來五十多歲", "伊碩士讀四冬才出業": "他碩士讀了四年才畢業", "我無想欲去--矣": "我不想去了", "你嘛較差不多咧": "你也適可而止吧", "氣象講好天，煞咧落雨": "氣象說是晴天，竟然在下雨", "到今你才知": "到現在你才知道", "我是笑甲流目油": "我笑到流眼淚"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

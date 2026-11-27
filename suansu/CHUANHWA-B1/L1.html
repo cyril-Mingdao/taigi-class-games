@@ -1518,5 +1518,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"伊透早就出門矣": "他一大早就出門了", "今仔日的日頭真猛": "今天的太陽很大", "我共你講，你毋通共別人講": "我跟你說，你不可以跟別人說", "天頂天公，地下母舅公": "天上天公最大，地上舅公最大", "天頂白殕殕，敢若欲落雨": "天空灰濛濛的，好像要下雨", "寒天愛蓋較厚的毯仔": "冬天要蓋比較厚的毯子", "天猶未光，雞就啼矣": "天還沒亮，雞就啼了", "透早雞仔咧啼": "一大早雞在啼", "狗仔看著生份人就吠": "狗看到陌生人就叫", "阮兜邊仔有一間早頓店": "我家旁邊有一間早餐店", "阿媽透早就佇鼎灶邊無閒": "奶奶一大早就在爐灶邊忙", "鼎內的湯沖沖滾": "鍋裡的湯滾燙沸騰", "早起時空氣上清爽": "早上的時候空氣最清爽", "山頂的樹仔青蘢蘢": "山上的樹木青翠茂盛", "阿明共退休金攏提去炒股票": "阿明把退休金都拿去炒股票", "伊的精神無啥好，你莫閣共伊吵矣": "他的精神不太好，你不要再吵他了", "學生隨个仔隨个入去教室": "學生一個接一個走進教室", "伊咧讀冊": "他在讀書", "伊的工課真濟，足無閒的": "他的工作很多，非常忙", "十二點欲食中晝矣！": "十二點要吃午餐了！", "熱天的教室燒烘烘": "夏天的教室很悶熱", "寒天圍佇火爐邊食火鍋": "冬天圍在火爐邊吃火鍋", "咱著愛較斟酌咧": "我們要多注意一點", "你無代無誌哪會腹肚疼？": "你好端端的怎麼會肚子痛？", "阿明開店做生理有趁著一點仔錢": "阿明開店做生意賺到一點錢", "伊一个人推三碗飯": "他一個人吃掉三碗飯", "我予你一个面子，這件代誌就準拄煞": "我給你一個面子，這件事就算了", "食予飽才有氣力做工課": "要吃飽才有力氣工作", "菜熥燒通好食": "菜熱一熱才好吃", "伊為著考試拚甲半暝": "他為了考試拚到半夜", "下晡我欲招阿美仔去𨑨迌": "下午我要約阿美去玩", "田裡的穡頭做袂了": "田裡的農活做不完", "欲暗仔鳥仔攏飛轉去岫": "傍晚鳥兒都飛回巢裡", "稻仔熟甲黃錦錦": "稻子成熟得金黃燦爛", "過年食椪柑，大吉大利": "過年吃椪柑，大吉大利", "我欲佮伊來去看電影": "我要和他去看電影", "樹林內有真濟鳥隻": "樹林裡有很多鳥", "𪜶兩个生做相𫝛": "他們兩個長得一樣", "欲成功愛靠家己認真拍拚": "要成功得靠自己認真努力", "鳥仔岫內底有卵": "鳥巢裡面有蛋", "暗暝仔的天星真光": "夜晚的星星很亮", "停電了後厝內烏趖趖": "停電之後家裡黑漆漆的", "寫書法愛先佇墨盤磨墨": "寫書法要先在硯台上磨墨", "庄跤的天星特別濟": "鄉下的星星特別多", "天頂的天星一直爍": "天上的星星一直閃爍", "電火爍一下就熄去": "電燈閃一下就熄了", "伊看著我袂輸看著鬼咧": "他看到我好像看到鬼一樣", "熱天暗暝仔看著火金蛄": "夏天晚上看到螢火蟲", "阿母講明仔載欲落雨": "媽媽說明天會下雨", "你寄的批我猶未收著": "你寄的信我還沒收到", "我中晝食飽就愛睏": "我中午吃飽就想睡", "人人攏愛守規矩": "每個人都要守規矩", "𪜶兩个是雙生仔囝": "他們兩個是雙胞胎", "伊有時歡喜，有時受氣": "他有時高興，有時生氣", "阿兄生做真躼": "哥哥長得很高", "厝主閣喝欲起厝稅矣": "房東又說要漲房租了", "伊閣會唱歌閣會跳舞": "他又會唱歌又會跳舞", "囡仔佇公園覕相揣": "小孩子在公園玩捉迷藏", "若講甲伊知，喙鬚會拍結": "如果講給他知道，他會很頭痛", "伊睏精神就去洗面": "他睡醒就去洗臉", "伊是阮班上躼跤的人": "他是我們班上最高的人", "伊足揀食，莫怪瘦卑巴": "他很挑食，難怪瘦巴巴的", "沓沓仔行，毋免傷緊": "慢慢走，不用太快", "寒甲規身軀勼做伙": "冷到全身縮成一團", "阿母氣甲袂講話，干焦直直捶心肝": "媽媽氣得說不出話，只一直捶胸口", "伊細漢的時干焦一漢仔疕": "他小時候個子小小的", "緊來食飯矣": "快來吃飯了", "食予飽才去讀冊": "吃飽了才去上學", "食飽就去寫功課": "吃飽就去寫功課", "伊生做矮頓矮頓": "他長得矮矮壯壯的", "伊直哭袂停": "他一直哭個不停", "伊這兩年抽懸足濟": "他這兩年長高很多", "黃昏不殺雞": "黃昏不殺雞", "伊閣再來揣我": "他又再來找我", "伊生做躼跤躼手": "他長得手長腳長", "日頭落山矣，緊轉去": "太陽下山了，快回去", "狗仔走去覕佇眠床跤": "狗跑去躲在床底下", "你敢知影伊覕佇佗位？": "你知道他躲在哪裡嗎？", "中秋的月娘特別圓": "中秋的月亮特別圓", "月娘慢慢仔浮出來": "月亮慢慢地升起來", "伊又閣袂記得紮冊": "他又忘記帶書", "伊做代誌真𠢕趖": "他做事情很慢吞吞", "行傷久跤底會疼": "走太久腳底會痛", "伊歡喜甲若囡仔咧": "他高興得像個孩子一樣", "小妹共阿母黏甲若黏黐": "妹妹黏媽媽黏得像黏膠一樣", "阿美定定佮我講私奇話": "阿美常常和我說悄悄話", "糖仔黏牢牢佇桌頂": "糖果緊緊黏在桌上", "𪜶兩个若司公仔象桮": "他們兩個形影不離", "𪜶兄弟仔相依相倚": "他們兄弟互相依靠", "共壁頂的貼紙剝起來": "把牆上的貼紙撕下來"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

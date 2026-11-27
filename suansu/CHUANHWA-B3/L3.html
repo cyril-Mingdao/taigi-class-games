@@ -1456,5 +1456,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"下早仔的生理真好，我早早就收擔矣": "今天早上的生意很好，我早早就收攤了", "阿明自透早無閒到暗": "阿明從早忙到晚", "房間的空間無夠大": "房間的空間不夠大", "不時講家己偌𠢕拄偌𠢕": "常常說自己多厲害又多厲害", "額頭開闊的人看起來較開朗": "額頭寬闊的人看起來比較開朗", "阮兜三樓閣有一間空間仔": "我家三樓還有一間儲藏室", "老一輩的人共鐵馬叫做自輪車": "老一輩的人把腳踏車叫做「自轉車」", "日頭向西爿落山": "太陽向西邊下山", "伊定定嘛西瓜倚大爿": "他常常也是西瓜偎大邊", "我煞有講彼句話？": "我竟然有說那句話？", "伊駛車去軋著人": "他開車撞到人", "阿明開店做生理有趁著一點仔錢": "阿明開店做生意賺到一點錢", "毋知佗一个夭壽人共我的車輪落風": "不知道哪個缺德鬼把我的車輪放氣", "伊無細膩去跙一倒": "他不小心滑了一跤", "伊這擺的考試落幾若名": "他這次的考試掉了好幾名", "桌頂的物件落落來矣": "桌上的東西掉下來了", "阿母氣甲袂講話，干焦直直捶心肝": "媽媽氣得說不出話，只一直捶胸口", "阿媽叫我共食賰的菜收入去菜櫥": "奶奶叫我把吃剩的菜收進菜櫥", "好佳哉有你替我求情，若無，我就慘矣": "幸好有你替我求情，不然，我就慘了", "閒閒無代誌，罔行嘛好": "閒閒沒事，隨便走走也好", "夯石碾會當練手骨的筋肉佮手門的力頭": "舉石輪可以練手臂的肌肉和手腕的力氣", "阿雄仔頭殼好閣𠢕變竅": "阿雄頭腦好又很會變通", "我手尾力無夠，捾袂起來": "我手腕的力氣不夠，提不起來", "我欲步輦來去公園𨑨迌": "我要走路去公園玩", "明仔暗我就欲坐車轉去下港矣": "明天晚上我就要搭車回南部了", "門傷重，愛瞪力才捒會開": "門太重，要用力才推得開", "伊是新來的員工": "他是新來的員工", "伊講伊較早蹛佇員山": "他說他以前住在員山", "伊今仔日的穿插真大方": "她今天的穿著很大方", "阿母留一張字條仔予我": "媽媽留一張紙條給我", "阿明仔新牽的oo-tóo-bái食油誠省": "阿明新買的機車很省油", "阿明仔攏袂堪得人講得": "阿明都禁不起別人說他", "這月日的所費真傷重": "這個月的花費很重", "阿樹伯仔是庄裡的大好人": "阿樹伯是村裡的大好人", "阿媽生日是咱人當時？": "奶奶的生日是農曆什麼時候？", "若到節氣「雨水」，天氣就開始轉燒烙矣": "如果到了節氣「雨水」，天氣就開始轉暖了", "客人仔共節氣「雨水」的號做天穿日": "客家人把節氣「雨水」叫做天穿日", "有影俗物就無好貨": "果然便宜沒好貨", "阿勇真無膽，天若烏就毋敢出門": "阿勇很沒膽，天如果黑了就不敢出門", "今年的雨水真充足": "今年的雨水很充足", "工課做規工，規身軀痛疼": "工作做一整天，全身痠痛", "我無紮雨傘，規身軀攏沃澹去": "我沒帶雨傘，全身都淋濕了", "你是按怎共厝內拂甲澹糊糊": "你為什麼把家裡弄得濕答答的", "庄頭彼的田小姐欲嫁人矣": "村子裡那個田小姐要嫁人了", "阮阿公逐工透早攏會去巡田水": "我爺爺每天一大早都會去巡田水", "隔壁彼的葉的做人無老實": "隔壁那個姓葉的做人不老實", "日鬚迵過樹葉仔縫掖佇塗跤": "陽光穿過樹葉縫隙灑在地上", "馬先生是老芋仔": "馬先生是老榮民", "今仔日哪會騎鐵馬來學校？": "今天怎麼騎腳踏車來學校？", "林阿舍是地方的頭人": "林大少是地方的領袖", "雄雄有一陣猴山仔對樹林內傱出來": "突然有一群猴子從樹林裡衝出來", "風颱連樹根規个挽起來": "颱風把樹根整個拔起來", "彼片草埔生誠濟草菇，毋知有毒無？": "那片草地長了很多草菇，不知道有沒有毒？", "我最近拄著一寡代誌，無蓋順序": "我最近碰到一些事情，不太順利", "伊做代誌傷潦草，定定予頭家唸": "他做事太潦草，常常被老闆唸", "阿明誠陰鴆，我定定攏毋知伊咧想啥": "阿明很陰沉，我常常都不知道他在想什麼", "無人知影伊按呢做是有啥物用意": "沒人知道他這樣做有什麼用意", "攑頭三尺有神明": "舉頭三尺有神明", "出日的時，佇水沖邊仔有可能會看著虹": "出太陽的時候，在瀑布旁邊有可能會看到彩虹", "𪜶兩个冤家了後就親像生份人仝款": "他們兩個吵架之後就像陌生人一樣", "阮兜有掛一幅山水圖": "我家掛了一幅山水畫", "這是啥物物件？": "這是什麼東西？", "這領衫你穿囉真合軀": "這件衣服你穿起來很合身"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

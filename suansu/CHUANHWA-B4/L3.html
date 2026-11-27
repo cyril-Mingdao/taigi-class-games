@@ -1542,5 +1542,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"阿明仔蹛佇學校附近": "阿明住在學校附近", "伊這馬佇厝裡咧睏": "他現在在家裡睡覺", "古早人過烏水溝足危險": "古時候的人渡黑水溝很危險", "伊耍甲規身軀烏趖趖": "他玩得全身黑漆漆的", "伊予歹運纏身": "他被厄運纏身", "伊的簿仔畫甲花巴哩貓": "他的簿子畫得亂七八糟", "鉛筆削甲尖尖": "鉛筆削得尖尖的", "死蛇活尾溜": "死蛇活尾巴", "阿美定定佮我講私奇話": "阿美常常和我說悄悄話", "魚仔浮出水面": "魚浮出水面", "樹仔發新芽矣": "樹長出新芽了", "我買一支手機仔八千": "我買一支手機八千元", "阿公留長長的喙鬚": "爺爺留著長長的鬍子", "𪜶兩个好甲親像兄弟仔仝款": "他們兩個好得像兄弟一樣", "阿明開店做生理有趁著一點仔錢": "阿明開店做生意賺到一點錢", "你做代誌愛較細膩咧": "你做事要小心一點", "天若烏就毋敢出門": "天如果黑了就不敢出門", "伊無細膩磕著桌角": "他不小心撞到桌角", "你等一下，我隨來": "你等一下，我馬上來", "食著歹物會中毒": "吃到壞東西會中毒", "蛇仔會吐舌": "蛇會吐舌頭", "魚仔的臭臊味真重": "魚的腥臭味很重", "妖怪會吐毒霧害人": "妖怪會吐毒霧害人", "冰角化做水": "冰塊化成水", "伊若親像行入幻境": "他好像走進了幻境", "人類愛保護地球": "人類要保護地球", "伊驚甲魂魄攏飛去": "他嚇得魂飛魄散", "我予你一个面子，這件代誌就準拄煞": "我給你一個面子，這件事就算了", "𪜶兩个感情真好": "他們兩個感情很好", "伊看甲失神去": "他看得出神了", "伊無細膩落海": "他不小心掉進海裡", "想袂到伊會成做地方上的頭人": "想不到他會成為地方上的領袖", "遮的嘛攏是好的": "這些也都是好的", "我共你借一支筆": "我跟你借一支筆", "音樂牽引我的心": "音樂牽引我的心", "昨暗我做一个惡夢": "昨晚我做了一個惡夢", "你聽好先轉去歇睏": "你可以先回去休息", "伊將冊囥佇桌頂": "他把書放在桌上", "伊想欲共人拆食落腹": "他想要把人生吞活剝", "伊見若食牛奶就落屎": "他只要喝牛奶就拉肚子", "你記持誠䆀，隨講隨袂記得": "你記性很差，說完就忘記", "伊雄雄出現佇門口": "他突然出現在門口", "工課做規工，規身軀痛疼": "工作做一整天，全身痠痛", "伊的面紅帕帕": "他的臉紅通通的", "伊頂半身無穿衫": "他上半身沒穿衣服", "山頂有真濟猴": "山上有很多猴子", "醫生欲檢查你的尻脊骿": "醫生要檢查你的背部", "伊揹一袋米欲去換一隻雞": "他背一袋米要去換一隻雞", "密婆有肉翼仔": "蝙蝠有肉質的翅膀", "魚鱗愛先刮清氣": "魚鱗要先刮乾淨", "伊的頭毛鉸甲短短": "他的頭髮剪得短短的", "伊的下半身攏澹去": "他的下半身都濕了", "阿爸去溪仔掠蝦": "爸爸去溪裡抓蝦", "石距有八支跤": "章魚有八隻腳", "伊見著我便笑": "他看到我就笑", "洘流的時去海坪掠螺": "退潮的時候去海灘抓螺", "鳥仔歇佇樹仔頂": "鳥停在樹上", "這个所在誠揜貼": "這個地方很隱密", "囡仔佇海坪耍沙": "小孩子在海灘玩沙", "阿公少年時咧行船": "爺爺年輕時在跑船", "討海人透早就出海": "討海人一大早就出海", "看著日頭落山就好來轉矣": "看到太陽下山就該回去了", "希望逐家攏無災厄": "希望大家都沒有災難", "風颱欲來矣": "颱風要來了", "你小等一下，連鞭就好矣": "你稍等一下，馬上就好了", "你莫綴前綴後": "你不要跟前跟後", "伊咧讀冊": "他在讀書", "你若無來，我就先走": "你如果沒來，我就先走", "我想欲去日本": "我想要去日本", "伊最近足歹運": "他最近運氣很差", "小弟綴牢牢毋放": "弟弟緊緊跟著不放", "你千萬愛細膩": "你千萬要小心", "你毋通傷晏轉來": "你不可以太晚回來", "我共你講，你毋通共別人講": "我跟你說，你不可以跟別人說", "毋通傷害動物": "不可以傷害動物", "我請你食飯": "我請你吃飯", "你莫烏白呸喙瀾！": "你不要亂吐口水！", "做人莫相害": "做人不要互相陷害", "囡仔昨暝閣泄尿": "小孩子昨晚又尿床", "伊捷捷來阮兜": "他時常來我家", "海面有真濟船": "海面上有很多船", "船桅頂懸掛一支旗": "船桅上面掛一面旗子", "胡蠅佇桌頂飛來飛去": "蒼蠅在桌上飛來飛去", "伊生成真緣投": "他天生很英俊", "這領衫真歹看": "這件衣服很難看", "暗暝的墓仔埔有幽火": "晚上的墓地有鬼火", "兩个人相伴去讀冊": "兩個人結伴去上學", "你若參加比賽，百面贏的": "你如果參加比賽，一定會贏", "外口咧落大雨": "外面在下大雨", "我毋愛食別項": "我不想吃別的", "船艙內貯滿魚仔": "船艙裡裝滿魚", "雨水灌入厝內": "雨水灌進家裡", "水桶貯甲滇滇滇": "水桶裝得滿滿的", "落尾我就去高雄讀冊": "後來我就去高雄讀書", "風湧傷大會反船": "風浪太大會翻船", "毋捌泅水，險險駐駐死": "不會游泳，差點淹死", "共雞仔趕入去籠仔": "把雞趕進籠子", "船員攏真辛苦": "船員都很辛苦", "熱天阿伯攏褪腹裼": "夏天伯伯都打赤膊", "伊的頭毛生成是虯的": "他的頭髮天生是捲的", "伊的房間亂操操": "他的房間亂七八糟", "古早人穿棕蓑做穡": "古時候的人穿蓑衣做農事", "出門愛戴帽仔": "出門要戴帽子", "阿公戴瓜笠仔去田裡": "爺爺戴斗笠去田裡", "這箱欲愛的攑手": "這箱想要的人舉手", "阿義去𬦰山煞失蹤欲兩禮拜": "阿義去爬山竟然失蹤快兩個禮拜", "伊一受氣就𧮙人": "他一生氣就用粗話罵人", "毋通烏白詈人": "不可以亂罵人", "伊大聲共狗嚇走": "他大聲把狗嚇跑"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

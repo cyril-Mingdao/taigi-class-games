@@ -1520,5 +1520,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"你行路愛小心。": "你走路要小心。", "去認捌臺灣的本土文化佮傳統藝術": "去認識臺灣的本土文化和傳統藝術", "我欲佮伊來去看電影。": "我要和他去看電影。", "其中上特別的是大甲媽繞境": "其中最特別的是大甲媽祖遶境", "阮欲走矣，你咧？": "我們要走了，你呢？", "逐家攏是家己人，著愛互相照顧。": "大家都是自己人，要互相照顧。", "我功課若寫好就會使去看電影矣。": "我功課如果寫好就可以去看電影了。", "便若神明生，神轎攏會繞境驅煞。": "每逢神明生日，神轎都會遶境驅邪。", "我看伊做的歹代誌毋但按呢爾爾。": "我看他做的壞事不只這樣而已。", "這毋但是用雙跤綴媽祖鬥陣行爾爾": "這不只是用雙腳跟著媽祖一起走而已", "你莫綴前綴後。": "你不要跟前跟後。", "佮朋友鬥陣著愛誠懇。": "和朋友相處要誠懇。", "錶仔定去袂行矣。": "手錶停了，不會走了。", "我規身軀干焦十箍爾爾。": "我全身上下只有十塊錢而已。", "今仔日伊閣來矣。": "今天他又來了。", "這个所在真鬧熱。": "這個地方很熱鬧。", "嘛共當做是轉大人的儀式。": "也把它當作是轉大人的儀式。", "共當做是轉大人的儀式。": "把它當作是轉大人的儀式。", "伊古意煞予人當做戇呆。": "他老實卻被人當作傻瓜。", "伊開始咧轉大人矣。": "他開始在轉大人了。", "起駕儀式的彼一暗": "起駕儀式的那一晚", "下暗廟埕欲搬戲。": "今晚廟前廣場要演戲。", "廟埕好親像一場大型的嘉年華會": "廟前廣場好像一場大型的嘉年華會", "信眾挨挨陣陣": "信眾人山人海", "我的腹肚疼甲欲死。": "我的肚子痛得要命。", "陣頭嘛排甲看袂著尾溜": "陣頭也排得看不到尾巴", "徛佇尾溜彼个，你敢捌伊？": "站在最尾端那個，你認識他嗎？", "夜市仔擔的人嘛插插插": "夜市攤子的人也擠得滿滿的", "夜市仔擔的人插插插": "夜市攤子的人擠得滿滿的", "窮真欲對大甲步輦去到新港": "說真的要從大甲走路到新港", "欲對大甲步輦去到新港": "要從大甲走路到新港", "你就共當做去𨑨迌，心情放予輕鬆": "你就把它當作去玩，心情放輕鬆", "用錢嘛買無！": "用錢也買不到！", "伊坐佇咧遐。": "他坐在那裡。", "佇咧這逝旅程": "在這趟旅程", "沿路的風景袂䆀。": "一路上的風景不錯。", "伊足足講一點鐘的電話。": "他足足講了一個小時的電話。", "伊的齣頭真濟。": "他的花招很多。", "分人做新婦仔。": "送人當童養媳。", "你予我考慮一下。": "你讓我考慮一下。", "點心予你止飢、分涼水予你止喙焦": "點心讓你充飢、發冷飲讓你解渴", "天氣遮熱，足想欲食涼水。": "天氣這麼熱，很想吃冷飲。", "分涼水予你止喙焦": "發冷飲讓你解渴", "閣會大聲共你加油": "還會大聲替你加油", "予你精神飽滇。": "讓你精神飽滿。", "猶會記得我行到彰化的民生地下道": "還記得我走到彰化的民生地下道", "欲睏愛會記得洗喙。": "要睡覺要記得刷牙。", "我的跤是疼甲哀袂出聲": "我的腳痛到哀叫不出聲", "空喙閣流血矣，足疼的。": "傷口又流血了，很痛。", "你莫哀啦，逐家的工課攏平濟。": "你不要哀了啦，大家的工作都一樣多。", "我的跤疼甲哀袂出聲": "我的腳痛到哀叫不出聲", "伊這馬佇厝裡咧睏。": "他現在在家裡睡覺。", "路邊目屎直直輾落來": "路邊眼淚一直掉下來", "這條路直直攏免轉斡。": "這條路一直走都不用轉彎。", "坐佇路邊目屎直直輾落來": "坐在路邊眼淚一直掉下來", "袂輸掛一條真珠袚鍊。": "好像掛了一條珍珠項鍊。", "衫愛用衫仔弓掛起來。": "衣服要用衣架掛起來。", "伊頷頸掛一條真大條的金袚鍊。": "他脖子掛著一條很粗的金項鍊。", "看著遮爾濟人比手勢共我支持": "看到這麼多人比手勢支持我", "遮爾濟人比手勢共我支持、共我": "這麼多人比手勢支持我、為我", "敢若是伊，閣敢若毋是。": "好像是他，又好像不是。", "這兩个皮包仔看著仝款仔仝款。": "這兩個皮包看起來一模一樣。", "我勻勻仔徛起來": "我慢慢地站起來", "你徛佇遐創啥物？": "你站在那裡做什麼？", "我勻勻仔徛起來，喙齒根咬咧": "我慢慢地站起來，咬緊牙根", "喙齒根咬咧，大伐向前行！": "咬緊牙根，大步向前走！", "阿伯拄仔好坐佇涼亭仔咧食早頓": "伯伯剛好坐在涼亭裡吃早餐", "我拄仔好想欲走。": "我剛好想要走。", "拄仔好坐佇涼亭仔咧食早頓": "剛好坐在涼亭裡吃早餐", "我欲食炒飯，你咧？": "我要吃炒飯，你呢？", "這隻船食水偌深？": "這艘船吃水多深？", "囡仔人攏真好玄。": "小孩子都很好奇。", "伊為啥物會來行大甲媽。": "他為什麼會來走大甲媽祖遶境。", "問伊為啥物會來行大甲媽。": "問他為什麼會來走大甲媽祖遶境。", "伊簡單仔應講": "他簡單地回答說", "叫規半晡攏無人應聲。": "叫了大半天都沒人回應。", "為著某囝啦": "為了妻兒啦", "趁錢飼某囝": "賺錢養妻兒", "祈求𪜶健康、平安。": "祈求他們健康、平安。", "我聽著足感動，這嘛印證": "我聽了很感動，這也印證", "伊攏大權，我惹伊袂起。": "他都大權在握，我惹不起他。", "是毋是，罵家己。": "是不是，先罵自己。", "誠濟人來參加繞境": "很多人來參加遶境", "參加繞境毋是為著家己內心的願望": "參加遶境不是為了自己內心的願望", "這款疼心實在是誠偉大。": "這種愛心實在很偉大。", "伊對人真有疼心。": "他對人很有愛心。", "疼心實在是誠偉大。": "愛心實在很偉大。", "繞境除了是跤力、體力的考驗": "遶境除了是腳力、體力的考驗", "過程中經歷的鹹酸苦澀": "過程中經歷的酸甜苦辣", "𪜶兩个好甲親像兄弟仔仝款。": "他們兩個好得像兄弟一樣。", "也成做是我上難忘的旅行": "也成為我最難忘的旅行", "毋但體驗著傳統民俗的媠": "不只體驗到傳統民俗的美", "猶閣有臺灣人的愛心佮善心。": "還有臺灣人的愛心和善心。", "伊共有緣的人箍做伙": "她把有緣的人聚在一起", "咱兩个做伙來去𨑨迌。": "我們兩個一起去玩。"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

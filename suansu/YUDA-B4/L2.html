@@ -1497,5 +1497,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 </script>
 <!-- /md-gmenu3 -->
 <div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">長鴻教育科技有限公司授權使用｜© 2026 詹宗龍</div>
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"公司派我出張，三工後才會轉來": "公司派我出差，三天後才會回來", "若講甲伊知，喙鬚會拍結": "如果講給他知道，他會很頭痛", "阿公真軟心，攏會予人借錢": "爺爺很心軟，都會借錢給人", "伊看電視看甲神去": "他看電視看得出神", "我共你講，你毋通共別人講": "我跟你說，你不可以跟別人說", "你看彼个人一直咧使目尾": "你看那個人一直在使眼色", "伊用手扞下頦咧想": "他用手撐著下巴在想", "毋通踮塗跤躽nuà": "不可以在地上打滾", "厝主閣喝欲起厝稅矣": "房東又說要漲房租了", "伊看著我袂輸看著鬼咧": "他看到我好像看到鬼一樣", "這兩个皮包仔看著仝款仔仝款": "這兩個皮包看起來一模一樣", "阿爸䖙佇膨椅頂看電視": "爸爸半躺在沙發上看電視", "伊這馬佇厝裡咧睏": "他現在在家裡睡覺", "阿母氣甲袂講話，干焦直直捶心肝": "媽媽氣得說不出話，只一直捶胸口", "貓仔罩踮我的胸坎頂": "貓趴在我的胸口上", "伊的身軀頂有一隻草猴": "他的身上有一隻螳螂", "伊透早就出門矣": "他一大早就出門了", "貓霧仔光阿公就去巡田": "天剛破曉爺爺就去巡田", "囡仔聽著欲出去，興tshih-tshih": "孩子聽到要出去，興致高昂", "眠床予囡仔𧿬甲歹去": "床被孩子跳得壞掉了", "狗仔看著生份人就吠": "狗看到陌生人就叫", "排隊的人龍躼躼長": "排隊的人龍很長", "伊睏無飽，一直哈唏": "他沒睡飽，一直打呵欠", "伊耍甲規身軀烏趖趖": "他玩得全身黑漆漆的", "我的鞋仔內底敢若有石頭仔，感覺砧砧": "我的鞋子裡面好像有小石頭，感覺硌腳", "囡仔佇眠床頂躽來躽去": "孩子在床上滾來滾去", "伊大聲喊救人": "他大聲喊救命", "這款菜你食看覓": "這種菜你吃吃看", "予我一个，若無就準拄煞": "給我一個，不然就算了", "我聽甲強欲起性地": "我聽到快要發脾氣", "竹管予火燒甲煏開。": "竹管被火燒得爆裂開來。", "今仔日是我的生日": "今天是我的生日", "伊講話誠歹聲嗽": "他說話口氣很差", "敢若是伊，閣敢若毋是": "好像是他，又好像不是", "貓仔蝹佇壁角睏": "貓蜷縮在牆角睡覺", "狗仔𥍉𥍉看，欲討物食": "狗眨著眼睛直看，想討東西吃", "伊講話的氣口真大": "他說話的口氣很大", "較細膩咧，你著愛勻勻仔行": "小心一點，你要慢慢走", "鬧鐘一響，伊隨躘起床": "鬧鐘一響，他馬上跳起床", "帽仔戴佇頭殼頂": "帽子戴在頭頂上", "伊毋知咧歡喜啥物？": "他不知道在高興什麼？", "𪜶老爸笑甲喙仔裂獅獅": "他爸爸笑得合不攏嘴", "狗仔耳仔覆覆來倚我": "狗耳朵服貼地靠近我", "𪜶兩个好甲親像兄弟仔仝款": "他們兩個好得像兄弟一樣", "定定都睏到欲上課矣才欲起來": "常常都睡到要上課了才起來", "飛行機準時起飛": "飛機準時起飛", "死蛇活尾溜": "死蛇活尾巴", "狗仔看著主人，尾溜直直幌": "狗看到主人，尾巴一直搖", "你敢知影伊叫做啥物名？": "你知道他叫什麼名字嗎？", "阮欲走矣，你咧？": "我們要走了，你呢？", "阮兜有兩个囡仔": "我家有兩個孩子", "無論按怎，我攏欲去": "無論如何，我都要去", "阿明共退休金攏提去炒股票": "阿明把退休金都拿去炒股票", "阿兄𤆬阮去園裡起塗窯": "哥哥帶我們去田裡焢土窯", "你愛的物件佇較內面": "你要的東西在比較裡面", "伊目睭真大蕊": "他眼睛很大", "透早山頂罩雺霧": "一大早山上籠罩著霧", "阿公有痚呴，袂堪得寒": "爺爺有氣喘，禁不起冷", "沓沓仔行，毋免傷緊": "慢慢走，不用太快", "好佳哉有你替我求情，若無，我就慘矣": "幸好有你替我求情，不然，我就慘了", "伊細漢捌佇街仔路流浪": "牠小時候曾經在街上流浪", "咱會當做伙讀冊，實在真有緣": "我們能一起讀書，實在很有緣", "我欲佮伊來去看電影": "我要和他去看電影", "我永遠會記得你": "我永遠會記得你", "阿明仔攏袂堪得人講得": "阿明都禁不起別人說他"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

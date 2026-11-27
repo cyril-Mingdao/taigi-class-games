@@ -1483,5 +1483,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"我欲佮伊來去看電影": "我要和他去看電影", "阿母咧灶跤煮飯": "媽媽在廚房煮飯", "初一十五阿媽攏會拜拜": "初一十五奶奶都會拜拜", "厝主閣喝欲起厝稅矣": "房東又說要漲房租了", "伊去夜市仔食東食西": "他去夜市吃這吃那", "今仔日有夠熱": "今天真熱", "燒的湯較好啉": "熱的湯比較好喝", "這个湯頭的滋味袂䆀": "這個湯頭的味道不錯", "冷的飯毋通食": "冷的飯不可以吃", "我食著阿媽煮的菜": "我吃到奶奶煮的菜", "熱天啉冰水，心涼脾土開": "夏天喝冰水，心情舒暢胃口大開", "我予你一个面子，這件代誌就準拄煞": "我給你一個面子，這件事就算了", "聽著好消息，伊心花開": "聽到好消息，他心花怒放", "粉圓食起來滑溜滑溜": "粉圓吃起來滑溜溜的", "伊的手指有一粒真珠": "她的戒指上有一顆珍珠", "伊看著我就笑": "他看到我就笑", "啊都你家己講的": "這不就是你自己說的", "素色佮有色的衫莫濫做伙洗": "素色和有顏色的衣服不要混在一起洗", "熱天食粉圓冰真涼": "夏天吃粉圓冰很涼", "這兩種果子是仝宗的": "這兩種水果是同一個來源的", "到底著愛按怎做": "到底要怎麼做", "阿娟的別莊整理甲嶄然四序": "阿娟的別墅整理得井井有條", "熱天愛加啉水": "夏天要多喝水", "熱天食礤冰上爽": "夏天吃刨冰最爽快", "寒天的時陣，愛穿較燒咧": "冬天的時候，要穿暖一點", "牛奶摻糖較好啉": "牛奶加糖比較好喝", "哪會按呢？": "怎麼會這樣？", "古早人攏用柴燒火": "古時候的人都用木柴生火", "你是這間店的頭家毋?": "你是這間店的老闆嗎？", "我來捀碗共你貯飯": "我來端碗幫你盛飯", "伊用搖摵杯攪飲料": "他用雪克杯搖飲料", "伊看著我袂輸看著鬼咧": "他看到我好像看到鬼一樣", "伊歡喜甲袂輸起童": "他高興得好像起乩一樣", "茶搖甲起泡較好啉": "茶搖到起泡比較好喝", "熱天啉冰茶，透心涼。": "夏天喝冰茶，透心涼。", "阿明仔開袂少錢佇尪仔機台": "阿明花了不少錢在娃娃機上", "用管仔欶果汁": "用吸管吸果汁", "這兩个皮包仔看著仝款仔仝款": "這兩個皮包看起來一模一樣", "田裡有足濟水雞仔": "田裡有很多青蛙", "這个囡仔真得人疼": "這個孩子很討人喜歡", "彼改去日本足好耍": "那一次去日本很好玩", "阮欲走矣，你咧？": "我們要走了，你呢？", "聽講恁查某囝欲予人送定矣": "聽說你們女兒要訂婚了", "求神明保庇全家平安": "求神明保佑全家平安", "明仔暗我就欲坐車轉去下港矣": "明天晚上我就要搭車回南部了", "受人幫忙愛說多謝": "受人幫忙要說謝謝", "愛認真讀冊才會進步": "要認真讀書才會進步", "定定都睏到欲上課矣才欲起來": "常常都睡到要上課了才起來", "今仔日我請你食飯": "今天我請你吃飯", "恁大漢後生較定著": "你們大兒子比較穩重", "你敢知影伊叫做啥物名？": "你知道他叫什麼名字嗎？", "你愛較拍拚咧": "你要努力一點", "伊歡喜甲若囡仔咧": "他高興得像個孩子一樣", "伊的字寫甲遐媠": "他的字寫得那麼漂亮", "時間誠寶貴": "時間很寶貴", "阮兩个孫仔生做有夠古錐": "我們兩個孫子長得非常可愛", "遮的嘛攏是好的": "這些也都是好的"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

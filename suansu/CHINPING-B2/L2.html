@@ -1491,5 +1491,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 </script>
 <!-- /md-gmenu3 -->
 <div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">真平企業有限公司授權使用｜© 2026 詹宗龍</div>
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"伊生做真古錐": "他長得很可愛", "我遮閣有淡薄仔錢會當借你": "我這裡還有一點錢可以借你", "你毋通笑伊倯": "你不可以笑他俗氣", "咱鬥陣來去": "我們一起去", "我揣無路，一直咧踅玲瑯": "我找不到路，一直在繞圈子", "叫你莫來你閣來": "叫你不要來你又來", "彼站代誌我袂講得": "那件事我不能說", "真佩服伊唸遮久攏袂跳針": "真佩服他唸這麼久都不會前言不對後語", "逐家攏是家己人": "大家都是自己人", "伊是阮這班生做上蓋媠的": "她是我們班長得最漂亮的", "𪜶兩个熟似真久矣": "他們兩個認識很久了", "伊講的笑詼，有夠歹笑": "他講的笑話，實在不好笑", "電視當咧搬的苦齣誠衝": "電視正在演的苦情戲很賺人熱淚", "囡仔人有耳無喙": "小孩子有耳無嘴（只聽不插嘴）", "𪜶老爸笑甲喙仔裂獅獅": "他爸爸笑得合不攏嘴", "看苦齣，手巾仔著愛攢予便": "看苦情戲，手帕要準備好", "今這聲真正是欲哭無目屎矣": "這下子真的是欲哭無淚了", "伊看著活跳跳，一點仔都無成破病的人": "他看起來活蹦亂跳，一點也不像生病的人", "無兩步七仔是無法度搬戲的": "沒有兩把刷子是沒辦法演戲的", "伊講話的氣口真大": "他說話的口氣很大", "伊猶傷細漢，袂當看這齣": "他年紀還太小，不能看這齣戲", "我有寫批，毋過伊攏無回": "我有寫信，不過他都沒回", "這馬的人攏罕得寫批矣": "現在的人都很少寫信了", "今年普渡的場面真鬧熱": "今年中元普渡的場面很熱鬧", "向望你會當好好仔做人": "希望你能好好做人", "你的要求我會當答應你": "你的要求我可以答應你", "你愛認真拍拚，才會出頭天": "你要認真打拚，才會出人頭地", "咱兩个做伙來去𨑨迌": "我們兩個一起去玩", "你欲提佗一个？": "你要拿哪一個？", "彼的團體是以勸善為目的": "那個團體是以勸人行善為目的", "你著知道理": "你要懂道理", "你緊來啦，強欲袂赴矣": "你快來啦，快要來不及了", "佇傳統戲劇正戲前攏有扮仙": "在傳統戲劇正戲前都有扮仙", "共代誌攏做予圓圓圓": "把事情都做得圓圓滿滿", "向望今年咱逐家攏大趁錢": "希望今年我們大家都賺大錢", "廟埕彼齣戲有影是大葩尾": "廟埕那齣戲真的很盛大熱鬧", "求神明庇佑咱全家平安": "求神明保佑我們全家平安", "聽講伊賰袂少錢": "聽說他存了不少錢", "𪜶兜的家伙攏予伊敗了了矣": "他們家的財產都被他敗光了", "昨昏伊佇遮抾著一千箍": "昨天他在這裡撿到一千元", "接著訂單，逐家攏無閒𩑾𩑾": "接到訂單，大家都忙得團團轉", "較早的人攏早早就睏矣": "以前的人都很早就睡了", "這个庄頭的人攏真好客": "這個村子的人都很好客", "伊規年迵天攏佇國外": "他一整年都在國外", "彼个小生真緣投": "那個小生很英俊", "我的胸坎實實，人真無爽快": "我胸口悶悶的，很不舒服", "伊是這个歌仔戲班的小旦": "她是這個歌仔戲班的小旦", "你看彼个人一直咧使目尾": "你看那個人一直在使眼色", "戲劇內的三花誠好笑": "戲劇裡的丑角很好笑", "無，你是佇咧講笑詼是毋？": "不然，你是在說笑話嗎？", "你去共彼粒王梨刣刣咧": "你去把那顆鳳梨切一切", "伊毋願共你鬥相共": "他不願意幫你的忙", "伊家己拍拚趁錢替𪜶翁還數": "她自己努力賺錢替她丈夫還債", "愛媠是人的天性": "愛美是人的天性", "一隻牛予人縛佇樹跤": "一頭牛被人綁在樹下", "這兩个皮包看著仝款仔仝款": "這兩個皮包看起來一模一樣", "前輩牽教，經驗才會當傳承": "前輩提攜指導，經驗才能傳承", "伊的精神無啥好": "他的精神不太好", "伊猶原佇遐咧等你": "他仍然在那裡等你", "伊的工夫袂䆀": "他的功夫不錯", "你著愛較會曉想咧": "你要想開一點", "伊袂插你，你莫枉費心神矣": "他不會理你，你不要白費心思了", "噗仔聲共伊催落去！": "掌聲給他催下去！", "布袋戲是台灣的傳統文化": "布袋戲是台灣的傳統文化", "伊這馬佇厝裡咧睏": "他現在在家裡睡覺", "鳥鼠真𠢕生湠": "老鼠很會繁殖"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

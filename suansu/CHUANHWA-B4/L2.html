@@ -1539,5 +1539,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"老母煮的菜上好食": "母親煮的菜最好吃", "阿明共退休金攏提去炒股票": "阿明把退休金都拿去炒股票", "老師教阮唱台語歌": "老師教我們唱台語歌", "伊的囡仔真古錐": "他的孩子很可愛", "做人愛老實": "做人要誠實", "你是按怎無來上課？": "你為什麼沒來上課？", "𪜶兩个感情真好": "他們兩個感情很好", "欲成功愛靠家己認真拍拚": "要成功得靠自己認真努力", "厝主閣喝欲起厝稅矣": "房東又說要漲房租了", "毋通講白賊話": "不可以說謊話", "細漢的時陣": "小時候", "伊便若歇睏就去釣魚": "他只要休息就去釣魚", "阮欲走矣，你咧？": "我們要走了，你呢？", "阿母逐工攏真無閒": "媽媽每天都很忙", "暗矣，緊轉去食飯": "天黑了，快回去吃飯", "今仔日阿爸煮飯": "今天爸爸煮飯", "你敢知影伊叫做啥物名？": "你知道他叫什麼名字嗎？", "定定都睏到欲上課矣才欲起來": "常常都睡到要上課了才起來", "伊講規葩的道理": "他講了一大串道理", "這台車猶會使騎": "這台車還可以騎", "海邊的湧激足懸": "海邊的浪打得很高", "天猶未光伊就起來矣": "天還沒亮他就起床了", "哪有人按呢做代誌？": "哪有人這樣做事情的？", "伊敢是恁老師？": "他是你們的老師嗎？", "我啥物攏毋驚": "我什麼都不怕", "我腹肚枵矣": "我肚子餓了", "落雨矣，趕緊入來": "下雨了，趕快進來", "物件我攏攢好矣": "東西我都準備好了", "暗頓食飽了後來去公園行行咧": "晚餐吃飽之後去公園走走", "阿媽佇灶跤煮飯": "奶奶在廚房煮飯", "接著訂單，逐家攏無閒𩑾𩑾": "接到訂單，大家都忙得團團轉", "阿母誠𠢕佮人講價": "媽媽很會跟人講價", "店內真無閒，欠跤手": "店裡很忙，缺人手", "有代誌逐家來鬥相共": "有事情大家來幫忙", "風景誠媠咱那行那欣賞": "風景很美，我們邊走邊欣賞", "叫你哪攏毋應？": "叫你怎麼都不回答？", "錢有夠用就好": "錢夠用就好", "會曉偷食，袂曉拭喙": "會偷吃，不會擦嘴", "伊的頭殼額攏是汗": "他的額頭都是汗", "運動了後流規身軀汗": "運動之後流了一身汗", "你小等一時仔": "你稍等一會兒", "伊探頭看窗仔外": "他探頭看窗外", "伊咧讀冊": "他在讀書", "外口嚇嚇叫是咧創啥物": "外面吵吵鬧鬧的是在做什麼", "𪜶兜雖然散赤，毋過真幸福": "他們家雖然貧窮，不過很幸福", "伊手裡捏一張批": "他手裡捏著一封信", "我當咧無閒，你莫共我吵": "我正在忙，你不要吵我", "囡仔愛摸狗仔的頭": "小孩子愛摸狗的頭", "干焦賰遮的菜爾爾，你欲無？": "只剩這些菜而已，你要不要？", "我規身軀干焦十箍爾爾": "我全身上下只有十塊錢而已", "報名到昨昏是上尾工": "報名到昨天是最後一天", "天氣愈來愈熱": "天氣越來越熱", "這本尪仔冊真趣味。": "這本漫畫很有趣。", "伊本底欲來，落尾無閒": "他本來要來，後來沒空", "落尾我就去高雄讀冊": "後來我就去高雄讀書", "緊捀幾項仔飯菜入來": "趕快端幾樣飯菜進來", "冊囥佇桌頂": "書放在桌上", "今仔日的暗頓誠豐沛": "今天的晚餐很豐盛", "這毋是我的": "這不是我的", "阮兩个孫仔生做有夠古錐": "我們兩個孫子長得非常可愛", "伊誠體貼序大人": "他很體貼長輩", "伊刁工來看我": "他特地來看我", "阿母氣甲袂講話，干焦直直捶心肝": "媽媽氣得說不出話，只一直捶胸口", "伊輕輕鬆鬆就考一百分": "他輕輕鬆鬆就考一百分", "我無愛去彼間店買": "我不要去那間店買", "我予你一个面子，這件代誌就準拄煞": "我給你一個面子，這件事就算了", "序大人攏疼囝兒": "父母都疼愛子女", "我的工課足濟的": "我的工作很多", "按呢做傷了工矣": "這樣做太白費工夫了", "伊為家庭犧牲真濟": "他為家庭犧牲很多", "我永遠會記得你": "我永遠會記得你", "阿兄比我較懸": "哥哥比我高", "看著日頭落山就好來轉矣": "看到太陽下山就該回去了", "你愛的物件佇較內面": "你要的東西在比較裡面", "真濟人予伊騙甲戇戇踅": "很多人被他騙得團團轉", "逐家來食飯矣": "大家來吃飯了", "食飽閣繼續讀冊": "吃飽再繼續讀書", "囡仔毋通講白賊": "小孩子不可以說謊", "阿媽煮的菜真好食": "奶奶煮的菜很好吃", "你先食，我隨來": "你先吃，我馬上來", "伊夾一塊肉予我": "他夾一塊肉給我", "伊食無幾喙就飽矣": "他沒吃幾口就飽了", "囡仔對啥物攏真好玄": "小孩子對什麼都很好奇", "我共你講，你毋通共別人講": "我跟你說，你不可以跟別人說", "你莫騙我": "你不要騙我", "腹肚枵無才調做工課，愛食飽才有氣力": "肚子餓沒辦法做工作，要吃飽才有力氣", "彼是我的冊": "那是我的書", "伊到尾嘛無來": "他到最後也沒來", "阿母定定咧窮菜尾": "媽媽常常在把剩菜吃完", "碗食甲清氣啖啖": "碗吃得乾乾淨淨", "細雨變做大雨": "細雨變成大雨", "你就愛好好仔共伊疼痛": "你要好好地疼愛他", "警察揣著證據矣": "警察找到證據了", "這馬的人攏罕得寫批矣": "現在的人都很少寫信了", "伊逐擺攏欲佮人相諍": "他每次都要和人爭論", "我逐暗敲電話予阿母": "我每天晚上打電話給媽媽", "阿伯，你食飽未？": "伯伯，你吃飽了沒？", "伊應講：「免煩惱。」": "他回答說：「不用擔心。」", "做代誌愛照起工來": "做事要按部就班", "伊睏甲誠好勢": "他睡得很舒服", "醫生講伊無要緊，你毋免煩惱": "醫生說他沒關係，你不用擔心", "恁大漢後生較定著": "你們大兒子比較穩重", "我細漢佮阿媽蹛，伊足疼我的": "我小時候和奶奶住，她很疼我", "阿母上疼伊的囝": "媽媽最疼她的孩子", "你是阿母的心肝": "你是媽媽的心肝寶貝"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

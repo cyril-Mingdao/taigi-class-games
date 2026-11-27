@@ -1541,5 +1541,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"恬恬，莫吵！": "安靜，不要吵！", "你莫烏白呸喙瀾！": "你不要亂吐口水！", "歹看面的來矣！": "兇臉的人來了！", "上課的時，老師共全班講": "上課的時候，老師對全班說", "恁學校當時開始歇熱？": "你們學校什麼時候開始放暑假？", "伊這馬佇厝裡咧睏。": "他現在在家裡睡覺。", "後禮拜一欲徵選喔！": "下週一要甄選喔！", "欲我，早就佮伊變面矣。": "要是我，早就和他翻臉了。", "若有興趣的同學來遮提報名表。": "如果有興趣的同學來這裡拿報名表。", "遮暗時真鬧熱。": "這裡晚上很熱鬧。", "無錢，做你共我提。": "沒錢的話，儘管跟我拿。", "自細漢我就足想欲做老師": "從小我就很想當老師", "我想欲去便所。": "我想要去廁所。", "拄好搪著這个機會": "剛好碰到這個機會", "伊定定來遮，我不時佇路裡搪著。": "他常常來這裡，我常在路上遇到他。", "我半絲仔躊躇都無，就隨去報名。": "我一點都沒猶豫，就馬上去報名。", "我半絲仔躊躇都無": "我一點都沒猶豫", "無，你是欲按怎？": "不然，你想要怎樣？", "你等一下，我隨來。": "你等一下，我馬上來。", "佇這改的徵選，若無二步七仔": "在這次的甄選，如果沒有兩把刷子", "我十二月屎桶—盡摒": "我全力以赴", "伊透世人攏做仝一途。": "他一輩子都做同一行。", "共我透世人學著的功夫用甲盡磅": "把我一輩子學到的本事發揮到極致", "我透世人學著的功夫用甲盡磅": "我一輩子學到的本事發揮到極致", "我的腹肚疼甲欲死。": "我的肚子痛得要命。", "氣力毋通放盡磅。": "力氣不可以用到極限。", "步數盡展。": "使出渾身解數。", "共這塊布展開曝曝咧。": "把這塊布攤開曬一曬。", "上尾，錄取的名單有我的名": "最後，錄取的名單有我的名字", "會當hőng揀著": "能夠被選上", "hőng揀著": "被選上", "有影是比著頭獎閣較歡喜。": "真的比中頭獎還高興。", "人哪會遮濟著！": "人怎麼這麼多！", "我比伊閣較毋願。": "我比他更不甘心。", "伊毋知咧歡喜啥物？": "他不知道在高興什麼？", "紲落來一個月的培訓真緊就結束": "接下來一個月的培訓很快就結束", "一個月的培訓真緊就結束": "一個月的培訓很快就結束", "恁才高中生爾爾": "你們才高中生而已", "我規身軀干焦十箍爾爾。": "我全身上下只有十塊錢而已。", "願意去遐偏遠的所在𤆬營隊": "願意去那麼偏遠的地方帶營隊", "這个所在真鬧熱。": "這個地方很熱鬧。", "伊共人𤆬囡仔。": "他幫人帶小孩。", "伊共我比一个讚閣講": "他對我比一個讚又說", "今仔日伊閣來矣。": "今天他又來了。", "彼陣囡仔雖然真古錐、真活跳": "那群孩子雖然很可愛、很活潑", "伊的囡仔真古錐。": "他的孩子很可愛。", "伊生做真古錐。": "他長得很可愛。", "你會誠佮意和𪜶耍": "你會很喜歡和他們玩", "我佮意的人就是你。": "我喜歡的人就是你。", "𪜶兩个感情真好。": "他們兩個感情很好。", "誠佮意和𪜶耍": "很喜歡和他們玩", "毋過你若無較歹咧": "不過你如果不兇一點", "你若無較歹咧": "你如果不兇一點", "你定著愛行一逝。": "你一定要走一趟。", "定著會𬦰起去你的頭殼頂": "一定會爬到你的頭頂上", "𪜶定著會𬦰起去你的頭殼頂": "他們一定會爬到你的頭頂上", "著愛較斟酌咧！": "要多注意一點！", "你斟酌一下，應該聽會著。": "你仔細一點，應該聽得到。", "伊若真正按呢做，就傷超過矣。": "他如果真的這樣做，就太過分了。", "我心肝頭淡薄仔挐氅氅": "我心裡有點亂糟糟的", "我遮閣有淡薄仔錢會當借你。": "我這裡還有一點錢可以借你。", "規間厝舞甲挐氅氅。": "整間房子弄得亂七八糟。", "毋知欲按怎。": "不知道要怎麼辦。", "到底著愛按怎做，你才會相信？": "到底要怎麼做，你才會相信？", "我想著矣，規氣莫笑": "我想到了，乾脆不要笑", "看起來應該就較有範矣。": "看起來應該就比較有架勢了。", "我就決定欲激一个面腔": "我就決定要裝出一副表情", "我看伊面腔無偌好，毋敢加講話。": "我看他臉色不太好，不敢多說話。", "袂輸有人欠我幾若百萬。": "好像有人欠我好幾百萬。", "阮老爸昨昏下晡掠著幾若隻鳥鼠。": "我爸爸昨天下午抓到好幾隻老鼠。", "你徛佇遐創啥物？": "你站在那裡做什麼？", "徛上台仔頂": "站上講臺", "我就先共歹聽話講代先。": "我就先把難聽話說在前頭。", "拄著危險，伊攏走代先。": "遇到危險，他都先跑。", "若準上課的時陣無照我的規定": "如果上課的時候沒照我的規定", "你啥物時陣欲轉來？": "你什麼時候要回來？", "抑是上課激放放，甚至是吵吵鬧鬧": "或是上課散漫，甚至是吵吵鬧鬧", "上課激放放，甚至是吵吵鬧鬧": "上課散漫，甚至是吵吵鬧鬧", "攪吵逐家上課就愛罰": "打擾大家上課就要罰", "逐家攏是家己人，著愛互相照顧。": "大家都是自己人，要互相照顧。", "我袂予恁遮好食睏。": "我不會讓你們這麼好過。", "發見我毋是遮爾好鬥陣的款": "發現我不是這麼好相處的樣子", "可能發見我毋是遮爾好鬥陣的款": "可能發現我不是這麼好相處的樣子", "佮朋友鬥陣著愛誠懇。": "和朋友相處要誠懇。", "隨个仔隨个面仔攏青恂恂": "一個接一個臉都發青", "伊驚甲面仔青恂恂。": "他嚇得臉色發青。", "我想𪜶應該是毋敢閣假痟矣。": "我想他們應該不敢再胡鬧了。", "伊閣咧假痟矣。": "他又在發瘋了。", "不而過𪜶猶是囡仔": "不過他們還是孩子", "𪜶猶是囡仔": "他們還是孩子", "這盍有可能？": "這怎麼可能？", "𪜶就隨共我交代的規矩袂記得了了": "他們就馬上把我交代的規矩忘得一乾二淨", "鳥鼠予貓掠了了矣。": "老鼠被貓抓光了。", "用刣雞教猴的步數來共𪜶嚇驚。": "用殺雞儆猴的招數來嚇他們。", "伊是共你嚇驚的。": "他是在嚇你的。", "彼个囡仔頭王隨喝講": "那個孩子王馬上喊說", "伊是𪜶彼班的囡仔頭王。": "他是他們那班的孩子王。", "我後擺毋敢矣啦！": "我以後不敢了啦！", "我看伊頭犁犁，規班攏恬喌喌。": "我看他低著頭，全班都安安靜靜的。", "規班攏恬喌喌。": "全班都安安靜靜的。", "這聲妥當矣！": "這下子妥當了！", "落尾我就去高雄讀冊。": "後來我就去高雄讀書。", "無人閣敢想空想縫、變鬼變怪": "沒人再敢想歪點子、搞怪", "我毋捌出國過。": "我沒出過國。", "無半个毋捌我這个歹衝衝的老師": "沒有一個不認識我這個兇巴巴的老師", "學生仔看著我都閃甲遠遠遠。": "學生看到我都閃得遠遠的。", "我號一个偏名—「歹看面的」": "我被取了一個綽號——「兇臉的」", "這馬想起來閣不止仔笑詼。": "現在想起來還蠻好笑的。", "你穿這領衫閣不止仔媠。": "你穿這件衣服又非常漂亮。", "伊的人真笑詼。": "他這個人很好笑。", "你敢知影伊叫做啥物名？": "你知道他叫什麼名字嗎？", "𪜶知影我對𪜶的疼痛佮牽教": "他們知道我對他們的疼愛和教導", "你出門了後，伊就醒矣。": "你出門之後，他就醒了。", "阮嘛變甲若朋友仝款": "我們也變得像朋友一樣", "佮𪜶做伙𨑨迌、做伙學習": "和他們一起玩、一起學習", "你明仔載欲佮阮去𨑨迌無？": "你明天要不要和我們去玩？"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

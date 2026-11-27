@@ -1509,5 +1509,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 </script>
 <!-- /md-gmenu3 -->
 <div class="credit-src" style="position:fixed;right:4px;bottom:2px;z-index:2147483647;max-width:calc(100% - 8px);pointer-events:none;font:11px/1.4 sans-serif;color:#333;background:rgba(255,255,255,.72);padding:1px 6px;border-radius:4px;text-align:right;">真平企業有限公司授權使用｜© 2026 詹宗龍</div>
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"這个囡仔真乖": "這個孩子很乖", "這齣電影予我真感動": "這部電影讓我很感動", "若講甲伊知，喙鬚會拍結": "如果講給他知道，他會很頭痛", "伊真正是一个好人": "他真的是一個好人", "你啥物時陣欲轉來？": "你什麼時候要回來？", "𪜶兜雖然散赤，毋過真幸福": "他們家雖然貧窮，不過很幸福", "伊做代誌真骨力": "他做事很勤勞", "伊無欲來，阮顛倒較歡喜": "他不來，我們反而比較高興", "今仔日比昨昏閣較熱": "今天比昨天更熱", "你愛較拍拚咧": "你要努力一點", "我猶毋捌接觸過這種新產品": "我還沒接觸過這種新產品", "欲成功愛靠家己認真拍拚": "要成功得靠自己認真努力", "咱的未來愛靠家己拍拚": "我們的未來要靠自己努力", "咱兩个做伙來去𨑨迌": "我們兩個一起去玩", "伊講話真有自信": "他說話很有自信", "無人知影伊按呢做是有啥物用意": "沒人知道他這樣做有什麼用意", "伊這馬佇厝裡咧睏": "他現在在家裡睡覺", "遮的我攏欲提去": "這些我都要拿去", "糖仔已經攏分了矣": "糖果已經都分完了", "遮欲舉行一場歌唱比賽": "這裡要舉行一場歌唱比賽", "厝主閣喝欲起厝稅矣": "房東又說要漲房租了", "較早的人攏早早就睏矣": "以前的人都很早就睡了", "這个人你敢捌伊？": "這個人你認識他嗎？", "阿美定定佮我講私奇話": "阿美常常和我說悄悄話", "伊目睭真大蕊": "他眼睛很大", "伊目睭展甲真大蕊": "他眼睛睜得很大", "阿母氣甲袂講話，干焦直直捶心肝": "媽媽氣得說不出話，只一直捶胸口", "過年阮去拜訪親堂": "過年我們去拜訪同宗的親戚", "咱著愛較斟酌咧": "我們要多注意一點", "上課毋通盹龜": "上課不可以打瞌睡", "阿明仔攏袂堪得人講得": "阿明都禁不起別人說他", "你共遮當做家己的厝": "你把這裡當作自己的家", "看著日頭落山就好來轉矣": "看到太陽下山就該回去了", "咱讀冊就毋通讀對尻脊骿去": "我們讀書不可以讀到背後去（白讀了）", "少年人愛肯食苦": "年輕人要肯吃苦", "你明仔載欲佮阮去𨑨迌無?": "你明天要不要和我們去玩？", "我予你一个面子，這件代誌就準拄煞": "我給你一個面子，這件事就算了", "這款菜你食看覓": "這種菜你吃吃看", "伊真頇顢講話。": "他很不會說話。", "你欲參伊去𨑨迌無": "你要不要和他去玩", "比賽上要緊的毋是輸贏": "比賽最重要的不是輸贏", "你若是無爽快，就去歇睏": "你如果不舒服，就去休息", "伊若真正按呢做，就傷超過矣": "他如果真的這樣做，就太過分了", "伊講話進前先踏話頭": "他說話之前先講開場白", "伊應該欲到矣": "他應該快到了", "這毋是我的": "這不是我的", "人生親像一齣戲": "人生好像一齣戲", "伊這个人禁忌特別濟": "他這個人禁忌特別多", "麻煩你共我紹介予恁頭家": "麻煩你幫我介紹給你們老闆", "逐家攏是家己人，著愛互相照顧": "大家都是自己人，要互相照顧", "我有一个小妹": "我有一個妹妹", "這擺比賽輸甲忝忝": "這次比賽輸得很慘", "這段日子你辛苦矣": "這段日子你辛苦了", "我相信你一定做會到": "我相信你一定做得到", "你敢毋驚去看著歹物仔": "你不怕看到不乾淨的東西嗎", "我心肝內的艱苦啥人知？": "我心裡的痛苦有誰知道？", "我一時想袂起來": "我一時想不起來", "代誌做好矣，你毋免來矣": "事情做好了，你不用來了", "莫怨嘆，閣拍拚就好": "不要抱怨，再努力就好", "看著彼隻大狗，伊煞膽寒": "看到那隻大狗，他竟然膽怯了", "總是愛想辦法解決這件代誌": "無論如何總要想辦法解決這件事", "這馬的人攏罕得寫批矣": "現在的人都很少寫信了", "我的鞋仔內底敢若有石頭仔，感覺砧砧": "我的鞋子裡面好像有小石頭，感覺硌腳", "伊行路去扭著跤目": "他走路扭到腳踝", "阿媽講故事予我聽": "奶奶講故事給我聽", "做代誌愛一步一跤印": "做事要腳踏實地", "定定都睏到欲上課矣才欲起來": "常常都睡到要上課了才起來", "你欲啉咖啡抑是欲啉茶？": "你要喝咖啡還是要喝茶？", "沿路的風景真媠": "沿途的風景很美", "到底著愛按怎做": "到底要怎麼做"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

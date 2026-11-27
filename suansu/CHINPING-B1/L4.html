@@ -1508,5 +1508,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"伊跍佇門口看過路人": "他蹲在門口看路人", "伊這馬佇厝裡咧睏": "他現在在家裡睡覺", "遮暗時真鬧熱": "這裡晚上很熱鬧", "換一領衫換規半晡": "換一件衣服換大半天", "伊咧讀冊": "他在讀書", "啥物人佇遐咧唱歌？": "什麼人在那裡唱歌？", "你毋通共狗蟻挼死": "你不可以把螞蟻揉死", "共房間摒摒咧": "把房間打掃一下", "兩人扛一隻桌仔": "兩個人抬一張桌子", "咱等一下轉去的時愛細膩": "我們等一下回去的時候要小心", "桌頂的餅幼仔會唌狗蟻": "桌上的餅屑會引來螞蟻", "到底著愛按怎做": "到底要怎麼做", "恁規陣人徛佇遐，咧創啥？": "你們一整群人站在那裡，在做什麼？", "我共你鬥洗碗": "我幫你洗碗", "細粒柑仔": "小顆的橘子", "裝潢誠奅毋過生理差真濟": "裝潢很漂亮，不過生意差很多", "伊做代誌真骨力": "他做事很勤勞", "你敢毋驚去看著歹物仔": "你不怕看到不乾淨的東西嗎", "我心肝內的艱苦啥人知？": "我心裡的痛苦有誰知道？", "你哪會遮久才來？": "你怎麼這麼久才來？", "伊誠𠢕": "他很能幹", "伊做代誌真𠢕趖": "他做事情很慢吞吞", "伊定定無佇咧": "他常常不在", "掛手環": "戴手環", "阿明仔蹛佇學校附近": "阿明住在學校附近", "我的喙破一空": "我的嘴巴破了一個洞", "伊講遐的話是咧共你剾洗": "他說那些話是在諷刺你", "伊的糖仔比我較濟": "他的糖果比我多", "物件毋通掖甲一四界": "東西不可以撒得到處都是", "我的腹肚疼甲欲死": "我的肚子痛得要命", "規路攏是人": "整條路都是人", "逐家攏莫去": "大家都不要去", "你敢知影伊叫做啥物名？": "你知道他叫什麼名字嗎？", "你予我考慮一下": "你讓我考慮一下", "伊毋知咧歡喜啥物？": "他不知道在高興什麼？", "咱攏來讀冊": "我們都來讀書", "哼！我才無愛佮你去咧！": "哼！我才不要和你去呢！", "我欲佮伊來去看電影": "我要和他去看電影", "你問我的代誌我攏毋知": "你問我的事情我都不知道", "無，你是欲按怎？": "不然，你想要怎樣？", "阿公定定去彼間𥴊仔店交關": "爺爺常常去那間雜貨店買東西", "我買一支手機仔八千": "我買一支手機八千元", "𪜶兜蹛佇山跤": "他們家住在山腳下", "你等一下，我隨來": "你等一下，我馬上來", "彼是我的": "那是我的", "𪜶兩个感情真好": "他們兩個感情很好", "阿義仔這个人傷過奸巧": "阿義這個人太過奸詐", "我到底著愛按怎做": "我到底要怎麼做", "阿兄欲去臺北揣頭路": "哥哥要去臺北找工作", "今年普渡的場面真鬧熱": "今年中元普渡的場面很熱鬧", "你毋通傷晏轉來": "你不可以太晚回來", "𪜶兩个好朋友哪會相拍？": "他們兩個好朋友怎麼會打架？", "你猶是佮以前仝款緣投": "你還是和以前一樣英俊", "你莫烏白呸喙瀾": "你不要亂吐口水", "我的代誌免你插": "我的事不用你管", "可憐代": "可憐的事", "我共叫毋過伊攏無應我": "我叫他，不過他都沒回應我", "衫攏洗好矣": "衣服都洗好了", "無奈何，只好揣阿明鬥相共": "無可奈何，只好找阿明幫忙", "伊走無去矣": "他跑掉了", "阿明得著一百公尺走標頭名": "阿明得到一百公尺賽跑第一名", "有話慢慢仔講": "有話慢慢說", "今仔日做甲足忝的": "今天做得很累", "你小歇睏一下，好無": "你稍微休息一下，好嗎", "伊是啥人": "他是誰", "兩个人感情誠好": "兩個人感情很好", "伊是咧等待出手的好時辰": "他是在等待出手的好時機", "遮的嘛攏是好的": "這些也都是好的", "你若參加比賽，百面贏的": "你如果參加比賽，一定會贏", "咱來決定紲落來欲按怎做": "我們來決定接下來要怎麼做", "我拍算欲來去日本讀冊": "我打算要去日本讀書", "我中晝食飽就愛睏": "我中午吃飽就想睡", "想欲一睏仔就好額，倒了錢": "想要一下子就發財，結果賠了錢", "代誌就按呢進行": "事情就這樣進行", "有話沓沓仔講": "有話慢慢說", "伊睏落眠矣，莫共叫": "他睡熟了，不要叫他", "伊定定佇半暝仔𬦰起來讀冊": "他常常在半夜爬起來讀書", "你的物件佇遐": "你的東西在那裡", "伊坐了𤺪矣，佇遐伸勻": "他坐累了，在那裡伸懶腰", "我共你講": "我跟你說", "徛佇路邊擛計程車": "站在路邊招計程車"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>

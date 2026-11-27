@@ -1464,5 +1464,63 @@ html body #g3 .md-quiz-link-hint{display:none}
 })();
 </script>
 <!-- /md-gmenu3 -->
+
+<!-- md-zh：句子華語翻譯鈕＋全螢幕鈕移到底部按鈕列 © 2026 詹宗龍（臺中明道中學） -->
+<style id="md-zh-css">
+html body .question-text{margin-bottom:0.6vh;margin-bottom:0.6dvh}
+#md-zh-row{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.8vh 1.2vw;gap:0.8dvh 1.2vw;margin:0 0 1.4vh;margin:0 0 1.4dvh;min-width:0}
+#md-zh-row[hidden]{display:none}
+#md-zh-btn{flex:none;background:#111111;color:#FFD400;border:2px solid #FFD400;border-radius:999px;font-family:inherit;font-weight:bold;cursor:pointer;line-height:1.25;
+ padding:0.5vh 1.8vw;padding:0.5dvh 1.8vw;font-size:clamp(13px,min(3.2vh,1.8vw),30px);font-size:clamp(13px,min(3.2dvh,1.8vw),30px);box-shadow:0 2px 6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+#md-zh-btn:hover{background:#2A2A2A}
+#md-zh-btn[hidden]{display:none}
+#md-zh-text{text-align:center;max-width:100%}
+#md-zh-text{min-width:0;color:#111111;background:#FFFFFF;border:3px solid #111111;border-radius:10px;line-height:1.3;font-weight:bold;
+ padding:0.4vh 1.2vw;padding:0.4dvh 1.2vw;font-size:clamp(14px,min(4vh,2.4vw),48px);font-size:clamp(14px,min(4dvh,2.4vw),48px)}
+#md-zh-text[hidden]{display:none}
+/* 底部按鈕列：返回選單＋全螢幕鈕一組置中，各鈕不重疊 */
+html body .game-controls{display:flex;align-items:stretch;justify-content:space-between;gap:2vw}
+.md-ctl-mid{display:flex;align-items:stretch;gap:1.2vw;flex:none}
+.md-ctl-mid #md-fs-btn{position:static!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;
+ width:auto;height:auto;aspect-ratio:1/1;min-width:36px;opacity:1;border-radius:50%;background:#111111;touch-action:manipulation;cursor:pointer}
+@media (orientation: portrait){
+ #md-zh-row{gap:0.8vh 2.4vw;gap:0.8dvh 2.4vw;margin-bottom:1.2vh;margin-bottom:1.2dvh}
+ #md-zh-btn{padding:0.5vh 4vw;padding:0.5dvh 4vw;font-size:clamp(13px,min(2.4vh,4vw),30px);font-size:clamp(13px,min(2.4dvh,4vw),30px)}
+ #md-zh-text{padding:0.4vh 3vw;padding:0.4dvh 3vw;font-size:clamp(14px,min(3vh,5.2vw),44px);font-size:clamp(14px,min(3dvh,5.2vw),44px)}
+ .md-ctl-mid{gap:2.4vw}
+}
+</style>
+<script id="md-zh-js">
+(function(){
+ var ZH={"阿爸駛車載阮去𨑨迌": "爸爸開車載我們去玩", "伊行對車頭去": "他朝車站走去", "騎車𬦰山崎足食力": "騎車爬山坡很吃力", "伊逐工坐早幫車去上班": "他每天搭首班車去上班", "阿公的田園佇庄跤": "爺爺的田地在鄉下", "透早聽著鳥仔聲": "一大早聽到鳥叫聲", "囡仔時我蹛佇庄跤": "小時候我住在鄉下", "你記持誠䆀，隨講隨袂記得": "你記性很差，說完就忘記", "伊共錢藏佇眠床跤": "他把錢藏在床底下", "你的冊囥佇遐": "你的書放在那裡", "阿爸逐工去上班": "爸爸每天去上班", "阿公少年時真緣投": "爺爺年輕時很英俊", "恁欲去佗位？": "你們要去哪裡？", "我去車頭拍一張車票": "我去車站買一張車票", "我拍一張公車票": "我買一張公車票", "沿路的風景真媠": "沿途的風景很美", "人生酸甘蜜甜，攏愛食": "人生酸甜苦辣，都要嘗", "我真數念伊": "我很想念他", "錢愛囥予好勢": "錢要放好", "心肝底若像針咧揻": "心裡好像針在扎", "遮欲舉行一場歌唱比賽": "這裡要舉行一場歌唱比賽", "阿爸買一台新車": "爸爸買了一輛新車", "公車沿海邊一直駛": "公車沿著海邊一直開", "公車沿路慢慢仔行": "公車沿路慢慢地開", "伊做生理南來北往": "他做生意南北往返", "公車盤山過嶺入去山內": "公車翻山越嶺進入山裡", "路邊徛一支電火柱": "路邊立著一根電線桿", "我佇車牌仔等車": "我在公車站牌等車", "頭家，弓蕉一斤偌濟錢？": "老闆，香蕉一斤多少錢？", "阿媽講故事予我聽": "奶奶講故事給我聽", "公車駛過苦楝跤": "公車開過苦楝腳", "後一站就愛落車矣": "下一站就要下車了", "伊敢是恁老師？": "他是你們的老師嗎？", "阮阿媽蹛佇三塊厝": "我奶奶住在三塊厝", "我予你一个面子，這件代誌就準拄煞": "我給你一個面子，這件事就算了", "這件代誌由你做主": "這件事由你作主", "伊有事無事就來揣我": "他有事沒事就來找我", "我逐工坐公車去學校": "我每天坐公車去學校", "我坐bá-suh去學校": "我坐巴士去學校"};
+ var d=document,qt=d.getElementById('questionText'),gs=d.getElementById('gameScreen');
+ if(!qt||!gs)return;
+ var row=d.createElement('div');row.id='md-zh-row';row.hidden=true;
+ row.innerHTML='<button type="button" id="md-zh-btn" aria-expanded="false">華語翻譯</button><span id="md-zh-text" hidden></span>';
+ qt.parentNode.insertBefore(row,qt.nextSibling);
+ var btn=d.getElementById('md-zh-btn'),txt=d.getElementById('md-zh-text');
+ function show(on){txt.hidden=!on;btn.hidden=on;if(window.mdFitOptions)window.mdFitOptions();}
+ btn.addEventListener('click',function(){show(true);});
+ function upd(){
+  var q=null;try{q=currentQuestions[currentQuestionIndex];}catch(_){}
+  var z=q&&ZH[q.sentence];
+  txt.textContent=z||'';row.hidden=!z;show(false);
+ }
+ if(typeof window.loadQuestion==='function'){var o=window.loadQuestion;window.loadQuestion=function(){var r=o.apply(this,arguments);upd();return r;};}
+ /* 全螢幕鈕：遊戲畫面時放進底部按鈕列（返回選單右邊），選單畫面維持浮動 */
+ var fs=d.getElementById('md-fs-btn'),back=gs.querySelector('.game-controls .back-button');
+ if(fs&&back){
+  var mid=d.createElement('div');mid.className='md-ctl-mid';
+  back.parentNode.insertBefore(mid,back);mid.appendChild(back);
+  mid.addEventListener('pointerdown',function(ev){if(ev.target.closest&&ev.target.closest('#md-fs-btn'))ev.stopPropagation();},true);
+  function dock(){var inGame=!gs.classList.contains('hidden');
+   if(inGame&&fs.parentNode!==mid)mid.appendChild(fs);
+   else if(!inGame&&fs.parentNode===mid)d.body.appendChild(fs);
+   if(window.mdFitOptions)window.mdFitOptions();}
+  new MutationObserver(dock).observe(gs,{attributes:true,attributeFilter:['class']});dock();
+ }
+})();
+</script>
+<!-- /md-zh -->
 </body>
 </html>
