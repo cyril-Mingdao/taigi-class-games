@@ -2041,7 +2041,7 @@ html body #g3 .md-quiz-link-hint{display:none}
  var sub=txt('h2,.menu-sub-title,.subtitle');var m=sub.match(/第\s*\d.*$/);if(m)sub=m[0];
  /* 冊別（由網址代號判斷） */
  var book='',pm=location.pathname.match(/\/(CHINPING|KANGHSUAN|CHUANHWA|YUDA)-B(\d+)\//);
- if(pm){var B={'YUDA-B1':'育達全1冊','YUDA-B2':'育達創世紀全1冊'},P={CHINPING:'真平',KANGHSUAN:'康軒',CHUANHWA:'全華',YUDA:'育達'};book=B[pm[1]+'-B'+pm[2]]||(P[pm[1]]+'第'+pm[2]+'冊');}
+ if(pm){var B={'YUDA-B1':'育達全1冊','YUDA-B2':'育達創世紀全1冊','YUDA-B3':'育達長鴻第1冊','YUDA-B4':'育達長鴻第2冊','YUDA-B5':'育達長鴻第3冊','YUDA-B6':'育達長鴻第4冊'},P={CHINPING:'真平',KANGHSUAN:'康軒',CHUANHWA:'全華',YUDA:'育達'};book=B[pm[1]+'-B'+pm[2]]||(P[pm[1]]+'第'+pm[2]+'冊');}
  /* 找原本元件 */
  var cntGrp=menu.querySelector('.qty-grid,.question-count-grid,#count-selection');
  if(!cntGrp){var b5=menu.querySelector('#count5');cntGrp=b5&&b5.parentElement;}
